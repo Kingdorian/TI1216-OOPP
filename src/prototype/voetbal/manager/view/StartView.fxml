@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="800.0" maxWidth="1200.0" prefHeight="800.0" prefWidth="1200.0" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="prototype.voetbal.manager.view.StartViewController">
+   <children>
+      <SplitPane dividerPositions="0.15" layoutX="220.0" layoutY="66.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane maxHeight="150.0" minHeight="0.0" minWidth="0.0" prefHeight="263.0" prefWidth="598.0" styleClass="background" stylesheets="@DarkTheme.css">
+               <children>
+                  <Label layoutX="5.0" prefHeight="117.0" prefWidth="1200.0" styleClass="imageVoetbalManagerTextBackground" stylesheets="@DarkTheme.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" styleClass="imageBackground" stylesheets="@DarkTheme.css">
+               <children>
+                  <VBox layoutX="726.0" layoutY="86.0" spacing="40.0" styleClass="castShadow" stylesheets="@DarkTheme.css">
+                     <children>
+                        <Button layoutX="374.0" layoutY="30.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#nextWindow" prefHeight="100.0" prefWidth="460.0" text="CONTINUE">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Button>
+                        <Button layoutX="339.0" layoutY="77.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="100.0" prefWidth="440.0" text="NEW GAME">
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button layoutX="299.0" layoutY="138.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loadButton" prefHeight="100.0" prefWidth="420.0" text="LOAD GAME">
+                           <VBox.margin>
+                              <Insets left="40.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button layoutX="264.0" layoutY="195.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#exitButton" prefHeight="100.0" prefWidth="400.0" text="EXIT GAME">
+                           <VBox.margin>
+                              <Insets left="60.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
