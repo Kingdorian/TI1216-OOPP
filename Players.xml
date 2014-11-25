@@ -1,0 +1,5539 @@
+<ADO Den Haag>
+<Player>
+	<Id>6671</Id>
+	<Name>Robert Zwinkels</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>185</Team_Id>
+	<Number>1</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>62</StopPower>
+	<PenaltyStopPower>65</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>6672</Id>
+	<Name>Dion Malone</Name>
+	<Position>Defender</Position>
+	<Team_Id>185</Team_Id>
+	<Number>2</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>26</Attack>
+	<Defence>60</Defence>
+	<Stamina>75</Stamina>
+</Player>
+<Player>
+	<Id>6673</Id>
+	<Name>Vito Wormgoor</Name>
+	<Position>Defender</Position>
+	<Team_Id>185</Team_Id>
+	<Number>3</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>11</Attack>
+	<Defence>62</Defence>
+	<Stamina>68</Stamina>
+</Player>
+<Player>
+	<Id>6676</Id>
+	<Name>Wilfried Kanon</Name>
+	<Position>Defender</Position>
+	<Team_Id>185</Team_Id>
+	<Number>4</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>24</Attack>
+	<Defence>60</Defence>
+	<Stamina>73</Stamina>
+</Player>
+<Player>
+	<Id>6677</Id>
+	<Name>Danny Bakker</Name>
+	<Position>Defender</Position>
+	<Team_Id>185</Team_Id>
+	<Number>5</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>12</Attack>
+	<Defence>61</Defence>
+	<Stamina>70</Stamina>
+</Player>
+<Player>
+	<Id>6678</Id>
+	<Name>Gianni Zuiverloon</Name>
+	<Position>Defender</Position>
+	<Team_Id>185</Team_Id>
+	<Number>6</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>31</Attack>
+	<Defence>62</Defence>
+	<Stamina>59</Stamina>
+</Player>
+<Player>
+	<Id>6679</Id>
+	<Name>Kevin Jansen</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>185</Team_Id>
+	<Number>7</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>62</Attack>
+	<Defence>60</Defence>
+	<Stamina>76</Stamina>
+</Player>
+<Player>
+	<Id>6680</Id>
+	<Name>Aaron Meijers</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>185</Team_Id>
+	<Number>8</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>56</Attack>
+	<Defence>64</Defence>
+	<Stamina>63</Stamina>
+</Player>
+<Player>
+	<Id>6681</Id>
+	<Name>Mathias Gehrt</Name>
+	<Position>Forward</Position>
+	<Team_Id>185</Team_Id>
+	<Number>9</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>67</Attack>
+	<Defence>20</Defence>
+	<Stamina>69</Stamina>
+</Player>
+<Player>
+	<Id>6682</Id>
+	<Name>Vidarrell Merencia</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>185</Team_Id>
+	<Number>10</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>54</Attack>
+	<Defence>54</Defence>
+	<Stamina>58</Stamina>
+</Player>
+<Player>
+	<Id>6683</Id>
+	<Name>Mitchell Schet</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>185</Team_Id>
+	<Number>11</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>61</Attack>
+	<Defence>45</Defence>
+	<Stamina>70</Stamina>
+</Player>
+<Player>
+	<Id>6685</Id>
+	<Name>Roland Alberg</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>185</Team_Id>
+	<Number>12</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>66</Attack>
+	<Defence>63</Defence>
+	<Stamina>69</Stamina>
+</Player>
+<Player>
+	<Id>6686</Id>
+	<Name>Mitchell de Vlugt</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>185</Team_Id>
+	<Number>13</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>57</Attack>
+	<Defence>50</Defence>
+	<Stamina>64</Stamina>
+</Player>
+<Player>
+	<Id>6690</Id>
+	<Name>Michiel Kramer</Name>
+	<Position>Forward</Position>
+	<Team_Id>185</Team_Id>
+	<Number>14</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>76</Attack>
+	<Defence>9</Defence>
+	<Stamina>70</Stamina>
+</Player>
+<Player>
+	<Id>6691</Id>
+	<Name>Mike van Duinen</Name>
+	<Position>Forward</Position>
+	<Team_Id>185</Team_Id>
+	<Number>15</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>71</Attack>
+	<Defence>19</Defence>
+	<Stamina>56</Stamina>
+</Player>
+<Player>
+	<Id>6708</Id>
+	<Name>Xander Houtkoop</Name>
+	<Position>Forward</Position>
+	<Team_Id>185</Team_Id>
+	<Number>16</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>61</Attack>
+	<Defence>26</Defence>
+	<Stamina>69</Stamina>
+</Player>
+<Player>
+	<Id>7873</Id>
+	<Name>Thomas Kristensen</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>185</Team_Id>
+	<Number>17</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>67</Attack>
+	<Defence>74</Defence>
+	<Stamina>78</Stamina>
+</Player>
+<Player>
+	<Id>8002</Id>
+	<Name>Martin Hansen</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>185</Team_Id>
+	<Number>18</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>61</StopPower>
+	<PenaltyStopPower>76</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>13201</Id>
+	<Name>Tyronne Ebuehi</Name>
+	<Position>Defender</Position>
+	<Team_Id>185</Team_Id>
+	<Number>19</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>20</Attack>
+	<Defence>53</Defence>
+	<Stamina>60</Stamina>
+</Player>
+<Player>
+	<Id>14283</Id>
+	<Name>Segun Owobowale</Name>
+	<Position>Forward</Position>
+	<Team_Id>185</Team_Id>
+	<Number>20</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>54</Attack>
+	<Defence>12</Defence>
+	<Stamina>56</Stamina>
+</Player>
+<Player>
+	<Id>14284</Id>
+	<Name>Hector Hevel</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>185</Team_Id>
+	<Number>21</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>54</Attack>
+	<Defence>53</Defence>
+	<Stamina>65</Stamina>
+</Player>
+<Player>
+	<Id>14634</Id>
+	<Name>Guy Smith</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>185</Team_Id>
+	<Number>22</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>55</Attack>
+	<Defence>51</Defence>
+	<Stamina>61</Stamina>
+</Player>
+</ADO Den Haag>
+<Ajax>
+<Player>
+	<Id>6396</Id>
+	<Name>Jasper Cillessen</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>188</Team_Id>
+	<Number>1</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>83</StopPower>
+	<PenaltyStopPower>40</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>6397</Id>
+	<Name>Ricardo van Rhijn</Name>
+	<Position>Defender</Position>
+	<Team_Id>188</Team_Id>
+	<Number>2</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>21</Attack>
+	<Defence>78</Defence>
+	<Stamina>69</Stamina>
+</Player>
+<Player>
+	<Id>6398</Id>
+	<Name>Niklas Moisander</Name>
+	<Position>Defender</Position>
+	<Team_Id>188</Team_Id>
+	<Number>3</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>7</Attack>
+	<Defence>82</Defence>
+	<Stamina>80</Stamina>
+</Player>
+<Player>
+	<Id>6399</Id>
+	<Name>Mike van der Hoorn</Name>
+	<Position>Defender</Position>
+	<Team_Id>188</Team_Id>
+	<Number>4</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>7</Attack>
+	<Defence>71</Defence>
+	<Stamina>65</Stamina>
+</Player>
+<Player>
+	<Id>6400</Id>
+	<Name>Joel Veltman</Name>
+	<Position>Defender</Position>
+	<Team_Id>188</Team_Id>
+	<Number>5</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>18</Attack>
+	<Defence>79</Defence>
+	<Stamina>71</Stamina>
+</Player>
+<Player>
+	<Id>6401</Id>
+	<Name>Nicolai Boilesen</Name>
+	<Position>Defender</Position>
+	<Team_Id>188</Team_Id>
+	<Number>6</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>27</Attack>
+	<Defence>71</Defence>
+	<Stamina>56</Stamina>
+</Player>
+<Player>
+	<Id>6402</Id>
+	<Name>Stefano Denswil</Name>
+	<Position>Defender</Position>
+	<Team_Id>188</Team_Id>
+	<Number>7</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>6</Attack>
+	<Defence>65</Defence>
+	<Stamina>68</Stamina>
+</Player>
+<Player>
+	<Id>6403</Id>
+	<Name>Ruben Ligeon</Name>
+	<Position>Defender</Position>
+	<Team_Id>188</Team_Id>
+	<Number>8</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>26</Attack>
+	<Defence>61</Defence>
+	<Stamina>67</Stamina>
+</Player>
+<Player>
+	<Id>6405</Id>
+	<Name>Lerin Duarte</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>188</Team_Id>
+	<Number>9</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>75</Attack>
+	<Defence>71</Defence>
+	<Stamina>64</Stamina>
+</Player>
+<Player>
+	<Id>6407</Id>
+	<Name>Lucas Andersen</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>188</Team_Id>
+	<Number>10</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>67</Attack>
+	<Defence>64</Defence>
+	<Stamina>61</Stamina>
+</Player>
+<Player>
+	<Id>6409</Id>
+	<Name>Tobias Sana</Name>
+	<Position>Forward</Position>
+	<Team_Id>188</Team_Id>
+	<Number>11</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>60</Attack>
+	<Defence>25</Defence>
+	<Stamina>69</Stamina>
+</Player>
+<Player>
+	<Id>6410</Id>
+	<Name>Lasse Schone</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>188</Team_Id>
+	<Number>12</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>85</Attack>
+	<Defence>82</Defence>
+	<Stamina>84</Stamina>
+</Player>
+<Player>
+	<Id>6411</Id>
+	<Name>Thulani Serero</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>188</Team_Id>
+	<Number>13</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>74</Attack>
+	<Defence>76</Defence>
+	<Stamina>61</Stamina>
+</Player>
+<Player>
+	<Id>6414</Id>
+	<Name>Ricardo Kishna</Name>
+	<Position>Forward</Position>
+	<Team_Id>188</Team_Id>
+	<Number>14</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>69</Attack>
+	<Defence>33</Defence>
+	<Stamina>67</Stamina>
+</Player>
+<Player>
+	<Id>6415</Id>
+	<Name>Viktor Fischer</Name>
+	<Position>Forward</Position>
+	<Team_Id>188</Team_Id>
+	<Number>15</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>82</Attack>
+	<Defence>37</Defence>
+	<Stamina>76</Stamina>
+</Player>
+<Player>
+	<Id>6416</Id>
+	<Name>Kolbeinn Sigthorsson</Name>
+	<Position>Forward</Position>
+	<Team_Id>188</Team_Id>
+	<Number>16</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>80</Attack>
+	<Defence>8</Defence>
+	<Stamina>76</Stamina>
+</Player>
+<Player>
+	<Id>6417</Id>
+	<Name>Davy Klaassen</Name>
+	<Position>Forward</Position>
+	<Team_Id>188</Team_Id>
+	<Number>17</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>80</Attack>
+	<Defence>56</Defence>
+	<Stamina>78</Stamina>
+</Player>
+<Player>
+	<Id>6575</Id>
+	<Name>Nick Viergever</Name>
+	<Position>Defender</Position>
+	<Team_Id>188</Team_Id>
+	<Number>18</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>21</Attack>
+	<Defence>78</Defence>
+	<Stamina>81</Stamina>
+</Player>
+<Player>
+	<Id>10508</Id>
+	<Name>Kenny Tete</Name>
+	<Position>Defender</Position>
+	<Team_Id>188</Team_Id>
+	<Number>19</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>22</Attack>
+	<Defence>57</Defence>
+	<Stamina>60</Stamina>
+</Player>
+<Player>
+	<Id>13178</Id>
+	<Name>Jairo Riedewald</Name>
+	<Position>Defender</Position>
+	<Team_Id>188</Team_Id>
+	<Number>20</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>26</Attack>
+	<Defence>60</Defence>
+	<Stamina>54</Stamina>
+</Player>
+<Player>
+	<Id>13179</Id>
+	<Name>Anwar El Ghazi</Name>
+	<Position>Forward</Position>
+	<Team_Id>188</Team_Id>
+	<Number>21</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>69</Attack>
+	<Defence>33</Defence>
+	<Stamina>70</Stamina>
+</Player>
+<Player>
+	<Id>14633</Id>
+	<Name>Queensy Menig</Name>
+	<Position>Forward</Position>
+	<Team_Id>188</Team_Id>
+	<Number>22</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>56</Attack>
+	<Defence>24</Defence>
+	<Stamina>67</Stamina>
+</Player>
+<Player>
+	<Id>6421</Id>
+	<Name>Diederik Boer</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>188</Team_Id>
+	<Number>23</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>74</StopPower>
+	<PenaltyStopPower>71</PenaltyStopPower>
+</Player>
+</Ajax>
+<AZ>
+<Player>
+	<Id>2028</Id>
+	<Name>Muamer Tankovic</Name>
+	<Position>Forward</Position>
+	<Team_Id>183</Team_Id>
+	<Number>2</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>67</Attack>
+	<Defence>24</Defence>
+	<Stamina>65</Stamina>
+</Player>
+<Player>
+	<Id>6568</Id>
+	<Name>Esteban Alvarado</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>183</Team_Id>
+	<Number>1</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>75</StopPower>
+	<PenaltyStopPower>78</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>6569</Id>
+	<Name>Yves de Winter</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>183</Team_Id>
+	<Number>3</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>60</StopPower>
+	<PenaltyStopPower>51</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>6573</Id>
+	<Name>Mattias Johansson</Name>
+	<Position>Defender</Position>
+	<Team_Id>183</Team_Id>
+	<Number>4</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>33</Attack>
+	<Defence>71</Defence>
+	<Stamina>55</Stamina>
+</Player>
+<Player>
+	<Id>6574</Id>
+	<Name>Dirk Marcellis</Name>
+	<Position>Defender</Position>
+	<Team_Id>183</Team_Id>
+	<Number>5</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>24</Attack>
+	<Defence>69</Defence>
+	<Stamina>80</Stamina>
+</Player>
+<Player>
+	<Id>6577</Id>
+	<Name>Nebojsa Gudelj</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>183</Team_Id>
+	<Number>6</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>80</Attack>
+	<Defence>80</Defence>
+	<Stamina>80</Stamina>
+</Player>
+<Player>
+	<Id>6578</Id>
+	<Name>Ridgeciano Haps</Name>
+	<Position>Defender</Position>
+	<Team_Id>183</Team_Id>
+	<Number>7</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>22</Attack>
+	<Defence>58</Defence>
+	<Stamina>45</Stamina>
+</Player>
+<Player>
+	<Id>6579</Id>
+	<Name>Simon Poulsen</Name>
+	<Position>Defender</Position>
+	<Team_Id>183</Team_Id>
+	<Number>8</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>37</Attack>
+	<Defence>67</Defence>
+	<Stamina>65</Stamina>
+</Player>
+<Player>
+	<Id>6580</Id>
+	<Name>Jeffrey Gouweleeuw</Name>
+	<Position>Defender</Position>
+	<Team_Id>183</Team_Id>
+	<Number>9</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>16</Attack>
+	<Defence>73</Defence>
+	<Stamina>67</Stamina>
+</Player>
+<Player>
+	<Id>6583</Id>
+	<Name>Wesley Hoedt</Name>
+	<Position>Defender</Position>
+	<Team_Id>183</Team_Id>
+	<Number>10</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>7</Attack>
+	<Defence>56</Defence>
+	<Stamina>67</Stamina>
+</Player>
+<Player>
+	<Id>6588</Id>
+	<Name>Viktor Elm</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>183</Team_Id>
+	<Number>11</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>71</Attack>
+	<Defence>75</Defence>
+	<Stamina>75</Stamina>
+</Player>
+<Player>
+	<Id>6589</Id>
+	<Name>Marcus Henriksen</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>183</Team_Id>
+	<Number>12</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>70</Attack>
+	<Defence>73</Defence>
+	<Stamina>78</Stamina>
+</Player>
+<Player>
+	<Id>6590</Id>
+	<Name>Steven Berghuis</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>183</Team_Id>
+	<Number>13</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>69</Attack>
+	<Defence>46</Defence>
+	<Stamina>74</Stamina>
+</Player>
+<Player>
+	<Id>6592</Id>
+	<Name>Celso Ortiz</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>183</Team_Id>
+	<Number>14</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>69</Attack>
+	<Defence>73</Defence>
+	<Stamina>61</Stamina>
+</Player>
+<Player>
+	<Id>6594</Id>
+	<Name>Eli Babalj</Name>
+	<Position>Forward</Position>
+	<Team_Id>183</Team_Id>
+	<Number>15</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>58</Attack>
+	<Defence>17</Defence>
+	<Stamina>50</Stamina>
+</Player>
+<Player>
+	<Id>6595</Id>
+	<Name>Aron Johannsson</Name>
+	<Position>Forward</Position>
+	<Team_Id>183</Team_Id>
+	<Number>16</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>78</Attack>
+	<Defence>14</Defence>
+	<Stamina>76</Stamina>
+</Player>
+<Player>
+	<Id>6599</Id>
+	<Name>Thom Haye</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>183</Team_Id>
+	<Number>17</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>63</Attack>
+	<Defence>59</Defence>
+	<Stamina>48</Stamina>
+</Player>
+<Player>
+	<Id>6601</Id>
+	<Name>Mikhael Rosheuvel</Name>
+	<Position>Forward</Position>
+	<Team_Id>183</Team_Id>
+	<Number>18</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>64</Attack>
+	<Defence>30</Defence>
+	<Stamina>57</Stamina>
+</Player>
+<Player>
+	<Id>13191</Id>
+	<Name>Sergio Rochet</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>183</Team_Id>
+	<Number>19</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>60</StopPower>
+	<PenaltyStopPower>59</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>13192</Id>
+	<Name>Derrick Luckassen</Name>
+	<Position>Defender</Position>
+	<Team_Id>183</Team_Id>
+	<Number>20</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>14</Attack>
+	<Defence>57</Defence>
+	<Stamina>69</Stamina>
+</Player>
+<Player>
+	<Id>13193</Id>
+	<Name>Guus Hupperts</Name>
+	<Position>Forward</Position>
+	<Team_Id>183</Team_Id>
+	<Number>21</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>69</Attack>
+	<Defence>25</Defence>
+	<Stamina>61</Stamina>
+</Player>
+<Player>
+	<Id>14271</Id>
+	<Name>Robert Muhren</Name>
+	<Position>Forward</Position>
+	<Team_Id>183</Team_Id>
+	<Number>22</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>58</Attack>
+	<Defence>18</Defence>
+	<Stamina>52</Stamina>
+</Player>
+<Player>
+	<Id>14714</Id>
+	<Name>Djavan Anderson</Name>
+	<Position>Defender</Position>
+	<Team_Id>183</Team_Id>
+	<Number>23</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>24</Attack>
+	<Defence>56</Defence>
+	<Stamina>65</Stamina>
+</Player>
+</AZ>
+<SC Cambuur>
+<Player>
+	<Id>6723</Id>
+	<Name>Leonard Nienhuis</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>758</Team_Id>
+	<Number>1</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>60</StopPower>
+	<PenaltyStopPower>67</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>6585</Id>
+	<Name>Etienne Reijnen</Name>
+	<Position>Defender</Position>
+	<Team_Id>758</Team_Id>
+	<Number>2</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>31</Attack>
+	<Defence>61</Defence>
+	<Stamina>57</Stamina>
+</Player>
+<Player>
+	<Id>6618</Id>
+	<Name>Ron Janzen</Name>
+	<Position>Defender</Position>
+	<Team_Id>758</Team_Id>
+	<Number>3</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>11</Attack>
+	<Defence>53</Defence>
+	<Stamina>67</Stamina>
+</Player>
+<Player>
+	<Id>6658</Id>
+	<Name>Furdjel Narsingh</Name>
+	<Position>Forward</Position>
+	<Team_Id>758</Team_Id>
+	<Number>4</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>58</Attack>
+	<Defence>27</Defence>
+	<Stamina>56</Stamina>
+</Player>
+<Player>
+	<Id>6724</Id>
+	<Name>Harm Zeinstra</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>758</Team_Id>
+	<Number>5</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>54</StopPower>
+	<PenaltyStopPower>52</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>6725</Id>
+	<Name>Wout Droste</Name>
+	<Position>Defender</Position>
+	<Team_Id>758</Team_Id>
+	<Number>6</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>29</Attack>
+	<Defence>60</Defence>
+	<Stamina>65</Stamina>
+</Player>
+<Player>
+	<Id>6729</Id>
+	<Name>Marlon Pereira</Name>
+	<Position>Defender</Position>
+	<Team_Id>758</Team_Id>
+	<Number>7</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>25</Attack>
+	<Defence>57</Defence>
+	<Stamina>60</Stamina>
+</Player>
+<Player>
+	<Id>6730</Id>
+	<Name>Mart Dijkstra</Name>
+	<Position>Defender</Position>
+	<Team_Id>758</Team_Id>
+	<Number>8</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>7</Attack>
+	<Defence>57</Defence>
+	<Stamina>48</Stamina>
+</Player>
+<Player>
+	<Id>6731</Id>
+	<Name>Lucas Bijker</Name>
+	<Position>Defender</Position>
+	<Team_Id>758</Team_Id>
+	<Number>9</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>24</Attack>
+	<Defence>61</Defence>
+	<Stamina>76</Stamina>
+</Player>
+<Player>
+	<Id>6732</Id>
+	<Name>Erik Bakker</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>758</Team_Id>
+	<Number>10</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>62</Attack>
+	<Defence>60</Defence>
+	<Stamina>67</Stamina>
+</Player>
+<Player>
+	<Id>6737</Id>
+	<Name>Mohamed El Makrini</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>758</Team_Id>
+	<Number>11</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>56</Attack>
+	<Defence>63</Defence>
+	<Stamina>78</Stamina>
+</Player>
+<Player>
+	<Id>6739</Id>
+	<Name>Martijn Barto</Name>
+	<Position>Forward</Position>
+	<Team_Id>758</Team_Id>
+	<Number>12</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>60</Attack>
+	<Defence>12</Defence>
+	<Stamina>71</Stamina>
+</Player>
+<Player>
+	<Id>6740</Id>
+	<Name>Michiel Hemmen</Name>
+	<Position>Forward</Position>
+	<Team_Id>758</Team_Id>
+	<Number>13</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>69</Attack>
+	<Defence>6</Defence>
+	<Stamina>69</Stamina>
+</Player>
+<Player>
+	<Id>6741</Id>
+	<Name>Oebele Schokker</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>758</Team_Id>
+	<Number>14</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>58</Attack>
+	<Defence>55</Defence>
+	<Stamina>61</Stamina>
+</Player>
+<Player>
+	<Id>6743</Id>
+	<Name>Bartholomew Ogbeche</Name>
+	<Position>Forward</Position>
+	<Team_Id>758</Team_Id>
+	<Number>15</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>61</Attack>
+	<Defence>14</Defence>
+	<Stamina>64</Stamina>
+</Player>
+<Player>
+	<Id>6744</Id>
+	<Name>Bob Schepers</Name>
+	<Position>Forward</Position>
+	<Team_Id>758</Team_Id>
+	<Number>16</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>58</Attack>
+	<Defence>24</Defence>
+	<Stamina>39</Stamina>
+</Player>
+<Player>
+	<Id>6855</Id>
+	<Name>Daniel De Ridder</Name>
+	<Position>Forward</Position>
+	<Team_Id>758</Team_Id>
+	<Number>17</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>64</Attack>
+	<Defence>20</Defence>
+	<Stamina>59</Stamina>
+</Player>
+<Player>
+	<Id>6857</Id>
+	<Name>Damiano Schet</Name>
+	<Position>Forward</Position>
+	<Team_Id>758</Team_Id>
+	<Number>18</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>58</Attack>
+	<Defence>25</Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>9317</Id>
+	<Name>Vytautas Andriuskevicius</Name>
+	<Position>Defender</Position>
+	<Team_Id>758</Team_Id>
+	<Number>19</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>25</Attack>
+	<Defence>57</Defence>
+	<Stamina>47</Stamina>
+</Player>
+<Player>
+	<Id>13199</Id>
+	<Name>Calvin Mac-Intosch</Name>
+	<Position>Defender</Position>
+	<Team_Id>758</Team_Id>
+	<Number>20</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>7</Attack>
+	<Defence>55</Defence>
+	<Stamina>62</Stamina>
+</Player>
+<Player>
+	<Id>13904</Id>
+	<Name>Donovan Slijngard</Name>
+	<Position>Defender</Position>
+	<Team_Id>758</Team_Id>
+	<Number>21</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>27</Attack>
+	<Defence>57</Defence>
+	<Stamina>51</Stamina>
+</Player>
+<Player>
+	<Id>13905</Id>
+	<Name>Sebastian Steblecki</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>758</Team_Id>
+	<Number>22</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>57</Attack>
+	<Defence>57</Defence>
+	<Stamina>57</Stamina>
+</Player>
+<Player>
+	<Id>14266</Id>
+	<Name>Sander van der Streek</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>758</Team_Id>
+	<Number>23</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>58</Attack>
+	<Defence>54</Defence>
+	<Stamina>59</Stamina>
+</Player>
+</Cambuur>
+<FC Dordrecht>
+<Player>
+	<Id>6441</Id>
+	<Name>Jordy Van Deelen</Name>
+	<Position>Defender</Position>
+	<Team_Id>1010</Team_Id>
+	<Number>2</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>24</Attack>
+	<Defence>54</Defence>
+	<Stamina>65</Stamina>
+</Player>
+<Player>
+	<Id>6593</Id>
+	<Name>Joris van Overeem</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>1010</Team_Id>
+	<Number>3</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>61</Attack>
+	<Defence>58</Defence>
+	<Stamina>67</Stamina>
+</Player>
+<Player>
+	<Id>6608</Id>
+	<Name>William Troost-Ekong</Name>
+	<Position>Defender</Position>
+	<Team_Id>1010</Team_Id>
+	<Number>4</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>7</Attack>
+	<Defence>57</Defence>
+	<Stamina>51</Stamina>
+</Player>
+<Player>
+	<Id>6684</Id>
+	<Name>Ricky van Haaren</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>1010</Team_Id>
+	<Number>5</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>62</Attack>
+	<Defence>59</Defence>
+	<Stamina>69</Stamina>
+</Player>
+<Player>
+	<Id>6860</Id>
+	<Name>Mart Lieder</Name>
+	<Position>Forward</Position>
+	<Team_Id>1010</Team_Id>
+	<Number>6</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>58</Attack>
+	<Defence>10</Defence>
+	<Stamina>48</Stamina>
+</Player>
+<Player>
+	<Id>6880</Id>
+	<Name>Ryan Koolwijk</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>1010</Team_Id>
+	<Number>7</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>67</Attack>
+	<Defence>69</Defence>
+	<Stamina>79</Stamina>
+</Player>
+<Player>
+	<Id>12879</Id>
+	<Name>Filip Kurto</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>1010</Team_Id>
+	<Number>1</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>59</StopPower>
+	<PenaltyStopPower>75</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>12880</Id>
+	<Name>Robbert te Loeke</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>1010</Team_Id>
+	<Number>8</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>54</StopPower>
+	<PenaltyStopPower>41</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>12881</Id>
+	<Name>Jeffry Fortes</Name>
+	<Position>Defender</Position>
+	<Team_Id>1010</Team_Id>
+	<Number>9</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>23</Attack>
+	<Defence>57</Defence>
+	<Stamina>71</Stamina>
+</Player>
+<Player>
+	<Id>12882</Id>
+	<Name>Ilias Haddad</Name>
+	<Position>Defender</Position>
+	<Team_Id>1010</Team_Id>
+	<Number>10</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>6</Attack>
+	<Defence>56</Defence>
+	<Stamina>61</Stamina>
+</Player>
+<Player>
+	<Id>12883</Id>
+	<Name>Marvin Peersman</Name>
+	<Position>Defender</Position>
+	<Team_Id>1010</Team_Id>
+	<Number>11</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>24</Attack>
+	<Defence>58</Defence>
+	<Stamina>71</Stamina>
+</Player>
+<Player>
+	<Id>12884</Id>
+	<Name>Funso Ojo</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>1010</Team_Id>
+	<Number>12</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>58</Attack>
+	<Defence>63</Defence>
+	<Stamina>67</Stamina>
+</Player>
+<Player>
+	<Id>12886</Id>
+	<Name>Javier Vet</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>1010</Team_Id>
+	<Number>13</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>52</Attack>
+	<Defence>59</Defence>
+	<Stamina>55</Stamina>
+</Player>
+<Player>
+	<Id>12888</Id>
+	<Name>Rihairo Meulens</Name>
+	<Position>Forward</Position>
+	<Team_Id>1010</Team_Id>
+	<Number>14</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>57</Attack>
+	<Defence>22</Defence>
+	<Stamina>60</Stamina>
+</Player>
+<Player>
+	<Id>12889</Id>
+	<Name>Rick ten Voorde</Name>
+	<Position>Forward</Position>
+	<Team_Id>1010</Team_Id>
+	<Number>15</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>60</Attack>
+	<Defence>10</Defence>
+	<Stamina>70</Stamina>
+</Player>
+<Player>
+	<Id>12891</Id>
+	<Name>Everon Pisas</Name>
+	<Position>Forward</Position>
+	<Team_Id>1010</Team_Id>
+	<Number>16</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>54</Attack>
+	<Defence>20</Defence>
+	<Stamina>59</Stamina>
+</Player>
+<Player>
+	<Id>12892</Id>
+	<Name>Mohamed Hamdaoui</Name>
+	<Position>Forward</Position>
+	<Team_Id>1010</Team_Id>
+	<Number>17</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>53</Attack>
+	<Defence>12</Defence>
+	<Stamina>68</Stamina>
+</Player>
+<Player>
+	<Id>13194</Id>
+	<Name>Adnan Alisic</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>1010</Team_Id>
+	<Number>18</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>61</Attack>
+	<Defence>61</Defence>
+	<Stamina>61</Stamina>
+</Player>
+<Player>
+	<Id>13908</Id>
+	<Name>Erixon Danso</Name>
+	<Position>Forward</Position>
+	<Team_Id>1010</Team_Id>
+	<Number>19</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>57</Attack>
+	<Defence>25</Defence>
+	<Stamina>48</Stamina>
+</Player>
+<Player>
+	<Id>14683</Id>
+	<Name>Ibrahima Toure</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>1010</Team_Id>
+	<Number>20</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>55</Attack>
+	<Defence>51</Defence>
+	<Stamina>43</Stamina>
+</Player>
+</FC Dordrecht>
+<Excelsior>
+<Player>
+	<Id>4908</Id>
+	<Name>Luigi Bruins</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>173</Team_Id>
+	<Number>2</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>62</Attack>
+	<Defence>58</Defence>
+	<Stamina>67</Stamina>
+</Player>
+<Player>
+	<Id>6669</Id>
+	<Name>Gino Coutinho</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>173</Team_Id>
+	<Number>1</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>67</StopPower>
+	<PenaltyStopPower>82</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>6687</Id>
+	<Name>Ninos Gouriye</Name>
+	<Position>Forward</Position>
+	<Team_Id>173</Team_Id>
+	<Number>3</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>62</Attack>
+	<Defence>26</Defence>
+	<Stamina>66</Stamina>
+</Player>
+<Player>
+	<Id>6870</Id>
+	<Name>Daan Bovenberg</Name>
+	<Position>Defender</Position>
+	<Team_Id>173</Team_Id>
+	<Number>4</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>26</Attack>
+	<Defence>56</Defence>
+	<Stamina>76</Stamina>
+</Player>
+<Player>
+	<Id>12894</Id>
+	<Name>Alessandro Damen</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>173</Team_Id>
+	<Number>5</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>53</StopPower>
+	<PenaltyStopPower>65</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>12895</Id>
+	<Name>Khalid Karami</Name>
+	<Position>Defender</Position>
+	<Team_Id>173</Team_Id>
+	<Number>6</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>27</Attack>
+	<Defence>58</Defence>
+	<Stamina>57</Stamina>
+</Player>
+<Player>
+	<Id>12896</Id>
+	<Name>Kevin van Diermen</Name>
+	<Position>Defender</Position>
+	<Team_Id>173</Team_Id>
+	<Number>7</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>9</Attack>
+	<Defence>58</Defence>
+	<Stamina>50</Stamina>
+</Player>
+<Player>
+	<Id>12897</Id>
+	<Name>Sander Fischer</Name>
+	<Position>Defender</Position>
+	<Team_Id>173</Team_Id>
+	<Number>8</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>8</Attack>
+	<Defence>57</Defence>
+	<Stamina>51</Stamina>
+</Player>
+<Player>
+	<Id>12898</Id>
+	<Name>Elso Brito</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>173</Team_Id>
+	<Number>9</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>53</Attack>
+	<Defence>55</Defence>
+	<Stamina>57</Stamina>
+</Player>
+<Player>
+	<Id>12899</Id>
+	<Name>Rick Kruys</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>173</Team_Id>
+	<Number>10</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>59</Attack>
+	<Defence>57</Defence>
+	<Stamina>61</Stamina>
+</Player>
+<Player>
+	<Id>12900</Id>
+	<Name>Adil Auassar</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>173</Team_Id>
+	<Number>11</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>59</Attack>
+	<Defence>59</Defence>
+	<Stamina>66</Stamina>
+</Player>
+<Player>
+	<Id>12901</Id>
+	<Name>Jeff Stans</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>173</Team_Id>
+	<Number>12</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>62</Attack>
+	<Defence>59</Defence>
+	<Stamina>71</Stamina>
+</Player>
+<Player>
+	<Id>12902</Id>
+	<Name>Kevin Vermeulen</Name>
+	<Position>Forward</Position>
+	<Team_Id>173</Team_Id>
+	<Number>13</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>56</Attack>
+	<Defence>20</Defence>
+	<Stamina>62</Stamina>
+</Player>
+<Player>
+	<Id>12903</Id>
+	<Name>Jordan Botaka</Name>
+	<Position>Forward</Position>
+	<Team_Id>173</Team_Id>
+	<Number>14</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>59</Attack>
+	<Defence>25</Defence>
+	<Stamina>67</Stamina>
+</Player>
+<Player>
+	<Id>12904</Id>
+	<Name>Tom van Weert</Name>
+	<Position>Forward</Position>
+	<Team_Id>173</Team_Id>
+	<Number>15</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>57</Attack>
+	<Defence>8</Defence>
+	<Stamina>65</Stamina>
+</Player>
+<Player>
+	<Id>12905</Id>
+	<Name>Daryl van Mieghem</Name>
+	<Position>Forward</Position>
+	<Team_Id>173</Team_Id>
+	<Number>16</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>58</Attack>
+	<Defence>24</Defence>
+	<Stamina>60</Stamina>
+</Player>
+<Player>
+	<Id>12907</Id>
+	<Name>Marko Maletic</Name>
+	<Position>Forward</Position>
+	<Team_Id>173</Team_Id>
+	<Number>17</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>57</Attack>
+	<Defence>9</Defence>
+	<Stamina>51</Stamina>
+</Player>
+<Player>
+	<Id>13185</Id>
+	<Name>Jordy Deckers</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>173</Team_Id>
+	<Number>18</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>57</StopPower>
+	<PenaltyStopPower>31</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>13186</Id>
+	<Name>Wimilio Mattheij</Name>
+	<Position>Defender</Position>
+	<Team_Id>173</Team_Id>
+	<Number>19</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>19</Attack>
+	<Defence>54</Defence>
+	<Stamina>61</Stamina>
+</Player>
+<Player>
+	<Id>13337</Id>
+	<Name>Bas Kuipers</Name>
+	<Position>Defender</Position>
+	<Team_Id>173</Team_Id>
+	<Number>20</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>22</Attack>
+	<Defence>56</Defence>
+	<Stamina>70</Stamina>
+</Player>
+<Player>
+	<Id>13783</Id>
+	<Name>Daan Blij</Name>
+	<Position>Forward</Position>
+	<Team_Id>173</Team_Id>
+	<Number>21</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>55</Attack>
+	<Defence>24</Defence>
+	<Stamina>57</Stamina>
+</Player>
+<Player>
+	<Id>13784</Id>
+	<Name>Toni Varela</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>173</Team_Id>
+	<Number>22</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>57</Attack>
+	<Defence>59</Defence>
+	<Stamina>61</Stamina>
+</Player>
+<Player>
+	<Id>13907</Id>
+	<Name>Carlo de Reuver</Name>
+	<Position>Forward</Position>
+	<Team_Id>173</Team_Id>
+	<Number>23</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>53</Attack>
+	<Defence>18</Defence>
+	<Stamina>42</Stamina>
+</Player>
+</Excelsior>
+<Feyenoord>
+<Player>
+	<Id>1804</Id>
+	<Name>Karim El Ahmadi</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>174</Team_Id>
+	<Number>2</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>70</Attack>
+	<Defence>77</Defence>
+	<Stamina>89</Stamina>
+</Player>
+<Player>
+	<Id>6395</Id>
+	<Name>Kenneth Vermeer</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>174</Team_Id>
+	<Number>1</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>78</StopPower>
+	<PenaltyStopPower>76</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>6423</Id>
+	<Name>Erwin Mulder</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>174</Team_Id>
+	<Number>3</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>73</StopPower>
+	<PenaltyStopPower>61</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>6424</Id>
+	<Name>Ronald Graafland</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>174</Team_Id>
+	<Number>4</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>58</StopPower>
+	<PenaltyStopPower>72</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>6428</Id>
+	<Name>Joris Mathijsen</Name>
+	<Position>Defender</Position>
+	<Team_Id>174</Team_Id>
+	<Number>5</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>14</Attack>
+	<Defence>76</Defence>
+	<Stamina>64</Stamina>
+</Player>
+<Player>
+	<Id>6431</Id>
+	<Name>Terence Kongolo</Name>
+	<Position>Defender</Position>
+	<Team_Id>174</Team_Id>
+	<Number>6</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>19</Attack>
+	<Defence>75</Defence>
+	<Stamina>67</Stamina>
+</Player>
+<Player>
+	<Id>6432</Id>
+	<Name>Miquel Nelom</Name>
+	<Position>Defender</Position>
+	<Team_Id>174</Team_Id>
+	<Number>7</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>23</Attack>
+	<Defence>67</Defence>
+	<Stamina>54</Stamina>
+</Player>
+<Player>
+	<Id>6433</Id>
+	<Name>Sven van Beek</Name>
+	<Position>Defender</Position>
+	<Team_Id>174</Team_Id>
+	<Number>8</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>11</Attack>
+	<Defence>63</Defence>
+	<Stamina>72</Stamina>
+</Player>
+<Player>
+	<Id>6434</Id>
+	<Name>Jordy Clasie</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>174</Team_Id>
+	<Number>9</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>81</Attack>
+	<Defence>85</Defence>
+	<Stamina>75</Stamina>
+</Player>
+<Player>
+	<Id>6436</Id>
+	<Name>Lex Immers</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>174</Team_Id>
+	<Number>10</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>77</Attack>
+	<Defence>74</Defence>
+	<Stamina>64</Stamina>
+</Player>
+<Player>
+	<Id>6439</Id>
+	<Name>Tonny Vilhena</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>174</Team_Id>
+	<Number>11</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>81</Attack>
+	<Defence>79</Defence>
+	<Stamina>61</Stamina>
+</Player>
+<Player>
+	<Id>6442</Id>
+	<Name>Jean-Paul Boetius</Name>
+	<Position>Forward</Position>
+	<Team_Id>174</Team_Id>
+	<Number>12</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>80</Attack>
+	<Defence>31</Defence>
+	<Stamina>72</Stamina>
+</Player>
+<Player>
+	<Id>6444</Id>
+	<Name>Wesley Verhoek</Name>
+	<Position>Forward</Position>
+	<Team_Id>174</Team_Id>
+	<Number>13</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>63</Attack>
+	<Defence>30</Defence>
+	<Stamina>42</Stamina>
+</Player>
+<Player>
+	<Id>6446</Id>
+	<Name>Mitchell Te Vrede</Name>
+	<Position>Forward</Position>
+	<Team_Id>174</Team_Id>
+	<Number>14</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>69</Attack>
+	<Defence>6</Defence>
+	<Stamina>68</Stamina>
+</Player>
+<Player>
+	<Id>6447</Id>
+	<Name>Ruben Schaken</Name>
+	<Position>Forward</Position>
+	<Team_Id>174</Team_Id>
+	<Number>15</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>76</Attack>
+	<Defence>33</Defence>
+	<Stamina>79</Stamina>
+</Player>
+<Player>
+	<Id>6448</Id>
+	<Name>Anass Achahbar</Name>
+	<Position>Forward</Position>
+	<Team_Id>174</Team_Id>
+	<Number>16</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>58</Attack>
+	<Defence>7</Defence>
+	<Stamina>80</Stamina>
+</Player>
+<Player>
+	<Id>6563</Id>
+	<Name>Bilal Basacikoglu</Name>
+	<Position>Forward</Position>
+	<Team_Id>174</Team_Id>
+	<Number>17</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>76</Attack>
+	<Defence>35</Defence>
+	<Stamina>71</Stamina>
+</Player>
+<Player>
+	<Id>6745</Id>
+	<Name>Elvis Manu</Name>
+	<Position>Forward</Position>
+	<Team_Id>174</Team_Id>
+	<Number>18</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>68</Attack>
+	<Defence>26</Defence>
+	<Stamina>59</Stamina>
+</Player>
+<Player>
+	<Id>6790</Id>
+	<Name>Jens Toornstra</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>174</Team_Id>
+	<Number>19</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>80</Attack>
+	<Defence>77</Defence>
+	<Stamina>72</Stamina>
+</Player>
+<Player>
+	<Id>7666</Id>
+	<Name>Colin Kazim-Richards</Name>
+	<Position>Forward</Position>
+	<Team_Id>174</Team_Id>
+	<Number>20</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>67</Attack>
+	<Defence>37</Defence>
+	<Stamina>53</Stamina>
+</Player>
+<Player>
+	<Id>7946</Id>
+	<Name>Khalid Boulahrouz</Name>
+	<Position>Defender</Position>
+	<Team_Id>174</Team_Id>
+	<Number>21</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>19</Attack>
+	<Defence>66</Defence>
+	<Stamina>48</Stamina>
+</Player>
+<Player>
+	<Id>10258</Id>
+	<Name>Luke Wilkshire</Name>
+	<Position>Defender</Position>
+	<Team_Id>174</Team_Id>
+	<Number>22</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>42</Attack>
+	<Defence>76</Defence>
+	<Stamina>71</Stamina>
+</Player>
+<Player>
+	<Id>13190</Id>
+	<Name>Rick Karsdorp</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>174</Team_Id>
+	<Number>23</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>59</Attack>
+	<Defence>56</Defence>
+	<Stamina>49</Stamina>
+</Player>
+</Feyenoord>
+<Go Ahead Eagles>
+<Player>
+	<Id>6418</Id>
+	<Name>Lesley de Sa</Name>
+	<Position>Forward</Position>
+	<Team_Id>759</Team_Id>
+	<Number>2</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>61</Attack>
+	<Defence>30</Defence>
+	<Stamina>59</Stamina>
+</Player>
+<Player>
+	<Id>6524</Id>
+	<Name>Peter van Ooijen</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>759</Team_Id>
+	<Number>3</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>59</Attack>
+	<Defence>61</Defence>
+	<Stamina>58</Stamina>
+</Player>
+<Player>
+	<Id>6600</Id>
+	<Name>Fernando Lewis</Name>
+	<Position>Forward</Position>
+	<Team_Id>759</Team_Id>
+	<Number>4</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>56</Attack>
+	<Defence>24</Defence>
+	<Stamina>59</Stamina>
+</Player>
+<Player>
+	<Id>6614</Id>
+	<Name>Giliano Wijnaldum</Name>
+	<Position>Defender</Position>
+	<Team_Id>759</Team_Id>
+	<Number>5</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>25</Attack>
+	<Defence>62</Defence>
+	<Stamina>67</Stamina>
+</Player>
+<Player>
+	<Id>6696</Id>
+	<Name>Erik Cummins</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>759</Team_Id>
+	<Number>1</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>58</StopPower>
+	<PenaltyStopPower>67</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>6697</Id>
+	<Name>Patrick ter Mate</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>759</Team_Id>
+	<Number>6</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>53</StopPower>
+	<PenaltyStopPower>78</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>6698</Id>
+	<Name>Ruben Lucas</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>759</Team_Id>
+	<Number>7</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>57</StopPower>
+	<PenaltyStopPower>57</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>6699</Id>
+	<Name>Mawouna Amevor</Name>
+	<Position>Defender</Position>
+	<Team_Id>759</Team_Id>
+	<Number>8</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>20</Attack>
+	<Defence>57</Defence>
+	<Stamina>60</Stamina>
+</Player>
+<Player>
+	<Id>6700</Id>
+	<Name>Bart Vriends</Name>
+	<Position>Defender</Position>
+	<Team_Id>759</Team_Id>
+	<Number>9</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>8</Attack>
+	<Defence>59</Defence>
+	<Stamina>78</Stamina>
+</Player>
+<Player>
+	<Id>6701</Id>
+	<Name>Jop van der Linden</Name>
+	<Position>Defender</Position>
+	<Team_Id>759</Team_Id>
+	<Number>10</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>16</Attack>
+	<Defence>60</Defence>
+	<Stamina>65</Stamina>
+</Player>
+<Player>
+	<Id>6702</Id>
+	<Name>Xandro Schenk</Name>
+	<Position>Defender</Position>
+	<Team_Id>759</Team_Id>
+	<Number>11</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>24</Attack>
+	<Defence>59</Defence>
+	<Stamina>71</Stamina>
+</Player>
+<Player>
+	<Id>6706</Id>
+	<Name>Deniz Turuc</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>759</Team_Id>
+	<Number>12</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>66</Attack>
+	<Defence>65</Defence>
+	<Stamina>64</Stamina>
+</Player>
+<Player>
+	<Id>6707</Id>
+	<Name>Jeffrey Rijsdijk</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>759</Team_Id>
+	<Number>13</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>61</Attack>
+	<Defence>57</Defence>
+	<Stamina>68</Stamina>
+</Player>
+<Player>
+	<Id>6711</Id>
+	<Name>Lars Lambooij</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>759</Team_Id>
+	<Number>14</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>56</Attack>
+	<Defence>56</Defence>
+	<Stamina>56</Stamina>
+</Player>
+<Player>
+	<Id>6716</Id>
+	<Name>Marnix Kolder</Name>
+	<Position>Forward</Position>
+	<Team_Id>759</Team_Id>
+	<Number>15</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>64</Attack>
+	<Defence>6</Defence>
+	<Stamina>67</Stamina>
+</Player>
+<Player>
+	<Id>6719</Id>
+	<Name>Tije ten Den</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>759</Team_Id>
+	<Number>16</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>55</Attack>
+	<Defence>51</Defence>
+	<Stamina>67</Stamina>
+</Player>
+<Player>
+	<Id>6833</Id>
+	<Name>Alex Schalk</Name>
+	<Position>Forward</Position>
+	<Team_Id>759</Team_Id>
+	<Number>17</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>60</Attack>
+	<Defence>6</Defence>
+	<Stamina>56</Stamina>
+</Player>
+<Player>
+	<Id>6853</Id>
+	<Name>Sander Duits</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>759</Team_Id>
+	<Number>18</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>63</Attack>
+	<Defence>67</Defence>
+	<Stamina>77</Stamina>
+</Player>
+<Player>
+	<Id>13209</Id>
+	<Name>Sven Nieuwpoort</Name>
+	<Position>Defender</Position>
+	<Team_Id>759</Team_Id>
+	<Number>19</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>20</Attack>
+	<Defence>55</Defence>
+	<Stamina>64</Stamina>
+</Player>
+<Player>
+	<Id>13210</Id>
+	<Name>Robin van der Meer</Name>
+	<Position>Defender</Position>
+	<Team_Id>759</Team_Id>
+	<Number>20</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>7</Attack>
+	<Defence>53</Defence>
+	<Stamina>48</Stamina>
+</Player>
+<Player>
+	<Id>13211</Id>
+	<Name>Sjoerd Overgoor</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>759</Team_Id>
+	<Number>21</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>59</Attack>
+	<Defence>62</Defence>
+	<Stamina>68</Stamina>
+</Player>
+<Player>
+	<Id>13212</Id>
+	<Name>Nick de Bondt</Name>
+	<Position>Forward</Position>
+	<Team_Id>759</Team_Id>
+	<Number>22</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>54</Attack>
+	<Defence>20</Defence>
+	<Stamina>53</Stamina>
+</Player>
+<Player>
+	<Id>13213</Id>
+	<Name>Jules Reimerink</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>759</Team_Id>
+	<Number>23</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>59</Attack>
+	<Defence>41</Defence>
+	<Stamina>58</Stamina>
+</Player>
+<Player>
+	<Id>13864</Id>
+	<Name>Puck Postma</Name>
+	<Position>Forward</Position>
+	<Team_Id>759</Team_Id>
+	<Number>24</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>53</Attack>
+	<Defence>19</Defence>
+	<Stamina>52</Stamina>
+</Player>
+</Go Ahead Eagles>
+<FC Groningen>
+<Player>
+	<Id>5867</Id>
+	<Name>Danny Hoesen</Name>
+	<Position>Forward</Position>
+	<Team_Id>178</Team_Id>
+	<Number>2</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>69</Attack>
+	<Defence>18</Defence>
+	<Stamina>59</Stamina>
+</Player>
+<Player>
+	<Id>6605</Id>
+	<Name>Joey Potveer</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>178</Team_Id>
+	<Number>1</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>61</StopPower>
+	<PenaltyStopPower>59</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>6606</Id>
+	<Name>Johan Kappelhof</Name>
+	<Position>Defender</Position>
+	<Team_Id>178</Team_Id>
+	<Number>3</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>17</Attack>
+	<Defence>65</Defence>
+	<Stamina>63</Stamina>
+</Player>
+<Player>
+	<Id>6607</Id>
+	<Name>Eric Botteghin</Name>
+	<Position>Defender</Position>
+	<Team_Id>178</Team_Id>
+	<Number>4</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>12</Attack>
+	<Defence>70</Defence>
+	<Stamina>64</Stamina>
+</Player>
+<Player>
+	<Id>6609</Id>
+	<Name>Lorenzo Burnet</Name>
+	<Position>Defender</Position>
+	<Team_Id>178</Team_Id>
+	<Number>5</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>30</Attack>
+	<Defence>61</Defence>
+	<Stamina>58</Stamina>
+</Player>
+<Player>
+	<Id>6610</Id>
+	<Name>Maikel Kieftenbeld</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>178</Team_Id>
+	<Number>6</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>66</Attack>
+	<Defence>70</Defence>
+	<Stamina>75</Stamina>
+</Player>
+<Player>
+	<Id>6611</Id>
+	<Name>Nick Bakker</Name>
+	<Position>Defender</Position>
+	<Team_Id>178</Team_Id>
+	<Number>7</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>15</Attack>
+	<Defence>55</Defence>
+	<Stamina>56</Stamina>
+</Player>
+<Player>
+	<Id>6613</Id>
+	<Name>Tom Hiariej</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>178</Team_Id>
+	<Number>8</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>56</Attack>
+	<Defence>63</Defence>
+	<Stamina>78</Stamina>
+</Player>
+<Player>
+	<Id>6617</Id>
+	<Name>Hans Hateboer</Name>
+	<Position>Defender</Position>
+	<Team_Id>178</Team_Id>
+	<Number>9</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>20</Attack>
+	<Defence>60</Defence>
+	<Stamina>67</Stamina>
+</Player>
+<Player>
+	<Id>6620</Id>
+	<Name>Tjaronn Chery</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>178</Team_Id>
+	<Number>10</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>73</Attack>
+	<Defence>70</Defence>
+	<Stamina>78</Stamina>
+</Player>
+<Player>
+	<Id>6622</Id>
+	<Name>Hilal Ben Moussa</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>178</Team_Id>
+	<Number>11</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>56</Attack>
+	<Defence>53</Defence>
+	<Stamina>68</Stamina>
+</Player>
+<Player>
+	<Id>6624</Id>
+	<Name>Henk Bos</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>178</Team_Id>
+	<Number>12</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>58</Attack>
+	<Defence>55</Defence>
+	<Stamina>53</Stamina>
+</Player>
+<Player>
+	<Id>6625</Id>
+	<Name>Rasmus Lindgren</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>178</Team_Id>
+	<Number>13</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>59</Attack>
+	<Defence>66</Defence>
+	<Stamina>67</Stamina>
+</Player>
+<Player>
+	<Id>6626</Id>
+	<Name>Nick van der Velden</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>178</Team_Id>
+	<Number>14</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>68</Attack>
+	<Defence>65</Defence>
+	<Stamina>66</Stamina>
+</Player>
+<Player>
+	<Id>6628</Id>
+	<Name>Burak Saban</Name>
+	<Position>Forward</Position>
+	<Team_Id>178</Team_Id>
+	<Number>15</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>53</Attack>
+	<Defence>23</Defence>
+	<Stamina>51</Stamina>
+</Player>
+<Player>
+	<Id>6630</Id>
+	<Name>Michael de Leeuw</Name>
+	<Position>Forward</Position>
+	<Team_Id>178</Team_Id>
+	<Number>16</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>72</Attack>
+	<Defence>51</Defence>
+	<Stamina>54</Stamina>
+</Player>
+<Player>
+	<Id>6634</Id>
+	<Name>Arjen Hagenauw</Name>
+	<Position>Forward</Position>
+	<Team_Id>178</Team_Id>
+	<Number>17</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>53</Attack>
+	<Defence>14</Defence>
+	<Stamina>65</Stamina>
+</Player>
+<Player>
+	<Id>6635</Id>
+	<Name>Genero Zeefuik</Name>
+	<Position>Forward</Position>
+	<Team_Id>178</Team_Id>
+	<Number>18</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>64</Attack>
+	<Defence>5</Defence>
+	<Stamina>39</Stamina>
+</Player>
+<Player>
+	<Id>6636</Id>
+	<Name>Yoell van Nieff</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>178</Team_Id>
+	<Number>19</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>62</Attack>
+	<Defence>59</Defence>
+	<Stamina>67</Stamina>
+</Player>
+<Player>
+	<Id>6705</Id>
+	<Name>Jarchinio Antonia</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>178</Team_Id>
+	<Number>20</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>69</Attack>
+	<Defence>31</Defence>
+	<Stamina>67</Stamina>
+</Player>
+<Player>
+	<Id>6728</Id>
+	<Name>Martijn van der Laan</Name>
+	<Position>Defender</Position>
+	<Team_Id>178</Team_Id>
+	<Number>21</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>19</Attack>
+	<Defence>61</Defence>
+	<Stamina>65</Stamina>
+</Player>
+<Player>
+	<Id>7086</Id>
+	<Name>Sergio Padt</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>178</Team_Id>
+	<Number>22</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>68</StopPower>
+	<PenaltyStopPower>65</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>11416</Id>
+	<Name>Dino Islamovic</Name>
+	<Position>Forward</Position>
+	<Team_Id>178</Team_Id>
+	<Number>23</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>56</Attack>
+	<Defence>6</Defence>
+	<Stamina>56</Stamina>
+</Player>
+<Player>
+	<Id>14275</Id>
+	<Name>Roland Baas</Name>
+	<Position>Defender</Position>
+	<Team_Id>178</Team_Id>
+	<Number>24</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>21</Attack>
+	<Defence>53</Defence>
+	<Stamina>56</Stamina>
+</Player>
+</FC Groningen>
+<SC Heerenveen>
+<Player>
+	<Id>6536</Id>
+	<Name>Kristoffer Nordfeldt</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>175</Team_Id>
+	<Number>1</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>73</StopPower>
+	<PenaltyStopPower>64</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>6540</Id>
+	<Name>Kenny Otigba</Name>
+	<Position>Defender</Position>
+	<Team_Id>175</Team_Id>
+	<Number>2</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>9</Attack>
+	<Defence>67</Defence>
+	<Stamina>58</Stamina>
+</Player>
+<Player>
+	<Id>6542</Id>
+	<Name>Pele van Anholt</Name>
+	<Position>Defender</Position>
+	<Team_Id>175</Team_Id>
+	<Number>3</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>8</Attack>
+	<Defence>69</Defence>
+	<Stamina>78</Stamina>
+</Player>
+<Player>
+	<Id>6543</Id>
+	<Name>Stefano Marzo</Name>
+	<Position>Defender</Position>
+	<Team_Id>175</Team_Id>
+	<Number>4</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>27</Attack>
+	<Defence>59</Defence>
+	<Stamina>54</Stamina>
+</Player>
+<Player>
+	<Id>6546</Id>
+	<Name>Jukka Raitala</Name>
+	<Position>Defender</Position>
+	<Team_Id>175</Team_Id>
+	<Number>5</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>28</Attack>
+	<Defence>60</Defence>
+	<Stamina>72</Stamina>
+</Player>
+<Player>
+	<Id>6549</Id>
+	<Name>Joost van Aken</Name>
+	<Position>Defender</Position>
+	<Team_Id>175</Team_Id>
+	<Number>6</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>8</Attack>
+	<Defence>61</Defence>
+	<Stamina>50</Stamina>
+</Player>
+<Player>
+	<Id>6551</Id>
+	<Name>Marten de Roon</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>175</Team_Id>
+	<Number>7</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>68</Attack>
+	<Defence>68</Defence>
+	<Stamina>68</Stamina>
+</Player>
+<Player>
+	<Id>6554</Id>
+	<Name>Szabolcs Varga</Name>
+	<Position>Forward</Position>
+	<Team_Id>175</Team_Id>
+	<Number>8</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>56</Attack>
+	<Defence>22</Defence>
+	<Stamina>67</Stamina>
+</Player>
+<Player>
+	<Id>6555</Id>
+	<Name>Stephen Warmolts</Name>
+	<Position>Defender</Position>
+	<Team_Id>175</Team_Id>
+	<Number>9</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>13</Attack>
+	<Defence>53</Defence>
+	<Stamina>48</Stamina>
+</Player>
+<Player>
+	<Id>6556</Id>
+	<Name>Michael Chacon</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>175</Team_Id>
+	<Number>10</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>53</Attack>
+	<Defence>55</Defence>
+	<Stamina>68</Stamina>
+</Player>
+<Player>
+	<Id>6561</Id>
+	<Name>Joey van den Berg</Name>
+	<Position>Forward</Position>
+	<Team_Id>175</Team_Id>
+	<Number>11</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>65</Attack>
+	<Defence>43</Defence>
+	<Stamina>65</Stamina>
+</Player>
+<Player>
+	<Id>6564</Id>
+	<Name>Luciano Slagveer</Name>
+	<Position>Forward</Position>
+	<Team_Id>175</Team_Id>
+	<Number>12</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>67</Attack>
+	<Defence>21</Defence>
+	<Stamina>56</Stamina>
+</Player>
+<Player>
+	<Id>6565</Id>
+	<Name>Daley Sinkgraven</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>175</Team_Id>
+	<Number>13</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>71</Attack>
+	<Defence>67</Defence>
+	<Stamina>64</Stamina>
+</Player>
+<Player>
+	<Id>6566</Id>
+	<Name>Doke Schmidt</Name>
+	<Position>Defender</Position>
+	<Team_Id>175</Team_Id>
+	<Number>14</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>23</Attack>
+	<Defence>59</Defence>
+	<Stamina>64</Stamina>
+</Player>
+<Player>
+	<Id>6773</Id>
+	<Name>Mark Uth</Name>
+	<Position>Forward</Position>
+	<Team_Id>175</Team_Id>
+	<Number>15</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>75</Attack>
+	<Defence>14</Defence>
+	<Stamina>68</Stamina>
+</Player>
+<Player>
+	<Id>6819</Id>
+	<Name>Jordy Buijs</Name>
+	<Position>Defender</Position>
+	<Team_Id>175</Team_Id>
+	<Number>16</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>42</Attack>
+	<Defence>67</Defence>
+	<Stamina>57</Stamina>
+</Player>
+<Player>
+	<Id>8134</Id>
+	<Name>Thomas Dalgaard</Name>
+	<Position>Forward</Position>
+	<Team_Id>175</Team_Id>
+	<Number>17</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>69</Attack>
+	<Defence>8</Defence>
+	<Stamina>64</Stamina>
+</Player>
+<Player>
+	<Id>9352</Id>
+	<Name>Sam Larsson</Name>
+	<Position>Forward</Position>
+	<Team_Id>175</Team_Id>
+	<Number>18</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>69</Attack>
+	<Defence>21</Defence>
+	<Stamina>65</Stamina>
+</Player>
+<Player>
+	<Id>13202</Id>
+	<Name>Maarten De Fockert</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>175</Team_Id>
+	<Number>19</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>54</StopPower>
+	<PenaltyStopPower>52</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>13203</Id>
+	<Name>Morten Thorsby</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>175</Team_Id>
+	<Number>20</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>64</Attack>
+	<Defence>62</Defence>
+	<Stamina>68</Stamina>
+</Player>
+<Player>
+	<Id>14269</Id>
+	<Name>Pascal Huser</Name>
+	<Position>Forward</Position>
+	<Team_Id>175</Team_Id>
+	<Number>21</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>53</Attack>
+	<Defence>10</Defence>
+	<Stamina>65</Stamina>
+</Player>
+<Player>
+	<Id>14270</Id>
+	<Name>Pelle van Amersfoort</Name>
+	<Position>Forward</Position>
+	<Team_Id>175</Team_Id>
+	<Number>22</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>57</Attack>
+	<Defence>18</Defence>
+	<Stamina>53</Stamina>
+</Player>
+</Heerenveen>
+<Heracles Almelo>
+<Player>
+	<Id>6474</Id>
+	<Name>Joel Pelupessy</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>182</Team_Id>
+	<Number>2</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>56</Attack>
+	<Defence>60</Defence>
+	<Stamina>67</Stamina>
+</Player>
+<Player>
+	<Id>6547</Id>
+	<Name>Ramon Zomer</Name>
+	<Position>Defender</Position>
+	<Team_Id>182</Team_Id>
+	<Number>3</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>6</Attack>
+	<Defence>66</Defence>
+	<Stamina>60</Stamina>
+</Player>
+<Player>
+	<Id>6548</Id>
+	<Name>Fahd Aktaou</Name>
+	<Position>Defender</Position>
+	<Team_Id>182</Team_Id>
+	<Number>4</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>20</Attack>
+	<Defence>55</Defence>
+	<Stamina>76</Stamina>
+</Player>
+<Player>
+	<Id>6597</Id>
+	<Name>Denni Avdic</Name>
+	<Position>Forward</Position>
+	<Team_Id>182</Team_Id>
+	<Number>5</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>61</Attack>
+	<Defence>8</Defence>
+	<Stamina>60</Stamina>
+</Player>
+<Player>
+	<Id>6749</Id>
+	<Name>Dennis Telgenkamp</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>182</Team_Id>
+	<Number>1</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>59</StopPower>
+	<PenaltyStopPower>74</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>6751</Id>
+	<Name>Renze Fij</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>182</Team_Id>
+	<Number>6</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>54</StopPower>
+	<PenaltyStopPower>64</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>6752</Id>
+	<Name>Michael Brouwer</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>182</Team_Id>
+	<Number>7</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>53</StopPower>
+	<PenaltyStopPower>35</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>6753</Id>
+	<Name>Milano Koenders</Name>
+	<Position>Defender</Position>
+	<Team_Id>182</Team_Id>
+	<Number>8</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>19</Attack>
+	<Defence>59</Defence>
+	<Stamina>71</Stamina>
+</Player>
+<Player>
+	<Id>6754</Id>
+	<Name>Bart Schenkeveld</Name>
+	<Position>Defender</Position>
+	<Team_Id>182</Team_Id>
+	<Number>9</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>10</Attack>
+	<Defence>61</Defence>
+	<Stamina>39</Stamina>
+</Player>
+<Player>
+	<Id>6755</Id>
+	<Name>Jeroen Veldmate</Name>
+	<Position>Defender</Position>
+	<Team_Id>182</Team_Id>
+	<Number>10</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>6</Attack>
+	<Defence>60</Defence>
+	<Stamina>61</Stamina>
+</Player>
+<Player>
+	<Id>6759</Id>
+	<Name>Mike te Wierik</Name>
+	<Position>Defender</Position>
+	<Team_Id>182</Team_Id>
+	<Number>11</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>29</Attack>
+	<Defence>63</Defence>
+	<Stamina>64</Stamina>
+</Player>
+<Player>
+	<Id>6760</Id>
+	<Name>Iliass Bel Hassani</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>182</Team_Id>
+	<Number>12</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>63</Attack>
+	<Defence>59</Defence>
+	<Stamina>61</Stamina>
+</Player>
+<Player>
+	<Id>6761</Id>
+	<Name>Thomas Bruns</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>182</Team_Id>
+	<Number>13</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>66</Attack>
+	<Defence>62</Defence>
+	<Stamina>65</Stamina>
+</Player>
+<Player>
+	<Id>6762</Id>
+	<Name>Bryan Linssen</Name>
+	<Position>Forward</Position>
+	<Team_Id>182</Team_Id>
+	<Number>14</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>67</Attack>
+	<Defence>29</Defence>
+	<Stamina>66</Stamina>
+</Player>
+<Player>
+	<Id>6763</Id>
+	<Name>Dragan Paljic</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>182</Team_Id>
+	<Number>15</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>64</Attack>
+	<Defence>51</Defence>
+	<Stamina>49</Stamina>
+</Player>
+<Player>
+	<Id>6766</Id>
+	<Name>Simon Cziommer</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>182</Team_Id>
+	<Number>16</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>66</Attack>
+	<Defence>64</Defence>
+	<Stamina>68</Stamina>
+</Player>
+<Player>
+	<Id>6768</Id>
+	<Name>Dario Vujicevic</Name>
+	<Position>Forward</Position>
+	<Team_Id>182</Team_Id>
+	<Number>17</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>57</Attack>
+	<Defence>61</Defence>
+	<Stamina>52</Stamina>
+</Player>
+<Player>
+	<Id>6770</Id>
+	<Name>Aleksei Kangaskolkka</Name>
+	<Position>Forward</Position>
+	<Team_Id>182</Team_Id>
+	<Number>18</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>56</Attack>
+	<Defence>7</Defence>
+	<Stamina>65</Stamina>
+</Player>
+<Player>
+	<Id>6771</Id>
+	<Name>Jaroslav Navratil</Name>
+	<Position>Forward</Position>
+	<Team_Id>182</Team_Id>
+	<Number>19</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>56</Attack>
+	<Defence>14</Defence>
+	<Stamina>54</Stamina>
+</Player>
+<Player>
+	<Id>6774</Id>
+	<Name>Oussama Tannane</Name>
+	<Position>Forward</Position>
+	<Team_Id>182</Team_Id>
+	<Number>20</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>60</Attack>
+	<Defence>26</Defence>
+	<Stamina>75</Stamina>
+</Player>
+<Player>
+	<Id>6775</Id>
+	<Name>Edwin Gyasi</Name>
+	<Position>Forward</Position>
+	<Team_Id>182</Team_Id>
+	<Number>21</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>60</Attack>
+	<Defence>27</Defence>
+	<Stamina>58</Stamina>
+</Player>
+<Player>
+	<Id>7268</Id>
+	<Name>Bas Sibum</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>182</Team_Id>
+	<Number>22</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>64</Attack>
+	<Defence>67</Defence>
+	<Stamina>76</Stamina>
+</Player>
+<Player>
+	<Id>14716</Id>
+	<Name>Bram Castro</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>182</Team_Id>
+	<Number>23</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>62</StopPower>
+	<PenaltyStopPower>65</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>14718</Id>
+	<Name>Mark Fledderus</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>182</Team_Id>
+	<Number>24</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>71</Attack>
+	<Defence>68</Defence>
+	<Stamina>78</Stamina>
+</Player>
+</Heracles Almelo>
+<NAC Breda>
+<Player>
+	<Id>4371</Id>
+	<Name>Kingsley Boateng</Name>
+	<Position>Forward</Position>
+	<Team_Id>189</Team_Id>
+	<Number>2</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>60</Attack>
+	<Defence>8</Defence>
+	<Stamina>64</Stamina>
+</Player>
+<Player>
+	<Id>6539</Id>
+	<Name>Andries Noppert</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>189</Team_Id>
+	<Number>3</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>53</StopPower>
+	<PenaltyStopPower>53</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>6545</Id>
+	<Name>Joeri de Kamps</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>189</Team_Id>
+	<Number>4</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>56</Attack>
+	<Defence>61</Defence>
+	<Stamina>65</Stamina>
+</Player>
+<Player>
+	<Id>6710</Id>
+	<Name>Erik Falkenburg</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>189</Team_Id>
+	<Number>5</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>67</Attack>
+	<Defence>63</Defence>
+	<Stamina>76</Stamina>
+</Player>
+<Player>
+	<Id>6812</Id>
+	<Name>Jelle ten Rouwelaar</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>189</Team_Id>
+	<Number>1</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>71</StopPower>
+	<PenaltyStopPower>85</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>6813</Id>
+	<Name>Gabor Babos</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>189</Team_Id>
+	<Number>6</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>63</StopPower>
+	<PenaltyStopPower>65</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>6814</Id>
+	<Name>Sepp De Roover</Name>
+	<Position>Defender</Position>
+	<Team_Id>189</Team_Id>
+	<Number>7</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>29</Attack>
+	<Defence>61</Defence>
+	<Stamina>64</Stamina>
+</Player>
+<Player>
+	<Id>6815</Id>
+	<Name>Henrico Drost</Name>
+	<Position>Defender</Position>
+	<Team_Id>189</Team_Id>
+	<Number>8</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>14</Attack>
+	<Defence>61</Defence>
+	<Stamina>62</Stamina>
+</Player>
+<Player>
+	<Id>6818</Id>
+	<Name>Gill Swerts</Name>
+	<Position>Defender</Position>
+	<Team_Id>189</Team_Id>
+	<Number>9</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>27</Attack>
+	<Defence>63</Defence>
+	<Stamina>67</Stamina>
+</Player>
+<Player>
+	<Id>6821</Id>
+	<Name>Kenny van der Weg</Name>
+	<Position>Defender</Position>
+	<Team_Id>189</Team_Id>
+	<Number>10</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>22</Attack>
+	<Defence>59</Defence>
+	<Stamina>62</Stamina>
+</Player>
+<Player>
+	<Id>6823</Id>
+	<Name>Jeffrey Sarpong</Name>
+	<Position>Forward</Position>
+	<Team_Id>189</Team_Id>
+	<Number>11</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>63</Attack>
+	<Defence>30</Defence>
+	<Stamina>56</Stamina>
+</Player>
+<Player>
+	<Id>6824</Id>
+	<Name>Uros Matic</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>189</Team_Id>
+	<Number>12</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>65</Attack>
+	<Defence>62</Defence>
+	<Stamina>66</Stamina>
+</Player>
+<Player>
+	<Id>6825</Id>
+	<Name>Joey Suk</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>189</Team_Id>
+	<Number>13</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>60</Attack>
+	<Defence>58</Defence>
+	<Stamina>67</Stamina>
+</Player>
+<Player>
+	<Id>6828</Id>
+	<Name>Mats Seuntjes</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>189</Team_Id>
+	<Number>14</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>60</Attack>
+	<Defence>43</Defence>
+	<Stamina>60</Stamina>
+</Player>
+<Player>
+	<Id>6829</Id>
+	<Name>Elson Hooi</Name>
+	<Position>Forward</Position>
+	<Team_Id>189</Team_Id>
+	<Number>15</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>60</Attack>
+	<Defence>29</Defence>
+	<Stamina>88</Stamina>
+</Player>
+<Player>
+	<Id>6830</Id>
+	<Name>Adnane Tighadouini</Name>
+	<Position>Forward</Position>
+	<Team_Id>189</Team_Id>
+	<Number>16</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>62</Attack>
+	<Defence>28</Defence>
+	<Stamina>69</Stamina>
+</Player>
+<Player>
+	<Id>6832</Id>
+	<Name>Stipe Perica</Name>
+	<Position>Forward</Position>
+	<Team_Id>189</Team_Id>
+	<Number>17</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>67</Attack>
+	<Defence>6</Defence>
+	<Stamina>55</Stamina>
+</Player>
+<Player>
+	<Id>6841</Id>
+	<Name>Remy Amieux</Name>
+	<Position>Defender</Position>
+	<Team_Id>189</Team_Id>
+	<Number>18</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>29</Attack>
+	<Defence>60</Defence>
+	<Stamina>79</Stamina>
+</Player>
+<Player>
+	<Id>13206</Id>
+	<Name>Aleksandar Damcevski</Name>
+	<Position>Defender</Position>
+	<Team_Id>189</Team_Id>
+	<Number>19</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>9</Attack>
+	<Defence>59</Defence>
+	<Stamina>52</Stamina>
+</Player>
+<Player>
+	<Id>13207</Id>
+	<Name>Isak Ssewankambo</Name>
+	<Position>Defender</Position>
+	<Team_Id>189</Team_Id>
+	<Number>20</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>20</Attack>
+	<Defence>59</Defence>
+	<Stamina>62</Stamina>
+</Player>
+<Player>
+	<Id>13208</Id>
+	<Name>Mounir el Allouchi</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>189</Team_Id>
+	<Number>21</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>54</Attack>
+	<Defence>52</Defence>
+	<Stamina>66</Stamina>
+</Player>
+<Player>
+	<Id>14282</Id>
+	<Name>Brandon Robinson</Name>
+	<Position>Forward</Position>
+	<Team_Id>189</Team_Id>
+	<Number>22</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>53</Attack>
+	<Defence>23</Defence>
+	<Stamina>63</Stamina>
+</Player>
+<Player>
+	<Id>14715</Id>
+	<Name>Jesse van Bezooijen</Name>
+	<Position>Defender</Position>
+	<Team_Id>189</Team_Id>
+	<Number>23</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>12</Attack>
+	<Defence>59</Defence>
+	<Stamina>64</Stamina>
+</Player>
+</NAC Breda>
+<PSV>
+<Player>
+	<Id>1255</Id>
+	<Name>Nicholas Isimat-Mirin</Name>
+	<Position>Defender</Position>
+	<Team_Id>184</Team_Id>
+	<Number>2</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>12</Attack>
+	<Defence>73</Defence>
+	<Stamina>75</Stamina>
+</Player>
+<Player>
+	<Id>1672</Id>
+	<Name>Luuk de Jong</Name>
+	<Position>Forward</Position>
+	<Team_Id>184</Team_Id>
+	<Number>3</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>80</Attack>
+	<Defence>18</Defence>
+	<Stamina>68</Stamina>
+</Player>
+<Player>
+	<Id>3446</Id>
+	<Name>Jose Andres Guardado</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>184</Team_Id>
+	<Number>4</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>79</Attack>
+	<Defence>85</Defence>
+	<Stamina>66</Stamina>
+</Player>
+<Player>
+	<Id>6511</Id>
+	<Name>Jeroen Zoet</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>184</Team_Id>
+	<Number>1</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>80</StopPower>
+	<PenaltyStopPower>67</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>6513</Id>
+	<Name>Jeffrey Bruma</Name>
+	<Position>Defender</Position>
+	<Team_Id>184</Team_Id>
+	<Number>5</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>12</Attack>
+	<Defence>76</Defence>
+	<Stamina>60</Stamina>
+</Player>
+<Player>
+	<Id>6514</Id>
+	<Name>Santiago Arias</Name>
+	<Position>Defender</Position>
+	<Team_Id>184</Team_Id>
+	<Number>6</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>35</Attack>
+	<Defence>73</Defence>
+	<Stamina>75</Stamina>
+</Player>
+<Player>
+	<Id>6515</Id>
+	<Name>Jetro Willems</Name>
+	<Position>Defender</Position>
+	<Team_Id>184</Team_Id>
+	<Number>7</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>37</Attack>
+	<Defence>78</Defence>
+	<Stamina>55</Stamina>
+</Player>
+<Player>
+	<Id>6516</Id>
+	<Name>Joshua Brenet</Name>
+	<Position>Defender</Position>
+	<Team_Id>184</Team_Id>
+	<Number>8</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>23</Attack>
+	<Defence>61</Defence>
+	<Stamina>72</Stamina>
+</Player>
+<Player>
+	<Id>6517</Id>
+	<Name>Abel Tamata</Name>
+	<Position>Defender</Position>
+	<Team_Id>184</Team_Id>
+	<Number>9</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>29</Attack>
+	<Defence>60</Defence>
+	<Stamina>59</Stamina>
+</Player>
+<Player>
+	<Id>6518</Id>
+	<Name>Jorrit Hendrix</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>184</Team_Id>
+	<Number>10</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>65</Attack>
+	<Defence>73</Defence>
+	<Stamina>71</Stamina>
+</Player>
+<Player>
+	<Id>6519</Id>
+	<Name>Adam Maher</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>184</Team_Id>
+	<Number>11</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>84</Attack>
+	<Defence>80</Defence>
+	<Stamina>64</Stamina>
+</Player>
+<Player>
+	<Id>6520</Id>
+	<Name>Stijn Schaars</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>184</Team_Id>
+	<Number>12</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>81</Attack>
+	<Defence>85</Defence>
+	<Stamina>71</Stamina>
+</Player>
+<Player>
+	<Id>6521</Id>
+	<Name>Georgino Wijnaldum</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>184</Team_Id>
+	<Number>13</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>87</Attack>
+	<Defence>84</Defence>
+	<Stamina>66</Stamina>
+</Player>
+<Player>
+	<Id>6522</Id>
+	<Name>Florian Jozefzoon</Name>
+	<Position>Forward</Position>
+	<Team_Id>184</Team_Id>
+	<Number>14</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>67</Attack>
+	<Defence>32</Defence>
+	<Stamina>76</Stamina>
+</Player>
+<Player>
+	<Id>6523</Id>
+	<Name>Zakaria Bakkali</Name>
+	<Position>Forward</Position>
+	<Team_Id>184</Team_Id>
+	<Number>15</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>73</Attack>
+	<Defence>22</Defence>
+	<Stamina>58</Stamina>
+</Player>
+<Player>
+	<Id>6525</Id>
+	<Name>Oscar Hiljemark</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>184</Team_Id>
+	<Number>16</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>74</Attack>
+	<Defence>76</Defence>
+	<Stamina>68</Stamina>
+</Player>
+<Player>
+	<Id>6527</Id>
+	<Name>Jurgen Locadia</Name>
+	<Position>Forward</Position>
+	<Team_Id>184</Team_Id>
+	<Number>17</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>76</Attack>
+	<Defence>11</Defence>
+	<Stamina>61</Stamina>
+</Player>
+<Player>
+	<Id>6528</Id>
+	<Name>Luciano Narsingh</Name>
+	<Position>Forward</Position>
+	<Team_Id>184</Team_Id>
+	<Number>18</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>80</Attack>
+	<Defence>28</Defence>
+	<Stamina>64</Stamina>
+</Player>
+<Player>
+	<Id>6529</Id>
+	<Name>Memphis Depay</Name>
+	<Position>Forward</Position>
+	<Team_Id>184</Team_Id>
+	<Number>19</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>87</Attack>
+	<Defence>31</Defence>
+	<Stamina>76</Stamina>
+</Player>
+<Player>
+	<Id>6535</Id>
+	<Name>Marcel Ritzmaier</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>184</Team_Id>
+	<Number>20</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>70</Attack>
+	<Defence>69</Defence>
+	<Stamina>65</Stamina>
+</Player>
+<Player>
+	<Id>6750</Id>
+	<Name>Remko Pasveer</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>184</Team_Id>
+	<Number>21</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>73</StopPower>
+	<PenaltyStopPower>78</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>13782</Id>
+	<Name>Aleksandar Boljevic</Name>
+	<Position>Forward</Position>
+	<Team_Id>184</Team_Id>
+	<Number>22</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>56</Attack>
+	<Defence>24</Defence>
+	<Stamina>68</Stamina>
+</Player>
+<Player>
+	<Id>13902</Id>
+	<Name>Clint Leemans</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>184</Team_Id>
+	<Number>23</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>56</Attack>
+	<Defence>59</Defence>
+	<Stamina>77</Stamina>
+</Player>
+</PSV>
+<FC Twente>
+<Player>
+	<Id>6450</Id>
+	<Name>Sonny Stevens</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>190</Team_Id>
+	<Number>2</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>59</StopPower>
+	<PenaltyStopPower>65</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>6451</Id>
+	<Name>Nick Marsman</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>190</Team_Id>
+	<Number>1</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>73</StopPower>
+	<PenaltyStopPower>76</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>6453</Id>
+	<Name>Filip Bednarek</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>190</Team_Id>
+	<Number>3</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>55</StopPower>
+	<PenaltyStopPower>53</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>6455</Id>
+	<Name>Dico Koppers</Name>
+	<Position>Defender</Position>
+	<Team_Id>190</Team_Id>
+	<Number>4</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>22</Attack>
+	<Defence>68</Defence>
+	<Stamina>66</Stamina>
+</Player>
+<Player>
+	<Id>6456</Id>
+	<Name>Andreas Bjelland</Name>
+	<Position>Defender</Position>
+	<Team_Id>190</Team_Id>
+	<Number>5</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>14</Attack>
+	<Defence>76</Defence>
+	<Stamina>75</Stamina>
+</Player>
+<Player>
+	<Id>6460</Id>
+	<Name>Rasmus Bengtsson</Name>
+	<Position>Defender</Position>
+	<Team_Id>190</Team_Id>
+	<Number>6</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>16</Attack>
+	<Defence>73</Defence>
+	<Stamina>75</Stamina>
+</Player>
+<Player>
+	<Id>6461</Id>
+	<Name>Cuco Martina</Name>
+	<Position>Defender</Position>
+	<Team_Id>190</Team_Id>
+	<Number>7</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>16</Attack>
+	<Defence>62</Defence>
+	<Stamina>54</Stamina>
+</Player>
+<Player>
+	<Id>6462</Id>
+	<Name>Renato Tapia</Name>
+	<Position>Defender</Position>
+	<Team_Id>190</Team_Id>
+	<Number>8</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>41</Attack>
+	<Defence>57</Defence>
+	<Stamina>61</Stamina>
+</Player>
+<Player>
+	<Id>6464</Id>
+	<Name>Robbert Schilder</Name>
+	<Position>Defender</Position>
+	<Team_Id>190</Team_Id>
+	<Number>9</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>38</Attack>
+	<Defence>70</Defence>
+	<Stamina>62</Stamina>
+</Player>
+<Player>
+	<Id>6466</Id>
+	<Name>Youness Mokhtar</Name>
+	<Position>Forward</Position>
+	<Team_Id>190</Team_Id>
+	<Number>10</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>73</Attack>
+	<Defence>37</Defence>
+	<Stamina>61</Stamina>
+</Player>
+<Player>
+	<Id>6467</Id>
+	<Name>Kyle Ebecilio</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>190</Team_Id>
+	<Number>11</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>76</Attack>
+	<Defence>76</Defence>
+	<Stamina>76</Stamina>
+</Player>
+<Player>
+	<Id>6469</Id>
+	<Name>Jesus Manuel Corona</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>190</Team_Id>
+	<Number>12</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>75</Attack>
+	<Defence>50</Defence>
+	<Stamina>65</Stamina>
+</Player>
+<Player>
+	<Id>6471</Id>
+	<Name>Tim Breukers</Name>
+	<Position>Defender</Position>
+	<Team_Id>190</Team_Id>
+	<Number>13</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>27</Attack>
+	<Defence>60</Defence>
+	<Stamina>65</Stamina>
+</Player>
+<Player>
+	<Id>6472</Id>
+	<Name>Shadrach Eghan</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>190</Team_Id>
+	<Number>14</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>72</Attack>
+	<Defence>68</Defence>
+	<Stamina>77</Stamina>
+</Player>
+<Player>
+	<Id>6473</Id>
+	<Name>Felipe Gutierrez</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>190</Team_Id>
+	<Number>15</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>82</Attack>
+	<Defence>78</Defence>
+	<Stamina>78</Stamina>
+</Player>
+<Player>
+	<Id>6480</Id>
+	<Name>Luc Castaignos</Name>
+	<Position>Forward</Position>
+	<Team_Id>190</Team_Id>
+	<Number>16</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>83</Attack>
+	<Defence>18</Defence>
+	<Stamina>65</Stamina>
+</Player>
+<Player>
+	<Id>6481</Id>
+	<Name>Torgeir Borven</Name>
+	<Position>Forward</Position>
+	<Team_Id>190</Team_Id>
+	<Number>17</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>68</Attack>
+	<Defence>13</Defence>
+	<Stamina>62</Stamina>
+</Player>
+<Player>
+	<Id>6553</Id>
+	<Name>Hakim Ziyech</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>190</Team_Id>
+	<Number>18</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>82</Attack>
+	<Defence>79</Defence>
+	<Stamina>80</Stamina>
+</Player>
+<Player>
+	<Id>6644</Id>
+	<Name>Darryl Lachman</Name>
+	<Position>Defender</Position>
+	<Team_Id>190</Team_Id>
+	<Number>19</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>10</Attack>
+	<Defence>69</Defence>
+	<Stamina>65</Stamina>
+</Player>
+<Player>
+	<Id>6652</Id>
+	<Name>Kamohelo Mokotjo</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>190</Team_Id>
+	<Number>20</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>71</Attack>
+	<Defence>76</Defence>
+	<Stamina>74</Stamina>
+</Player>
+<Player>
+	<Id>7898</Id>
+	<Name>Kasper Kusk</Name>
+	<Position>Forward</Position>
+	<Team_Id>190</Team_Id>
+	<Number>21</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>71</Attack>
+	<Defence>57</Defence>
+	<Stamina>61</Stamina>
+</Player>
+<Player>
+	<Id>14267</Id>
+	<Name>Orlando Engelaar</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>190</Team_Id>
+	<Number>22</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>62</Attack>
+	<Defence>66</Defence>
+	<Stamina>60</Stamina>
+</Player>
+<Player>
+	<Id>14268</Id>
+	<Name>Bilal Ould-Chikh</Name>
+	<Position>Forward</Position>
+	<Team_Id>190</Team_Id>
+	<Number>23</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>60</Attack>
+	<Defence>20</Defence>
+	<Stamina>67</Stamina>
+</Player>
+</FC Twente>
+<FC Utrecht>
+<Player>
+	<Id>6541</Id>
+	<Name>Christian Kum</Name>
+	<Position>Defender</Position>
+	<Team_Id>180</Team_Id>
+	<Number>2</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>16</Attack>
+	<Defence>61</Defence>
+	<Stamina>67</Stamina>
+</Player>
+<Player>
+	<Id>6602</Id>
+	<Name>Ruud Boymans</Name>
+	<Position>Forward</Position>
+	<Team_Id>180</Team_Id>
+	<Number>3</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>65</Attack>
+	<Defence>10</Defence>
+	<Stamina>64</Stamina>
+</Player>
+<Player>
+	<Id>6638</Id>
+	<Name>Timo Letschert</Name>
+	<Position>Defender</Position>
+	<Team_Id>180</Team_Id>
+	<Number>4</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>19</Attack>
+	<Defence>59</Defence>
+	<Stamina>64</Stamina>
+</Player>
+<Player>
+	<Id>6746</Id>
+	<Name>Ramon Leeuwin</Name>
+	<Position>Defender</Position>
+	<Team_Id>180</Team_Id>
+	<Number>5</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>13</Attack>
+	<Defence>61</Defence>
+	<Stamina>64</Stamina>
+</Player>
+<Player>
+	<Id>6778</Id>
+	<Name>Robin Ruiter</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>180</Team_Id>
+	<Number>1</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>71</StopPower>
+	<PenaltyStopPower>65</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>6779</Id>
+	<Name>Jeroen Verhoeven</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>180</Team_Id>
+	<Number>6</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>59</StopPower>
+	<PenaltyStopPower>45</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>6780</Id>
+	<Name>Marc van der Maarel</Name>
+	<Position>Defender</Position>
+	<Team_Id>180</Team_Id>
+	<Number>7</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>28</Attack>
+	<Defence>64</Defence>
+	<Stamina>78</Stamina>
+</Player>
+<Player>
+	<Id>6783</Id>
+	<Name>Gevero Markiet</Name>
+	<Position>Defender</Position>
+	<Team_Id>180</Team_Id>
+	<Number>8</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>24</Attack>
+	<Defence>60</Defence>
+	<Stamina>56</Stamina>
+</Player>
+<Player>
+	<Id>6784</Id>
+	<Name>Kai Heerings</Name>
+	<Position>Defender</Position>
+	<Team_Id>180</Team_Id>
+	<Number>9</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>6</Attack>
+	<Defence>64</Defence>
+	<Stamina>66</Stamina>
+</Player>
+<Player>
+	<Id>6789</Id>
+	<Name>Edouard Duplan</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>180</Team_Id>
+	<Number>10</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>75</Attack>
+	<Defence>69</Defence>
+	<Stamina>77</Stamina>
+</Player>
+<Player>
+	<Id>6791</Id>
+	<Name>Thomas Oar</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>180</Team_Id>
+	<Number>11</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>73</Attack>
+	<Defence>69</Defence>
+	<Stamina>55</Stamina>
+</Player>
+<Player>
+	<Id>6794</Id>
+	<Name>Mark Diemers</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>180</Team_Id>
+	<Number>12</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>60</Attack>
+	<Defence>56</Defence>
+	<Stamina>54</Stamina>
+</Player>
+<Player>
+	<Id>6795</Id>
+	<Name>Yassine Ayoub</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>180</Team_Id>
+	<Number>13</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>66</Attack>
+	<Defence>71</Defence>
+	<Stamina>64</Stamina>
+</Player>
+<Player>
+	<Id>6797</Id>
+	<Name>Willem Janssen</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>180</Team_Id>
+	<Number>14</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>73</Attack>
+	<Defence>69</Defence>
+	<Stamina>68</Stamina>
+</Player>
+<Player>
+	<Id>6798</Id>
+	<Name>Fernando Quesada</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>180</Team_Id>
+	<Number>15</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>58</Attack>
+	<Defence>58</Defence>
+	<Stamina>58</Stamina>
+</Player>
+<Player>
+	<Id>6807</Id>
+	<Name>Gyliano van Velzen</Name>
+	<Position>Forward</Position>
+	<Team_Id>180</Team_Id>
+	<Number>16</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>55</Attack>
+	<Defence>23</Defence>
+	<Stamina>66</Stamina>
+</Player>
+<Player>
+	<Id>6810</Id>
+	<Name>Sean Klaiber</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>180</Team_Id>
+	<Number>17</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>53</Attack>
+	<Defence>57</Defence>
+	<Stamina>44</Stamina>
+</Player>
+<Player>
+	<Id>9172</Id>
+	<Name>Michael Zullo</Name>
+	<Position>Defender</Position>
+	<Team_Id>180</Team_Id>
+	<Number>18</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>27</Attack>
+	<Defence>61</Defence>
+	<Stamina>79</Stamina>
+</Player>
+<Player>
+	<Id>10961</Id>
+	<Name>Nacer Barazite</Name>
+	<Position>Forward</Position>
+	<Team_Id>180</Team_Id>
+	<Number>19</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>60</Attack>
+	<Defence>19</Defence>
+	<Stamina>51</Stamina>
+</Player>
+<Player>
+	<Id>13197</Id>
+	<Name>Anouar Kali</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>180</Team_Id>
+	<Number>20</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>68</Attack>
+	<Defence>71</Defence>
+	<Stamina>65</Stamina>
+</Player>
+<Player>
+	<Id>13484</Id>
+	<Name>Kristoffer Peterson</Name>
+	<Position>Forward</Position>
+	<Team_Id>180</Team_Id>
+	<Number>21</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>57</Attack>
+	<Defence>27</Defence>
+	<Stamina>52</Stamina>
+</Player>
+<Player>
+	<Id>13906</Id>
+	<Name>Gyrano Kerk</Name>
+	<Position>Forward</Position>
+	<Team_Id>180</Team_Id>
+	<Number>22</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>57</Attack>
+	<Defence>24</Defence>
+	<Stamina>63</Stamina>
+</Player>
+<Player>
+	<Id>14277</Id>
+	<Name>Rubio Rubin</Name>
+	<Position>Forward</Position>
+	<Team_Id>180</Team_Id>
+	<Number>23</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>60</Attack>
+	<Defence>18</Defence>
+	<Stamina>55</Stamina>
+</Player>
+<Player>
+	<Id>14278</Id>
+	<Name>Issa Kallon</Name>
+	<Position>Forward</Position>
+	<Team_Id>180</Team_Id>
+	<Number>24</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>60</Attack>
+	<Defence>23</Defence>
+	<Stamina>53</Stamina>
+</Player>
+<Player>
+	<Id>14280</Id>
+	<Name>Rodney Antwi</Name>
+	<Position>Forward</Position>
+	<Team_Id>180</Team_Id>
+	<Number>25</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>56</Attack>
+	<Defence>22</Defence>
+	<Stamina>65</Stamina>
+</Player>
+</FC Utrecht>
+<Vitesse>
+<Player>
+	<Id>4086</Id>
+	<Name>Wallace Oliveira dos Santos</Name>
+	<Position>Defender</Position>
+	<Team_Id>186</Team_Id>
+	<Number>2</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>35</Attack>
+	<Defence>78</Defence>
+	<Stamina>77</Stamina>
+</Player>
+<Player>
+	<Id>6484</Id>
+	<Name>Eloy Room</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>186</Team_Id>
+	<Number>3</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>63</StopPower>
+	<PenaltyStopPower>65</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>6486</Id>
+	<Name>Piet Velthuizen</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>186</Team_Id>
+	<Number>1</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>75</StopPower>
+	<PenaltyStopPower>80</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>6488</Id>
+	<Name>Dan Mori</Name>
+	<Position>Defender</Position>
+	<Team_Id>186</Team_Id>
+	<Number>4</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>9</Attack>
+	<Defence>61</Defence>
+	<Stamina>63</Stamina>
+</Player>
+<Player>
+	<Id>6489</Id>
+	<Name>Kelvin Leerdam</Name>
+	<Position>Defender</Position>
+	<Team_Id>186</Team_Id>
+	<Number>5</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>40</Attack>
+	<Defence>73</Defence>
+	<Stamina>64</Stamina>
+</Player>
+<Player>
+	<Id>6491</Id>
+	<Name>Guram Kashia</Name>
+	<Position>Defender</Position>
+	<Team_Id>186</Team_Id>
+	<Number>6</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>13</Attack>
+	<Defence>75</Defence>
+	<Stamina>77</Stamina>
+</Player>
+<Player>
+	<Id>6493</Id>
+	<Name>Rochdi Achenteh</Name>
+	<Position>Defender</Position>
+	<Team_Id>186</Team_Id>
+	<Number>7</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>32</Attack>
+	<Defence>65</Defence>
+	<Stamina>63</Stamina>
+</Player>
+<Player>
+	<Id>6494</Id>
+	<Name>Marko Vejinovic</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>186</Team_Id>
+	<Number>8</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>76</Attack>
+	<Defence>74</Defence>
+	<Stamina>55</Stamina>
+</Player>
+<Player>
+	<Id>6495</Id>
+	<Name>Davy Propper</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>186</Team_Id>
+	<Number>9</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>78</Attack>
+	<Defence>74</Defence>
+	<Stamina>54</Stamina>
+</Player>
+<Player>
+	<Id>6497</Id>
+	<Name>Zakaria Labyad</Name>
+	<Position>Forward</Position>
+	<Team_Id>186</Team_Id>
+	<Number>10</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>78</Attack>
+	<Defence>39</Defence>
+	<Stamina>63</Stamina>
+</Player>
+<Player>
+	<Id>6498</Id>
+	<Name>Jan-Arie van der Heijden</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>186</Team_Id>
+	<Number>11</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>16</Attack>
+	<Defence>75</Defence>
+	<Stamina>74</Stamina>
+</Player>
+<Player>
+	<Id>6499</Id>
+	<Name>Bertrand Traore</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>186</Team_Id>
+	<Number>12</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>69</Attack>
+	<Defence>17</Defence>
+	<Stamina>65</Stamina>
+</Player>
+<Player>
+	<Id>6500</Id>
+	<Name>Renato Ibarra</Name>
+	<Position>Forward</Position>
+	<Team_Id>186</Team_Id>
+	<Number>13</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>75</Attack>
+	<Defence>43</Defence>
+	<Stamina>65</Stamina>
+</Player>
+<Player>
+	<Id>6502</Id>
+	<Name>Gino Bosz</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>186</Team_Id>
+	<Number>14</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>54</Attack>
+	<Defence>54</Defence>
+	<Stamina>54</Stamina>
+</Player>
+<Player>
+	<Id>6503</Id>
+	<Name>Uros Djurdjevic</Name>
+	<Position>Forward</Position>
+	<Team_Id>186</Team_Id>
+	<Number>15</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>67</Attack>
+	<Defence>10</Defence>
+	<Stamina>55</Stamina>
+</Player>
+<Player>
+	<Id>6544</Id>
+	<Name>Arnold Kruiswijk</Name>
+	<Position>Defender</Position>
+	<Team_Id>186</Team_Id>
+	<Number>16</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>7</Attack>
+	<Defence>63</Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>10060</Id>
+	<Name>Denys Oliynyk</Name>
+	<Position>Forward</Position>
+	<Team_Id>186</Team_Id>
+	<Number>17</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>67</Attack>
+	<Defence>33</Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>12885</Id>
+	<Name>Robin Gosens</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>186</Team_Id>
+	<Number>18</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>64</Attack>
+	<Defence>69</Defence>
+	<Stamina>63</Stamina>
+</Player>
+<Player>
+	<Id>13205</Id>
+	<Name>Kevin Diks</Name>
+	<Position>Defender</Position>
+	<Team_Id>186</Team_Id>
+	<Number>19</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>23</Attack>
+	<Defence>57</Defence>
+	<Stamina>64</Stamina>
+</Player>
+</Vitesse>
+<Willem II>
+<Player>
+	<Id>3655</Id>
+	<Name>Ben Sahar</Name>
+	<Position>Forward</Position>
+	<Team_Id>243</Team_Id>
+	<Number>2</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>59</Attack>
+	<Defence>29</Defence>
+	<Stamina>55</Stamina>
+</Player>
+<Player>
+	<Id>6102</Id>
+	<Name>Charlton Vicento</Name>
+	<Position>Forward</Position>
+	<Team_Id>243</Team_Id>
+	<Number>3</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>58</Attack>
+	<Defence>25</Defence>
+	<Stamina>69</Stamina>
+</Player>
+<Player>
+	<Id>6420</Id>
+	<Name>Mitchell Dijks</Name>
+	<Position>Defender</Position>
+	<Team_Id>243</Team_Id>
+	<Number>4</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>20</Attack>
+	<Defence>67</Defence>
+	<Stamina>63</Stamina>
+</Player>
+<Player>
+	<Id>6425</Id>
+	<Name>Kostas Lamprou</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>243</Team_Id>
+	<Number>1</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>59</StopPower>
+	<PenaltyStopPower>53</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>6445</Id>
+	<Name>Samuel Armenteros</Name>
+	<Position>Forward</Position>
+	<Team_Id>243</Team_Id>
+	<Number>5</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>67</Attack>
+	<Defence>20</Defence>
+	<Stamina>78</Stamina>
+</Player>
+<Player>
+	<Id>6483</Id>
+	<Name>Jerson Cabral</Name>
+	<Position>Forward</Position>
+	<Team_Id>243</Team_Id>
+	<Number>6</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>61</Attack>
+	<Defence>27</Defence>
+	<Stamina>67</Stamina>
+</Player>
+<Player>
+	<Id>6490</Id>
+	<Name>Frank van der Struijk</Name>
+	<Position>Defender</Position>
+	<Team_Id>243</Team_Id>
+	<Number>7</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>28</Attack>
+	<Defence>62</Defence>
+	<Stamina>59</Stamina>
+</Player>
+<Player>
+	<Id>6598</Id>
+	<Name>Jonas Heymans</Name>
+	<Position>Defender</Position>
+	<Team_Id>243</Team_Id>
+	<Number>8</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>25</Attack>
+	<Defence>58</Defence>
+	<Stamina>64</Stamina>
+</Player>
+<Player>
+	<Id>6850</Id>
+	<Name>Robert Braber</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>243</Team_Id>
+	<Number>9</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>65</Attack>
+	<Defence>61</Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>12909</Id>
+	<Name>David Meul</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>243</Team_Id>
+	<Number>10</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>60</StopPower>
+	<PenaltyStopPower>35</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>12910</Id>
+	<Name>Mattijs Branderhorst</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>243</Team_Id>
+	<Number>11</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower>53</StopPower>
+	<PenaltyStopPower>53</PenaltyStopPower>
+</Player>
+<Player>
+	<Id>12913</Id>
+	<Name>Freek Heerkens</Name>
+	<Position>Defender</Position>
+	<Team_Id>243</Team_Id>
+	<Number>12</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>24</Attack>
+	<Defence>57</Defence>
+	<Stamina>55</Stamina>
+</Player>
+<Player>
+	<Id>12914</Id>
+	<Name>Jordens Peters</Name>
+	<Position>Defender</Position>
+	<Team_Id>243</Team_Id>
+	<Number>13</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>15</Attack>
+	<Defence>59</Defence>
+	<Stamina>67</Stamina>
+</Player>
+<Player>
+	<Id>12916</Id>
+	<Name>Tim Cornelisse</Name>
+	<Position>Defender</Position>
+	<Team_Id>243</Team_Id>
+	<Number>14</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>32</Attack>
+	<Defence>62</Defence>
+	<Stamina>55</Stamina>
+</Player>
+<Player>
+	<Id>12919</Id>
+	<Name>Robbie Haemhouts</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>243</Team_Id>
+	<Number>15</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>63</Attack>
+	<Defence>63</Defence>
+	<Stamina>63</Stamina>
+</Player>
+<Player>
+	<Id>12920</Id>
+	<Name>Ali Messaoud</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>243</Team_Id>
+	<Number>16</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>61</Attack>
+	<Defence>58</Defence>
+	<Stamina>75</Stamina>
+</Player>
+<Player>
+	<Id>12921</Id>
+	<Name>Ricardo Ippel</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>243</Team_Id>
+	<Number>17</Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack>58</Attack>
+	<Defence>60</Defence>
+	<Stamina>35</Stamina>
+</Player>
+<Player>
+	<Id>12923</Id>
+	<Name>Simon van Zeelst</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>243</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>12924</Id>
+	<Name>Renan Zanelli Consilieri</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>243</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>12925</Id>
+	<Name>Stijn Wuytens</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>243</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>12926</Id>
+	<Name>Terell Ondaan</Name>
+	<Position>Forward</Position>
+	<Team_Id>243</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>12927</Id>
+	<Name>Bruno Andrade</Name>
+	<Position>Forward</Position>
+	<Team_Id>243</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>13214</Id>
+	<Name>Justin Mathieu</Name>
+	<Position>Forward</Position>
+	<Team_Id>243</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>13215</Id>
+	<Name>Stijn Derkx</Name>
+	<Position>Forward</Position>
+	<Team_Id>243</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>13785</Id>
+	<Name>Jordy Vleugels</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>243</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>14272</Id>
+	<Name>Danny Van der Wal</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>243</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+</Willem II>
+<PEC Zwolle>
+<Player>
+	<Id>6465</Id>
+	<Name>Wout Brama</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>356</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>6581</Id>
+	<Name>Thomas Lam</Name>
+	<Position>Defender</Position>
+	<Team_Id>356</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>6640</Id>
+	<Name>Diedrerik Boer</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>356</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower> </StopPower>
+	<PenaltyStopPower> </PenaltyStopPower>
+</Player>
+<Player>
+	<Id>6641</Id>
+	<Name>Kevin Begois</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>356</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower> </StopPower>
+	<PenaltyStopPower> </PenaltyStopPower>
+</Player>
+<Player>
+	<Id>6642</Id>
+	<Name>Leon ter Wielen</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>356</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower> </StopPower>
+	<PenaltyStopPower> </PenaltyStopPower>
+</Player>
+<Player>
+	<Id>6643</Id>
+	<Name>Bram van Polen</Name>
+	<Position>Defender</Position>
+	<Team_Id>356</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>6645</Id>
+	<Name>Maikel van der Werff</Name>
+	<Position>Defender</Position>
+	<Team_Id>356</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>6646</Id>
+	<Name>Bart van Hintum</Name>
+	<Position>Defender</Position>
+	<Team_Id>356</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>6647</Id>
+	<Name>Joost Broerse</Name>
+	<Position>Defender</Position>
+	<Team_Id>356</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>6648</Id>
+	<Name>Trent Sainsbury</Name>
+	<Position>Defender</Position>
+	<Team_Id>356</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>6649</Id>
+	<Name>Haico Epe</Name>
+	<Position>Defender</Position>
+	<Team_Id>356</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>6650</Id>
+	<Name>Mustafa Saymak</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>356</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>6651</Id>
+	<Name>Athanasios Karagounis</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>356</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>6653</Id>
+	<Name>Ryan Thomas</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>356</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>6654</Id>
+	<Name>Leroy Labylle</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>356</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>6655</Id>
+	<Name>Adil Tihouna</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>356</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>6656</Id>
+	<Name>Youssef Fennich</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>356</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>6657</Id>
+	<Name>Giovanni Gravenbeek</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>356</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>6659</Id>
+	<Name>Fred Benson</Name>
+	<Position>Forward</Position>
+	<Team_Id>356</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>6660</Id>
+	<Name>Stefan Nijland</Name>
+	<Position>Forward</Position>
+	<Team_Id>356</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>6661</Id>
+	<Name>Jesper Drost</Name>
+	<Position>Forward</Position>
+	<Team_Id>356</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>6662</Id>
+	<Name>Ronnie Reniers</Name>
+	<Position>Forward</Position>
+	<Team_Id>356</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>6663</Id>
+	<Name>Mimoun Eloisghiri</Name>
+	<Position>Forward</Position>
+	<Team_Id>356</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>6664</Id>
+	<Name>Guyon Fernandez</Name>
+	<Position>Forward</Position>
+	<Team_Id>356</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>6665</Id>
+	<Name>Giovanni Hiwat</Name>
+	<Position>Forward</Position>
+	<Team_Id>356</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>6666</Id>
+	<Name>Denis Mahmudov</Name>
+	<Position>Forward</Position>
+	<Team_Id>356</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>6667</Id>
+	<Name>Dean Patricio</Name>
+	<Position>Defender</Position>
+	<Team_Id>356</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>6668</Id>
+	<Name>Steven Fernandes Pereira</Name>
+	<Position>Defender</Position>
+	<Team_Id>356</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>6764</Id>
+	<Name>Ben Rienstra</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>356</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>10175</Id>
+	<Name>Tomas Necid</Name>
+	<Position>Forward</Position>
+	<Team_Id>356</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>12893</Id>
+	<Name>Warner Hahn</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>356</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower> </StopPower>
+	<PenaltyStopPower> </PenaltyStopPower>
+</Player>
+<Player>
+	<Id>13181</Id>
+	<Name>Boy de Jong</Name>
+	<Position>Goalkeeper</Position>
+	<Team_Id>356</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<StopPower> </StopPower>
+	<PenaltyStopPower> </PenaltyStopPower>
+</Player>
+<Player>
+	<Id>13182</Id>
+	<Name>Rick Dekker</Name>
+	<Position>Defender</Position>
+	<Team_Id>356</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>13183</Id>
+	<Name>Soufian Moro</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>356</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>13184</Id>
+	<Name>Nikolaos Ioannidis</Name>
+	<Position>Forward</Position>
+	<Team_Id>356</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>13863</Id>
+	<Name>Wouter Marinus</Name>
+	<Position>Midfielder</Position>
+	<Team_Id>356</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+<Player>
+	<Id>14265</Id>
+	<Name>Kingsley Ehizibue</Name>
+	<Position>Defender</Position>
+	<Team_Id>356</Team_Id>
+	<Number> </Number>
+	<Status>0</Status>
+	<TimeNotAvailable>0</TimeNotAvailable>
+	<Reason>0</Reason>
+	<Attack> </Attack>
+	<Defence> </Defence>
+	<Stamina> </Stamina>
+</Player>
+</PEC Zwolle>
