@@ -20,6 +20,24 @@ public abstract class Players {
 		this.reason = reason;
 		
 	}
+	
+	public boolean equals(Object other){
+		
+		if(other instanceof Players){
+			
+			Players that = (Players)other;
+			
+			if(this.id == that.id){
+				
+				return true;
+				
+			}
+			
+		}
+		
+		return false;
+		
+	}
 
 	public int getId() {
 		return id;

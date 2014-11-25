@@ -1,18 +1,22 @@
+import java.util.ArrayList;
+
 
 public class Team {
 
 	String name;
+	ArrayList<Players> players = new ArrayList<Players>();
 	int numberOfPlayers;
 	String colour;
 	int budget;
 	int points;
 	int goals;
 	int goalsAgainst;
-	
-	
-	public Team(String name, int numberOfPlayers, String colour, int budget, int points, int goals, int goalsAgainst){
+
+
+	public Team(String name, ArrayList<Players> players, int numberOfPlayers, String colour, int budget, int points, int goals, int goalsAgainst){
 		
 		this.name = name;
+		this.players = players;
 		this.numberOfPlayers = numberOfPlayers;
 		this.colour = colour;
 		this.budget = budget;
@@ -20,6 +24,35 @@ public class Team {
 		this.goals = goals;
 		this.goalsAgainst = goalsAgainst;
 		
+	}
+	
+	public boolean equals(Object other){
+		
+		if(other instanceof Team){
+			
+			Team that = (Team)other;
+			
+			if(this.name == that.name){
+				
+				return true;
+				
+			}
+			
+		}
+		
+		return false;
+		
+	}
+	
+	
+	
+	public ArrayList<Players> getPlayers() {
+		return players;
+	}
+
+
+	public void setPlayers(ArrayList<Players> players) {
+		this.players = players;
 	}
 
 
