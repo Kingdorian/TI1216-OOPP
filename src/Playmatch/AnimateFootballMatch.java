@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Playmatch;
 
 import ContainerPackage.Match;
@@ -26,12 +21,13 @@ import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 
 /**
- *
+ * AnimaFootballMatch plays a football match, based on positions saved in a Match object.
  * @author faris
  */
 public class AnimateFootballMatch {
     
-    public int MILLISECONDS_PER_SLICE = 245;
+    // The amount of slides to play per second. Change this to change the playing speed.
+    private int MILLISECONDS_PER_SLICE = 245;
         
     // Circles representing the players
     private final Circle playerCircle[] = new Circle[11];
@@ -48,10 +44,16 @@ public class AnimateFootballMatch {
     private Match footballMatch;
     
     
+    /**
+     * play a match defined in the Match parameter
+     * @param rootLayout        a BorderPane, which center should contain the animated match
+     * @param footballMatch     Match containing a full match to play
+     */
     public void playMatch(BorderPane rootLayout, Match footballMatch){
         
         this.footballMatch = footballMatch;
-        
+     
+        // load the view
         AnchorPane anchorPane;
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -189,5 +191,17 @@ public class AnimateFootballMatch {
         
         // play timeline
         timeline.play();
+    }
+    
+    /**
+     * Change the speed to play at. 1 is the default, 2 is twice the speed, etc.
+     * @param factor    int: the factor to the speed
+     */
+    public void setSpeed(int factor){
+        if(factor < 0.5)
+            return;
+            
+        MILLISECONDS_PER_SLICE = 245/factor;
+        
     }
 }

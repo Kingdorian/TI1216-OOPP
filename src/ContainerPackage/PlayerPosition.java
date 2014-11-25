@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ContainerPackage;
 
 /**
@@ -16,6 +11,7 @@ public final class PlayerPosition extends Position {
     
     private boolean onField = true; // stores if the player is currently on the field
     
+    
     /**
      * constructor with player positions
      * @param xPos
@@ -25,6 +21,7 @@ public final class PlayerPosition extends Position {
         super(xPos, yPos);
     }
     
+    
     /**
      * basic constructor without parameters
      */
@@ -32,11 +29,20 @@ public final class PlayerPosition extends Position {
         super();
     }
     
-
+    
+    /**
+     * gives if this player is on the field
+     * @return      a boolean: is the player currently on the field?
+     */
     public boolean isOnField() {
         return onField;
     }
 
+    
+    /**
+     * set: is this player on the field?
+     * @param inField       a boolean: is the player currently on the field?
+     */
     public void setOnField(boolean inField) {
         this.onField = inField;
     }

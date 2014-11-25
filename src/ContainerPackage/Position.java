@@ -1,12 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ContainerPackage;
 
+
 /**
- *
+ * This class stores a positions x and y coordinate as two bytes.
+ * Those bytes can be acessed by other classes like it are ints.
+ * The x coordinate should have a value between 0 and 1024.
+ * The y coordinate should have a value between 0 and 768.
+ * The positions aren't stored exactly, but can be 2 pixels off.
  * @author faris
  */
 public class Position {
@@ -19,8 +19,15 @@ public class Position {
      * @param yPos 
      */
     public Position(int xPos, int yPos){
-        this.yPos =(byte) ((int) (yPos/3) - 128); // turn an int ranging from 0 to 1024 to a number which is storeable with a byte
-        this.xPos =(byte) ((int) (xPos/4) - 128); // turn an int ranging from 0 to 768 to a number which is storeable with a byte
+        if(yPos<767)
+            this.yPos =(byte) ((int) ((yPos+1.5)/3) - 128); // turn an int ranging from 0 to 768 to a number which is storeable with a byte
+        else
+            this.yPos = (byte) 127;
+        
+        if(xPos<1023)
+            this.xPos =(byte) ((int) ((xPos+2)/4) - 128); // turn an int ranging from 0 to 1024 to a number which is storeable with a byte
+        else
+            this.xPos = (byte) 127;
     }
     
     /**
@@ -30,40 +37,20 @@ public class Position {
     }
     
 
+    /**
+     * gives the y position
+     * @return      an int containing the y position
+     */
     public int getyPos() {
         return (int) ((yPos + 128) * 3); // turn byte value of y position into an integer ranging from 0 to 768
     }
 
-    public int getxPos() {
-        return (int) ((xPos + 128) * 4); // turn byte value of x position into an integer ranging from 0 to 1024
-    }
-
-    public void setyPos(int yPos) {
-        this.yPos =(byte) ((int) (yPos/3) - 128); // turn an int ranging from 0 to 768 to a number which is storeable with a byte
-    }
-
-    public void setxPos(int xPos) {
-        this.xPos = (byte) ((int) (xPos/4) - 128); // turn an int ranging from 0 to 1024 to a number which is storeable with a byte
-    }
     
     /**
-     * gives the distance between this player and other player
-     * @param other  player to get disntance to
-     * @return       double: the distance
+     * gives the x position
+     * @return      an int containing the x position
      */
-    public double distanceTo(Position other){
-        if(other == null)
-            return 100000;
-        return Math.sqrt(Math.pow(this.getxPos() - other.getxPos(), 2) + Math.pow(this.getyPos() - other.getyPos(), 2)) ;
-    }
-    
-    
-    @Override
-    public boolean equals(Object o){
-        if(!(o instanceof Position))
-            return false;
-        
-        Position other = (Position) o;
-        return other.getxPos() == this.getxPos() && other.getyPos() == this.getyPos();
+    public int getxPos() {
+        return (int) ((xPos + 128) * 4); // turn byte value of x position into an integer ranging from 0 to 1024
     }
 }
