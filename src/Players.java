@@ -3,17 +3,28 @@ public abstract class Players {
 	
 	int id;
 	String name;
-	String surName;
+	String surname;
 	int number;
-	int status;
+	Status status;
 	int timeNotAvailable;
-	int reason;
+	Reason reason;
 	
-	public Players(int id, String name, String surName, int number, int status, int timeNotAvailable, int reason){
+	/**
+	 * Constructor
+	 * 
+	 * @param id Players unique ID.
+	 * @param name First name of the player.
+	 * @param surname Surname of the player.
+	 * @param number Backnumber of the player.
+	 * @param status Status if player is injured or suspended or both.
+	 * @param timeNotAvailable Time that the player isn't available.
+	 * @param reason Reason why the player is injured.
+	 */
+	public Players(int id, String name, String surname, int number, Status status, int timeNotAvailable, Reason reason){
 		
 		this.id = id;
 		this.name = name;
-		this.surName = surName;
+		this.surname = surname;
 		this.number = number;
 		this.status = status;
 		this.timeNotAvailable = timeNotAvailable;
@@ -56,11 +67,11 @@ public abstract class Players {
 	}
 
 	public String getSurName() {
-		return surName;
+		return surname;
 	}
 
 	public void setSurName(String surName) {
-		this.surName = surName;
+		this.surname = surName;
 	}
 
 	public int getNumber() {
@@ -71,11 +82,11 @@ public abstract class Players {
 		this.number = number;
 	}
 
-	public int getStatus() {
+	public Status getStatus() {
 		return status;
 	}
 
-	public void setStatus(int status) {
+	public void setStatus(Status status) {
 		this.status = status;
 	}
 
@@ -87,11 +98,11 @@ public abstract class Players {
 		this.timeNotAvailable = timeNotAvailable;
 	}
 
-	public int getReason() {
+	public Reason getReason() {
 		return reason;
 	}
 
-	public void setReason(int reason) {
+	public void setReason(Reason reason) {
 		this.reason = reason;
 	}
 	

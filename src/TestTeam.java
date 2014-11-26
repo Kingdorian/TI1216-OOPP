@@ -11,8 +11,8 @@ public class TestTeam {
 	public void testTeam() {
 		ArrayList<Players> ado = new ArrayList<Players>();
 		ArrayList<Players> ajax = new ArrayList<Players>();
-		Player player1 = new Player(1, "Bob", "De Bouwer", 9, 0, 5, 1, 90, 60, 80);
-		Player player2 = new Player(2, "Bob", "De Bouwer", 9, 0, 5, 1, 90, 60, 80);
+		Player player1 = new Player(1, "Bob", "De Bouwer", 9, Status.DEFAULT, 5, Reason.DEFAULT, 90, 60, 80);
+		Player player2 = new Player(2, "Bob", "De Bouwer", 9, Status.DEFAULT, 5, Reason.DEFAULT, 90, 60, 80);
 		ado.add(player1);
 		ado.add(player2);
 		ajax.add(player1);
