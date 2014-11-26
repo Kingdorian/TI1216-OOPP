@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<savegames>
+	<savegame>
+		<budget>2000000</budget>
+		<status>attributes for the competion here</status>
+		<teams>
+			Layout thesame as competition.xml in here 
+		</teams>
+	</savegame>
+</savegames>
