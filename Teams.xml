@@ -1035,7 +1035,7 @@
 				<reason>0</reason>
 				<attack>58</attack>
 				<defence>25</defence>
-				<stamina> </stamina>
+				<stamina>63</stamina>
 			</player>
 			<player>
 				<name>Vytautas</name>
@@ -3366,7 +3366,7 @@
 				<reason>0</reason>
 				<attack>29</attack>
 				<defence>64</defence>
-				<stamina> </stamina>
+				<stamina>69</stamina>
 			</player>
 			<player>
 				<name>Maikel</name>
@@ -3390,7 +3390,7 @@
 				<reason>0</reason>
 				<attack>29</attack>
 				<defence>59</defence>
-				<stamina> </stamina>
+				<stamina>52</stamina>
 			</player>
 			<player>
 				<name>Joost</name>
@@ -4634,7 +4634,7 @@
 				<reason>0</reason>
 				<attack>7</attack>
 				<defence>63</defence>
-				<stamina> </stamina>
+				<stamina>50</stamina>
 			</player>
 			<player>
 				<name>Denys</name>
@@ -4646,7 +4646,7 @@
 				<reason>0</reason>
 				<attack>67</attack>
 				<defence>33</defence>
-				<stamina> </stamina>
+				<stamina>72</stamina>
 			</player>
 			<player>
 				<name>Robin</name>
@@ -4783,7 +4783,7 @@
 				<reason>0</reason>
 				<attack>65</attack>
 				<defence>61</defence>
-				<stamina> </stamina>
+				<stamina>63</stamina>
 			</player>
 			<goalkeeper>
 				<name>David</name>
