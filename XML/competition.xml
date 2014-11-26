@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<teams>
+	<team>
+		<name>ADO Den Haag</name>
+		<grass>artificial</grass>
+		<logo>http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/701/150x150.png</logo>
+		<players>
+			<Player>
+				<name>Een naam</name>
+				<someotherattributes>Content</someotherattributes>
+			</Player>
+		</players>
+	</team>
+</teams>
