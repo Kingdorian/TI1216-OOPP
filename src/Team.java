@@ -11,6 +11,7 @@ public class Team {
 	int points;
 	int goals;
 	int goalsAgainst;
+	boolean artificialGrass;
 
 	/**
 	 * Constructor
@@ -23,8 +24,9 @@ public class Team {
 	 * @param points The current points of the team.
 	 * @param goals The numbers of goals the team has made in the league.
 	 * @param goalsAgainst The numbers of goals scored against the team in the league.
+	 * @param artificialGrass true if team plays on artificialGrass.
 	 */
-	public Team(String name, ArrayList<Players> players, int numberOfPlayers, String colour, int budget, int points, int goals, int goalsAgainst){
+	public Team(String name, ArrayList<Players> players, int numberOfPlayers, String colour, int budget, int points, int goals, int goalsAgainst, boolean artificialGrass){
 		
 		this.name = name;
 		this.players = players;
@@ -34,9 +36,18 @@ public class Team {
 		this.points = points;
 		this.goals = goals;
 		this.goalsAgainst = goalsAgainst;
+		this.artificialGrass = artificialGrass;
 		
 	}
 	
+	public boolean isArtificialGrass() {
+		return artificialGrass;
+	}
+
+	public void setArtificialGrass(boolean artificialGrass) {
+		this.artificialGrass = artificialGrass;
+	}
+
 	public boolean equals(Object other){
 		
 		if(other instanceof Team){

@@ -17,9 +17,9 @@ public class TestTeam {
 		ado.add(player2);
 		ajax.add(player1);
 		
-		Team team1 = new Team("Ado Den haag", ado, 2, "Groen Geel", 100000, 62, 92, 2);
-		Team team2 = new Team("Ado Den haag", ado, 2, "Groen Geel", 100000, 62, 92, 2);
-		Team team3 = new Team("Ajax", ajax, 1, "Rood Wit", 100000, 62, 92, 2);
+		Team team1 = new Team("Ado Den haag", ado, 2, "Groen Geel", 100000, 62, 92, 2, false);
+		Team team2 = new Team("Ado Den haag", ado, 2, "Groen Geel", 100000, 62, 92, 2, false);
+		Team team3 = new Team("Ajax", ajax, 1, "Rood Wit", 100000, 62, 92, 2, true);
 		
 		assertEquals(team1, team2);
 		assertNotEquals(team1, team3);
