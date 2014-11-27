@@ -21,18 +21,18 @@ public class ExactPosition {
     public ExactPosition(double xPos, double yPos){
         this.yPos = yPos;
         this.xPos = xPos;
+        
+        // make sure nothing will ever get drawn outside the screen
+        if(yPos < 0)
+            this.yPos = 0;
+        if(xPos < 0)
+            this.xPos = 0;
+        if(yPos > 768)
+            this.yPos = 768;
+        if(xPos > 1024)
+            this.xPos = 1024;
     }
-    
-    /**
-     * constructor with player positions in int format
-     * @param xPos
-     * @param yPos 
-     */
-    public ExactPosition(int xPos, int yPos){
-        this.yPos = yPos;
-        this.xPos = xPos;
-    }
-    
+       
     /**
      * basic constructor without parameters
      */
@@ -45,6 +45,11 @@ public class ExactPosition {
 
     public void setxPos(double xPos) {
         this.xPos = xPos;
+
+        if(xPos < 0)
+            this.xPos = 0;
+        if(xPos > 1024)
+            this.xPos = 1024;
     }
 
     public double getyPos() {
@@ -53,6 +58,11 @@ public class ExactPosition {
 
     public void setyPos(double yPos) {
         this.yPos = yPos;
+        
+        if(yPos < 0)
+            this.xPos = 0;
+        if(yPos > 768)
+            this.xPos = 768;
     }
     
     

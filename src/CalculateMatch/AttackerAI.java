@@ -1,5 +1,11 @@
 package CalculateMatch;
 
+import static CalculateMatch.PlayerAI.LEFT_GOAL_POSITION;
+import static CalculateMatch.PlayerAI.MIDDLE_LINE_X;
+import static CalculateMatch.PlayerAI.RUNNING_SPEED;
+import static CalculateMatch.PlayerAI.WITH_BALL_SPEED;
+import static CalculateMatch.PlayerAI.getPosBySpeed;
+import static CalculateMatch.PlayerAI.moveToLeftGoal;
 import ContainerPackage.ExactPosition;
 import java.util.ArrayList;
 
@@ -17,11 +23,12 @@ public class AttackerAI extends PlayerAI {
      * constructor: needs the position of the attacker and the positions of other players
      * @param thisAttacker  the position of this attacker
      * @param positions     the previous positions of all other players
+     * @param isOnAllyTeam  boolean conaining if this player is on the ally team
      */
-    public AttackerAI(ExactPosition thisAttacker, CurrentPositions positions){
+    public AttackerAI(ExactPosition thisAttacker, CurrentPositions positions, boolean isOnAllyTeam){
         this.thisAttacker = thisAttacker;
         this.positions = positions;
-        isOnAllyTeam = positions.isAlly(thisAttacker);
+        this.isOnAllyTeam = isOnAllyTeam;
     }
     
     
@@ -32,19 +39,18 @@ public class AttackerAI extends PlayerAI {
     @Override
     public ExactPosition getNextPosition(){
         if(isOnAllyTeam){
-            if(thisAttacker.equals(positions.getClosestAllyTo(positions.getBallPosition()))){ // if closest player of own team to the ball
+            if(thisAttacker.equals(positions.getClosestAllyTo(positions.getBallPosition()))) // if closest player of own team to the ball
                    return moveTowardBallAlly();
-            }
-        } else
-            if(thisAttacker.equals(positions.getClosestEnemyTo(positions.getBallPosition()))) // if closest player of own team to the ball
-                   return moveTowardBallEnemy();
-            else{
-                ExactPosition p = positions.getClosestEnemyTo(positions.getBallPosition());
-                System.out.println("Closest (x,y):" + p.getxPos() + p.getyPos());
-                System.out.println("But was (x,y):" + thisAttacker.getxPos() + thisAttacker.getyPos());
-            }
-            
-        return thisAttacker;
+            else if(BallAI.getCurrentBallPosition().getxPos() < MIDDLE_LINE_X)
+                return attackingAlly();
+            else
+                return defendingAlly();
+        } else if(thisAttacker.equals(positions.getClosestEnemyTo(positions.getBallPosition()))) // if closest player of own team to the ball
+                return moveTowardBallEnemy();
+            else if(BallAI.getCurrentBallPosition().getxPos() < MIDDLE_LINE_X)
+                return attackingEnemy();
+            else
+                return defendingEnemy();
     }
     
     
@@ -61,6 +67,25 @@ public class AttackerAI extends PlayerAI {
     }
     
     
+    /**
+     * This player is on the ally team and the ball is on the other side (so his team will be attacking)
+     */
+    private ExactPosition attackingAlly(){
+        // do stuff an attacking attacker should do
+        return null;
+    }
+    
+    
+    /**
+     * This player is on the ally team and the ball is on their side (so his team will be defending)
+     */
+    private ExactPosition defendingAlly(){
+        // do stuff a defending attacker should do
+        return null;
+    }
+    
+    
+    
     
     /**
      * this player is the closest player of the enemy team to the ball, so move toward it
@@ -69,7 +94,7 @@ public class AttackerAI extends PlayerAI {
         if(positions.isClosestToBall(thisAttacker))
             if(thisAttacker.distanceTo(positions.getBallPosition()) < 25){
 
-                // colse enough to ball: decide direction to kick ball
+                // close enough to ball: decide direction to kick ball
                 ArrayList<ExactPosition> opponents = positions.getEnemiesInFrontOf(thisAttacker);
                    
                 if(opponents.size() > 1){
@@ -85,8 +110,8 @@ public class AttackerAI extends PlayerAI {
                     for(ExactPosition p : opponents)
                         if(thisAttacker.distanceTo(p) > thisAttacker.distanceTo(closest) && thisAttacker.distanceTo(p) < thisAttacker.distanceTo(secondClosest) && Math.abs(p.getyPos() - closest.getyPos()) > 60)
                             secondClosest = p;
-                    if(secondClosest == null)
-                        secondClosest = new ExactPosition(113, 276);
+                    if(secondClosest != null){
+                        //secondClosest = new ExactPosition(113, 276);
 
                     // get direction to shoot ball to
                     double xDirection = closest.getxPos() - thisAttacker.getxPos() + secondClosest.getxPos();
@@ -97,16 +122,34 @@ public class AttackerAI extends PlayerAI {
                     BallAI.shootBallTo(direction);
                     
                     //move toward where you shot the ball to
-                    return getPosBySpeed(WITHBALLSPEED, thisAttacker, direction);
-                } else if(thisAttacker.distanceTo(new ExactPosition(60, 381)) < 50){
+                    return getPosBySpeed(WITH_BALL_SPEED, thisAttacker, direction);
+                    }
+                } else if(thisAttacker.distanceTo(LEFT_GOAL_POSITION) < 200){
                     System.out.println("shoot at goal: not implemented yet");
-                } else{
-                    ExactPosition goalPosition = new ExactPosition(60,381);
-                    BallAI.shootBallTo(goalPosition);
-                    
-                    return getPosBySpeed(WITHBALLSPEED, thisAttacker, goalPosition);
+                    BallAI.shootLeftGoal();
+                } else{                  
+                    return moveToLeftGoal(WITH_BALL_SPEED, thisAttacker);
+                    //return getPosBySpeed(WITH_BALL_SPEED, thisAttacker, LEFT_GOAL_POSITION);
                 }
             }
-        return getPosBySpeed(RUNNINGSPEED, thisAttacker, BallAI.getCurrentBallPosition());
+        return getPosBySpeed(RUNNING_SPEED, thisAttacker, BallAI.getCurrentBallPosition());
      }
+    
+    
+    /**
+     * This player is on the enemy team and the ball is on the other side (so his team will be attacking)
+     */
+    private ExactPosition attackingEnemy(){
+        
+        return null;
+    }
+    
+    
+    /**
+     * This player is on the enemy team and the ball is on their side (so his team will be defending)
+     */
+    private ExactPosition defendingEnemy(){
+        // do stuff a defending attacker should do
+        return null;
+    }
 }

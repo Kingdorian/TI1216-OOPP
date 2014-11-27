@@ -28,8 +28,8 @@ public class MainAIController {
         BallAI.setCurrentBallPosition(currentPositions.getBallPosition());
         
         // set the rest of the match
-        for(int i=0; i<60; i++){
-            ExactPosition pp = (new AttackerAI(currentPositions.getEnemyTeam().get(9), currentPositions)).getNextPosition();
+        for(int i=0; i<180; i++){
+            ExactPosition pp = (new AttackerAI(currentPositions.getEnemyTeam().get(9), currentPositions, false)).getNextPosition();
             CurrentPositions nextPositions = (new CurrentPositions());
             nextPositions.setStartOfMatchPositions();
             

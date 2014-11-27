@@ -13,9 +13,13 @@ import ContainerPackage.ExactPosition;
  */
 public abstract class PlayerAI {
     
-    public static final double RUNNINGSPEED = 10;
-    public static final double WITHBALLSPEED = 7.5;
-    public static final double WALKSPEED = 2.5;
+    public static final double RUNNING_SPEED = 10;
+    public static final double WITH_BALL_SPEED = 7.5;
+    public static final double WALK_SPEED = 2.5;
+    public static final ExactPosition LEFT_GOAL_POSITION = new ExactPosition(60,381);
+    public static final ExactPosition RIGHT_GOAL_POSITION = new ExactPosition(60,955);
+    public static final int MIDDLE_LINE_X = 510;
+
     
     public abstract ExactPosition getNextPosition();
     
@@ -31,5 +35,13 @@ public abstract class PlayerAI {
         double xPos = (direction.getxPos() - currentLocation.getxPos()) * factor + currentLocation.getxPos();
         double yPos = (direction.getyPos() - currentLocation.getyPos()) * factor + currentLocation.getyPos();
         return new ExactPosition((int) xPos,(int) yPos);
+    }
+    
+    public static ExactPosition moveToLeftGoal(double speed, ExactPosition currentLocation){
+        return getPosBySpeed(speed, currentLocation, LEFT_GOAL_POSITION);
+    }
+    
+    public static ExactPosition moveToRightGoal(double speed, ExactPosition currentLocation){
+        return getPosBySpeed(speed, currentLocation, RIGHT_GOAL_POSITION);
     }
 }
