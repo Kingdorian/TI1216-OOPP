@@ -263,7 +263,7 @@
 				<stamina>61</stamina>
 			</player>
 		</players>
-		<grass>artificial</grass>
+		<artificialGrass>true</artificialGrass>
 		<logo>http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/701/150x150.png</logo>
 	</team>
 	<team>
@@ -542,7 +542,7 @@
 				<penaltystoppower>71</penaltystoppower>
 			</goalkeeper>
 		</players>
-		<grass>natural</grass>
+		<artificialGrass>false</artificialGrass>
 		<logo>http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/215/150x150.png</logo>
 	</team>
 	<team>
@@ -819,7 +819,7 @@
 				<stamina>65</stamina>
 			</player>
 		</players>
-		<grass>natural</grass>
+		<artificialGrass>false</artificialGrass>
 		<logo>http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/313/150x150.png</logo>
 	</team>
 	<team>
@@ -1098,7 +1098,7 @@
 				<stamina>59</stamina>
 			</player>
 		</players>
-		<grass>artificial</grass>
+		<artificialGrass>true</artificialGrass>
 		<logo>http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/314/150x150.png</logo>
 	</team>
 	<team>
@@ -1341,7 +1341,7 @@
 				<stamina>43</stamina>
 			</player>
 		</players>
-		<grass>artificial</grass>
+		<artificialGrass>true</artificialGrass>
 		<logo>http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/697/150x150.png</logo>
 	</team>
 	<team>
@@ -1618,7 +1618,7 @@
 				<stamina>42</stamina>
 			</player>
 		</players>
-		<grass>artificial</grass>
+		<artificialGrass>true</artificialGrass>
 		<logo>http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/539/150x150.png</logo>
 	</team>
 	<team>
@@ -1895,7 +1895,7 @@
 				<stamina>49</stamina>
 			</player>
 		</players>
-		<grass>natural</grass>
+		<artificialGrass>false</artificialGrass>
 		<logo>http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/198/150x150.png</logo>
 	</team>
 	<team>
@@ -2184,7 +2184,7 @@
 				<stamina>52</stamina>
 			</player>
 		</players>
-		<grass>natural</grass>
+		<artificialGrass>false</artificialGrass>
 		<logo>http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/734/150x150.png</logo>
 	</team>
 	<team>
@@ -2475,7 +2475,7 @@
 				<stamina>56</stamina>
 			</player>
 		</players>
-		<grass>natural</grass>
+		<artificialGrass>false</artificialGrass>
 		<logo>http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/425/150x150.png</logo>
 	</team>
 	<team>
@@ -2742,7 +2742,7 @@
 				<stamina>53</stamina>
 			</player>
 		</players>
-		<grass>natural</grass>
+		<artificialGrass>false</artificialGrass>
 		<logo>http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/318/150x150.png</logo>
 	</team>
 	<team>
@@ -3029,7 +3029,7 @@
 				<stamina>78</stamina>
 			</player>
 		</players>
-		<grass>artificial</grass>
+		<artificialGrass>true</artificialGrass>
 		<logo>http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/2038/150x150.png</logo>
 	</team>
 	<team>
@@ -3306,7 +3306,7 @@
 				<stamina>64</stamina>
 			</player>
 		</players>
-		<grass>natural</grass>
+		<artificialGrass>false</artificialGrass>
 		<logo>http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/423/150x150.png</logo>
 	</team>
 	<team>
@@ -3583,7 +3583,7 @@
 				<stamina>56</stamina>
 			</player>
 		</players>
-		<grass>artificial</grass>
+		<artificialGrass>true</artificialGrass>
 		<logo>http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/424/150x150.png</logo>
 	</team>
 	<team>
@@ -3862,7 +3862,7 @@
 				<stamina>77</stamina>
 			</player>
 		</players>
-		<grass>natural</grass>
+		<artificialGrass>false</artificialGrass>
 		<logo>http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/204/150x150.png</logo>
 	</team>
 	<team>
@@ -4139,7 +4139,7 @@
 				<stamina>67</stamina>
 			</player>
 		</players>
-		<grass>natural</grass>
+		<artificialGrass>false</artificialGrass>
 		<logo>http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/324/150x150.png</logo>
 	</team>
 	<team>
@@ -4442,7 +4442,7 @@
 				<stamina>65</stamina>
 			</player>
 		</players>
-		<grass>natural</grass>
+		<artificialGrass>false</artificialGrass>
 		<logo>http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/325/150x150.png</logo>
 	</team>
 	<team>
@@ -4673,7 +4673,7 @@
 				<stamina>64</stamina>
 			</player>
 		</players>
-		<grass>natural</grass>
+		<artificialGrass>false</artificialGrass>
 		<logo>http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/232/150x150.png</logo>
 	</team>
 	<team>
@@ -4926,7 +4926,7 @@
 				<stamina>41</stamina>
 			</player>
 		</players>
-		<grass>natural</grass>
+		<artificialGrass>false</artificialGrass>
 		<logo>http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/207/150x150.png</logo>
 	</team>
 </teams>
