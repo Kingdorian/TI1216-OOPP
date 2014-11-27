@@ -1,6 +1,7 @@
 package CalculateMatch;
 
 import ContainerPackage.ExactPosition;
+import ContainerPackage.Vector;
 
 /**
  * This class decides the behaviour of the ball (so it can roll for more than
@@ -8,18 +9,28 @@ import ContainerPackage.ExactPosition;
  * @author faris
  */
 public class BallAI {
-    final static double BALLSPEED = 20.0;
+    
+    private static final ExactPosition LEFT_GOAL_POSITION = new ExactPosition(60,381);
+    private static final ExactPosition RIGHT_GOAL_POSITION = new ExactPosition(60,955);
+    
+    private static final int GOAL_SIZE = 80;
+    private static final double BALLSPEED = 20.0;
     
     private static ExactPosition currentBallPosition;
-    private static ExactPosition finalDesitination;
+   // private static ExactPosition finalDesitination;
+    private static Vector ballVector;
     private static int counter = 0;
+    private static boolean shootHard;
+    
     
     /**
      * set the direction for the ball to move to
      * @param destination   an ExactPosition containing the direction of the ball
      */
     public static void shootBallTo(ExactPosition destination){
-        finalDesitination = destination;
+        shootHard = false;
+        ballVector = new Vector(currentBallPosition, destination);
+        //finalDesitination = destination;
         counter = 0;
     }
     
@@ -31,22 +42,19 @@ public class BallAI {
     public static ExactPosition getNextBallPosition(){
         counter++;
         double speed = Math.random() * 7.5 + BALLSPEED;
+        
+        if(shootHard)
+            speed *= 5;
+        
         if(counter < 4){
             for(int i=1; i<counter; i++)
                 speed /= Math.sqrt(2);
         } else
             return currentBallPosition;
-        
-        if(currentBallPosition.distanceTo(finalDesitination) != 0){
-            double factor = speed/currentBallPosition.distanceTo(finalDesitination);
-            double xBall = (finalDesitination.getxPos() - currentBallPosition.getxPos()) * factor + currentBallPosition.getxPos();
-            double yBall = (finalDesitination.getyPos() - currentBallPosition.getyPos()) * factor + currentBallPosition.getyPos();
 
-            currentBallPosition = new ExactPosition((int) xBall, (int) yBall);
+        currentBallPosition = ballVector.translate(currentBallPosition, speed);
 
-            //return new Position((int) xBall, (int) yBall);
-        } //else
-            return currentBallPosition;
+        return currentBallPosition;
     }
 
     
@@ -68,11 +76,16 @@ public class BallAI {
     }
 
     
-    /**
-     * get the direction which the ball is kicked to
-     * @return      an ExactPosition containing the direction the ball is kicked to
-     */
-    public static ExactPosition getFinalDesitination() {
-        return finalDesitination;
+
+    
+    public static void shootLeftGoal(){
+        // decide direction to shoot ball
+        double xPos = LEFT_GOAL_POSITION.getxPos();
+        double yPos = LEFT_GOAL_POSITION.getyPos();
+        yPos += (Math.random() *  GOAL_SIZE * 0.8) - (Math.random() *  GOAL_SIZE * 0.8);
+        
+        // shoot ball
+        shootBallTo(new ExactPosition(xPos, yPos));
+        shootHard = true;
     }
 }
