@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" styleClass="applicationBackground" stylesheets="@../css/Style.css">
+         <children>
+            <Rectangle fill="DODGERBLUE" height="100.0" layoutY="-50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="topMenu" width="1024.0" />
+            <ImageView fitHeight="175.0" fitWidth="507.0" layoutX="14.0" layoutY="14.0">
+               <image>
+                  <Image url="@../../img/logo.png" />
+               </image>
+            </ImageView>
+            <Group layoutX="472.0" layoutY="318.0" />
+            <Rectangle fill="DODGERBLUE" height="100.0" layoutX="700.0" layoutY="102.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="topMenu" width="300.0" />
+            <Button layoutX="700.0" layoutY="152.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" styleClass="menuItem" text="Button" />
+            <Button layoutX="700.0" layoutY="202.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" styleClass="menuItem" text="Button" />
+            <Button layoutX="700.0" layoutY="252.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" styleClass="menuItem" text="Button">
+               <font>
+                  <Font name="Verdana" size="13.0" />
+               </font>
+            </Button>
+            <Button layoutX="700.0" layoutY="302.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" styleClass="menuItem" text="Button">
+               <font>
+                  <Font name="Verdana" size="13.0" />
+               </font>
+            </Button>
+         </children></Pane>
+   </children>
+</AnchorPane>

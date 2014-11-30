@@ -1,0 +1,23 @@
+.applicationBackground {
+    -fx-background-image: url("../../img/bg.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 100%, auto;
+    -fx-background-position: top left;
+}
+
+.topMenu {
+	-fx-arc-height: 50;
+	-fx-arc-width: 50;
+	-fx-fill: rgba(15,15,15,0.70);
+	-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.50), 10px, 0px, 0px, 5px);
+}
+
+.menuItem {
+	
+	-fx-background-color: rgba(147, 147, 147,0.8);
+	-fx-background-radius: 0;
+	-fx-effect: dropshadow(three-pass-box, rgba(147,147,147,0.80), 10px, 0px, 0px, 5px);	
+	-fx-font: 14pt 'Verdana';
+	-fx-font-weight: bold;
+	-fx-text-fill: rgb(242, 242, 242);
+}
