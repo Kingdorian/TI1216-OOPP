@@ -18,33 +18,41 @@ public class XMLHandler {
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 			DocumentBuilder db = dbf.newDocumentBuilder();
 			Document doc = db.parse(new File(filename));
-			Element rootEl = doc.getDocumentElement();
-			NodeList teamnodes = rootEl.getChildNodes();
+			NodeList teamnodes = doc.getElementsByTagName("team");
 			for(int i = 0; i<teamnodes.getLength();i++){
-				teams.add(parseTeam((Element)teamnodes.item(i)));
+				teams.add(parseTeam(teamnodes.item(i)));
 			}
 			return teams;
 			
 		}
-		public static Team parseTeam(Element teamElement){
+		public static Team parseTeam(Node teamNode){
 			ArrayList<Players> players = new ArrayList<Players>();
-			NodeList nodes = teamElement.getChildNodes();
-			for(int i =0; i<nodes.getLength();i++){
-				Node node = nodes.item(i);
-				Element el = (Element)node;
-				players.add(parsePlayer(el));
+			NodeList nodes = teamNode.getChildNodes();
+			for(int i = 0; i<nodes.getLength();i++){
+				NodeList subNodes = nodes.item(i).getChildNodes();
+				switch(nodes.item(i).getNodeName()){
+				case "players":
+					for(int j =0; j<subNodes.getLength();j++){
+						players.add(parsePlayer(subNodes.item(j)));
+					}
+					break;
+				}
 			}
 			return new Team(null, null, 0, null, 0, 0, 0, 0);
 		}
 		
-		public static Player parsePlayer(Element playerElement){
+		public static Player parsePlayer(Node playerNode){
 			String name;
-			NodeList nl = playerElement.getChildNodes();
+			NodeList nl = playerNode.getChildNodes();
 			for(int j = 0; j<nl.getLength();j++){
 				switch(nl.item(j).getNodeName()){
 				//Add cases here to parse certain elements
-					case "Name":
+					case "name":
 						name = nl.item(j).getTextContent();
+						System.out.println(name);
+					case "someotherattributes":
+						name = nl.item(j).getTextContent();
+						System.out.println(name);
 						break;
 				}
 			}
