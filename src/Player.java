@@ -4,11 +4,11 @@ public class Player extends Players {
 	int attack;
 	int defence;
 	int stamina;
+	private static int id = 0;
 	
 	/**
 	 * Constructor
 	 * 
-	 * @param id Players unique ID..
 	 * @param name First name of the player.
 	 * @param surname Surname of the player.
 	 * @param number Backnumber of the player.
@@ -19,10 +19,10 @@ public class Player extends Players {
 	 * @param defence Defence skill of the player.
 	 * @param stamina Stamina of the players.
 	 */
-	public Player(int id, String name, String surName, int number, Status status,
+	public Player(String name, String surName, int number, Status status,
 			int timeNotAvailable, Reason reason, int attack, int defence, int stamina) {
 		super(id, name, surName, number, status, timeNotAvailable, reason);
-		
+		id++;
 		this.attack = attack;
 		this.defence = defence;
 		this.stamina = stamina;
@@ -51,6 +51,11 @@ public class Player extends Players {
 
 	public void setStamina(int stamina) {
 		this.stamina = stamina;
+	}
+	
+	public String toString() {
+		return "Player [attack=" + attack + ", defence=" + defence
+				+ ", stamina=" + stamina + super.toString() + "]";
 	}
 
 }

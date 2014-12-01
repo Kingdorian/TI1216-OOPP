@@ -33,31 +33,89 @@ public class XMLHandler {
 				switch(nodes.item(i).getNodeName()){
 				case "players":
 					for(int j =0; j<subNodes.getLength();j++){
-						players.add(parsePlayer(subNodes.item(j)));
+						if(subNodes.item(j).getNodeName().equals("player")){
+							players.add(parsePlayer(subNodes.item(j)));
+						}
 					}
 					break;
 				}
 			}
-			return new Team(null, null, 0, null, 0, 0, 0, 0);
+			return null;
+			//return new Team(null, null, 0, null, 0, 0, 0, 0);
 		}
 		
 		public static Player parsePlayer(Node playerNode){
-			String name;
+			String name = null, surname = null;
+			int number = Integer.MIN_VALUE, 
+				tna	= Integer.MIN_VALUE,
+				attack = Integer.MIN_VALUE, 
+				defence = Integer.MIN_VALUE, 
+				stamina = Integer.MIN_VALUE;
+			Status status = Status.DEFAULT;
+			Reason reason = Reason.DEFAULT;
 			NodeList nl = playerNode.getChildNodes();
-			for(int j = 0; j<nl.getLength();j++){
+			for(int j = 1; j<nl.getLength();j=j+2){
+//				System.out.println(nl.item(j).getNodeName());
 				switch(nl.item(j).getNodeName()){
 				//Add cases here to parse certain elements
+
 					case "name":
 						name = nl.item(j).getTextContent();
-						System.out.println(name);
-					case "someotherattributes":
-						name = nl.item(j).getTextContent();
-						System.out.println(name);
 						break;
+					case "surname":
+						surname = nl.item(j).getTextContent();
+						break;
+					case "number":
+						number = Integer.parseInt(nl.item(j).getTextContent());
+						break;
+					case "timenotavailable":
+						tna = Integer.parseInt(nl.item(j).getTextContent());
+						break;
+					case "reason":
+						switch(nl.item(j).getTextContent()){
+							case "HARMSTRING":
+								reason = Reason.HARMSTRING;
+								break;
+							case "KNEE":
+								reason = Reason.KNEE;
+								break;
+							case "HEAD":
+								reason = Reason.HEAD;
+								break;
+							case "ANKEL":
+								reason = Reason.ANKEL;
+								break;
+						}
+						break;
+					case "attack":
+						attack = Integer.parseInt(nl.item(j).getTextContent());
+						break; 
+					case "defence":
+						defence = Integer.parseInt(nl.item(j).getTextContent());
+						break; 
+					case "stamina":
+						stamina = Integer.parseInt(nl.item(j).getTextContent());
+						break; 
+					case "status":
+						switch(nl.item(j).getTextContent()){
+						case "INJUREDSUSPENDED":
+							status = Status.INJUREDSUSPENDED;
+							break;
+						case "SUSPENDED":
+							status = Status.SUSPENDED;
+							break;
+						case "INJURED":
+							status = Status.INJURED;
+							break;
+					}
 				}
 			}
-			return null;
-			//return new Player(0, name, name, 0, 0, 0, 0, 0, 0, 0);
+			if(name!=null&&surname!=null&&number!=Integer.MIN_VALUE&&tna!=Integer.MIN_VALUE
+				&attack!=Integer.MIN_VALUE&&defence!=Integer.MIN_VALUE&&stamina!=Integer.MIN_VALUE){
+				return new Player(name, surname, number, status, tna, reason, attack, defence, stamina);
+			}else{
+				return null;
+			}
 		}
 
 }

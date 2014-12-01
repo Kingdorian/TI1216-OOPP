@@ -5,6 +5,7 @@ public abstract class Players {
 	String name;
 	String surname;
 	int number;
+
 	Status status;
 	int timeNotAvailable;
 	Reason reason;
@@ -106,6 +107,12 @@ public abstract class Players {
 		this.reason = reason;
 	}
 	
-		
+
+	public String toString() {
+		return "Players [id=" + id + ", name=" + name + ", surname=" + surname
+				+ ", number=" + number + ", status=" + status
+				+ ", timeNotAvailable=" + timeNotAvailable + ", reason="
+				+ reason + "]";
+	}
 
 }

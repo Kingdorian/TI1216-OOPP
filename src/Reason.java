@@ -7,7 +7,7 @@ public enum Reason {
 	HEAD(3),
 	ANKEL(4);
 	
-	private Reason(int reason) {
+	Reason(int reason) {
 		this.reason = reason;
 	}
 	
