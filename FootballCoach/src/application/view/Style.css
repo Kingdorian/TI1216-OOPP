@@ -1,5 +1,5 @@
 .applicationBackground {
-    -fx-background-image: url("../../img/bg.jpg");
+    -fx-background-image: url("/application/img/bg.jpg");
     -fx-background-repeat: no-repeat;
     -fx-background-size: 100%, auto;
     -fx-background-position: top left;

@@ -1,0 +1,32 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package application.view;
+
+import application.Main;
+import javafx.fxml.FXML;
+
+/**
+ *
+ * @author faris
+ */
+public class MainMenuController implements ViewControllerInterface {
+    
+    private static Main mainController;
+    
+    @FXML
+    private void initialize(){
+    }
+    
+    @Override
+    public void setMainController(Main mainController){
+        this.mainController = mainController;
+    }
+    
+    @FXML
+    private void button(){
+        mainController.switchView("test");
+    }
+}

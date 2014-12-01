@@ -12,19 +12,19 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.MainMenuController">
    <children>
-      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" styleClass="applicationBackground" stylesheets="@../css/Style.css">
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" styleClass="applicationBackground" stylesheets="@../view/Style.css">
          <children>
             <Rectangle fill="DODGERBLUE" height="100.0" layoutY="-50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="topMenu" width="1024.0" />
             <ImageView fitHeight="175.0" fitWidth="507.0" layoutX="14.0" layoutY="14.0">
                <image>
-                  <Image url="@../../img/logo.png" />
+                  <Image url="@../../application/img/logo.png" />
                </image>
             </ImageView>
             <Group layoutX="472.0" layoutY="318.0" />
             <Rectangle fill="DODGERBLUE" height="100.0" layoutX="700.0" layoutY="102.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="topMenu" width="300.0" />
-            <Button layoutX="700.0" layoutY="152.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" styleClass="menuItem" text="Button" />
+            <Button layoutX="700.0" layoutY="152.0" mnemonicParsing="false" onAction="#button" prefHeight="50.0" prefWidth="300.0" styleClass="menuItem" text="Button" />
             <Button layoutX="700.0" layoutY="202.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" styleClass="menuItem" text="Button" />
             <Button layoutX="700.0" layoutY="252.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" styleClass="menuItem" text="Button">
                <font>
