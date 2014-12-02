@@ -1,10 +1,13 @@
+import org.w3c.dom.Node;
+
 
 public abstract class Players {
 	
-	int id;
-	String name;
-	String surname;
-	int number;
+	private static int id;
+	private int playerid;
+	private String name;
+	private String surname;
+	private int number;
 
 	Status status;
 	int timeNotAvailable;
@@ -21,9 +24,10 @@ public abstract class Players {
 	 * @param timeNotAvailable Time that the player isn't available.
 	 * @param reason Reason why the player is injured.
 	 */
-	public Players(int id, String name, String surname, int number, Status status, int timeNotAvailable, Reason reason){
+	public Players(String name, String surname, int number, Status status, int timeNotAvailable, Reason reason){
 		
-		this.id = id;
+		this.playerid = id;
+		id++;
 		this.name = name;
 		this.surname = surname;
 		this.number = number;

@@ -1,8 +1,11 @@
+import java.util.ArrayList;
+
 
 public class Main {
 	public static void main(String[] args){
 		try{
-			XMLHandler.readCompetition("XML/competition.xml");
+			ArrayList<Team> teams = XMLHandler.readCompetition("XML/Savegames/1/competition.xml");
+			XMLHandler.writeCompetition(2, teams);
 		}catch(Exception e){
 			e.printStackTrace();
 		}

@@ -17,8 +17,8 @@ public class Goalkeeper extends Players {
 	 * @param stopPower Skill of the goalkeeper to stop goals.
 	 * @param penalyStopPower Skill of the goalkeeper to stop penalty's. 
 	 */
-	public Goalkeeper(int id, String name, String surName, int number, Status status, int timeNotAvailable, Reason reason, int stopPower, int penalyStopPower){
-		super(id, name, surName, number, status, timeNotAvailable, reason);
+	public Goalkeeper(String name, String surName, int number, Status status, int timeNotAvailable, Reason reason, int stopPower, int penalyStopPower){
+		super(name, surName, number, status, timeNotAvailable, reason);
 		
 		this.stopPower = stopPower;
 		this.penaltyStopPower = stopPower;
@@ -44,5 +44,8 @@ public class Goalkeeper extends Players {
 	public void setPenaltyStopPower(int penaltyStopPower) {
 		this.penaltyStopPower = penaltyStopPower;
 	}
-
+	public String toString() {
+		return "Goalkeeper [stopPower=" + stopPower + ", penaltyStopPower="
+				+ penaltyStopPower + super.toString() + "]";
+	}
 }

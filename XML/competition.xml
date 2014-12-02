@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <teams>
-	<team>
-<teams>
 	<team name="ADO Den Haag" art_grass="true" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/701/150x150.png">
 			<goalkeeper>
 				<name>Robert</name>
@@ -4841,7 +4839,5 @@
 			<defence>51</defence>
 			<stamina>41</stamina>
 		</player>
-	</team>
-</teams>
 	</team>
 </teams>

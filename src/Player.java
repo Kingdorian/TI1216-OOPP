@@ -1,10 +1,17 @@
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
+import java.io.File;
 public class Player extends Players {
 
 	int attack;
 	int defence;
 	int stamina;
-	private static int id = 0;
 	
 	/**
 	 * Constructor
@@ -21,8 +28,7 @@ public class Player extends Players {
 	 */
 	public Player(String name, String surName, int number, Status status,
 			int timeNotAvailable, Reason reason, int attack, int defence, int stamina) {
-		super(id, name, surName, number, status, timeNotAvailable, reason);
-		id++;
+		super(name, surName, number, status, timeNotAvailable, reason);
 		this.attack = attack;
 		this.defence = defence;
 		this.stamina = stamina;
@@ -57,5 +63,4 @@ public class Player extends Players {
 		return "Player [attack=" + attack + ", defence=" + defence
 				+ ", stamina=" + stamina + super.toString() + "]";
 	}
-
 }

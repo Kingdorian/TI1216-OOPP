@@ -3,14 +3,9 @@ import java.util.ArrayList;
 
 public class Team {
 
-	String name;
-	ArrayList<Players> players = new ArrayList<Players>();
-	int numberOfPlayers;
-	String colour;
-	int budget;
-	int points;
-	int goals;
-	int goalsAgainst;
+	private String name;
+	private ArrayList<Players> players = new ArrayList<Players>();
+	private int budget, points, goals, goalsAgainst;
 	boolean artificialGrass;
 
 	/**
@@ -26,12 +21,9 @@ public class Team {
 	 * @param goalsAgainst The numbers of goals scored against the team in the league.
 	 * @param artificialGrass true if team plays on artificialGrass.
 	 */
-	public Team(String name, ArrayList<Players> players, int numberOfPlayers, String colour, int budget, int points, int goals, int goalsAgainst, boolean artificialGrass){
+	public Team(String name, int budget, int points, int goals, int goalsAgainst, boolean artificialGrass){
 		
 		this.name = name;
-		this.players = players;
-		this.numberOfPlayers = numberOfPlayers;
-		this.colour = colour;
 		this.budget = budget;
 		this.points = points;
 		this.goals = goals;
@@ -40,7 +32,15 @@ public class Team {
 		
 	}
 	
-	public boolean isArtificialGrass() {
+	public Team(String name, boolean artificalGrass){
+		this.name = name;
+		this.budget = Integer.MIN_VALUE;
+		this.points = 0;
+		this.goals = 0;
+		this.goalsAgainst = 0;
+		this.artificialGrass = artificalGrass;
+	}
+	public boolean hasArtificialGrass() {
 		return artificialGrass;
 	}
 
@@ -87,27 +87,6 @@ public class Team {
 		this.name = name;
 	}
 
-
-	public int getNumberOfPlayers() {
-		return numberOfPlayers;
-	}
-
-
-	public void setNumberOfPlayers(int numberOfPlayers) {
-		this.numberOfPlayers = numberOfPlayers;
-	}
-
-
-	public String getColour() {
-		return colour;
-	}
-
-
-	public void setColour(String colour) {
-		this.colour = colour;
-	}
-
-
 	public int getBudget() {
 		return budget;
 	}
@@ -146,7 +125,23 @@ public class Team {
 	public void setGoalsAgainst(int goalsAgainst) {
 		this.goalsAgainst = goalsAgainst;
 	}
+	/**
+	 * Returns a string representation of the Team object
+	 */
+	public String toString() {
+		return "Team [name=" + name + ", players=" + players.toString() + ", budget="
+				+ budget + ", points=" + points + ", goals=" + goals
+				+ ", goalsAgainst=" + goalsAgainst + ", artificialGrass="
+				+ artificialGrass + "]";
+	}
 
+	/**
+	 * Adds a player to the team
+	 * @param Player p to add to the team
+	 */
+	public void addPlayer(Players p){
+		players.add(p);
+	}
 
 
 	
