@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane prefHeight="50.0" prefWidth="1024.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.GameScreenTitleController">
+   <children>
+      <Region prefHeight="50.0" prefWidth="1024.0" rotate="180.0" styleClass="topMenu" />
+      <ImageView fitHeight="46.0" fitWidth="133.0" layoutX="40.0">
+         <image>
+            <Image url="@../img/logo.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="160.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Welcome, [PLAYER]" textAlignment="CENTER" wrappingWidth="220.0" />
+      <Button layoutX="400.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="112.0" styleClass="topMenuButton" text="Save Game" />
+      <Button layoutX="512.0" mnemonicParsing="false" onAction="#buttonTitleScreen" prefHeight="50.0" prefWidth="119.0" styleClass="topMenuButton" text="Title Screen" />
+      <Text layoutX="650.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Budget: [BUDGET]" textAlignment="CENTER" wrappingWidth="193.97113037109375">
+         <font>
+            <Font name="System Italic" size="13.0" />
+         </font>
+      </Text>
+      <Button layoutX="870.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="119.0" styleClass="topMenuButton" text="Next Match" />
+   </children>
+</Pane>

@@ -6,18 +6,14 @@
 package application.view;
 
 import application.Main;
-import javafx.animation.FadeTransition;
-import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
-import javafx.scene.image.ImageView;
-import javafx.util.Duration;
 
 /**
  *
- * @author Jochem
+ * @author faris
  */
-public class GameScreenController implements ViewControllerInterface {
-    
+public class GameScreenTitleController implements ViewControllerInterface {
+        
     private static Main mainController;
     
     /**
@@ -30,15 +26,13 @@ public class GameScreenController implements ViewControllerInterface {
     
     @Override
     public void setMainController(Main mainController){
-        GameScreenController.mainController = mainController;
+        this.mainController = mainController;
     }
     
-    /**
-     * Method to change to MainMenu when the given button is clicked.
-     */
     @FXML
     private void buttonTitleScreen(){
-        mainController.switchView("MainMenu");
+        mainController.cleanRootLayout();
+        mainController.setCenterView("MainMenu");
     }
-   
+    
 }

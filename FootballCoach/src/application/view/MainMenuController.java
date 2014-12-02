@@ -50,11 +50,13 @@ public class MainMenuController implements ViewControllerInterface {
     }
     
     /**
-     * Method to switch to the "test" view.
+     * Method to switch to the game's HOME screen.
      */
     @FXML
     private void button(){
-        mainController.switchView("GameScreen");
+        mainController.setCenterView("GameScreenHOME");
+        mainController.setLeftView("GameScreenMenu");
+        mainController.setTopView("GameScreenTitle");
     }
    
 }

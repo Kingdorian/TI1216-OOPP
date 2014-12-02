@@ -12,21 +12,20 @@ import javafx.fxml.FXML;
  *
  * @author faris
  */
-public class testController implements ViewControllerInterface {
+public class GameScreenMenuController implements ViewControllerInterface {
     
     private static Main mainController;
     
+    /**
+     * Code executed when the view is loaded.
+     */
     @FXML
     private void initialize(){
+        
     }
     
     @Override
     public void setMainController(Main mainController){
-        testController.mainController = mainController;
-    }
-    
-    @FXML
-    private void backButton(){
-        mainController.switchView("MainMenu");
+        this.mainController = mainController;
     }
 }

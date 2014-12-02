@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane prefWidth="220.0" styleClass="wrapMenu" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.MainMenuController">
+   <children>
+      <Group styleClass="topMenu">
+         <children>
+            <Region prefHeight="50.0" prefWidth="220.0" styleClass="topMenu" />
+            <Text layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Home" textAlignment="CENTER" wrappingWidth="220.0">
+               <rotationAxis>
+                  <Point3D />
+               </rotationAxis>
+            </Text>
+         </children>
+      </Group>
+      <Button layoutY="50.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="220.0" styleClass="itemMenu" text="Home" />
+      <Button layoutY="100.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="220.0" styleClass="itemMenu" text="Team" />
+      <Button layoutY="150.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="220.0" styleClass="itemMenu" text="Schedule" />
+      <Button layoutY="200.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="220.0" styleClass="itemMenu" text="Ranking" />
+      <Button layoutY="250.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="220.0" styleClass="itemMenu" text="Market" />
+      <Button layoutY="300.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="220.0" styleClass="itemMenu" text="Other Teams" />
+   </children>
+</Pane>
