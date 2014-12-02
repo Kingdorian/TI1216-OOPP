@@ -38,7 +38,7 @@ public class XMLHandler {
 		 * @Param teamElement, the XML Element of that correesponds with a certain team
 		 * @return the Team composed out of the values in the Element supplied
 		 */
-		private static Team parseTeam(Element teamElement){
+		public static Team parseTeam(Element teamElement){
 			Team team = new Team(teamElement.getAttribute("name"), Boolean.parseBoolean(teamElement.getAttribute("art_grass")));
 			NodeList nodes = teamElement.getChildNodes();
 			for(int i = 0; i<nodes.getLength();i++){
@@ -62,7 +62,7 @@ public class XMLHandler {
 		 * @param playerNode to be parsed
 		 * @return Goalkeeper Object according to inputted node
 		 */
-		private static Goalkeeper parseGoalkeeper(Node playerNode){
+		public static Goalkeeper parseGoalkeeper(Node playerNode){
 
 			String name = null, surname = null;
 			int number = Integer.MIN_VALUE, 
@@ -79,8 +79,7 @@ public class XMLHandler {
 					case "name":
 						name = nl.item(i).getTextContent();
 						break;
-					case "surname":
-						
+					case "surname":			
 						surname = nl.item(i).getTextContent();
 						break;
 					case "number":
@@ -91,20 +90,7 @@ public class XMLHandler {
 						tna = Integer.parseInt(nl.item(i).getTextContent());
 						break;
 					case "reason":
-						switch(nl.item(i).getTextContent()){
-							case "HARMSTRING":
-								reason = Reason.HARMSTRING;
-								break;
-							case "KNEE":
-								reason = Reason.KNEE;
-								break;
-							case "HEAD":
-								reason = Reason.HEAD;
-								break;
-							case "ANKEL":
-								reason = Reason.ANKEL;
-								break;
-						}
+						reason = Reason.valueOf(nl.item(i).getTextContent());
 						break;
 					case "stoppower":
 						stoppower = Integer.parseInt(nl.item(i).getTextContent());
@@ -113,21 +99,12 @@ public class XMLHandler {
 						penaltystoppower = Integer.parseInt(nl.item(i).getTextContent());
 						break;  
 					case "status":
-						switch(nl.item(i).getTextContent()){
-						case "INJUREDSUSPENDED":
-							status = Status.INJUREDSUSPENDED;
-							break;
-						case "SUSPENDED":
-							status = Status.SUSPENDED;
-							break;
-						case "INJURED":
-							status = Status.INJURED;
-							break;
-					}
+						status = Status.valueOf(nl.item(i).getTextContent());
+						break;
 				}
 			}
 			if(name!=null&&surname!=null&&number!=Integer.MIN_VALUE&&tna!=Integer.MIN_VALUE
-				&stoppower!=Integer.MIN_VALUE&&penaltystoppower!=Integer.MIN_VALUE){
+				&&stoppower!=Integer.MIN_VALUE&&penaltystoppower!=Integer.MIN_VALUE){
 				return new Goalkeeper(name, surname, number, status, tna, reason, stoppower, penaltystoppower);
 			}else{
 				
@@ -139,7 +116,7 @@ public class XMLHandler {
 		 * @param playerNode to be parsed
 		 * @return Player object according to the values in the playerNode
 		 */
-		private static Player parsePlayer(Node playerNode){
+		public static Player parsePlayer(Node playerNode){
 
 			String name = null, surname = null;
 			int number = Integer.MIN_VALUE, 
@@ -168,20 +145,7 @@ public class XMLHandler {
 						tna = Integer.parseInt(nl.item(i).getTextContent());
 						break;
 					case "reason":
-						switch(nl.item(i).getTextContent()){
-							case "HARMSTRING":
-								reason = Reason.HARMSTRING;
-								break;
-							case "KNEE":
-								reason = Reason.KNEE;
-								break;
-							case "HEAD":
-								reason = Reason.HEAD;
-								break;
-							case "ANKEL":
-								reason = Reason.ANKEL;
-								break;
-						}
+						reason = Reason.valueOf(nl.item(i).getTextContent());
 						break;
 					case "attack":
 						attack = Integer.parseInt(nl.item(i).getTextContent());
@@ -193,21 +157,13 @@ public class XMLHandler {
 						stamina = Integer.parseInt(nl.item(i).getTextContent());
 						break; 
 					case "status":
-						switch(nl.item(i).getTextContent()){
-						case "INJUREDSUSPENDED":
-							status = Status.INJUREDSUSPENDED;
-							break;
-						case "SUSPENDED":
-							status = Status.SUSPENDED;
-							break;
-						case "INJURED":
-							status = Status.INJURED;
-							break;
-					}
+						status = Status.valueOf(nl.item(i).getTextContent());
+						break;
+					
 				}
 			}
 			if(name!=null&&surname!=null&&number!=Integer.MIN_VALUE&&tna!=Integer.MIN_VALUE
-				&attack!=Integer.MIN_VALUE&&defence!=Integer.MIN_VALUE&&stamina!=Integer.MIN_VALUE){
+				&&attack!=Integer.MIN_VALUE&&defence!=Integer.MIN_VALUE&&stamina!=Integer.MIN_VALUE){
 				return new Player(name, surname, number, status, tna, reason, attack, defence, stamina);
 			}else{
 				return null;
@@ -272,7 +228,8 @@ public class XMLHandler {
 						for(int k = 0; k<buffer.size();k++){
 							pE.appendChild(buffer.get(k));
 						}
-					}else if(pl instanceof Goalkeeper){
+					}else{
+						System.out.println("hey");
 						Goalkeeper k = (Goalkeeper)pl;
 						pE = doc.createElement("goalkeeper");
 						ArrayList<Element> buffer = new ArrayList<Element>();

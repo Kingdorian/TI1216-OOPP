@@ -63,4 +63,16 @@ public class Player extends Players {
 		return "Player [attack=" + attack + ", defence=" + defence
 				+ ", stamina=" + stamina + super.toString() + "]";
 	}
+
+	public boolean equals(Object obj) {
+		if(obj instanceof Player){
+			Player other = (Player) obj;
+			if(	super.equals(other)&&
+				this.attack==other.getAttack()&&
+				this.defence==other.getDefence()&&
+				this.stamina==other.getStamina())
+					return true;
+		}
+		return false;
+	}
 }

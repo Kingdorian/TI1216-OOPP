@@ -5,9 +5,9 @@
 				<name>Robert</name>
 				<surname>Zwinkels</surname>
 				<number>1</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>62</stoppower>
 				<penaltystoppower>65</penaltystoppower>
 			</goalkeeper>
@@ -16,9 +16,9 @@
 				<surname>Malone</surname>
 				<position>Defender</position>
 				<number>2</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>26</attack>
 				<defence>60</defence>
 				<stamina>75</stamina>
@@ -28,9 +28,9 @@
 				<surname>Wormgoor</surname>
 				<position>Defender</position>
 				<number>3</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>11</attack>
 				<defence>62</defence>
 				<stamina>68</stamina>
@@ -40,9 +40,9 @@
 				<surname>Kanon</surname>
 				<position>Defender</position>
 				<number>4</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>24</attack>
 				<defence>60</defence>
 				<stamina>73</stamina>
@@ -52,9 +52,9 @@
 				<surname>Bakker</surname>
 				<position>Defender</position>
 				<number>5</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>12</attack>
 				<defence>61</defence>
 				<stamina>70</stamina>
@@ -64,9 +64,9 @@
 				<surname>Zuiverloon</surname>
 				<position>Defender</position>
 				<number>6</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>31</attack>
 				<defence>62</defence>
 				<stamina>59</stamina>
@@ -76,9 +76,9 @@
 				<surname>Jansen</surname>
 				<position>Midfielder</position>
 				<number>7</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>62</attack>
 				<defence>60</defence>
 				<stamina>76</stamina>
@@ -88,9 +88,9 @@
 				<surname>Meijers</surname>
 				<position>Midfielder</position>
 				<number>8</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>56</attack>
 				<defence>64</defence>
 				<stamina>63</stamina>
@@ -100,9 +100,9 @@
 				<surname>Gehrt</surname>
 				<position>Forward</position>
 				<number>9</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>67</attack>
 				<defence>20</defence>
 				<stamina>69</stamina>
@@ -112,9 +112,9 @@
 				<surname>Merencia</surname>
 				<position>Midfielder</position>
 				<number>10</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>54</attack>
 				<defence>54</defence>
 				<stamina>58</stamina>
@@ -124,9 +124,9 @@
 				<surname>Schet</surname>
 				<position>Midfielder</position>
 				<number>11</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>61</attack>
 				<defence>45</defence>
 				<stamina>70</stamina>
@@ -136,9 +136,9 @@
 				<surname>Alberg</surname>
 				<position>Midfielder</position>
 				<number>12</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>66</attack>
 				<defence>63</defence>
 				<stamina>69</stamina>
@@ -148,9 +148,9 @@
 				<surname>de Vlugt</surname>
 				<position>Midfielder</position>
 				<number>13</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>57</attack>
 				<defence>50</defence>
 				<stamina>64</stamina>
@@ -160,9 +160,9 @@
 				<surname>Kramer</surname>
 				<position>Forward</position>
 				<number>14</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>76</attack>
 				<defence>9</defence>
 				<stamina>70</stamina>
@@ -172,9 +172,9 @@
 				<surname>van Duinen</surname>
 				<position>Forward</position>
 				<number>15</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>71</attack>
 				<defence>19</defence>
 				<stamina>56</stamina>
@@ -184,9 +184,9 @@
 				<surname>Houtkoop</surname>
 				<position>Forward</position>
 				<number>16</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>61</attack>
 				<defence>26</defence>
 				<stamina>69</stamina>
@@ -196,9 +196,9 @@
 				<surname>Kristensen</surname>
 				<position>Midfielder</position>
 				<number>17</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>67</attack>
 				<defence>74</defence>
 				<stamina>78</stamina>
@@ -207,9 +207,9 @@
 				<name>Martin</name>
 				<surname>Hansen</surname>
 				<number>18</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>61</stoppower>
 				<penaltystoppower>76</penaltystoppower>
 			</goalkeeper>
@@ -218,9 +218,9 @@
 				<surname>Ebuehi</surname>
 				<position>Defender</position>
 				<number>19</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>20</attack>
 				<defence>53</defence>
 				<stamina>60</stamina>
@@ -230,9 +230,9 @@
 				<surname>Owobowale</surname>
 				<position>Forward</position>
 				<number>20</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>54</attack>
 				<defence>12</defence>
 				<stamina>56</stamina>
@@ -242,9 +242,9 @@
 				<surname>Hevel</surname>
 				<position>Midfielder</position>
 				<number>21</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>54</attack>
 				<defence>53</defence>
 				<stamina>65</stamina>
@@ -254,9 +254,9 @@
 				<surname>Smith</surname>
 				<position>Midfielder</position>
 				<number>22</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>55</attack>
 				<defence>51</defence>
 				<stamina>61</stamina>
@@ -267,9 +267,9 @@
 				<name>Jasper</name>
 				<surname>Cillessen</surname>
 				<number>1</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>83</stoppower>
 				<penaltystoppower>40</penaltystoppower>
 			</goalkeeper>
@@ -278,9 +278,9 @@
 				<surname>van Rhijn</surname>
 				<position>Defender</position>
 				<number>2</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>21</attack>
 				<defence>78</defence>
 				<stamina>69</stamina>
@@ -290,9 +290,9 @@
 				<surname>Moisander</surname>
 				<position>Defender</position>
 				<number>3</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>7</attack>
 				<defence>82</defence>
 				<stamina>80</stamina>
@@ -302,9 +302,9 @@
 				<surname>van der Hoorn</surname>
 				<position>Defender</position>
 				<number>4</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>7</attack>
 				<defence>71</defence>
 				<stamina>65</stamina>
@@ -314,9 +314,9 @@
 				<surname>Veltman</surname>
 				<position>Defender</position>
 				<number>5</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>18</attack>
 				<defence>79</defence>
 				<stamina>71</stamina>
@@ -326,9 +326,9 @@
 				<surname>Boilesen</surname>
 				<position>Defender</position>
 				<number>6</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>27</attack>
 				<defence>71</defence>
 				<stamina>56</stamina>
@@ -338,9 +338,9 @@
 				<surname>Denswil</surname>
 				<position>Defender</position>
 				<number>7</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>6</attack>
 				<defence>65</defence>
 				<stamina>68</stamina>
@@ -350,9 +350,9 @@
 				<surname>Ligeon</surname>
 				<position>Defender</position>
 				<number>8</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>26</attack>
 				<defence>61</defence>
 				<stamina>67</stamina>
@@ -362,9 +362,9 @@
 				<surname>Duarte</surname>
 				<position>Midfielder</position>
 				<number>9</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>75</attack>
 				<defence>71</defence>
 				<stamina>64</stamina>
@@ -374,9 +374,9 @@
 				<surname>Andersen</surname>
 				<position>Midfielder</position>
 				<number>10</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>67</attack>
 				<defence>64</defence>
 				<stamina>61</stamina>
@@ -386,9 +386,9 @@
 				<surname>Sana</surname>
 				<position>Forward</position>
 				<number>11</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>60</attack>
 				<defence>25</defence>
 				<stamina>69</stamina>
@@ -398,9 +398,9 @@
 				<surname>Schone</surname>
 				<position>Midfielder</position>
 				<number>12</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>85</attack>
 				<defence>82</defence>
 				<stamina>84</stamina>
@@ -410,9 +410,9 @@
 				<surname>Serero</surname>
 				<position>Midfielder</position>
 				<number>13</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>74</attack>
 				<defence>76</defence>
 				<stamina>61</stamina>
@@ -422,9 +422,9 @@
 				<surname>Kishna</surname>
 				<position>Forward</position>
 				<number>14</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>69</attack>
 				<defence>33</defence>
 				<stamina>67</stamina>
@@ -434,9 +434,9 @@
 				<surname>Fischer</surname>
 				<position>Forward</position>
 				<number>15</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>82</attack>
 				<defence>37</defence>
 				<stamina>76</stamina>
@@ -446,9 +446,9 @@
 				<surname>Sigthorsson</surname>
 				<position>Forward</position>
 				<number>16</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>80</attack>
 				<defence>8</defence>
 				<stamina>76</stamina>
@@ -458,9 +458,9 @@
 				<surname>Klaassen</surname>
 				<position>Forward</position>
 				<number>17</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>80</attack>
 				<defence>56</defence>
 				<stamina>78</stamina>
@@ -470,9 +470,9 @@
 				<surname>Viergever</surname>
 				<position>Defender</position>
 				<number>18</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>21</attack>
 				<defence>78</defence>
 				<stamina>81</stamina>
@@ -482,9 +482,9 @@
 				<surname>Tete</surname>
 				<position>Defender</position>
 				<number>19</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>22</attack>
 				<defence>57</defence>
 				<stamina>60</stamina>
@@ -494,9 +494,9 @@
 				<surname>Riedewald</surname>
 				<position>Defender</position>
 				<number>20</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>26</attack>
 				<defence>60</defence>
 				<stamina>54</stamina>
@@ -506,9 +506,9 @@
 				<surname>El Ghazi</surname>
 				<position>Forward</position>
 				<number>21</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>69</attack>
 				<defence>33</defence>
 				<stamina>70</stamina>
@@ -518,9 +518,9 @@
 				<surname>Menig</surname>
 				<position>Forward</position>
 				<number>22</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>56</attack>
 				<defence>24</defence>
 				<stamina>67</stamina>
@@ -529,9 +529,9 @@
 				<name>Diederik</name>
 				<surname>Boer</surname>
 				<number>23</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>74</stoppower>
 				<penaltystoppower>71</penaltystoppower>
 			</goalkeeper>
@@ -542,9 +542,9 @@
 				<surname>Tankovic</surname>
 				<position>Forward</position>
 				<number>2</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>67</attack>
 				<defence>24</defence>
 				<stamina>65</stamina>
@@ -553,9 +553,9 @@
 				<name>Esteban</name>
 				<surname>Alvarado</surname>
 				<number>1</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>75</stoppower>
 				<penaltystoppower>78</penaltystoppower>
 			</goalkeeper>
@@ -563,9 +563,9 @@
 				<name>Yves</name>
 				<surname>de Winter</surname>
 				<number>3</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>60</stoppower>
 				<penaltystoppower>51</penaltystoppower>
 			</goalkeeper>
@@ -574,9 +574,9 @@
 				<surname>Johansson</surname>
 				<position>Defender</position>
 				<number>4</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>33</attack>
 				<defence>71</defence>
 				<stamina>55</stamina>
@@ -586,9 +586,9 @@
 				<surname>Marcellis</surname>
 				<position>Defender</position>
 				<number>5</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>24</attack>
 				<defence>69</defence>
 				<stamina>80</stamina>
@@ -598,9 +598,9 @@
 				<surname>Gudelj</surname>
 				<position>Midfielder</position>
 				<number>6</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>80</attack>
 				<defence>80</defence>
 				<stamina>80</stamina>
@@ -610,9 +610,9 @@
 				<surname>Haps</surname>
 				<position>Defender</position>
 				<number>7</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>22</attack>
 				<defence>58</defence>
 				<stamina>45</stamina>
@@ -622,9 +622,9 @@
 				<surname>Poulsen</surname>
 				<position>Defender</position>
 				<number>8</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>37</attack>
 				<defence>67</defence>
 				<stamina>65</stamina>
@@ -634,9 +634,9 @@
 				<surname>Gouweleeuw</surname>
 				<position>Defender</position>
 				<number>9</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>16</attack>
 				<defence>73</defence>
 				<stamina>67</stamina>
@@ -646,9 +646,9 @@
 				<surname>Hoedt</surname>
 				<position>Defender</position>
 				<number>10</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>7</attack>
 				<defence>56</defence>
 				<stamina>67</stamina>
@@ -658,9 +658,9 @@
 				<surname>Elm</surname>
 				<position>Midfielder</position>
 				<number>11</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>71</attack>
 				<defence>75</defence>
 				<stamina>75</stamina>
@@ -670,9 +670,9 @@
 				<surname>Henriksen</surname>
 				<position>Midfielder</position>
 				<number>12</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>70</attack>
 				<defence>73</defence>
 				<stamina>78</stamina>
@@ -682,9 +682,9 @@
 				<surname>Berghuis</surname>
 				<position>Midfielder</position>
 				<number>13</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>69</attack>
 				<defence>46</defence>
 				<stamina>74</stamina>
@@ -694,9 +694,9 @@
 				<surname>Ortiz</surname>
 				<position>Midfielder</position>
 				<number>14</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>69</attack>
 				<defence>73</defence>
 				<stamina>61</stamina>
@@ -706,9 +706,9 @@
 				<surname>Babalj</surname>
 				<position>Forward</position>
 				<number>15</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>58</attack>
 				<defence>17</defence>
 				<stamina>50</stamina>
@@ -718,9 +718,9 @@
 				<surname>Johannsson</surname>
 				<position>Forward</position>
 				<number>16</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>78</attack>
 				<defence>14</defence>
 				<stamina>76</stamina>
@@ -730,9 +730,9 @@
 				<surname>Haye</surname>
 				<position>Midfielder</position>
 				<number>17</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>63</attack>
 				<defence>59</defence>
 				<stamina>48</stamina>
@@ -742,9 +742,9 @@
 				<surname>Rosheuvel</surname>
 				<position>Forward</position>
 				<number>18</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>64</attack>
 				<defence>30</defence>
 				<stamina>57</stamina>
@@ -753,9 +753,9 @@
 				<name>Sergio</name>
 				<surname>Rochet</surname>
 				<number>19</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>60</stoppower>
 				<penaltystoppower>59</penaltystoppower>
 			</goalkeeper>
@@ -764,9 +764,9 @@
 				<surname>Luckassen</surname>
 				<position>Defender</position>
 				<number>20</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>14</attack>
 				<defence>57</defence>
 				<stamina>69</stamina>
@@ -776,9 +776,9 @@
 				<surname>Hupperts</surname>
 				<position>Forward</position>
 				<number>21</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>69</attack>
 				<defence>25</defence>
 				<stamina>61</stamina>
@@ -788,9 +788,9 @@
 				<surname>Muhren</surname>
 				<position>Forward</position>
 				<number>22</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>58</attack>
 				<defence>18</defence>
 				<stamina>52</stamina>
@@ -800,9 +800,9 @@
 				<surname>Anderson</surname>
 				<position>Defender</position>
 				<number>23</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>24</attack>
 				<defence>56</defence>
 				<stamina>65</stamina>
@@ -813,9 +813,9 @@
 				<name>Leonard</name>
 				<surname>Nienhuis</surname>
 				<number>1</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>60</stoppower>
 				<penaltystoppower>67</penaltystoppower>
 			</goalkeeper>
@@ -824,9 +824,9 @@
 				<surname>Reijnen</surname>
 				<position>Defender</position>
 				<number>2</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>31</attack>
 				<defence>61</defence>
 				<stamina>57</stamina>
@@ -836,9 +836,9 @@
 				<surname>Janzen</surname>
 				<position>Defender</position>
 				<number>3</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>11</attack>
 				<defence>53</defence>
 				<stamina>67</stamina>
@@ -848,9 +848,9 @@
 				<surname>Narsingh</surname>
 				<position>Forward</position>
 				<number>4</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>58</attack>
 				<defence>27</defence>
 				<stamina>56</stamina>
@@ -859,9 +859,9 @@
 				<name>Harm</name>
 				<surname>Zeinstra</surname>
 				<number>5</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>54</stoppower>
 				<penaltystoppower>52</penaltystoppower>
 			</goalkeeper>
@@ -870,9 +870,9 @@
 				<surname>Droste</surname>
 				<position>Defender</position>
 				<number>6</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>29</attack>
 				<defence>60</defence>
 				<stamina>65</stamina>
@@ -882,9 +882,9 @@
 				<surname>Pereira</surname>
 				<position>Defender</position>
 				<number>7</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>25</attack>
 				<defence>57</defence>
 				<stamina>60</stamina>
@@ -894,9 +894,9 @@
 				<surname>Dijkstra</surname>
 				<position>Defender</position>
 				<number>8</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>7</attack>
 				<defence>57</defence>
 				<stamina>48</stamina>
@@ -906,9 +906,9 @@
 				<surname>Bijker</surname>
 				<position>Defender</position>
 				<number>9</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>24</attack>
 				<defence>61</defence>
 				<stamina>76</stamina>
@@ -918,9 +918,9 @@
 				<surname>Bakker</surname>
 				<position>Midfielder</position>
 				<number>10</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>62</attack>
 				<defence>60</defence>
 				<stamina>67</stamina>
@@ -930,9 +930,9 @@
 				<surname>El Makrini</surname>
 				<position>Midfielder</position>
 				<number>11</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>56</attack>
 				<defence>63</defence>
 				<stamina>78</stamina>
@@ -942,9 +942,9 @@
 				<surname>Barto</surname>
 				<position>Forward</position>
 				<number>12</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>60</attack>
 				<defence>12</defence>
 				<stamina>71</stamina>
@@ -954,9 +954,9 @@
 				<surname>Hemmen</surname>
 				<position>Forward</position>
 				<number>13</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>69</attack>
 				<defence>6</defence>
 				<stamina>69</stamina>
@@ -966,9 +966,9 @@
 				<surname>Schokker</surname>
 				<position>Midfielder</position>
 				<number>14</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>58</attack>
 				<defence>55</defence>
 				<stamina>61</stamina>
@@ -978,9 +978,9 @@
 				<surname>Ogbeche</surname>
 				<position>Forward</position>
 				<number>15</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>61</attack>
 				<defence>14</defence>
 				<stamina>64</stamina>
@@ -990,9 +990,9 @@
 				<surname>Schepers</surname>
 				<position>Forward</position>
 				<number>16</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>58</attack>
 				<defence>24</defence>
 				<stamina>39</stamina>
@@ -1002,9 +1002,9 @@
 				<surname>De Ridder</surname>
 				<position>Forward</position>
 				<number>17</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>64</attack>
 				<defence>20</defence>
 				<stamina>59</stamina>
@@ -1014,9 +1014,9 @@
 				<surname>Schet</surname>
 				<position>Forward</position>
 				<number>18</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>58</attack>
 				<defence>25</defence>
 				<stamina>63</stamina>
@@ -1026,9 +1026,9 @@
 				<surname>Andriuskevicius</surname>
 				<position>Defender</position>
 				<number>19</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>25</attack>
 				<defence>57</defence>
 				<stamina>47</stamina>
@@ -1038,9 +1038,9 @@
 				<surname>Mac-Intosch</surname>
 				<position>Defender</position>
 				<number>20</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>7</attack>
 				<defence>55</defence>
 				<stamina>62</stamina>
@@ -1050,9 +1050,9 @@
 				<surname>Slijngard</surname>
 				<position>Defender</position>
 				<number>21</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>27</attack>
 				<defence>57</defence>
 				<stamina>51</stamina>
@@ -1062,9 +1062,9 @@
 				<surname>Steblecki</surname>
 				<position>Midfielder</position>
 				<number>22</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>57</attack>
 				<defence>57</defence>
 				<stamina>57</stamina>
@@ -1074,9 +1074,9 @@
 				<surname>van der Streek</surname>
 				<position>Midfielder</position>
 				<number>23</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>58</attack>
 				<defence>54</defence>
 				<stamina>59</stamina>
@@ -1088,9 +1088,9 @@
 				<surname>Van Deelen</surname>
 				<position>Defender</position>
 				<number>2</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>24</attack>
 				<defence>54</defence>
 				<stamina>65</stamina>
@@ -1100,9 +1100,9 @@
 				<surname>van Overeem</surname>
 				<position>Midfielder</position>
 				<number>3</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>61</attack>
 				<defence>58</defence>
 				<stamina>67</stamina>
@@ -1112,9 +1112,9 @@
 				<surname>Troost-Ekong</surname>
 				<position>Defender</position>
 				<number>4</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>7</attack>
 				<defence>57</defence>
 				<stamina>51</stamina>
@@ -1124,9 +1124,9 @@
 				<surname>van Haaren</surname>
 				<position>Midfielder</position>
 				<number>5</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>62</attack>
 				<defence>59</defence>
 				<stamina>69</stamina>
@@ -1136,9 +1136,9 @@
 				<surname>Lieder</surname>
 				<position>Forward</position>
 				<number>6</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>58</attack>
 				<defence>10</defence>
 				<stamina>48</stamina>
@@ -1148,9 +1148,9 @@
 				<surname>Koolwijk</surname>
 				<position>Midfielder</position>
 				<number>7</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>67</attack>
 				<defence>69</defence>
 				<stamina>79</stamina>
@@ -1159,9 +1159,9 @@
 				<name>Filip</name>
 				<surname>Kurto</surname>
 				<number>1</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>59</stoppower>
 				<penaltystoppower>75</penaltystoppower>
 			</goalkeeper>
@@ -1169,9 +1169,9 @@
 				<name>Robbert</name>
 				<surname>te Loeke</surname>
 				<number>8</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>54</stoppower>
 				<penaltystoppower>41</penaltystoppower>
 			</goalkeeper>
@@ -1180,9 +1180,9 @@
 				<surname>Fortes</surname>
 				<position>Defender</position>
 				<number>9</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>23</attack>
 				<defence>57</defence>
 				<stamina>71</stamina>
@@ -1192,9 +1192,9 @@
 				<surname>Haddad</surname>
 				<position>Defender</position>
 				<number>10</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>6</attack>
 				<defence>56</defence>
 				<stamina>61</stamina>
@@ -1204,9 +1204,9 @@
 				<surname>Peersman</surname>
 				<position>Defender</position>
 				<number>11</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>24</attack>
 				<defence>58</defence>
 				<stamina>71</stamina>
@@ -1216,9 +1216,9 @@
 				<surname>Ojo</surname>
 				<position>Midfielder</position>
 				<number>12</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>58</attack>
 				<defence>63</defence>
 				<stamina>67</stamina>
@@ -1228,9 +1228,9 @@
 				<surname>Vet</surname>
 				<position>Midfielder</position>
 				<number>13</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>52</attack>
 				<defence>59</defence>
 				<stamina>55</stamina>
@@ -1240,9 +1240,9 @@
 				<surname>Meulens</surname>
 				<position>Forward</position>
 				<number>14</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>57</attack>
 				<defence>22</defence>
 				<stamina>60</stamina>
@@ -1252,9 +1252,9 @@
 				<surname>ten Voorde</surname>
 				<position>Forward</position>
 				<number>15</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>60</attack>
 				<defence>10</defence>
 				<stamina>70</stamina>
@@ -1264,9 +1264,9 @@
 				<surname>Pisas</surname>
 				<position>Forward</position>
 				<number>16</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>54</attack>
 				<defence>20</defence>
 				<stamina>59</stamina>
@@ -1276,9 +1276,9 @@
 				<surname>Hamdaoui</surname>
 				<position>Forward</position>
 				<number>17</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>53</attack>
 				<defence>12</defence>
 				<stamina>68</stamina>
@@ -1288,9 +1288,9 @@
 				<surname>Alisic</surname>
 				<position>Midfielder</position>
 				<number>18</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>61</attack>
 				<defence>61</defence>
 				<stamina>61</stamina>
@@ -1300,9 +1300,9 @@
 				<surname>Danso</surname>
 				<position>Forward</position>
 				<number>19</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>57</attack>
 				<defence>25</defence>
 				<stamina>48</stamina>
@@ -1312,9 +1312,9 @@
 				<surname>Toure</surname>
 				<position>Midfielder</position>
 				<number>20</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>55</attack>
 				<defence>51</defence>
 				<stamina>43</stamina>
@@ -1326,9 +1326,9 @@
 				<surname>Bruins</surname>
 				<position>Midfielder</position>
 				<number>2</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>62</attack>
 				<defence>58</defence>
 				<stamina>67</stamina>
@@ -1337,9 +1337,9 @@
 				<name>Gino</name>
 				<surname>Coutinho</surname>
 				<number>1</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>67</stoppower>
 				<penaltystoppower>82</penaltystoppower>
 			</goalkeeper>
@@ -1348,9 +1348,9 @@
 				<surname>Gouriye</surname>
 				<position>Forward</position>
 				<number>3</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>62</attack>
 				<defence>26</defence>
 				<stamina>66</stamina>
@@ -1360,9 +1360,9 @@
 				<surname>Bovenberg</surname>
 				<position>Defender</position>
 				<number>4</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>26</attack>
 				<defence>56</defence>
 				<stamina>76</stamina>
@@ -1371,9 +1371,9 @@
 				<name>Alessandro</name>
 				<surname>Damen</surname>
 				<number>5</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>53</stoppower>
 				<penaltystoppower>65</penaltystoppower>
 			</goalkeeper>
@@ -1382,9 +1382,9 @@
 				<surname>Karami</surname>
 				<position>Defender</position>
 				<number>6</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>27</attack>
 				<defence>58</defence>
 				<stamina>57</stamina>
@@ -1394,9 +1394,9 @@
 				<surname>van Diermen</surname>
 				<position>Defender</position>
 				<number>7</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>9</attack>
 				<defence>58</defence>
 				<stamina>50</stamina>
@@ -1406,9 +1406,9 @@
 				<surname>Fischer</surname>
 				<position>Defender</position>
 				<number>8</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>8</attack>
 				<defence>57</defence>
 				<stamina>51</stamina>
@@ -1418,9 +1418,9 @@
 				<surname>Brito</surname>
 				<position>Midfielder</position>
 				<number>9</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>53</attack>
 				<defence>55</defence>
 				<stamina>57</stamina>
@@ -1430,9 +1430,9 @@
 				<surname>Kruys</surname>
 				<position>Midfielder</position>
 				<number>10</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>59</attack>
 				<defence>57</defence>
 				<stamina>61</stamina>
@@ -1442,9 +1442,9 @@
 				<surname>Auassar</surname>
 				<position>Midfielder</position>
 				<number>11</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>59</attack>
 				<defence>59</defence>
 				<stamina>66</stamina>
@@ -1454,9 +1454,9 @@
 				<surname>Stans</surname>
 				<position>Midfielder</position>
 				<number>12</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>62</attack>
 				<defence>59</defence>
 				<stamina>71</stamina>
@@ -1466,9 +1466,9 @@
 				<surname>Vermeulen</surname>
 				<position>Forward</position>
 				<number>13</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>56</attack>
 				<defence>20</defence>
 				<stamina>62</stamina>
@@ -1478,9 +1478,9 @@
 				<surname>Botaka</surname>
 				<position>Forward</position>
 				<number>14</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>59</attack>
 				<defence>25</defence>
 				<stamina>67</stamina>
@@ -1490,9 +1490,9 @@
 				<surname>van Weert</surname>
 				<position>Forward</position>
 				<number>15</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>57</attack>
 				<defence>8</defence>
 				<stamina>65</stamina>
@@ -1502,9 +1502,9 @@
 				<surname>van Mieghem</surname>
 				<position>Forward</position>
 				<number>16</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>58</attack>
 				<defence>24</defence>
 				<stamina>60</stamina>
@@ -1514,9 +1514,9 @@
 				<surname>Maletic</surname>
 				<position>Forward</position>
 				<number>17</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>57</attack>
 				<defence>9</defence>
 				<stamina>51</stamina>
@@ -1525,9 +1525,9 @@
 				<name>Jordy</name>
 				<surname>Deckers</surname>
 				<number>18</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>57</stoppower>
 				<penaltystoppower>31</penaltystoppower>
 			</goalkeeper>
@@ -1536,9 +1536,9 @@
 				<surname>Mattheij</surname>
 				<position>Defender</position>
 				<number>19</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>19</attack>
 				<defence>54</defence>
 				<stamina>61</stamina>
@@ -1548,9 +1548,9 @@
 				<surname>Kuipers</surname>
 				<position>Defender</position>
 				<number>20</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>22</attack>
 				<defence>56</defence>
 				<stamina>70</stamina>
@@ -1560,9 +1560,9 @@
 				<surname>Blij</surname>
 				<position>Forward</position>
 				<number>21</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>55</attack>
 				<defence>24</defence>
 				<stamina>57</stamina>
@@ -1572,9 +1572,9 @@
 				<surname>Varela</surname>
 				<position>Midfielder</position>
 				<number>22</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>57</attack>
 				<defence>59</defence>
 				<stamina>61</stamina>
@@ -1584,9 +1584,9 @@
 				<surname>de Reuver</surname>
 				<position>Forward</position>
 				<number>23</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>53</attack>
 				<defence>18</defence>
 				<stamina>42</stamina>
@@ -1598,9 +1598,9 @@
 				<surname>El Ahmadi</surname>
 				<position>Midfielder</position>
 				<number>2</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>70</attack>
 				<defence>77</defence>
 				<stamina>89</stamina>
@@ -1609,9 +1609,9 @@
 				<name>Kenneth</name>
 				<surname>Vermeer</surname>
 				<number>1</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>78</stoppower>
 				<penaltystoppower>76</penaltystoppower>
 			</goalkeeper>
@@ -1619,9 +1619,9 @@
 				<name>Erwin</name>
 				<surname>Mulder</surname>
 				<number>3</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>73</stoppower>
 				<penaltystoppower>61</penaltystoppower>
 			</goalkeeper>
@@ -1629,9 +1629,9 @@
 				<name>Ronald</name>
 				<surname>Graafland</surname>
 				<number>4</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>58</stoppower>
 				<penaltystoppower>72</penaltystoppower>
 			</goalkeeper>
@@ -1640,9 +1640,9 @@
 				<surname>Mathijsen</surname>
 				<position>Defender</position>
 				<number>5</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>14</attack>
 				<defence>76</defence>
 				<stamina>64</stamina>
@@ -1652,9 +1652,9 @@
 				<surname>Kongolo</surname>
 				<position>Defender</position>
 				<number>6</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>19</attack>
 				<defence>75</defence>
 				<stamina>67</stamina>
@@ -1664,9 +1664,9 @@
 				<surname>Nelom</surname>
 				<position>Defender</position>
 				<number>7</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>23</attack>
 				<defence>67</defence>
 				<stamina>54</stamina>
@@ -1676,9 +1676,9 @@
 				<surname>van Beek</surname>
 				<position>Defender</position>
 				<number>8</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>11</attack>
 				<defence>63</defence>
 				<stamina>72</stamina>
@@ -1688,9 +1688,9 @@
 				<surname>Clasie</surname>
 				<position>Midfielder</position>
 				<number>9</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>81</attack>
 				<defence>85</defence>
 				<stamina>75</stamina>
@@ -1700,9 +1700,9 @@
 				<surname>Immers</surname>
 				<position>Midfielder</position>
 				<number>10</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>77</attack>
 				<defence>74</defence>
 				<stamina>64</stamina>
@@ -1712,9 +1712,9 @@
 				<surname>Vilhena</surname>
 				<position>Midfielder</position>
 				<number>11</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>81</attack>
 				<defence>79</defence>
 				<stamina>61</stamina>
@@ -1724,9 +1724,9 @@
 				<surname>Boetius</surname>
 				<position>Forward</position>
 				<number>12</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>80</attack>
 				<defence>31</defence>
 				<stamina>72</stamina>
@@ -1736,9 +1736,9 @@
 				<surname>Verhoek</surname>
 				<position>Forward</position>
 				<number>13</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>63</attack>
 				<defence>30</defence>
 				<stamina>42</stamina>
@@ -1748,9 +1748,9 @@
 				<surname>Te Vrede</surname>
 				<position>Forward</position>
 				<number>14</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>69</attack>
 				<defence>6</defence>
 				<stamina>68</stamina>
@@ -1760,9 +1760,9 @@
 				<surname>Schaken</surname>
 				<position>Forward</position>
 				<number>15</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>76</attack>
 				<defence>33</defence>
 				<stamina>79</stamina>
@@ -1772,9 +1772,9 @@
 				<surname>Achahbar</surname>
 				<position>Forward</position>
 				<number>16</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>58</attack>
 				<defence>7</defence>
 				<stamina>80</stamina>
@@ -1784,9 +1784,9 @@
 				<surname>Basacikoglu</surname>
 				<position>Forward</position>
 				<number>17</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>76</attack>
 				<defence>35</defence>
 				<stamina>71</stamina>
@@ -1796,9 +1796,9 @@
 				<surname>Manu</surname>
 				<position>Forward</position>
 				<number>18</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>68</attack>
 				<defence>26</defence>
 				<stamina>59</stamina>
@@ -1808,9 +1808,9 @@
 				<surname>Toornstra</surname>
 				<position>Midfielder</position>
 				<number>19</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>80</attack>
 				<defence>77</defence>
 				<stamina>72</stamina>
@@ -1820,9 +1820,9 @@
 				<surname>Kazim-Richards</surname>
 				<position>Forward</position>
 				<number>20</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>67</attack>
 				<defence>37</defence>
 				<stamina>53</stamina>
@@ -1832,9 +1832,9 @@
 				<surname>Boulahrouz</surname>
 				<position>Defender</position>
 				<number>21</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>19</attack>
 				<defence>66</defence>
 				<stamina>48</stamina>
@@ -1844,9 +1844,9 @@
 				<surname>Wilkshire</surname>
 				<position>Defender</position>
 				<number>22</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>42</attack>
 				<defence>76</defence>
 				<stamina>71</stamina>
@@ -1856,9 +1856,9 @@
 				<surname>Karsdorp</surname>
 				<position>Midfielder</position>
 				<number>23</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>59</attack>
 				<defence>56</defence>
 				<stamina>49</stamina>
@@ -1870,9 +1870,9 @@
 				<surname>de Sa</surname>
 				<position>Forward</position>
 				<number>2</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>61</attack>
 				<defence>30</defence>
 				<stamina>59</stamina>
@@ -1882,9 +1882,9 @@
 				<surname>van Ooijen</surname>
 				<position>Midfielder</position>
 				<number>3</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>59</attack>
 				<defence>61</defence>
 				<stamina>58</stamina>
@@ -1894,9 +1894,9 @@
 				<surname>Lewis</surname>
 				<position>Forward</position>
 				<number>4</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>56</attack>
 				<defence>24</defence>
 				<stamina>59</stamina>
@@ -1906,9 +1906,9 @@
 				<surname>Wijnaldum</surname>
 				<position>Defender</position>
 				<number>5</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>25</attack>
 				<defence>62</defence>
 				<stamina>67</stamina>
@@ -1917,9 +1917,9 @@
 				<name>Erik</name>
 				<surname>Cummins</surname>
 				<number>1</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>58</stoppower>
 				<penaltystoppower>67</penaltystoppower>
 			</goalkeeper>
@@ -1927,9 +1927,9 @@
 				<name>Patrick</name>
 				<surname>ter Mate</surname>
 				<number>6</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>53</stoppower>
 				<penaltystoppower>78</penaltystoppower>
 			</goalkeeper>
@@ -1937,9 +1937,9 @@
 				<name>Ruben</name>
 				<surname>Lucas</surname>
 				<number>7</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>57</stoppower>
 				<penaltystoppower>57</penaltystoppower>
 			</goalkeeper>
@@ -1948,9 +1948,9 @@
 				<surname>Amevor</surname>
 				<position>Defender</position>
 				<number>8</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>20</attack>
 				<defence>57</defence>
 				<stamina>60</stamina>
@@ -1960,9 +1960,9 @@
 				<surname>Vriends</surname>
 				<position>Defender</position>
 				<number>9</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>8</attack>
 				<defence>59</defence>
 				<stamina>78</stamina>
@@ -1972,9 +1972,9 @@
 				<surname>van der Linden</surname>
 				<position>Defender</position>
 				<number>10</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>16</attack>
 				<defence>60</defence>
 				<stamina>65</stamina>
@@ -1984,9 +1984,9 @@
 				<surname>Schenk</surname>
 				<position>Defender</position>
 				<number>11</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>24</attack>
 				<defence>59</defence>
 				<stamina>71</stamina>
@@ -1996,9 +1996,9 @@
 				<surname>Turuc</surname>
 				<position>Midfielder</position>
 				<number>12</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>66</attack>
 				<defence>65</defence>
 				<stamina>64</stamina>
@@ -2008,9 +2008,9 @@
 				<surname>Rijsdijk</surname>
 				<position>Midfielder</position>
 				<number>13</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>61</attack>
 				<defence>57</defence>
 				<stamina>68</stamina>
@@ -2020,9 +2020,9 @@
 				<surname>Lambooij</surname>
 				<position>Midfielder</position>
 				<number>14</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>56</attack>
 				<defence>56</defence>
 				<stamina>56</stamina>
@@ -2032,9 +2032,9 @@
 				<surname>Kolder</surname>
 				<position>Forward</position>
 				<number>15</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>64</attack>
 				<defence>6</defence>
 				<stamina>67</stamina>
@@ -2044,9 +2044,9 @@
 				<surname>ten Den</surname>
 				<position>Midfielder</position>
 				<number>16</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>55</attack>
 				<defence>51</defence>
 				<stamina>67</stamina>
@@ -2056,9 +2056,9 @@
 				<surname>Schalk</surname>
 				<position>Forward</position>
 				<number>17</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>60</attack>
 				<defence>6</defence>
 				<stamina>56</stamina>
@@ -2068,9 +2068,9 @@
 				<surname>Duits</surname>
 				<position>Midfielder</position>
 				<number>18</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>63</attack>
 				<defence>67</defence>
 				<stamina>77</stamina>
@@ -2080,9 +2080,9 @@
 				<surname>Nieuwpoort</surname>
 				<position>Defender</position>
 				<number>19</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>20</attack>
 				<defence>55</defence>
 				<stamina>64</stamina>
@@ -2092,9 +2092,9 @@
 				<surname>van der Meer</surname>
 				<position>Defender</position>
 				<number>20</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>7</attack>
 				<defence>53</defence>
 				<stamina>48</stamina>
@@ -2104,9 +2104,9 @@
 				<surname>Overgoor</surname>
 				<position>Midfielder</position>
 				<number>21</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>59</attack>
 				<defence>62</defence>
 				<stamina>68</stamina>
@@ -2116,9 +2116,9 @@
 				<surname>de Bondt</surname>
 				<position>Forward</position>
 				<number>22</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>54</attack>
 				<defence>20</defence>
 				<stamina>53</stamina>
@@ -2128,9 +2128,9 @@
 				<surname>Reimerink</surname>
 				<position>Midfielder</position>
 				<number>23</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>59</attack>
 				<defence>41</defence>
 				<stamina>58</stamina>
@@ -2140,9 +2140,9 @@
 				<surname>Postma</surname>
 				<position>Forward</position>
 				<number>24</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>53</attack>
 				<defence>19</defence>
 				<stamina>52</stamina>
@@ -2154,9 +2154,9 @@
 				<surname>Hoesen</surname>
 				<position>Forward</position>
 				<number>2</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>69</attack>
 				<defence>18</defence>
 				<stamina>59</stamina>
@@ -2165,9 +2165,9 @@
 				<name>Joey</name>
 				<surname>Potveer</surname>
 				<number>1</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>61</stoppower>
 				<penaltystoppower>59</penaltystoppower>
 			</goalkeeper>
@@ -2176,9 +2176,9 @@
 				<surname>Kappelhof</surname>
 				<position>Defender</position>
 				<number>3</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>17</attack>
 				<defence>65</defence>
 				<stamina>63</stamina>
@@ -2188,9 +2188,9 @@
 				<surname>Botteghin</surname>
 				<position>Defender</position>
 				<number>4</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>12</attack>
 				<defence>70</defence>
 				<stamina>64</stamina>
@@ -2200,9 +2200,9 @@
 				<surname>Burnet</surname>
 				<position>Defender</position>
 				<number>5</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>30</attack>
 				<defence>61</defence>
 				<stamina>58</stamina>
@@ -2212,9 +2212,9 @@
 				<surname>Kieftenbeld</surname>
 				<position>Midfielder</position>
 				<number>6</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>66</attack>
 				<defence>70</defence>
 				<stamina>75</stamina>
@@ -2224,9 +2224,9 @@
 				<surname>Bakker</surname>
 				<position>Defender</position>
 				<number>7</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>15</attack>
 				<defence>55</defence>
 				<stamina>56</stamina>
@@ -2236,9 +2236,9 @@
 				<surname>Hiariej</surname>
 				<position>Midfielder</position>
 				<number>8</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>56</attack>
 				<defence>63</defence>
 				<stamina>78</stamina>
@@ -2248,9 +2248,9 @@
 				<surname>Hateboer</surname>
 				<position>Defender</position>
 				<number>9</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>20</attack>
 				<defence>60</defence>
 				<stamina>67</stamina>
@@ -2260,9 +2260,9 @@
 				<surname>Chery</surname>
 				<position>Midfielder</position>
 				<number>10</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>73</attack>
 				<defence>70</defence>
 				<stamina>78</stamina>
@@ -2272,9 +2272,9 @@
 				<surname>Ben Moussa</surname>
 				<position>Midfielder</position>
 				<number>11</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>56</attack>
 				<defence>53</defence>
 				<stamina>68</stamina>
@@ -2284,9 +2284,9 @@
 				<surname>Bos</surname>
 				<position>Midfielder</position>
 				<number>12</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>58</attack>
 				<defence>55</defence>
 				<stamina>53</stamina>
@@ -2296,9 +2296,9 @@
 				<surname>Lindgren</surname>
 				<position>Midfielder</position>
 				<number>13</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>59</attack>
 				<defence>66</defence>
 				<stamina>67</stamina>
@@ -2308,9 +2308,9 @@
 				<surname>van der Velden</surname>
 				<position>Midfielder</position>
 				<number>14</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>68</attack>
 				<defence>65</defence>
 				<stamina>66</stamina>
@@ -2320,9 +2320,9 @@
 				<surname>Saban</surname>
 				<position>Forward</position>
 				<number>15</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>53</attack>
 				<defence>23</defence>
 				<stamina>51</stamina>
@@ -2332,9 +2332,9 @@
 				<surname>de Leeuw</surname>
 				<position>Forward</position>
 				<number>16</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>72</attack>
 				<defence>51</defence>
 				<stamina>54</stamina>
@@ -2344,9 +2344,9 @@
 				<surname>Hagenauw</surname>
 				<position>Forward</position>
 				<number>17</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>53</attack>
 				<defence>14</defence>
 				<stamina>65</stamina>
@@ -2356,9 +2356,9 @@
 				<surname>Zeefuik</surname>
 				<position>Forward</position>
 				<number>18</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>64</attack>
 				<defence>5</defence>
 				<stamina>39</stamina>
@@ -2368,9 +2368,9 @@
 				<surname>van Nieff</surname>
 				<position>Midfielder</position>
 				<number>19</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>62</attack>
 				<defence>59</defence>
 				<stamina>67</stamina>
@@ -2380,9 +2380,9 @@
 				<surname>Antonia</surname>
 				<position>Midfielder</position>
 				<number>20</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>69</attack>
 				<defence>31</defence>
 				<stamina>67</stamina>
@@ -2392,9 +2392,9 @@
 				<surname>van der Laan</surname>
 				<position>Defender</position>
 				<number>21</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>19</attack>
 				<defence>61</defence>
 				<stamina>65</stamina>
@@ -2403,9 +2403,9 @@
 				<name>Sergio</name>
 				<surname>Padt</surname>
 				<number>22</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>68</stoppower>
 				<penaltystoppower>65</penaltystoppower>
 			</goalkeeper>
@@ -2414,9 +2414,9 @@
 				<surname>Islamovic</surname>
 				<position>Forward</position>
 				<number>23</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>56</attack>
 				<defence>6</defence>
 				<stamina>56</stamina>
@@ -2426,9 +2426,9 @@
 				<surname>Baas</surname>
 				<position>Defender</position>
 				<number>24</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>21</attack>
 				<defence>53</defence>
 				<stamina>56</stamina>
@@ -2439,9 +2439,9 @@
 				<name>Kristoffer</name>
 				<surname>Nordfeldt</surname>
 				<number>1</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>73</stoppower>
 				<penaltystoppower>64</penaltystoppower>
 			</goalkeeper>
@@ -2450,9 +2450,9 @@
 				<surname>Otigba</surname>
 				<position>Defender</position>
 				<number>2</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>9</attack>
 				<defence>67</defence>
 				<stamina>58</stamina>
@@ -2462,9 +2462,9 @@
 				<surname>van Anholt</surname>
 				<position>Defender</position>
 				<number>3</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>8</attack>
 				<defence>69</defence>
 				<stamina>78</stamina>
@@ -2474,9 +2474,9 @@
 				<surname>Marzo</surname>
 				<position>Defender</position>
 				<number>4</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>27</attack>
 				<defence>59</defence>
 				<stamina>54</stamina>
@@ -2486,9 +2486,9 @@
 				<surname>Raitala</surname>
 				<position>Defender</position>
 				<number>5</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>28</attack>
 				<defence>60</defence>
 				<stamina>72</stamina>
@@ -2498,9 +2498,9 @@
 				<surname>van Aken</surname>
 				<position>Defender</position>
 				<number>6</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>8</attack>
 				<defence>61</defence>
 				<stamina>50</stamina>
@@ -2510,9 +2510,9 @@
 				<surname>de Roon</surname>
 				<position>Midfielder</position>
 				<number>7</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>68</attack>
 				<defence>68</defence>
 				<stamina>68</stamina>
@@ -2522,9 +2522,9 @@
 				<surname>Varga</surname>
 				<position>Forward</position>
 				<number>8</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>56</attack>
 				<defence>22</defence>
 				<stamina>67</stamina>
@@ -2534,9 +2534,9 @@
 				<surname>Warmolts</surname>
 				<position>Defender</position>
 				<number>9</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>13</attack>
 				<defence>53</defence>
 				<stamina>48</stamina>
@@ -2546,9 +2546,9 @@
 				<surname>Chacon</surname>
 				<position>Midfielder</position>
 				<number>10</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>53</attack>
 				<defence>55</defence>
 				<stamina>68</stamina>
@@ -2558,9 +2558,9 @@
 				<surname>van den Berg</surname>
 				<position>Forward</position>
 				<number>11</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>65</attack>
 				<defence>43</defence>
 				<stamina>65</stamina>
@@ -2570,9 +2570,9 @@
 				<surname>Slagveer</surname>
 				<position>Forward</position>
 				<number>12</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>67</attack>
 				<defence>21</defence>
 				<stamina>56</stamina>
@@ -2582,9 +2582,9 @@
 				<surname>Sinkgraven</surname>
 				<position>Midfielder</position>
 				<number>13</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>71</attack>
 				<defence>67</defence>
 				<stamina>64</stamina>
@@ -2594,9 +2594,9 @@
 				<surname>Schmidt</surname>
 				<position>Defender</position>
 				<number>14</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>23</attack>
 				<defence>59</defence>
 				<stamina>64</stamina>
@@ -2606,9 +2606,9 @@
 				<surname>Uth</surname>
 				<position>Forward</position>
 				<number>15</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>75</attack>
 				<defence>14</defence>
 				<stamina>68</stamina>
@@ -2618,9 +2618,9 @@
 				<surname>Buijs</surname>
 				<position>Defender</position>
 				<number>16</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>42</attack>
 				<defence>67</defence>
 				<stamina>57</stamina>
@@ -2630,9 +2630,9 @@
 				<surname>Dalgaard</surname>
 				<position>Forward</position>
 				<number>17</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>69</attack>
 				<defence>8</defence>
 				<stamina>64</stamina>
@@ -2642,9 +2642,9 @@
 				<surname>Larsson</surname>
 				<position>Forward</position>
 				<number>18</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>69</attack>
 				<defence>21</defence>
 				<stamina>65</stamina>
@@ -2653,9 +2653,9 @@
 				<name>Maarten</name>
 				<surname>De Fockert</surname>
 				<number>19</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>54</stoppower>
 				<penaltystoppower>52</penaltystoppower>
 			</goalkeeper>
@@ -2664,9 +2664,9 @@
 				<surname>Thorsby</surname>
 				<position>Midfielder</position>
 				<number>20</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>64</attack>
 				<defence>62</defence>
 				<stamina>68</stamina>
@@ -2676,9 +2676,9 @@
 				<surname>Huser</surname>
 				<position>Forward</position>
 				<number>21</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>53</attack>
 				<defence>10</defence>
 				<stamina>65</stamina>
@@ -2688,9 +2688,9 @@
 				<surname>van Amersfoort</surname>
 				<position>Forward</position>
 				<number>22</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>57</attack>
 				<defence>18</defence>
 				<stamina>53</stamina>
@@ -2702,9 +2702,9 @@
 				<surname>Pelupessy</surname>
 				<position>Midfielder</position>
 				<number>2</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>56</attack>
 				<defence>60</defence>
 				<stamina>67</stamina>
@@ -2714,9 +2714,9 @@
 				<surname>Zomer</surname>
 				<position>Defender</position>
 				<number>3</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>6</attack>
 				<defence>66</defence>
 				<stamina>60</stamina>
@@ -2726,9 +2726,9 @@
 				<surname>Aktaou</surname>
 				<position>Defender</position>
 				<number>4</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>20</attack>
 				<defence>55</defence>
 				<stamina>76</stamina>
@@ -2738,9 +2738,9 @@
 				<surname>Avdic</surname>
 				<position>Forward</position>
 				<number>5</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>61</attack>
 				<defence>8</defence>
 				<stamina>60</stamina>
@@ -2749,9 +2749,9 @@
 				<name>Dennis</name>
 				<surname>Telgenkamp</surname>
 				<number>1</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>59</stoppower>
 				<penaltystoppower>74</penaltystoppower>
 			</goalkeeper>
@@ -2759,9 +2759,9 @@
 				<name>Renze</name>
 				<surname>Fij</surname>
 				<number>6</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>54</stoppower>
 				<penaltystoppower>64</penaltystoppower>
 			</goalkeeper>
@@ -2769,9 +2769,9 @@
 				<name>Michael</name>
 				<surname>Brouwer</surname>
 				<number>7</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>53</stoppower>
 				<penaltystoppower>35</penaltystoppower>
 			</goalkeeper>
@@ -2780,9 +2780,9 @@
 				<surname>Koenders</surname>
 				<position>Defender</position>
 				<number>8</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>19</attack>
 				<defence>59</defence>
 				<stamina>71</stamina>
@@ -2792,9 +2792,9 @@
 				<surname>Schenkeveld</surname>
 				<position>Defender</position>
 				<number>9</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>10</attack>
 				<defence>61</defence>
 				<stamina>39</stamina>
@@ -2804,9 +2804,9 @@
 				<surname>Veldmate</surname>
 				<position>Defender</position>
 				<number>10</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>6</attack>
 				<defence>60</defence>
 				<stamina>61</stamina>
@@ -2816,9 +2816,9 @@
 				<surname>te Wierik</surname>
 				<position>Defender</position>
 				<number>11</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>29</attack>
 				<defence>63</defence>
 				<stamina>64</stamina>
@@ -2828,9 +2828,9 @@
 				<surname>Bel Hassani</surname>
 				<position>Midfielder</position>
 				<number>12</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>63</attack>
 				<defence>59</defence>
 				<stamina>61</stamina>
@@ -2840,9 +2840,9 @@
 				<surname>Bruns</surname>
 				<position>Midfielder</position>
 				<number>13</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>66</attack>
 				<defence>62</defence>
 				<stamina>65</stamina>
@@ -2852,9 +2852,9 @@
 				<surname>Linssen</surname>
 				<position>Forward</position>
 				<number>14</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>67</attack>
 				<defence>29</defence>
 				<stamina>66</stamina>
@@ -2864,9 +2864,9 @@
 				<surname>Paljic</surname>
 				<position>Midfielder</position>
 				<number>15</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>64</attack>
 				<defence>51</defence>
 				<stamina>49</stamina>
@@ -2876,9 +2876,9 @@
 				<surname>Cziommer</surname>
 				<position>Midfielder</position>
 				<number>16</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>66</attack>
 				<defence>64</defence>
 				<stamina>68</stamina>
@@ -2888,9 +2888,9 @@
 				<surname>Vujicevic</surname>
 				<position>Forward</position>
 				<number>17</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>57</attack>
 				<defence>61</defence>
 				<stamina>52</stamina>
@@ -2900,9 +2900,9 @@
 				<surname>Kangaskolkka</surname>
 				<position>Forward</position>
 				<number>18</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>56</attack>
 				<defence>7</defence>
 				<stamina>65</stamina>
@@ -2912,9 +2912,9 @@
 				<surname>Navratil</surname>
 				<position>Forward</position>
 				<number>19</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>56</attack>
 				<defence>14</defence>
 				<stamina>54</stamina>
@@ -2924,9 +2924,9 @@
 				<surname>Tannane</surname>
 				<position>Forward</position>
 				<number>20</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>60</attack>
 				<defence>26</defence>
 				<stamina>75</stamina>
@@ -2936,9 +2936,9 @@
 				<surname>Gyasi</surname>
 				<position>Forward</position>
 				<number>21</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>60</attack>
 				<defence>27</defence>
 				<stamina>58</stamina>
@@ -2948,9 +2948,9 @@
 				<surname>Sibum</surname>
 				<position>Midfielder</position>
 				<number>22</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>64</attack>
 				<defence>67</defence>
 				<stamina>76</stamina>
@@ -2959,9 +2959,9 @@
 				<name>Bram</name>
 				<surname>Castro</surname>
 				<number>23</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>62</stoppower>
 				<penaltystoppower>65</penaltystoppower>
 			</goalkeeper>
@@ -2970,9 +2970,9 @@
 				<surname>Fledderus</surname>
 				<position>Midfielder</position>
 				<number>24</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>71</attack>
 				<defence>68</defence>
 				<stamina>78</stamina>
@@ -2984,9 +2984,9 @@
 				<surname>Boateng</surname>
 				<position>Forward</position>
 				<number>2</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>60</attack>
 				<defence>8</defence>
 				<stamina>64</stamina>
@@ -2995,9 +2995,9 @@
 				<name>Andries</name>
 				<surname>Noppert</surname>
 				<number>3</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>53</stoppower>
 				<penaltystoppower>53</penaltystoppower>
 			</goalkeeper>
@@ -3006,9 +3006,9 @@
 				<surname>de Kamps</surname>
 				<position>Midfielder</position>
 				<number>4</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>56</attack>
 				<defence>61</defence>
 				<stamina>65</stamina>
@@ -3018,9 +3018,9 @@
 				<surname>Falkenburg</surname>
 				<position>Midfielder</position>
 				<number>5</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>67</attack>
 				<defence>63</defence>
 				<stamina>76</stamina>
@@ -3029,9 +3029,9 @@
 				<name>Jelle</name>
 				<surname>ten Rouwelaar</surname>
 				<number>1</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>71</stoppower>
 				<penaltystoppower>85</penaltystoppower>
 			</goalkeeper>
@@ -3039,9 +3039,9 @@
 				<name>Gabor</name>
 				<surname>Babos</surname>
 				<number>6</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>63</stoppower>
 				<penaltystoppower>65</penaltystoppower>
 			</goalkeeper>
@@ -3050,9 +3050,9 @@
 				<surname>De Roover</surname>
 				<position>Defender</position>
 				<number>7</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>29</attack>
 				<defence>61</defence>
 				<stamina>64</stamina>
@@ -3062,9 +3062,9 @@
 				<surname>Drost</surname>
 				<position>Defender</position>
 				<number>8</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>14</attack>
 				<defence>61</defence>
 				<stamina>62</stamina>
@@ -3074,9 +3074,9 @@
 				<surname>Swerts</surname>
 				<position>Defender</position>
 				<number>9</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>27</attack>
 				<defence>63</defence>
 				<stamina>67</stamina>
@@ -3086,9 +3086,9 @@
 				<surname>van der Weg</surname>
 				<position>Defender</position>
 				<number>10</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>22</attack>
 				<defence>59</defence>
 				<stamina>62</stamina>
@@ -3098,9 +3098,9 @@
 				<surname>Sarpong</surname>
 				<position>Forward</position>
 				<number>11</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>63</attack>
 				<defence>30</defence>
 				<stamina>56</stamina>
@@ -3110,9 +3110,9 @@
 				<surname>Matic</surname>
 				<position>Midfielder</position>
 				<number>12</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>65</attack>
 				<defence>62</defence>
 				<stamina>66</stamina>
@@ -3122,9 +3122,9 @@
 				<surname>Suk</surname>
 				<position>Midfielder</position>
 				<number>13</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>60</attack>
 				<defence>58</defence>
 				<stamina>67</stamina>
@@ -3134,9 +3134,9 @@
 				<surname>Seuntjes</surname>
 				<position>Midfielder</position>
 				<number>14</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>60</attack>
 				<defence>43</defence>
 				<stamina>60</stamina>
@@ -3146,9 +3146,9 @@
 				<surname>Hooi</surname>
 				<position>Forward</position>
 				<number>15</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>60</attack>
 				<defence>29</defence>
 				<stamina>88</stamina>
@@ -3158,9 +3158,9 @@
 				<surname>Tighadouini</surname>
 				<position>Forward</position>
 				<number>16</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>62</attack>
 				<defence>28</defence>
 				<stamina>69</stamina>
@@ -3170,9 +3170,9 @@
 				<surname>Perica</surname>
 				<position>Forward</position>
 				<number>17</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>67</attack>
 				<defence>6</defence>
 				<stamina>55</stamina>
@@ -3182,9 +3182,9 @@
 				<surname>Amieux</surname>
 				<position>Defender</position>
 				<number>18</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>29</attack>
 				<defence>60</defence>
 				<stamina>79</stamina>
@@ -3194,9 +3194,9 @@
 				<surname>Damcevski</surname>
 				<position>Defender</position>
 				<number>19</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>9</attack>
 				<defence>59</defence>
 				<stamina>52</stamina>
@@ -3206,9 +3206,9 @@
 				<surname>Ssewankambo</surname>
 				<position>Defender</position>
 				<number>20</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>20</attack>
 				<defence>59</defence>
 				<stamina>62</stamina>
@@ -3218,9 +3218,9 @@
 				<surname>el Allouchi</surname>
 				<position>Midfielder</position>
 				<number>21</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>54</attack>
 				<defence>52</defence>
 				<stamina>66</stamina>
@@ -3230,9 +3230,9 @@
 				<surname>Robinson</surname>
 				<position>Forward</position>
 				<number>22</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>53</attack>
 				<defence>23</defence>
 				<stamina>63</stamina>
@@ -3242,9 +3242,9 @@
 				<surname>van Bezooijen</surname>
 				<position>Defender</position>
 				<number>23</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>12</attack>
 				<defence>59</defence>
 				<stamina>64</stamina>
@@ -3256,9 +3256,9 @@
 				<surname>Brama</surname>
 				<position>Midfielder</position>
 				<number>2</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>72</attack>
 				<defence>78</defence>
 				<stamina>67</stamina>
@@ -3268,9 +3268,9 @@
 				<surname>Lam</surname>
 				<position>Defender</position>
 				<number>3</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>19</attack>
 				<defence>59</defence>
 				<stamina>53</stamina>
@@ -3279,9 +3279,9 @@
 				<name>Kevin</name>
 				<surname>Begois</surname>
 				<number>1</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>64</stoppower>
 				<penaltystoppower>78</penaltystoppower>
 			</goalkeeper>
@@ -3289,9 +3289,9 @@
 				<name>Leon</name>
 				<surname>ter Wielen</surname>
 				<number>4</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>60</stoppower>
 				<penaltystoppower>65</penaltystoppower>
 			</goalkeeper>
@@ -3300,9 +3300,9 @@
 				<surname>van Polen</surname>
 				<position>Defender</position>
 				<number>5</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>29</attack>
 				<defence>64</defence>
 				<stamina>69</stamina>
@@ -3312,9 +3312,9 @@
 				<surname>van der Werff</surname>
 				<position>Defender</position>
 				<number>6</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>16</attack>
 				<defence>59</defence>
 				<stamina>78</stamina>
@@ -3324,9 +3324,9 @@
 				<surname>van Hintum</surname>
 				<position>Defender</position>
 				<number>7</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>29</attack>
 				<defence>59</defence>
 				<stamina>52</stamina>
@@ -3336,9 +3336,9 @@
 				<surname>Broerse</surname>
 				<position>Defender</position>
 				<number>8</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>19</attack>
 				<defence>65</defence>
 				<stamina>56</stamina>
@@ -3348,9 +3348,9 @@
 				<surname>Sainsbury</surname>
 				<position>Defender</position>
 				<number>9</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>14</attack>
 				<defence>61</defence>
 				<stamina>69</stamina>
@@ -3360,9 +3360,9 @@
 				<surname>Saymak</surname>
 				<position>Midfielder</position>
 				<number>10</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>65</attack>
 				<defence>69</defence>
 				<stamina>77</stamina>
@@ -3372,9 +3372,9 @@
 				<surname>Karagounis</surname>
 				<position>Midfielder</position>
 				<number>11</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>64</attack>
 				<defence>43</defence>
 				<stamina>57</stamina>
@@ -3384,9 +3384,9 @@
 				<surname>Lukoki</surname>
 				<position>Forward</position>
 				<number>12</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>64</attack>
 				<defence>29</defence>
 				<stamina>55</stamina>
@@ -3396,9 +3396,9 @@
 				<surname>Nijland</surname>
 				<position>Forward</position>
 				<number>13</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>60</attack>
 				<defence>30</defence>
 				<stamina>78</stamina>
@@ -3408,9 +3408,9 @@
 				<surname>Drost</surname>
 				<position>Midfielder</position>
 				<number>14</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>69</attack>
 				<defence>66</defence>
 				<stamina>46</stamina>
@@ -3420,9 +3420,9 @@
 				<surname>Fernandes Pereira</surname>
 				<position>Defender</position>
 				<number>15</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>9</attack>
 				<defence>54</defence>
 				<stamina>80</stamina>
@@ -3432,9 +3432,9 @@
 				<surname>Rienstra</surname>
 				<position>Midfielder</position>
 				<number>16</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>62</attack>
 				<defence>67</defence>
 				<stamina>70</stamina>
@@ -3444,9 +3444,9 @@
 				<surname>Necid</surname>
 				<position>Forward</position>
 				<number>17</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>73</attack>
 				<defence>6</defence>
 				<stamina>55</stamina>
@@ -3455,9 +3455,9 @@
 				<name>Warner</name>
 				<surname>Hahn</surname>
 				<number>18</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>63</stoppower>
 				<penaltystoppower>51</penaltystoppower>
 			</goalkeeper>
@@ -3466,9 +3466,9 @@
 				<surname>Dekker</surname>
 				<position>Midfielder</position>
 				<number>19</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>52</attack>
 				<defence>55</defence>
 				<stamina>73</stamina>
@@ -3478,9 +3478,9 @@
 				<surname>Moro</surname>
 				<position>Midfielder</position>
 				<number>20</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>56</attack>
 				<defence>36</defence>
 				<stamina>60</stamina>
@@ -3490,9 +3490,9 @@
 				<surname>Ioannidis</surname>
 				<position>Forward</position>
 				<number>21</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>57</attack>
 				<defence>18</defence>
 				<stamina>49</stamina>
@@ -3502,9 +3502,9 @@
 				<surname>Marinus</surname>
 				<position>Midfielder</position>
 				<number>22</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>55</attack>
 				<defence>52</defence>
 				<stamina>68</stamina>
@@ -3514,9 +3514,9 @@
 				<surname>Ehizibue</surname>
 				<position>Defender</position>
 				<number>23</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>23</attack>
 				<defence>53</defence>
 				<stamina>56</stamina>
@@ -3528,9 +3528,9 @@
 				<surname>Isimat-Mirin</surname>
 				<position>Defender</position>
 				<number>2</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>12</attack>
 				<defence>73</defence>
 				<stamina>75</stamina>
@@ -3540,9 +3540,9 @@
 				<surname>de Jong</surname>
 				<position>Forward</position>
 				<number>3</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>80</attack>
 				<defence>18</defence>
 				<stamina>68</stamina>
@@ -3552,9 +3552,9 @@
 				<surname>Andres Guardado</surname>
 				<position>Midfielder</position>
 				<number>4</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>79</attack>
 				<defence>85</defence>
 				<stamina>66</stamina>
@@ -3563,9 +3563,9 @@
 				<name>Jeroen</name>
 				<surname>Zoet</surname>
 				<number>1</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>80</stoppower>
 				<penaltystoppower>67</penaltystoppower>
 			</goalkeeper>
@@ -3574,9 +3574,9 @@
 				<surname>Bruma</surname>
 				<position>Defender</position>
 				<number>5</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>12</attack>
 				<defence>76</defence>
 				<stamina>60</stamina>
@@ -3586,9 +3586,9 @@
 				<surname>Arias</surname>
 				<position>Defender</position>
 				<number>6</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>35</attack>
 				<defence>73</defence>
 				<stamina>75</stamina>
@@ -3598,9 +3598,9 @@
 				<surname>Willems</surname>
 				<position>Defender</position>
 				<number>7</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>37</attack>
 				<defence>78</defence>
 				<stamina>55</stamina>
@@ -3610,9 +3610,9 @@
 				<surname>Brenet</surname>
 				<position>Defender</position>
 				<number>8</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>23</attack>
 				<defence>61</defence>
 				<stamina>72</stamina>
@@ -3622,9 +3622,9 @@
 				<surname>Tamata</surname>
 				<position>Defender</position>
 				<number>9</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>29</attack>
 				<defence>60</defence>
 				<stamina>59</stamina>
@@ -3634,9 +3634,9 @@
 				<surname>Hendrix</surname>
 				<position>Midfielder</position>
 				<number>10</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>65</attack>
 				<defence>73</defence>
 				<stamina>71</stamina>
@@ -3646,9 +3646,9 @@
 				<surname>Maher</surname>
 				<position>Midfielder</position>
 				<number>11</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>84</attack>
 				<defence>80</defence>
 				<stamina>64</stamina>
@@ -3658,9 +3658,9 @@
 				<surname>Schaars</surname>
 				<position>Midfielder</position>
 				<number>12</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>81</attack>
 				<defence>85</defence>
 				<stamina>71</stamina>
@@ -3670,9 +3670,9 @@
 				<surname>Wijnaldum</surname>
 				<position>Midfielder</position>
 				<number>13</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>87</attack>
 				<defence>84</defence>
 				<stamina>66</stamina>
@@ -3682,9 +3682,9 @@
 				<surname>Jozefzoon</surname>
 				<position>Forward</position>
 				<number>14</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>67</attack>
 				<defence>32</defence>
 				<stamina>76</stamina>
@@ -3694,9 +3694,9 @@
 				<surname>Bakkali</surname>
 				<position>Forward</position>
 				<number>15</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>73</attack>
 				<defence>22</defence>
 				<stamina>58</stamina>
@@ -3706,9 +3706,9 @@
 				<surname>Hiljemark</surname>
 				<position>Midfielder</position>
 				<number>16</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>74</attack>
 				<defence>76</defence>
 				<stamina>68</stamina>
@@ -3718,9 +3718,9 @@
 				<surname>Locadia</surname>
 				<position>Forward</position>
 				<number>17</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>76</attack>
 				<defence>11</defence>
 				<stamina>61</stamina>
@@ -3730,9 +3730,9 @@
 				<surname>Narsingh</surname>
 				<position>Forward</position>
 				<number>18</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>80</attack>
 				<defence>28</defence>
 				<stamina>64</stamina>
@@ -3742,9 +3742,9 @@
 				<surname>Depay</surname>
 				<position>Forward</position>
 				<number>19</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>87</attack>
 				<defence>31</defence>
 				<stamina>76</stamina>
@@ -3754,9 +3754,9 @@
 				<surname>Ritzmaier</surname>
 				<position>Midfielder</position>
 				<number>20</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>70</attack>
 				<defence>69</defence>
 				<stamina>65</stamina>
@@ -3765,9 +3765,9 @@
 				<name>Remko</name>
 				<surname>Pasveer</surname>
 				<number>21</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>73</stoppower>
 				<penaltystoppower>78</penaltystoppower>
 			</goalkeeper>
@@ -3776,9 +3776,9 @@
 				<surname>Boljevic</surname>
 				<position>Forward</position>
 				<number>22</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>56</attack>
 				<defence>24</defence>
 				<stamina>68</stamina>
@@ -3788,9 +3788,9 @@
 				<surname>Leemans</surname>
 				<position>Midfielder</position>
 				<number>23</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>56</attack>
 				<defence>59</defence>
 				<stamina>77</stamina>
@@ -3801,9 +3801,9 @@
 				<name>Sonny</name>
 				<surname>Stevens</surname>
 				<number>2</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>59</stoppower>
 				<penaltystoppower>65</penaltystoppower>
 			</goalkeeper>
@@ -3811,9 +3811,9 @@
 				<name>Nick</name>
 				<surname>Marsman</surname>
 				<number>1</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>73</stoppower>
 				<penaltystoppower>76</penaltystoppower>
 			</goalkeeper>
@@ -3821,9 +3821,9 @@
 				<name>Filip</name>
 				<surname>Bednarek</surname>
 				<number>3</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>55</stoppower>
 				<penaltystoppower>53</penaltystoppower>
 			</goalkeeper>
@@ -3832,9 +3832,9 @@
 				<surname>Koppers</surname>
 				<position>Defender</position>
 				<number>4</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>22</attack>
 				<defence>68</defence>
 				<stamina>66</stamina>
@@ -3844,9 +3844,9 @@
 				<surname>Bjelland</surname>
 				<position>Defender</position>
 				<number>5</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>14</attack>
 				<defence>76</defence>
 				<stamina>75</stamina>
@@ -3856,9 +3856,9 @@
 				<surname>Bengtsson</surname>
 				<position>Defender</position>
 				<number>6</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>16</attack>
 				<defence>73</defence>
 				<stamina>75</stamina>
@@ -3868,9 +3868,9 @@
 				<surname>Martina</surname>
 				<position>Defender</position>
 				<number>7</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>16</attack>
 				<defence>62</defence>
 				<stamina>54</stamina>
@@ -3880,9 +3880,9 @@
 				<surname>Tapia</surname>
 				<position>Defender</position>
 				<number>8</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>41</attack>
 				<defence>57</defence>
 				<stamina>61</stamina>
@@ -3892,9 +3892,9 @@
 				<surname>Schilder</surname>
 				<position>Defender</position>
 				<number>9</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>38</attack>
 				<defence>70</defence>
 				<stamina>62</stamina>
@@ -3904,9 +3904,9 @@
 				<surname>Mokhtar</surname>
 				<position>Forward</position>
 				<number>10</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>73</attack>
 				<defence>37</defence>
 				<stamina>61</stamina>
@@ -3916,9 +3916,9 @@
 				<surname>Ebecilio</surname>
 				<position>Midfielder</position>
 				<number>11</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>76</attack>
 				<defence>76</defence>
 				<stamina>76</stamina>
@@ -3928,9 +3928,9 @@
 				<surname>Manuel Corona</surname>
 				<position>Midfielder</position>
 				<number>12</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>75</attack>
 				<defence>50</defence>
 				<stamina>65</stamina>
@@ -3940,9 +3940,9 @@
 				<surname>Breukers</surname>
 				<position>Defender</position>
 				<number>13</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>27</attack>
 				<defence>60</defence>
 				<stamina>65</stamina>
@@ -3952,9 +3952,9 @@
 				<surname>Eghan</surname>
 				<position>Midfielder</position>
 				<number>14</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>72</attack>
 				<defence>68</defence>
 				<stamina>77</stamina>
@@ -3964,9 +3964,9 @@
 				<surname>Gutierrez</surname>
 				<position>Midfielder</position>
 				<number>15</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>82</attack>
 				<defence>78</defence>
 				<stamina>78</stamina>
@@ -3976,9 +3976,9 @@
 				<surname>Castaignos</surname>
 				<position>Forward</position>
 				<number>16</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>83</attack>
 				<defence>18</defence>
 				<stamina>65</stamina>
@@ -3988,9 +3988,9 @@
 				<surname>Borven</surname>
 				<position>Forward</position>
 				<number>17</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>68</attack>
 				<defence>13</defence>
 				<stamina>62</stamina>
@@ -4000,9 +4000,9 @@
 				<surname>Ziyech</surname>
 				<position>Midfielder</position>
 				<number>18</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>82</attack>
 				<defence>79</defence>
 				<stamina>80</stamina>
@@ -4012,9 +4012,9 @@
 				<surname>Lachman</surname>
 				<position>Defender</position>
 				<number>19</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>10</attack>
 				<defence>69</defence>
 				<stamina>65</stamina>
@@ -4024,9 +4024,9 @@
 				<surname>Mokotjo</surname>
 				<position>Midfielder</position>
 				<number>20</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>71</attack>
 				<defence>76</defence>
 				<stamina>74</stamina>
@@ -4036,9 +4036,9 @@
 				<surname>Kusk</surname>
 				<position>Forward</position>
 				<number>21</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>71</attack>
 				<defence>57</defence>
 				<stamina>61</stamina>
@@ -4048,9 +4048,9 @@
 				<surname>Engelaar</surname>
 				<position>Midfielder</position>
 				<number>22</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>62</attack>
 				<defence>66</defence>
 				<stamina>60</stamina>
@@ -4060,9 +4060,9 @@
 				<surname>Ould-Chikh</surname>
 				<position>Forward</position>
 				<number>23</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>60</attack>
 				<defence>20</defence>
 				<stamina>67</stamina>
@@ -4074,9 +4074,9 @@
 				<surname>Kum</surname>
 				<position>Defender</position>
 				<number>2</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>16</attack>
 				<defence>61</defence>
 				<stamina>67</stamina>
@@ -4086,9 +4086,9 @@
 				<surname>Boymans</surname>
 				<position>Forward</position>
 				<number>3</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>65</attack>
 				<defence>10</defence>
 				<stamina>64</stamina>
@@ -4098,9 +4098,9 @@
 				<surname>Letschert</surname>
 				<position>Defender</position>
 				<number>4</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>19</attack>
 				<defence>59</defence>
 				<stamina>64</stamina>
@@ -4110,9 +4110,9 @@
 				<surname>Leeuwin</surname>
 				<position>Defender</position>
 				<number>5</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>13</attack>
 				<defence>61</defence>
 				<stamina>64</stamina>
@@ -4121,9 +4121,9 @@
 				<name>Robin</name>
 				<surname>Ruiter</surname>
 				<number>1</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>71</stoppower>
 				<penaltystoppower>65</penaltystoppower>
 			</goalkeeper>
@@ -4131,9 +4131,9 @@
 				<name>Jeroen</name>
 				<surname>Verhoeven</surname>
 				<number>6</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<stoppower>59</stoppower>
 				<penaltystoppower>45</penaltystoppower>
 			</goalkeeper>
@@ -4142,9 +4142,9 @@
 				<surname>van der Maarel</surname>
 				<position>Defender</position>
 				<number>7</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>28</attack>
 				<defence>64</defence>
 				<stamina>78</stamina>
@@ -4154,9 +4154,9 @@
 				<surname>Markiet</surname>
 				<position>Defender</position>
 				<number>8</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>24</attack>
 				<defence>60</defence>
 				<stamina>56</stamina>
@@ -4166,9 +4166,9 @@
 				<surname>Heerings</surname>
 				<position>Defender</position>
 				<number>9</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>6</attack>
 				<defence>64</defence>
 				<stamina>66</stamina>
@@ -4178,9 +4178,9 @@
 				<surname>Duplan</surname>
 				<position>Midfielder</position>
 				<number>10</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>75</attack>
 				<defence>69</defence>
 				<stamina>77</stamina>
@@ -4190,9 +4190,9 @@
 				<surname>Oar</surname>
 				<position>Midfielder</position>
 				<number>11</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>73</attack>
 				<defence>69</defence>
 				<stamina>55</stamina>
@@ -4202,9 +4202,9 @@
 				<surname>Diemers</surname>
 				<position>Midfielder</position>
 				<number>12</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>60</attack>
 				<defence>56</defence>
 				<stamina>54</stamina>
@@ -4214,9 +4214,9 @@
 				<surname>Ayoub</surname>
 				<position>Midfielder</position>
 				<number>13</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>66</attack>
 				<defence>71</defence>
 				<stamina>64</stamina>
@@ -4226,9 +4226,9 @@
 				<surname>Janssen</surname>
 				<position>Midfielder</position>
 				<number>14</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>73</attack>
 				<defence>69</defence>
 				<stamina>68</stamina>
@@ -4238,9 +4238,9 @@
 				<surname>Quesada</surname>
 				<position>Midfielder</position>
 				<number>15</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>58</attack>
 				<defence>58</defence>
 				<stamina>58</stamina>
@@ -4250,9 +4250,9 @@
 				<surname>van Velzen</surname>
 				<position>Forward</position>
 				<number>16</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>55</attack>
 				<defence>23</defence>
 				<stamina>66</stamina>
@@ -4262,9 +4262,9 @@
 				<surname>Klaiber</surname>
 				<position>Midfielder</position>
 				<number>17</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>53</attack>
 				<defence>57</defence>
 				<stamina>44</stamina>
@@ -4274,9 +4274,9 @@
 				<surname>Zullo</surname>
 				<position>Defender</position>
 				<number>18</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>27</attack>
 				<defence>61</defence>
 				<stamina>79</stamina>
@@ -4286,9 +4286,9 @@
 				<surname>Barazite</surname>
 				<position>Forward</position>
 				<number>19</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>60</attack>
 				<defence>19</defence>
 				<stamina>51</stamina>
@@ -4298,9 +4298,9 @@
 				<surname>Kali</surname>
 				<position>Midfielder</position>
 				<number>20</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>68</attack>
 				<defence>71</defence>
 				<stamina>65</stamina>
@@ -4310,9 +4310,9 @@
 				<surname>Peterson</surname>
 				<position>Forward</position>
 				<number>21</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>57</attack>
 				<defence>27</defence>
 				<stamina>52</stamina>
@@ -4322,9 +4322,9 @@
 				<surname>Kerk</surname>
 				<position>Forward</position>
 				<number>22</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>57</attack>
 				<defence>24</defence>
 				<stamina>63</stamina>
@@ -4334,9 +4334,9 @@
 				<surname>Rubin</surname>
 				<position>Forward</position>
 				<number>23</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>60</attack>
 				<defence>18</defence>
 				<stamina>55</stamina>
@@ -4346,9 +4346,9 @@
 				<surname>Kallon</surname>
 				<position>Forward</position>
 				<number>24</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>60</attack>
 				<defence>23</defence>
 				<stamina>53</stamina>
@@ -4358,9 +4358,9 @@
 				<surname>Antwi</surname>
 				<position>Forward</position>
 				<number>25</number>
-				<status>0</status>
+				<status>DEFAULT</status>
 				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
+				<reason>DEFAULT</reason>
 				<attack>56</attack>
 				<defence>22</defence>
 				<stamina>65</stamina>
@@ -4372,9 +4372,9 @@
 			<surname>Oliveira dos Santos</surname>
 			<position>Defender</position>
 			<number>2</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<attack>35</attack>
 			<defence>78</defence>
 			<stamina>77</stamina>
@@ -4383,9 +4383,9 @@
 			<name>Eloy</name>
 			<surname>Room</surname>
 			<number>3</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<stoppower>63</stoppower>
 			<penaltystoppower>65</penaltystoppower>
 		</goalkeeper>
@@ -4393,9 +4393,9 @@
 			<name>Piet</name>
 			<surname>Velthuizen</surname>
 			<number>1</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<stoppower>75</stoppower>
 			<penaltystoppower>80</penaltystoppower>
 		</goalkeeper>
@@ -4404,9 +4404,9 @@
 			<surname>Mori</surname>
 			<position>Defender</position>
 			<number>4</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<attack>9</attack>
 			<defence>61</defence>
 			<stamina>63</stamina>
@@ -4416,9 +4416,9 @@
 			<surname>Leerdam</surname>
 			<position>Defender</position>
 			<number>5</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<attack>40</attack>
 			<defence>73</defence>
 			<stamina>64</stamina>
@@ -4428,9 +4428,9 @@
 			<surname>Kashia</surname>
 			<position>Defender</position>
 			<number>6</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<attack>13</attack>
 			<defence>75</defence>
 			<stamina>77</stamina>
@@ -4440,9 +4440,9 @@
 			<surname>Achenteh</surname>
 			<position>Defender</position>
 			<number>7</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<attack>32</attack>
 			<defence>65</defence>
 			<stamina>63</stamina>
@@ -4452,9 +4452,9 @@
 			<surname>Vejinovic</surname>
 			<position>Midfielder</position>
 			<number>8</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<attack>76</attack>
 			<defence>74</defence>
 			<stamina>55</stamina>
@@ -4464,9 +4464,9 @@
 			<surname>Propper</surname>
 			<position>Midfielder</position>
 			<number>9</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<attack>78</attack>
 			<defence>74</defence>
 			<stamina>54</stamina>
@@ -4476,9 +4476,9 @@
 			<surname>Labyad</surname>
 			<position>Forward</position>
 			<number>10</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<attack>78</attack>
 			<defence>39</defence>
 			<stamina>63</stamina>
@@ -4488,9 +4488,9 @@
 			<surname>van der Heijden</surname>
 			<position>Midfielder</position>
 			<number>11</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<attack>16</attack>
 			<defence>75</defence>
 			<stamina>74</stamina>
@@ -4500,9 +4500,9 @@
 			<surname>Traore</surname>
 			<position>Midfielder</position>
 			<number>12</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<attack>69</attack>
 			<defence>17</defence>
 			<stamina>65</stamina>
@@ -4512,9 +4512,9 @@
 			<surname>Ibarra</surname>
 			<position>Forward</position>
 			<number>13</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<attack>75</attack>
 			<defence>43</defence>
 			<stamina>65</stamina>
@@ -4524,9 +4524,9 @@
 			<surname>Bosz</surname>
 			<position>Midfielder</position>
 			<number>14</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<attack>54</attack>
 			<defence>54</defence>
 			<stamina>54</stamina>
@@ -4536,9 +4536,9 @@
 			<surname>Djurdjevic</surname>
 			<position>Forward</position>
 			<number>15</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<attack>67</attack>
 			<defence>10</defence>
 			<stamina>55</stamina>
@@ -4548,9 +4548,9 @@
 			<surname>Kruiswijk</surname>
 			<position>Defender</position>
 			<number>16</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<attack>7</attack>
 			<defence>63</defence>
 			<stamina>50</stamina>
@@ -4560,9 +4560,9 @@
 			<surname>Oliynyk</surname>
 			<position>Forward</position>
 			<number>17</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<attack>67</attack>
 			<defence>33</defence>
 			<stamina>72</stamina>
@@ -4572,9 +4572,9 @@
 			<surname>Gosens</surname>
 			<position>Midfielder</position>
 			<number>18</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<attack>64</attack>
 			<defence>69</defence>
 			<stamina>63</stamina>
@@ -4584,9 +4584,9 @@
 			<surname>Diks</surname>
 			<position>Defender</position>
 			<number>19</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<attack>23</attack>
 			<defence>57</defence>
 			<stamina>64</stamina>
@@ -4598,9 +4598,9 @@
 			<surname>Sahar</surname>
 			<position>Forward</position>
 			<number>2</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<attack>59</attack>
 			<defence>29</defence>
 			<stamina>55</stamina>
@@ -4610,9 +4610,9 @@
 			<surname>Vicento</surname>
 			<position>Forward</position>
 			<number>3</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<attack>58</attack>
 			<defence>25</defence>
 			<stamina>69</stamina>
@@ -4622,9 +4622,9 @@
 			<surname>Dijks</surname>
 			<position>Defender</position>
 			<number>4</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<attack>20</attack>
 			<defence>67</defence>
 			<stamina>63</stamina>
@@ -4633,9 +4633,9 @@
 			<name>Kostas</name>
 			<surname>Lamprou</surname>
 			<number>1</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<stoppower>59</stoppower>
 			<penaltystoppower>53</penaltystoppower>
 		</goalkeeper>
@@ -4644,9 +4644,9 @@
 			<surname>Armenteros</surname>
 			<position>Forward</position>
 			<number>5</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<attack>67</attack>
 			<defence>20</defence>
 			<stamina>78</stamina>
@@ -4656,9 +4656,9 @@
 			<surname>Cabral</surname>
 			<position>Forward</position>
 			<number>6</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<attack>61</attack>
 			<defence>27</defence>
 			<stamina>67</stamina>
@@ -4668,9 +4668,9 @@
 			<surname>van der Struijk</surname>
 			<position>Defender</position>
 			<number>7</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<attack>28</attack>
 			<defence>62</defence>
 			<stamina>59</stamina>
@@ -4680,9 +4680,9 @@
 			<surname>Heymans</surname>
 			<position>Defender</position>
 			<number>8</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<attack>25</attack>
 			<defence>58</defence>
 			<stamina>64</stamina>
@@ -4692,9 +4692,9 @@
 			<surname>Braber</surname>
 			<position>Midfielder</position>
 			<number>9</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<attack>65</attack>
 			<defence>61</defence>
 			<stamina>63</stamina>
@@ -4703,9 +4703,9 @@
 			<name>David</name>
 			<surname>Meul</surname>
 			<number>10</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<stoppower>60</stoppower>
 			<penaltystoppower>35</penaltystoppower>
 		</goalkeeper>
@@ -4713,9 +4713,9 @@
 			<name>Mattijs</name>
 			<surname>Branderhorst</surname>
 			<number>11</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<stoppower>53</stoppower>
 			<penaltystoppower>53</penaltystoppower>
 		</goalkeeper>
@@ -4724,9 +4724,9 @@
 			<surname>Heerkens</surname>
 			<position>Defender</position>
 			<number>12</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<attack>24</attack>
 			<defence>57</defence>
 			<stamina>55</stamina>
@@ -4736,9 +4736,9 @@
 			<surname>Peters</surname>
 			<position>Defender</position>
 			<number>13</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<attack>15</attack>
 			<defence>59</defence>
 			<stamina>67</stamina>
@@ -4748,9 +4748,9 @@
 			<surname>Cornelisse</surname>
 			<position>Defender</position>
 			<number>14</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<attack>32</attack>
 			<defence>62</defence>
 			<stamina>55</stamina>
@@ -4760,9 +4760,9 @@
 			<surname>Haemhouts</surname>
 			<position>Midfielder</position>
 			<number>15</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<attack>63</attack>
 			<defence>63</defence>
 			<stamina>63</stamina>
@@ -4772,9 +4772,9 @@
 			<surname>Messaoud</surname>
 			<position>Midfielder</position>
 			<number>16</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<attack>61</attack>
 			<defence>58</defence>
 			<stamina>75</stamina>
@@ -4784,9 +4784,9 @@
 			<surname>Ippel</surname>
 			<position>Midfielder</position>
 			<number>17</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<attack>58</attack>
 			<defence>60</defence>
 			<stamina>35</stamina>
@@ -4796,9 +4796,9 @@
 			<surname>Wuytens</surname>
 			<position>Midfielder</position>
 			<number>18</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<attack>60</attack>
 			<defence>60</defence>
 			<stamina>60</stamina>
@@ -4808,9 +4808,9 @@
 			<surname>Ondaan</surname>
 			<position>Forward</position>
 			<number>19</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<attack>61</attack>
 			<defence>22</defence>
 			<stamina>65</stamina>
@@ -4820,9 +4820,9 @@
 			<surname>Andrade</surname>
 			<position>Forward</position>
 			<number>20</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<attack>59</attack>
 			<defence>26</defence>
 			<stamina>60</stamina>
@@ -4832,9 +4832,9 @@
 			<surname>Van der Wal</surname>
 			<position>Midfielder</position>
 			<number>21</number>
-			<status>0</status>
+			<status>DEFAULT</status>
 			<timenotavailable>0</timenotavailable>
-			<reason>0</reason>
+			<reason>DEFAULT</reason>
 			<attack>50</attack>
 			<defence>51</defence>
 			<stamina>41</stamina>

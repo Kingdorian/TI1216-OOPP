@@ -9,9 +9,9 @@ public abstract class Players {
 	private String surname;
 	private int number;
 
-	Status status;
-	int timeNotAvailable;
-	Reason reason;
+	private Status status;
+	private int timeNotAvailable;
+	private Reason reason;
 	
 	/**
 	 * Constructor
@@ -40,15 +40,15 @@ public abstract class Players {
 	public boolean equals(Object other){
 		
 		if(other instanceof Players){
-			
-			Players that = (Players)other;
-			
-			if(this.id == that.id){
-				
+			Players p = (Players)other;
+			if(	this.name.equals(p.getName())&&
+				this.surname.equals(p.getSurName())&&
+				this.number==p.getNumber()&&
+				this.status==p.getStatus()&&
+				this.timeNotAvailable==p.getTimeNotAvailable()&&
+				this.reason==p.getReason()){
 				return true;
-				
 			}
-			
 		}
 		
 		return false;

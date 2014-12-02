@@ -51,14 +51,13 @@ public class Team {
 	public boolean equals(Object other){
 		
 		if(other instanceof Team){
-			
-			Team that = (Team)other;
-			
-			if(this.name == that.name){
-				
-				return true;
-				
-			}
+			Team team = (Team)other;
+			if(	this.name.equals(team.getName())&&
+				this.budget == team.getBudget()&&
+				this.points == team.getPoints()&&
+				this.goals == team.getGoals()&&
+				this.goalsAgainst == team.getGoalsAgainst()&&
+				this.artificialGrass == team.hasArtificialGrass())return true;
 			
 		}
 		
