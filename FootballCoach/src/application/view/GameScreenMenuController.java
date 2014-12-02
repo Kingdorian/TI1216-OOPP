@@ -26,6 +26,16 @@ public class GameScreenMenuController implements ViewControllerInterface {
     
     @Override
     public void setMainController(Main mainController){
-        this.mainController = mainController;
+        GameScreenMenuController.mainController = mainController;
+    }
+    
+    @FXML
+    private void buttonHome(){
+        mainController.setCenterView("GameScreenHOME");
+    }
+    
+    @FXML
+    private void buttonTeam(){
+        mainController.setCenterView("GameScreenTEAM");
     }
 }

@@ -26,7 +26,7 @@ public class GameScreenHOMEController implements ViewControllerInterface {
     
     @Override
     public void setMainController(Main mainController){
-        this.mainController = mainController;
+        GameScreenHOMEController.mainController = mainController;
     }
 
 }

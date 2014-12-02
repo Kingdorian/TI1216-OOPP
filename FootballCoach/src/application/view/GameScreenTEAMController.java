@@ -12,7 +12,7 @@ import javafx.fxml.FXML;
  *
  * @author faris
  */
-public class GameScreenTitleController implements ViewControllerInterface {
+public class GameScreenTEAMController implements ViewControllerInterface {
         
     private static Main mainController;
     
@@ -26,13 +26,7 @@ public class GameScreenTitleController implements ViewControllerInterface {
     
     @Override
     public void setMainController(Main mainController){
-        GameScreenTitleController.mainController = mainController;
+        GameScreenTEAMController.mainController = mainController;
     }
-    
-    @FXML
-    private void buttonTitleScreen(){
-        mainController.cleanRootLayout();
-        mainController.setCenterView("MainMenu");
-    }
-    
+
 }
