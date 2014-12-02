@@ -16,7 +16,12 @@ import org.w3c.dom.NodeList;
 
 public class XMLHandler {
 		static final String Encoding = "UTF-8";
-		
+		/**
+		 * Reads a competition xml file and returns an array of all the teams in the file
+		 * @param String the location for the file
+		 * @return ArrayList with all the teams in the xml file
+		 * @throws Exception
+		 */
 		public static ArrayList<Team> readCompetition(String filename) throws Exception{
 			ArrayList<Team> teams = new ArrayList<Team>();
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -29,7 +34,10 @@ public class XMLHandler {
 			return teams;
 			
 		}
-		
+		/**
+		 * @Param teamElement, the XML Element of that correesponds with a certain team
+		 * @return the Team composed out of the values in the Element supplied
+		 */
 		private static Team parseTeam(Element teamElement){
 			Team team = new Team(teamElement.getAttribute("name"), Boolean.parseBoolean(teamElement.getAttribute("art_grass")));
 			NodeList nodes = teamElement.getChildNodes();
@@ -49,7 +57,11 @@ public class XMLHandler {
 			}
 			return team;
 		}
-		
+		/**
+		 * 
+		 * @param playerNode to be parsed
+		 * @return Goalkeeper Object according to inputted node
+		 */
 		private static Goalkeeper parseGoalkeeper(Node playerNode){
 
 			String name = null, surname = null;
@@ -122,6 +134,11 @@ public class XMLHandler {
 				return null;
 			}
 		}
+		/**
+		 * Parses a playernode
+		 * @param playerNode to be parsed
+		 * @return Player object according to the values in the playerNode
+		 */
 		private static Player parsePlayer(Node playerNode){
 
 			String name = null, surname = null;
@@ -196,7 +213,12 @@ public class XMLHandler {
 				return null;
 			}
 		}
-		
+		/**
+		 * Stores a competition in the competition.xml file in the specified savegame
+		 * @param saveGameId the Id/number of the savegame
+		 * @param teams The arraylist with teams to store
+		 * @throws Exception
+		 */
 		public static void writeCompetition(int saveGameId, ArrayList<Team> teams) throws  Exception {
 			File saveDir = new File("XML/Savegames/" + saveGameId + "/");
 			//If the savedir does not yet exist create it and copy the default competition xml into it
@@ -281,16 +303,11 @@ public class XMLHandler {
 			}
 			
 			//Storing xml into a file
-
 			TransformerFactory tF = TransformerFactory.newInstance();
 			Transformer t = tF.newTransformer();
 			DOMSource source = new DOMSource(doc);
-//			StreamResult result = new StreamResult(System.out);
 			StreamResult result = new StreamResult(new File("XML/Savegames/" + saveGameId + "/competition.xml"));
-			t.transform(source, result);
-			
-
-			
+			t.transform(source, result);	
 		}
 
 }
