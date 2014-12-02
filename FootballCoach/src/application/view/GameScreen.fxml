@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.GameScreenController">
+   <children>
+		<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" stylesheets="@../view/Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+         <left>
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="220.0" styleClass="wrapMenu" BorderPane.alignment="TOP_LEFT">
+               <children>
+                  <Group styleClass="topMenu">
+                     <children>
+                        <Region prefHeight="50.0" prefWidth="220.0" styleClass="topMenu" />
+                        <Text layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Home" textAlignment="CENTER" wrappingWidth="220.0">
+                           <rotationAxis>
+                              <Point3D />
+                           </rotationAxis></Text>
+                     </children>
+                  </Group>
+                  <Button layoutY="50.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="220.0" styleClass="itemMenu" text="Home" />
+                  <Button layoutY="100.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="220.0" styleClass="itemMenu" text="Team" />
+                  <Button layoutY="150.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="220.0" styleClass="itemMenu" text="Schedule" />
+                  <Button layoutY="200.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="220.0" styleClass="itemMenu" text="Ranking" />
+                  <Button layoutY="250.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="220.0" styleClass="itemMenu" text="Market" />
+                  <Button layoutY="300.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="220.0" styleClass="itemMenu" text="Other Teams" />
+               </children>
+               <BorderPane.margin>
+                  <Insets left="40.0" right="40.0" top="40.0" />
+               </BorderPane.margin>
+            </Pane>
+         </left>
+         <top>
+            <Pane prefHeight="50.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Region prefHeight="50.0" prefWidth="1024.0" rotate="180.0" styleClass="topMenu" />
+                  <ImageView fitHeight="46.0" fitWidth="133.0" layoutX="40.0">
+                     <image>
+                        <Image url="@../img/logo.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="160.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Welcome, [PLAYER]" textAlignment="CENTER" wrappingWidth="220.0" />
+                  <Button layoutX="400.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="112.0" styleClass="topMenuButton" text="Save Game" />
+                  <Button layoutX="512.0" mnemonicParsing="false" onMouseClicked="#buttonTitleScreen" prefHeight="50.0" prefWidth="119.0" styleClass="topMenuButton" text="Title Screen" />
+                  <Text layoutX="650.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Budget: [BUDGET]" textAlignment="CENTER" wrappingWidth="193.97113037109375">
+                     <font>
+                        <Font name="System Italic" size="13.0" />
+                     </font>
+                  </Text>
+                  <Button layoutX="870.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="119.0" styleClass="topMenuButton" text="Next Match" />
+               </children>
+            </Pane>
+         </top>
+         <center>
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" styleClass="wrapMenu" BorderPane.alignment="TOP_LEFT">
+               <children>
+                  <Region prefHeight="50.0" prefWidth="684.0" styleClass="topMenu" />
+                  <Region layoutY="50.0" prefHeight="400.0" prefWidth="684.0" styleClass="contentView" />
+                  <ImageView fitHeight="237.0" fitWidth="237.0" layoutX="419.0" layoutY="80.0">
+                     <image>
+                        <Image url="@../img/logo.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="24.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Your Club:" />
+                  <Text layoutX="200.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="[INSERT CLUB]" />
+                  <Text layoutX="200.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="[INSERT RANKING]" />
+                  <Text layoutX="24.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Ranking:" />
+                  <Text layoutX="25.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Number of Players:" />
+                  <Text layoutX="200.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="[INSERT NO. PLAYERS]" />
+                  <Text layoutX="200.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="[INSERT MATCHES LOST]" />
+                  <Text layoutX="25.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Matches Lost:" />
+                  <Text layoutX="24.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Matches Drawn:" />
+                  <Text layoutX="200.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="[INSERT MATCHES DRAWN]" />
+                  <Text layoutX="200.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="[INSERT MATCHES WON]" />
+                  <Text layoutX="24.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Matches Won:" />
+               </children>
+               <BorderPane.margin>
+                  <Insets right="40.0" top="40.0" />
+               </BorderPane.margin>
+            </Pane>
+         </center></BorderPane>
+   </children>
+</AnchorPane>

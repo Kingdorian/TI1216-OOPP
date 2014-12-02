@@ -117,7 +117,7 @@ public class Main extends Application {
             System.out.println("error: " +classStr+ " doesn't implement view interface");
         } catch (IllegalAccessException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("error: no acces to: " + classStr);
+            System.out.println("error: no access to: " + classStr);
         }
         return null;
     }

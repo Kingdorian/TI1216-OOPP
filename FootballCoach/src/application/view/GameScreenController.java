@@ -6,27 +6,39 @@
 package application.view;
 
 import application.Main;
+import javafx.animation.FadeTransition;
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
+import javafx.scene.image.ImageView;
+import javafx.util.Duration;
 
 /**
  *
- * @author faris
+ * @author Jochem
  */
-public class testController implements ViewControllerInterface {
+public class GameScreenController implements ViewControllerInterface {
     
     private static Main mainController;
     
+    /**
+     * Code executed when the view is loaded.
+     */
     @FXML
     private void initialize(){
+        
     }
     
     @Override
     public void setMainController(Main mainController){
-        testController.mainController = mainController;
+        GameScreenController.mainController = mainController;
     }
     
+    /**
+     * Method to change to MainMenu when the given button is clicked.
+     */
     @FXML
-    private void backButton(){
+    private void buttonTitleScreen(){
         mainController.switchView("MainMenu");
     }
+   
 }
