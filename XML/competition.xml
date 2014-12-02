@@ -2,9 +2,7 @@
 <teams>
 	<team>
 <teams>
-	<team>
-		<name>ADO Den Haag</name>
-		<players>
+	<team name="ADO Den Haag" art_grass="true" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/701/150x150.png">
 			<goalkeeper>
 				<name>Robert</name>
 				<surname>Zwinkels</surname>
@@ -265,13 +263,8 @@
 				<defence>51</defence>
 				<stamina>61</stamina>
 			</player>
-		</players>
-		<artificialGrass>true</artificialGrass>
-		<logo>http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/701/150x150.png</logo>
 	</team>
-	<team>
-		<name>Ajax</name>
-		<players>
+	<team name="Ajax" art_grass="false" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/215/150x150.png">
 			<goalkeeper>
 				<name>Jasper</name>
 				<surname>Cillessen</surname>
@@ -544,13 +537,8 @@
 				<stoppower>74</stoppower>
 				<penaltystoppower>71</penaltystoppower>
 			</goalkeeper>
-		</players>
-		<artificialGrass>false</artificialGrass>
-		<logo>http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/215/150x150.png</logo>
 	</team>
-	<team>
-		<name>AZ</name>
-		<players>
+	<team name="AZ" art_grass="false" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/313/150x150.png">
 			<player>
 				<name>Muamer</name>
 				<surname>Tankovic</surname>
@@ -821,13 +809,8 @@
 				<defence>56</defence>
 				<stamina>65</stamina>
 			</player>
-		</players>
-		<artificialGrass>false</artificialGrass>
-		<logo>http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/313/150x150.png</logo>
 	</team>
-	<team>
-		<name>SC Cambuur</name>
-		<players>
+	<team name="SC Cambuur" art_grass="true" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/314/150x150.png">
 			<goalkeeper>
 				<name>Leonard</name>
 				<surname>Nienhuis</surname>
@@ -1100,13 +1083,8 @@
 				<defence>54</defence>
 				<stamina>59</stamina>
 			</player>
-		</players>
-		<artificialGrass>true</artificialGrass>
-		<logo>http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/314/150x150.png</logo>
 	</team>
-	<team>
-		<name>FC Dordrecht</name>
-		<players>
+	<team name="FC Dordrecht" art_grass="true" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/697/150x150.png">
 			<player>
 				<name>Jordy</name>
 				<surname>Van Deelen</surname>
@@ -1343,13 +1321,8 @@
 				<defence>51</defence>
 				<stamina>43</stamina>
 			</player>
-		</players>
-		<artificialGrass>true</artificialGrass>
-		<logo>http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/697/150x150.png</logo>
 	</team>
-	<team>
-		<name>Excelsior</name>
-		<players>
+	<team name="Excelsior" art_grass="true" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/539/150x150.png">
 		<player>
 				<name>Luigi</name>
 				<surname>Bruins</surname>
@@ -1620,13 +1593,8 @@
 				<defence>18</defence>
 				<stamina>42</stamina>
 			</player>
-		</players>
-		<artificialGrass>true</artificialGrass>
-		<logo>http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/539/150x150.png</logo>
 	</team>
-	<team>
-		<name>Feyenoord</name>
-		<players>
+	<team name="Feyenoord" art_grass="false" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/198/150x150.png">
 			<player>
 				<name>Karim</name>
 				<surname>El Ahmadi</surname>
@@ -1897,13 +1865,8 @@
 				<defence>56</defence>
 				<stamina>49</stamina>
 			</player>
-		</players>
-		<artificialGrass>false</artificialGrass>
-		<logo>http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/198/150x150.png</logo>
 	</team>
-	<team>
-		<name>Go Ahead Eagles</name>
-		<players>
+	<team name="Go Ahead Eagles" art_grass="false" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/734/150x150.png">
 			<player>
 				<name>Lesley</name>
 				<surname>de Sa</surname>
@@ -2186,13 +2149,8 @@
 				<defence>19</defence>
 				<stamina>52</stamina>
 			</player>
-		</players>
-		<artificialGrass>false</artificialGrass>
-		<logo>http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/734/150x150.png</logo>
 	</team>
-	<team>
-		<name>FC Groningen</name>
-		<players>
+	<team name="FC Groningen" art_grass="false" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/425/150x150.png">
 			<player>
 				<name>Danny</name>
 				<surname>Hoesen</surname>
@@ -2477,13 +2435,8 @@
 				<defence>53</defence>
 				<stamina>56</stamina>
 			</player>
-		</players>
-		<artificialGrass>false</artificialGrass>
-		<logo>http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/425/150x150.png</logo>
 	</team>
-	<team>
-		<name>SC Heerenveen</name>
-		<players>
+	<team name="SC Heerenveen" art_grass="false" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/318/150x150.png">
 			<goalkeeper>
 				<name>Kristoffer</name>
 				<surname>Nordfeldt</surname>
@@ -2744,13 +2697,8 @@
 				<defence>18</defence>
 				<stamina>53</stamina>
 			</player>
-		</players>
-		<artificialGrass>false</artificialGrass>
-		<logo>http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/318/150x150.png</logo>
 	</team>
-	<team>
-		<name>Heracles Almelo</name>
-		<players>
+	<team name="Heracles Almelo" art_grass="true" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/2038/150x150.png">
 			<player>
 				<name>Joel</name>
 				<surname>Pelupessy</surname>
@@ -3031,13 +2979,8 @@
 				<defence>68</defence>
 				<stamina>78</stamina>
 			</player>
-		</players>
-		<artificialGrass>true</artificialGrass>
-		<logo>http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/2038/150x150.png</logo>
 	</team>
-	<team>
-		<name>NAC Breda</name>
-		<players>
+	<team name="NAC Breda" art_grass="false" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/423/150x150.png">
 			<player>
 				<name>Kingsley</name>
 				<surname>Boateng</surname>
@@ -3308,13 +3251,8 @@
 				<defence>59</defence>
 				<stamina>64</stamina>
 			</player>
-		</players>
-		<artificialGrass>false</artificialGrass>
-		<logo>http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/423/150x150.png</logo>
 	</team>
-	<team>
-		<name>PEC Zwolle</name>
-		<players>
+	<team name="PEC Zwolle" art_grass="true" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/424/150x150.png">
 			<player>
 				<name>Wout</name>
 				<surname>Brama</surname>
@@ -3585,13 +3523,8 @@
 				<defence>53</defence>
 				<stamina>56</stamina>
 			</player>
-		</players>
-		<artificialGrass>true</artificialGrass>
-		<logo>http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/424/150x150.png</logo>
 	</team>
-	<team>
-		<name>PSV</name>
-		<players>
+	<team name="PSV" art_grass="false" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/204/150x150.png">
 			<player>
 				<name>Nicholas</name>
 				<surname>Isimat-Mirin</surname>
@@ -3864,13 +3797,8 @@
 				<defence>59</defence>
 				<stamina>77</stamina>
 			</player>
-		</players>
-		<artificialGrass>false</artificialGrass>
-		<logo>http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/204/150x150.png</logo>
-	</team>
-	<team>
-		<name>FC Twente</name>
-		<players>
+	</team> 
+	<team name="FC Twente" art_grass="false" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/324/150x150.png">
 			<goalkeeper>
 				<name>Sonny</name>
 				<surname>Stevens</surname>
@@ -4141,13 +4069,8 @@
 				<defence>20</defence>
 				<stamina>67</stamina>
 			</player>
-		</players>
-		<artificialGrass>false</artificialGrass>
-		<logo>http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/324/150x150.png</logo>
 	</team>
-	<team>
-		<name>FC Utrecht</name>
-		<players>			
+	<team name="FC Utrecht" art_grass="false" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/325/150x150.png">		
 			<player>
 				<name>Christian</name>
 				<surname>Kum</surname>
@@ -4444,493 +4367,480 @@
 				<defence>22</defence>
 				<stamina>65</stamina>
 			</player>
-		</players>
-		<artificialGrass>false</artificialGrass>
-		<logo>http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/325/150x150.png</logo>
 	</team>
-	<team>
-		<name>Vitesse</name>
-		<players>
-			<player>
-				<name>Wallace</name>
-				<surname>Oliveira dos Santos</surname>
-				<position>Defender</position>
-				<number>2</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<attack>35</attack>
-				<defence>78</defence>
-				<stamina>77</stamina>
-			</player>
-			<goalkeeper>
-				<name>Eloy</name>
-				<surname>Room</surname>
-				<number>3</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<stoppower>63</stoppower>
-				<penaltystoppower>65</penaltystoppower>
-			</goalkeeper>
-			<goalkeeper>
-				<name>Piet</name>
-				<surname>Velthuizen</surname>
-				<number>1</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<stoppower>75</stoppower>
-				<penaltystoppower>80</penaltystoppower>
-			</goalkeeper>
-			<player>
-				<name>Dan</name>
-				<surname>Mori</surname>
-				<position>Defender</position>
-				<number>4</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<attack>9</attack>
-				<defence>61</defence>
-				<stamina>63</stamina>
-			</player>
-			<player>
-				<name>Kelvin</name>
-				<surname>Leerdam</surname>
-				<position>Defender</position>
-				<number>5</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<attack>40</attack>
-				<defence>73</defence>
-				<stamina>64</stamina>
-			</player>
-			<player>
-				<name>Guram</name>
-				<surname>Kashia</surname>
-				<position>Defender</position>
-				<number>6</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<attack>13</attack>
-				<defence>75</defence>
-				<stamina>77</stamina>
-			</player>
-			<player>
-				<name>Rochdi</name>
-				<surname>Achenteh</surname>
-				<position>Defender</position>
-				<number>7</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<attack>32</attack>
-				<defence>65</defence>
-				<stamina>63</stamina>
-			</player>
-			<player>
-				<name>Marko</name>
-				<surname>Vejinovic</surname>
-				<position>Midfielder</position>
-				<number>8</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<attack>76</attack>
-				<defence>74</defence>
-				<stamina>55</stamina>
-			</player>
-			<player>
-				<name>Davy</name>
-				<surname>Propper</surname>
-				<position>Midfielder</position>
-				<number>9</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<attack>78</attack>
-				<defence>74</defence>
-				<stamina>54</stamina>
-			</player>
-			<player>
-				<name>Zakaria</name>
-				<surname>Labyad</surname>
-				<position>Forward</position>
-				<number>10</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<attack>78</attack>
-				<defence>39</defence>
-				<stamina>63</stamina>
-			</player>
-			<player>
-				<name>Jan-Arie</name>
-				<surname>van der Heijden</surname>
-				<position>Midfielder</position>
-				<number>11</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<attack>16</attack>
-				<defence>75</defence>
-				<stamina>74</stamina>
-			</player>
-			<player>
-				<name>Bertrand</name>
-				<surname>Traore</surname>
-				<position>Midfielder</position>
-				<number>12</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<attack>69</attack>
-				<defence>17</defence>
-				<stamina>65</stamina>
-			</player>
-			<player>
-				<name>Renato</name>
-				<surname>Ibarra</surname>
-				<position>Forward</position>
-				<number>13</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<attack>75</attack>
-				<defence>43</defence>
-				<stamina>65</stamina>
-			</player>
-			<player>
-				<name>Gino</name>
-				<surname>Bosz</surname>
-				<position>Midfielder</position>
-				<number>14</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<attack>54</attack>
-				<defence>54</defence>
-				<stamina>54</stamina>
-			</player>
-			<player>
-				<name>Uros</name>
-				<surname>Djurdjevic</surname>
-				<position>Forward</position>
-				<number>15</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<attack>67</attack>
-				<defence>10</defence>
-				<stamina>55</stamina>
-			</player>
-			<player>
-				<name>Arnold</name>
-				<surname>Kruiswijk</surname>
-				<position>Defender</position>
-				<number>16</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<attack>7</attack>
-				<defence>63</defence>
-				<stamina>50</stamina>
-			</player>
-			<player>
-				<name>Denys</name>
-				<surname>Oliynyk</surname>
-				<position>Forward</position>
-				<number>17</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<attack>67</attack>
-				<defence>33</defence>
-				<stamina>72</stamina>
-			</player>
-			<player>
-				<name>Robin</name>
-				<surname>Gosens</surname>
-				<position>Midfielder</position>
-				<number>18</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<attack>64</attack>
-				<defence>69</defence>
-				<stamina>63</stamina>
-			</player>
-			<player>
-				<name>Kevin</name>
-				<surname>Diks</surname>
-				<position>Defender</position>
-				<number>19</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<attack>23</attack>
-				<defence>57</defence>
-				<stamina>64</stamina>
-			</player>
-		</players>
-		<artificialGrass>false</artificialGrass>
-		<logo>http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/232/150x150.png</logo>
+	<team name="Vitesse" art_grass="false" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/232/150x150.png">
+		<player>
+			<name>Wallace</name>
+			<surname>Oliveira dos Santos</surname>
+			<position>Defender</position>
+			<number>2</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<attack>35</attack>
+			<defence>78</defence>
+			<stamina>77</stamina>
+		</player>
+		<goalkeeper>
+			<name>Eloy</name>
+			<surname>Room</surname>
+			<number>3</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<stoppower>63</stoppower>
+			<penaltystoppower>65</penaltystoppower>
+		</goalkeeper>
+		<goalkeeper>
+			<name>Piet</name>
+			<surname>Velthuizen</surname>
+			<number>1</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<stoppower>75</stoppower>
+			<penaltystoppower>80</penaltystoppower>
+		</goalkeeper>
+		<player>
+			<name>Dan</name>
+			<surname>Mori</surname>
+			<position>Defender</position>
+			<number>4</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<attack>9</attack>
+			<defence>61</defence>
+			<stamina>63</stamina>
+		</player>
+		<player>
+			<name>Kelvin</name>
+			<surname>Leerdam</surname>
+			<position>Defender</position>
+			<number>5</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<attack>40</attack>
+			<defence>73</defence>
+			<stamina>64</stamina>
+		</player>
+		<player>
+			<name>Guram</name>
+			<surname>Kashia</surname>
+			<position>Defender</position>
+			<number>6</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<attack>13</attack>
+			<defence>75</defence>
+			<stamina>77</stamina>
+		</player>
+		<player>
+			<name>Rochdi</name>
+			<surname>Achenteh</surname>
+			<position>Defender</position>
+			<number>7</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<attack>32</attack>
+			<defence>65</defence>
+			<stamina>63</stamina>
+		</player>
+		<player>
+			<name>Marko</name>
+			<surname>Vejinovic</surname>
+			<position>Midfielder</position>
+			<number>8</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<attack>76</attack>
+			<defence>74</defence>
+			<stamina>55</stamina>
+		</player>
+		<player>
+			<name>Davy</name>
+			<surname>Propper</surname>
+			<position>Midfielder</position>
+			<number>9</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<attack>78</attack>
+			<defence>74</defence>
+			<stamina>54</stamina>
+		</player>
+		<player>
+			<name>Zakaria</name>
+			<surname>Labyad</surname>
+			<position>Forward</position>
+			<number>10</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<attack>78</attack>
+			<defence>39</defence>
+			<stamina>63</stamina>
+		</player>
+		<player>
+			<name>Jan-Arie</name>
+			<surname>van der Heijden</surname>
+			<position>Midfielder</position>
+			<number>11</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<attack>16</attack>
+			<defence>75</defence>
+			<stamina>74</stamina>
+		</player>
+		<player>
+			<name>Bertrand</name>
+			<surname>Traore</surname>
+			<position>Midfielder</position>
+			<number>12</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<attack>69</attack>
+			<defence>17</defence>
+			<stamina>65</stamina>
+		</player>
+		<player>
+			<name>Renato</name>
+			<surname>Ibarra</surname>
+			<position>Forward</position>
+			<number>13</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<attack>75</attack>
+			<defence>43</defence>
+			<stamina>65</stamina>
+		</player>
+		<player>
+			<name>Gino</name>
+			<surname>Bosz</surname>
+			<position>Midfielder</position>
+			<number>14</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<attack>54</attack>
+			<defence>54</defence>
+			<stamina>54</stamina>
+		</player>
+		<player>
+			<name>Uros</name>
+			<surname>Djurdjevic</surname>
+			<position>Forward</position>
+			<number>15</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<attack>67</attack>
+			<defence>10</defence>
+			<stamina>55</stamina>
+		</player>
+		<player>
+			<name>Arnold</name>
+			<surname>Kruiswijk</surname>
+			<position>Defender</position>
+			<number>16</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<attack>7</attack>
+			<defence>63</defence>
+			<stamina>50</stamina>
+		</player>
+		<player>
+			<name>Denys</name>
+			<surname>Oliynyk</surname>
+			<position>Forward</position>
+			<number>17</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<attack>67</attack>
+			<defence>33</defence>
+			<stamina>72</stamina>
+		</player>
+		<player>
+			<name>Robin</name>
+			<surname>Gosens</surname>
+			<position>Midfielder</position>
+			<number>18</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<attack>64</attack>
+			<defence>69</defence>
+			<stamina>63</stamina>
+		</player>
+		<player>
+			<name>Kevin</name>
+			<surname>Diks</surname>
+			<position>Defender</position>
+			<number>19</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<attack>23</attack>
+			<defence>57</defence>
+			<stamina>64</stamina>
+		</player>
 	</team>
-	<team>
-		<name>Willem II</name>
-		<players>
-			<player>
-				<name>Ben</name>
-				<surname>Sahar</surname>
-				<position>Forward</position>
-				<number>2</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<attack>59</attack>
-				<defence>29</defence>
-				<stamina>55</stamina>
-			</player>
-			<player>
-				<name>Charlton</name>
-				<surname>Vicento</surname>
-				<position>Forward</position>
-				<number>3</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<attack>58</attack>
-				<defence>25</defence>
-				<stamina>69</stamina>
-			</player>
-			<player>
-				<name>Mitchell</name>
-				<surname>Dijks</surname>
-				<position>Defender</position>
-				<number>4</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<attack>20</attack>
-				<defence>67</defence>
-				<stamina>63</stamina>
-			</player>
-			<goalkeeper>
-				<name>Kostas</name>
-				<surname>Lamprou</surname>
-				<number>1</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<stoppower>59</stoppower>
-				<penaltystoppower>53</penaltystoppower>
-			</goalkeeper>
-			<player>
-				<name>Samuel</name>
-				<surname>Armenteros</surname>
-				<position>Forward</position>
-				<number>5</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<attack>67</attack>
-				<defence>20</defence>
-				<stamina>78</stamina>
-			</player>
-			<player>
-				<name>Jerson</name>
-				<surname>Cabral</surname>
-				<position>Forward</position>
-				<number>6</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<attack>61</attack>
-				<defence>27</defence>
-				<stamina>67</stamina>
-			</player>
-			<player>
-				<name>Frank</name>
-				<surname>van der Struijk</surname>
-				<position>Defender</position>
-				<number>7</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<attack>28</attack>
-				<defence>62</defence>
-				<stamina>59</stamina>
-			</player>
-			<player>
-				<name>Jonas</name>
-				<surname>Heymans</surname>
-				<position>Defender</position>
-				<number>8</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<attack>25</attack>
-				<defence>58</defence>
-				<stamina>64</stamina>
-			</player>
-			<player>
-				<name>Robert</name>
-				<surname>Braber</surname>
-				<position>Midfielder</position>
-				<number>9</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<attack>65</attack>
-				<defence>61</defence>
-				<stamina>63</stamina>
-			</player>
-			<goalkeeper>
-				<name>David</name>
-				<surname>Meul</surname>
-				<number>10</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<stoppower>60</stoppower>
-				<penaltystoppower>35</penaltystoppower>
-			</goalkeeper>
-			<goalkeeper>
-				<name>Mattijs</name>
-				<surname>Branderhorst</surname>
-				<number>11</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<stoppower>53</stoppower>
-				<penaltystoppower>53</penaltystoppower>
-			</goalkeeper>
-			<player>
-				<name>Freek</name>
-				<surname>Heerkens</surname>
-				<position>Defender</position>
-				<number>12</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<attack>24</attack>
-				<defence>57</defence>
-				<stamina>55</stamina>
-			</player>
-			<player>
-				<name>Jordens</name>
-				<surname>Peters</surname>
-				<position>Defender</position>
-				<number>13</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<attack>15</attack>
-				<defence>59</defence>
-				<stamina>67</stamina>
-			</player>
-			<player>
-				<name>Tim</name>
-				<surname>Cornelisse</surname>
-				<position>Defender</position>
-				<number>14</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<attack>32</attack>
-				<defence>62</defence>
-				<stamina>55</stamina>
-			</player>
-			<player>
-				<name>Robbie</name>
-				<surname>Haemhouts</surname>
-				<position>Midfielder</position>
-				<number>15</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<attack>63</attack>
-				<defence>63</defence>
-				<stamina>63</stamina>
-			</player>
-			<player>
-				<name>Ali</name>
-				<surname>Messaoud</surname>
-				<position>Midfielder</position>
-				<number>16</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<attack>61</attack>
-				<defence>58</defence>
-				<stamina>75</stamina>
-			</player>
-			<player>
-				<name>Ricardo</name>
-				<surname>Ippel</surname>
-				<position>Midfielder</position>
-				<number>17</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<attack>58</attack>
-				<defence>60</defence>
-				<stamina>35</stamina>
-			</player>
-			<player>
-				<name>Stijn</name>
-				<surname>Wuytens</surname>
-				<position>Midfielder</position>
-				<number>18</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<attack>60</attack>
-				<defence>60</defence>
-				<stamina>60</stamina>
-			</player>
-			<player>
-				<name>Terell</name>
-				<surname>Ondaan</surname>
-				<position>Forward</position>
-				<number>19</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<attack>61</attack>
-				<defence>22</defence>
-				<stamina>65</stamina>
-			</player>
-			<player>
-				<name>Bruno</name>
-				<surname>Andrade</surname>
-				<position>Forward</position>
-				<number>20</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<attack>59</attack>
-				<defence>26</defence>
-				<stamina>60</stamina>
-			</player>
-			<player>
-				<name>Danny</name>
-				<surname>Van der Wal</surname>
-				<position>Midfielder</position>
-				<number>21</number>
-				<status>0</status>
-				<timenotavailable>0</timenotavailable>
-				<reason>0</reason>
-				<attack>50</attack>
-				<defence>51</defence>
-				<stamina>41</stamina>
-			</player>
-		</players>
-		<artificialGrass>false</artificialGrass>
-		<logo>http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/207/150x150.png</logo>
+	<team name="Willem II" art_grass="false" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/207/150x150.png">
+		<player>
+			<name>Ben</name>
+			<surname>Sahar</surname>
+			<position>Forward</position>
+			<number>2</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<attack>59</attack>
+			<defence>29</defence>
+			<stamina>55</stamina>
+		</player>
+		<player>
+			<name>Charlton</name>
+			<surname>Vicento</surname>
+			<position>Forward</position>
+			<number>3</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<attack>58</attack>
+			<defence>25</defence>
+			<stamina>69</stamina>
+		</player>
+		<player>
+			<name>Mitchell</name>
+			<surname>Dijks</surname>
+			<position>Defender</position>
+			<number>4</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<attack>20</attack>
+			<defence>67</defence>
+			<stamina>63</stamina>
+		</player>
+		<goalkeeper>
+			<name>Kostas</name>
+			<surname>Lamprou</surname>
+			<number>1</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<stoppower>59</stoppower>
+			<penaltystoppower>53</penaltystoppower>
+		</goalkeeper>
+		<player>
+			<name>Samuel</name>
+			<surname>Armenteros</surname>
+			<position>Forward</position>
+			<number>5</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<attack>67</attack>
+			<defence>20</defence>
+			<stamina>78</stamina>
+		</player>
+		<player>
+			<name>Jerson</name>
+			<surname>Cabral</surname>
+			<position>Forward</position>
+			<number>6</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<attack>61</attack>
+			<defence>27</defence>
+			<stamina>67</stamina>
+		</player>
+		<player>
+			<name>Frank</name>
+			<surname>van der Struijk</surname>
+			<position>Defender</position>
+			<number>7</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<attack>28</attack>
+			<defence>62</defence>
+			<stamina>59</stamina>
+		</player>
+		<player>
+			<name>Jonas</name>
+			<surname>Heymans</surname>
+			<position>Defender</position>
+			<number>8</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<attack>25</attack>
+			<defence>58</defence>
+			<stamina>64</stamina>
+		</player>
+		<player>
+			<name>Robert</name>
+			<surname>Braber</surname>
+			<position>Midfielder</position>
+			<number>9</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<attack>65</attack>
+			<defence>61</defence>
+			<stamina>63</stamina>
+		</player>
+		<goalkeeper>
+			<name>David</name>
+			<surname>Meul</surname>
+			<number>10</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<stoppower>60</stoppower>
+			<penaltystoppower>35</penaltystoppower>
+		</goalkeeper>
+		<goalkeeper>
+			<name>Mattijs</name>
+			<surname>Branderhorst</surname>
+			<number>11</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<stoppower>53</stoppower>
+			<penaltystoppower>53</penaltystoppower>
+		</goalkeeper>
+		<player>
+			<name>Freek</name>
+			<surname>Heerkens</surname>
+			<position>Defender</position>
+			<number>12</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<attack>24</attack>
+			<defence>57</defence>
+			<stamina>55</stamina>
+		</player>
+		<player>
+			<name>Jordens</name>
+			<surname>Peters</surname>
+			<position>Defender</position>
+			<number>13</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<attack>15</attack>
+			<defence>59</defence>
+			<stamina>67</stamina>
+		</player>
+		<player>
+			<name>Tim</name>
+			<surname>Cornelisse</surname>
+			<position>Defender</position>
+			<number>14</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<attack>32</attack>
+			<defence>62</defence>
+			<stamina>55</stamina>
+		</player>
+		<player>
+			<name>Robbie</name>
+			<surname>Haemhouts</surname>
+			<position>Midfielder</position>
+			<number>15</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<attack>63</attack>
+			<defence>63</defence>
+			<stamina>63</stamina>
+		</player>
+		<player>
+			<name>Ali</name>
+			<surname>Messaoud</surname>
+			<position>Midfielder</position>
+			<number>16</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<attack>61</attack>
+			<defence>58</defence>
+			<stamina>75</stamina>
+		</player>
+		<player>
+			<name>Ricardo</name>
+			<surname>Ippel</surname>
+			<position>Midfielder</position>
+			<number>17</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<attack>58</attack>
+			<defence>60</defence>
+			<stamina>35</stamina>
+		</player>
+		<player>
+			<name>Stijn</name>
+			<surname>Wuytens</surname>
+			<position>Midfielder</position>
+			<number>18</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<attack>60</attack>
+			<defence>60</defence>
+			<stamina>60</stamina>
+		</player>
+		<player>
+			<name>Terell</name>
+			<surname>Ondaan</surname>
+			<position>Forward</position>
+			<number>19</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<attack>61</attack>
+			<defence>22</defence>
+			<stamina>65</stamina>
+		</player>
+		<player>
+			<name>Bruno</name>
+			<surname>Andrade</surname>
+			<position>Forward</position>
+			<number>20</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<attack>59</attack>
+			<defence>26</defence>
+			<stamina>60</stamina>
+		</player>
+		<player>
+			<name>Danny</name>
+			<surname>Van der Wal</surname>
+			<position>Midfielder</position>
+			<number>21</number>
+			<status>0</status>
+			<timenotavailable>0</timenotavailable>
+			<reason>0</reason>
+			<attack>50</attack>
+			<defence>51</defence>
+			<stamina>41</stamina>
+		</player>
 	</team>
 </teams>
 	</team>
