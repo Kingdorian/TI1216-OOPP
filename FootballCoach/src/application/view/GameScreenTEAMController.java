@@ -26,7 +26,7 @@ public class GameScreenTEAMController implements ViewControllerInterface {
     
     @Override
     public void setMainController(Main mainController){
-        GameScreenTEAMController.mainController = mainController;
+        this.mainController = mainController;
     }
 
 }
