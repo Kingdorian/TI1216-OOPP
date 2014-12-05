@@ -20,7 +20,7 @@
             </Text>
          </children>
       </Group>
-      <Button layoutY="51.0" mnemonicParsing="false" onAction="#buttonHome" prefHeight="50.0" prefWidth="220.0" styleClass="itemMenu" text="Home" />
+      <Button layoutY="50.0" mnemonicParsing="false" onAction="#buttonHome" prefHeight="50.0" prefWidth="220.0" styleClass="itemMenu" text="Home" />
       <Button layoutY="100.0" mnemonicParsing="false" onAction="#buttonTeam" prefHeight="50.0" prefWidth="220.0" styleClass="itemMenu" text="Team" />
       <Button layoutY="150.0" mnemonicParsing="false" onAction="#buttonSchedule" prefHeight="50.0" prefWidth="220.0" styleClass="itemMenu" text="Schedule" />
       <Button layoutY="200.0" mnemonicParsing="false" onAction="#buttonRanking" prefHeight="50.0" prefWidth="220.0" styleClass="itemMenu" text="Ranking" />

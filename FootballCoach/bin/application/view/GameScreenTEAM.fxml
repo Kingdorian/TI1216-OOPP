@@ -11,7 +11,17 @@
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" styleClass="wrapMenu" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.GameScreenTEAMController">
    <children>
       <Region prefHeight="50.0" prefWidth="684.0" styleClass="topMenu" />
-      <Region layoutY="50.0" prefHeight="400.0" prefWidth="684.0" styleClass="contentView" />
-      <Text layoutX="352.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TEAM " />
+      <TableView layoutY="50.0" prefHeight="400.0" prefWidth="684.0" styleClass="table" fx:id="table">
+        <columns>
+          <TableColumn prefWidth="75.0" styleClass="tableColumn" text="No." />
+          <TableColumn prefWidth="75.0" styleClass="tableColumn" text="Player Name" />
+          <TableColumn prefWidth="75.0" styleClass="tableColumn" text="Defense" />
+          <TableColumn prefWidth="75.0" styleClass="tableColumn" text="Offense" />
+          <TableColumn prefWidth="75.0" styleClass="tableColumn" text="Stamina" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
    </children>
 </Pane>
