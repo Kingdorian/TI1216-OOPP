@@ -1,5 +1,6 @@
 package application;
 
+import application.view.PopupControllerInterface;
 import application.view.ViewControllerInterface;
 import java.io.IOException;
 import java.util.logging.*;
@@ -10,8 +11,10 @@ import javafx.scene.Scene;
 import javafx.fxml.*;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 
 /**
  *
@@ -82,7 +85,8 @@ public class Main extends Application {
         viewPath = changeNameToClassPath(viewPath);
 
         // Set the center screen
-        Pane pane = loadPane(viewPath);
+        Object[] paneAndLoader = loadPane(viewPath);
+        Pane pane = (Pane) paneAndLoader[0];
         if(viewPath.contains("GameScreen")){
             BorderPane.setAlignment(pane, Pos.TOP_LEFT);
             BorderPane.setMargin(pane, new Insets(40,40,0,0));
@@ -90,7 +94,7 @@ public class Main extends Application {
         rootLayout.setCenter(pane);
 
         //ViewControllerInterface viewController = getViewController(viewPath.split("/")[1]);
-        ViewControllerInterface viewController = getViewController(viewPath);
+        ViewControllerInterface viewController = ((FXMLLoader)paneAndLoader[1]).getController();
 
         // Give the view controller a reference to this main controller class
         viewController.setMainController(this);
@@ -110,11 +114,12 @@ public class Main extends Application {
     public void setTopView(String viewPath){
         viewPath = changeNameToClassPath(viewPath);
         
-        // Set the center screen
-        rootLayout.setTop(loadPane(viewPath));
+        // Set the top screen
+        Object[] paneAndLoader = loadPane(viewPath);
+        rootLayout.setTop((Pane) paneAndLoader[0]);
 
         //ViewControllerInterface viewController = getViewController(viewPath.split("/")[1]);
-        ViewControllerInterface viewController = getViewController(viewPath);
+        ViewControllerInterface viewController = ((FXMLLoader)paneAndLoader[1]).getController();
 
         // Give the view controller a reference to this main controller class
         viewController.setMainController(this);
@@ -134,14 +139,15 @@ public class Main extends Application {
     public void setLeftView(String viewPath){
         viewPath = changeNameToClassPath(viewPath);
 
-        // Set the center screen
-        Pane pane = loadPane(viewPath);
+        // Set the left screen
+        Object[] paneAndLoader = loadPane(viewPath);
+        Pane pane = (Pane) paneAndLoader[0];
         BorderPane.setAlignment(pane, Pos.TOP_LEFT);
         BorderPane.setMargin(pane, new Insets(40,40,0,40));
         rootLayout.setLeft(pane);
 
         //ViewControllerInterface viewController = getViewController(viewPath.split("/")[1]);
-        ViewControllerInterface viewController = getViewController(viewPath);
+        ViewControllerInterface viewController = ((FXMLLoader)paneAndLoader[1]).getController();
 
         // Give the view controller a reference to this main controller class
         viewController.setMainController(this);
@@ -166,14 +172,17 @@ public class Main extends Application {
     /**
      * loads the requested Pane
      * @param viewPath  the name of the .fxml file containing the Pane
-     * @return          the requirested Pane
+     * @return          the requirested Pane and the used loader in an Object array (first pane[0], then loader[1])
      */
-    private Pane loadPane(String viewPath){
+    private Object[] loadPane(String viewPath){
         try {
+            Object[] result = new Object[2];
             // Load startup screen
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource(viewPath));
-            return (Pane) loader.load();
+            result[0] = (Pane) loader.load();
+            result[1] = loader;
+            return result;
             
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
@@ -184,37 +193,52 @@ public class Main extends Application {
     }
     
     
-    /*
-     * return an instance of the class, which is specified by it's name in string form
-     * @param classStr  String containing the class' view (fxml) name, or the class' view controller (java) name
-    */
-    private ViewControllerInterface getViewController(String classStr){
-        // Filter class location from class path
-        if(classStr.contains("view/"))
-            classStr = classStr.split("view/")[1];
-        if(classStr.contains(".fxml"))
-            classStr = "application.view." + classStr.split(".fxml")[0] + "Controller";
-        else
-            classStr = "application.view." + classStr + "Controller";
-
-        // Return the specified by the string, if possible
-        try {
-            Class cls = Class.forName(classStr);
-            return (ViewControllerInterface) cls.newInstance();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("error: unknown view reference: "+ classStr);
-        } catch (InstantiationException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("error: " +classStr+ " doesn't implement view interface");
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("error: no access to: " + classStr);
-        }
-        System.exit(1);
-        return null;
+    /**
+     * Create a pop-up window without an image.
+     * @param viewPath      name of the .fxml file containing the pop-up window
+     * @param popupTitle    the title of the pop-up window
+     * @return              true if the OK button has been clicked, else: false
+     */
+    public boolean createPopup(String viewPath, String popupTitle){
+        return createPopup(viewPath, popupTitle, null);
     }
-
+    
+    
+    /**
+     * Create a pop-up window with an image.
+     * @param viewPath      name of the .fxml file containing the pop-up window
+     * @param popupTitle    the title of the pop-up window
+     * @param imagePath     a path to the image to use for the pop-up window
+     * @return              true if the OK button has been clicked, else: false
+     */
+    public boolean createPopup(String viewPath, String popupTitle, String imagePath){
+        
+        // load the pane
+        Object[] paneAndLoader = loadPane(changeNameToClassPath(viewPath));
+        Pane pane = (Pane) paneAndLoader[0];
+        // Pane pane = loadPane(changeNameToClassPath(viewPath));
+        
+        // create popup window
+        Stage popupStage = new Stage();
+        popupStage.setTitle(popupTitle);
+        popupStage.initModality(Modality.WINDOW_MODAL);
+        popupStage.initOwner(primaryStage);
+        if(imagePath != null)
+            popupStage.getIcons().add(new Image(imagePath));
+        Scene scene = new Scene(pane);
+        popupStage.setScene(scene);
+        
+        // get the pop-up's controller class
+        
+        PopupControllerInterface popupController = ((FXMLLoader)paneAndLoader[1]).getController();
+        popupController.setPopupStage(popupStage);
+        
+        // show the popup and wait until the user closes it
+        popupStage.showAndWait();
+        
+        return popupController.isOkClicked();
+    }
+    
     
     /**
      *
