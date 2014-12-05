@@ -23,15 +23,15 @@ public class XMLHandler {
 		 * @throws Exception
 		 */
 		public static Competition readCompetition(String teamsLoc, String compLoc) throws Exception{
-			Competition comp = new Competition();
+			Team teams[] = new Team[18];
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 			DocumentBuilder db = dbf.newDocumentBuilder();
 			Document doc = db.parse(new File(teamsLoc));
 			NodeList teamnodes = doc.getElementsByTagName("team");
 			for(int i = 0; i<teamnodes.getLength();i++){
-				comp.addTeam(parseTeam((Element)teamnodes.item(i)));
+				teams[i] = parseTeam((Element)teamnodes.item(i));
 			}
-			
+			Competition comp = new Competition(teams);
 			doc = db.parse(new File(compLoc));
 			NodeList rounds = doc.getElementsByTagName("round");
 			for(int i = 0; i<rounds.getLength();i++){
@@ -46,11 +46,11 @@ public class XMLHandler {
 		}
 		private static Match parseMatch(Element match, Competition comp) {
 			Element homeTeam = (Element)match.getElementsByTagName("hometeam").item(0);
-			Team 	hT = comp.getTeamByName(homeTeam.getElementsByTagName("name").item(0).getTextContent());
-			int	hTp = Integer.parseInt(homeTeam.getElementsByTagName("points").item(0).getTextContent());
+			Team 	hT = comp.getTeamByName(homeTeam.getAttribute("name"));
+			int	hTp = Integer.parseInt(homeTeam.getAttribute("points"));
 			Element visitorTeam = (Element)match.getElementsByTagName("visitorteam").item(0);
-			Team vT = comp.getTeamByName(visitorTeam.getElementsByTagName("name").item(0).getTextContent());
-			int vTp = Integer.parseInt(homeTeam.getElementsByTagName("points").item(0).getTextContent());
+			Team vT = comp.getTeamByName(visitorTeam.getAttribute("name"));
+			int vTp = Integer.parseInt(homeTeam.getAttribute("points"));
 			return new Match(hT, vT, hTp, vTp);
 		}
 		/**
@@ -194,13 +194,59 @@ public class XMLHandler {
 		 * @param teams The arraylist with teams to store
 		 * @throws Exception
 		 */
-		public static void writeCompetition(int saveGameId, ArrayList<Team> teams) throws  Exception {
+		public static void writeCompetition(int saveGameId, Competition comp){
 			File saveDir = new File("XML/Savegames/" + saveGameId + "/");
 			//If the savedir does not yet exist create it and copy the default competition xml into it
 			if(!saveDir.exists()){
 				System.out.println("Making dir");
 				saveDir.mkdir();
 			}
+			try{
+				writeTeams("XML/Savegames/" + saveGameId + "/competition.xml", comp.getTeams());
+				writeMatches("XML/Savegames/" + saveGameId + "/competition.xml", comp);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			// Writing the matches
+			
+		}
+		
+		private static void writeMatches(String location, Competition comp) throws Exception {
+			// Setting up doc builder
+			DocumentBuilderFactory dF = DocumentBuilderFactory.newInstance();
+			DocumentBuilder dB = dF.newDocumentBuilder();
+			Document doc = dB.newDocument();
+			//Appending the teams element
+			Element roundsElement = doc.createElement("rounds");
+			doc.appendChild(roundsElement);
+			// Looping over all the rounds
+			for(int i = 0; i<34;i++){
+				Element roundElement = doc.createElement("round");
+				roundsElement.appendChild(roundElement);
+				//Looping over the matches
+				for(int j = 0; j<9; j++){
+					Match match = comp.getMatch(i, j);
+
+					Element matchElement = doc.createElement("match");
+					roundElement.appendChild(matchElement);
+					Element homeTeam = doc.createElement("hometeam");
+					roundElement.appendChild(homeTeam);
+					homeTeam.setAttribute("name", match.getHomeTeam().getName());
+					homeTeam.setAttribute("points", match.getHomeTeam().getPoints()+"");
+					Element visTeam = doc.createElement("visitorteam");
+					roundElement.appendChild(visTeam);
+					visTeam.setAttribute("name", match.getVisitorTeam().getName());
+					visTeam.setAttribute("points", match.getVisitorTeam().getPoints()+"");
+				}
+			}
+			//Storing xml into a file
+			TransformerFactory tF = TransformerFactory.newInstance();
+			Transformer t = tF.newTransformer();
+			DOMSource source = new DOMSource(doc);
+			StreamResult result = new StreamResult(new File(location));
+			t.transform(source, result);
+		}
+		private static void writeTeams(String location, Team[] teams) throws Exception{
 			// Setting up doc builder
 			DocumentBuilderFactory dF = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dB = dF.newDocumentBuilder();
@@ -209,17 +255,17 @@ public class XMLHandler {
 			Element teamsElement = doc.createElement("teams");
 			doc.appendChild(teamsElement);
 			// Looping over all the teams in the ArrayList
-			for(int i = 0; i<teams.size();i++){
+			for(int i = 0; i<teams.length;i++){
 				Element teamElement = doc.createElement("team");
 				teamsElement.appendChild(teamElement);	
-				teamElement.setAttribute("name", teams.get(i).getName());
+				teamElement.setAttribute("name", teams[i].getName());
 	
 				// TODO WRITE LOGO TO XML FILE
 				teamElement.setAttribute("logo", "");
-				teamElement.setAttribute("art_grass", teams.get(i).hasArtificialGrass()+"");
+				teamElement.setAttribute("art_grass", teams[i].hasArtificialGrass()+"");
 		
-				for(int j = 0; j<teams.get(i).getPlayers().size();j++){
-					Players pl = teams.get(i).getPlayers().get(j);
+				for(int j = 0; j<teams[i].getPlayers().size();j++){
+					Players pl = teams[i].getPlayers().get(j);
 					Element pE = null;
 					if(pl instanceof Player){
 						Player p = (Player)pl;
@@ -282,8 +328,8 @@ public class XMLHandler {
 			TransformerFactory tF = TransformerFactory.newInstance();
 			Transformer t = tF.newTransformer();
 			DOMSource source = new DOMSource(doc);
-			StreamResult result = new StreamResult(new File("XML/Savegames/" + saveGameId + "/competition.xml"));
-			t.transform(source, result);	
+			StreamResult result = new StreamResult(new File(location));
+			t.transform(source, result);
 		}
 		
 }

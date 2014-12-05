@@ -2,13 +2,12 @@
 public class Competition {
 	private Match competition[][] = new Match[34][9]; 
 	private Team teams[] = new Team[18];
-	int teamCounter = 0;
 	
 	/**
 	 * Creates a new competition object
 	 */
-	public void competititon(){
-		
+	public Competition(Team[] t){
+		this.teams = t;
 	}
 	
 	/**
@@ -37,15 +36,6 @@ public class Competition {
 		competition[n][l] = m;
 	}
 	/**
-	 * Adds a team to the competition
-	 * @param Team t to add to the competition
-	 */
-	public void addTeam(Team t){
-		if(teamCounter++<18){
-			teams[teamCounter]=t;
-		}
-	}
-	/**
 	 * Gets a team from the competition
 	 * @param The name of the team
 	 * @return the team at the specified index
@@ -57,5 +47,12 @@ public class Competition {
 			}
 		}
 		return null;
+	}
+	/**
+	 * Returns teams in this competition
+	 * @return An array of the teams that are currently in the competition
+	 */
+	public Team[] getTeams(){
+		return teams;
 	}
 }

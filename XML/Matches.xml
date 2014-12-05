@@ -2,14 +2,8 @@
 <rounds>
 	<round num="1">
 		<match>
-			<hometeam>
-				<name></name>
-				<points></points>
-			</hometeam>
-			<visitorteam>
-				<name></name>
-				<points></points>
-			</visitorteam>
+			<hometeam name="AJAX" points="5"/>
+			<visitorteam name="Feyenoord" points="3"/>
 		</match>
 	</round>
 	
