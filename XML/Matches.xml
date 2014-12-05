@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rounds>
+	<round num="1">
+		<match>
+			<hometeam>
+				<name></name>
+				<points></points>
+			</hometeam>
+			<visitorteam>
+				<name></name>
+				<points></points>
+			</visitorteam>
+		</match>
+	</round>
+	
