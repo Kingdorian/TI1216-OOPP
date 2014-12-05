@@ -12,25 +12,8 @@ public class Team {
 	 * Constructor
 	 * 
 	 * @param name Name of the team.
-	 * @param players List of players who play for the team.
-	 * @param numberOfPlayers Numbers of players.
-	 * @param colour The colour of the team.
-	 * @param budget Budget of the team.
-	 * @param points The current points of the team.
-	 * @param goals The numbers of goals the team has made in the league.
-	 * @param goalsAgainst The numbers of goals scored against the team in the league.
 	 * @param artificialGrass true if team plays on artificialGrass.
 	 */
-	public Team(String name, int budget, int points, int goals, int goalsAgainst, boolean artificialGrass){
-		
-		this.name = name;
-		this.budget = budget;
-		this.points = points;
-		this.goals = goals;
-		this.goalsAgainst = goalsAgainst;
-		this.artificialGrass = artificialGrass;
-		
-	}
 	
 	public Team(String name, boolean artificalGrass){
 		this.name = name;
