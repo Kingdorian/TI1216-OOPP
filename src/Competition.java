@@ -1,6 +1,8 @@
 
 public class Competition {
 	private Match competition[][] = new Match[34][9]; 
+	private Team teams[] = new Team[18];
+	int teamCounter = 0;
 	
 	/**
 	 * Creates a new competition object
@@ -33,5 +35,27 @@ public class Competition {
 	 */
 	public void addMatch(int n, int l,  Match m){
 		competition[n][l] = m;
+	}
+	/**
+	 * Adds a team to the competition
+	 * @param Team t to add to the competition
+	 */
+	public void addTeam(Team t){
+		if(teamCounter++<18){
+			teams[teamCounter]=t;
+		}
+	}
+	/**
+	 * Gets a team from the competition
+	 * @param The name of the team
+	 * @return the team at the specified index
+	 */
+	public Team getTeamByName(String name){
+		for(int i =0; i<teams.length;i++){
+			if(teams[i].getName().equals(name)){
+				return teams[i];
+			}
+		}
+		return null;
 	}
 }

@@ -22,17 +22,36 @@ public class XMLHandler {
 		 * @return ArrayList with all the teams in the xml file
 		 * @throws Exception
 		 */
-		public static ArrayList<Team> readCompetition(String filename) throws Exception{
-			ArrayList<Team> teams = new ArrayList<Team>();
+		public static Competition readCompetition(String teamsLoc, String compLoc) throws Exception{
+			Competition comp = new Competition();
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 			DocumentBuilder db = dbf.newDocumentBuilder();
-			Document doc = db.parse(new File(filename));
+			Document doc = db.parse(new File(teamsLoc));
 			NodeList teamnodes = doc.getElementsByTagName("team");
 			for(int i = 0; i<teamnodes.getLength();i++){
-				teams.add(parseTeam((Element)teamnodes.item(i)));
+				comp.addTeam(parseTeam((Element)teamnodes.item(i)));
 			}
-			return teams;
 			
+			doc = db.parse(new File(compLoc));
+			NodeList rounds = doc.getElementsByTagName("round");
+			for(int i = 0; i<rounds.getLength();i++){
+				Element round = (Element)rounds.item(i);
+				NodeList matches = round.getElementsByTagName("match");
+				for(int j = 0; j<matches.getLength();i++){
+					comp.addMatch(Integer.parseInt(round.getAttribute("num")), j, parseMatch((Element)matches.item(j), comp));
+				}
+			}
+			return comp;
+			
+		}
+		private static Match parseMatch(Element match, Competition comp) {
+			Element homeTeam = (Element)match.getElementsByTagName("hometeam").item(0);
+			Team 	hT = comp.getTeamByName(homeTeam.getElementsByTagName("name").item(0).getTextContent());
+			int	hTp = Integer.parseInt(homeTeam.getElementsByTagName("points").item(0).getTextContent());
+			Element visitorTeam = (Element)match.getElementsByTagName("visitorteam").item(0);
+			Team vT = comp.getTeamByName(visitorTeam.getElementsByTagName("name").item(0).getTextContent());
+			int vTp = Integer.parseInt(homeTeam.getElementsByTagName("points").item(0).getTextContent());
+			return new Match(hT, vT, hTp, vTp);
 		}
 		/**
 		 * @Param teamElement, the XML Element of that correesponds with a certain team
@@ -266,5 +285,5 @@ public class XMLHandler {
 			StreamResult result = new StreamResult(new File("XML/Savegames/" + saveGameId + "/competition.xml"));
 			t.transform(source, result);	
 		}
-
+		
 }
