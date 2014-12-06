@@ -228,6 +228,7 @@ public class Main extends Application {
             popupStage.getIcons().add(new Image(imagePath));
         Scene scene = new Scene(pane);
         popupStage.setScene(scene);
+		popupStage.sizeToScene();
         popupStage.setResizable(false);            
 
         
