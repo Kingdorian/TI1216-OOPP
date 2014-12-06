@@ -6,14 +6,17 @@
 package application.view;
 
 import application.Main;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.TableView;
 
 /**
  *
  * @author faris
+ * @author Jochem
  */
-public class GameScreenTitleController implements ViewControllerInterface {
-        
+public class GameScreenOTHERTEAMSController implements ViewControllerInterface {
+	
     private static Main mainController;
     
     /**
@@ -23,21 +26,11 @@ public class GameScreenTitleController implements ViewControllerInterface {
     private void initialize(){
         
     }
+   
     
     @Override
     public void setMainController(Main mainController){
-        GameScreenTitleController.mainController = mainController;
+        this.mainController = mainController;
     }
-    
-    @FXML
-    private void buttonTitleScreen(){
-        mainController.cleanRootLayout();
-        mainController.setCenterView("MainMenu");
-    }
-    
-    @FXML 
-    private void buttonSettings() {
-        mainController.createPopup("Settings", "Settings", "/application/img/icon.png");
-    }
-    
+
 }

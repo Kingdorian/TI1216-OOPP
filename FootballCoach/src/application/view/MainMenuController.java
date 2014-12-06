@@ -76,19 +76,6 @@ public class MainMenuController implements ViewControllerInterface {
      */
     @FXML
     private void buttonSettings(){
-        //TEST
-        if(mainController.createPopup("TEST_POP_UP_TEST", "<<<<<<<<<<<<<<<<<<< notice the picture ||| (title) this is a test", "/application/img/Settings.png"))
-            Dialogs.create()
-                .title("pop-up closing status")
-                .masthead("The pop-up has closed succesfully!")
-                .message("The OK button was used to close the pop-up screen!\nCongratulations, now you can update the values entered in the pop-up screen!")
-                .showInformation();
-        else
-            Dialogs.create()
-                .title("pop-up closing status")
-                .masthead("The pop-up was killed!")
-                .message("Unfortunately the OK button has NOT been pushed :(\nAt least there weren't any changes commited, so you won't have to do anything!")
-                .showWarning();
-        //TEST
+        mainController.createPopup("Settings", "Settings", "/application/img/icon.png");
     }
 }

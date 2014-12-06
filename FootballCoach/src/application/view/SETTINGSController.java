@@ -14,13 +14,10 @@ import org.controlsfx.dialog.Dialogs;
  *
  * @author faris
  */
-public class TEST_POP_UP_TESTController implements PopupControllerInterface {
+public class SETTINGSController implements PopupControllerInterface {
 
     private boolean isOkClicked = false;
     private static Stage popupStage;
-    
-    @FXML
-    TextField defaultTextField;
     
     
     /**
@@ -61,7 +58,7 @@ public class TEST_POP_UP_TESTController implements PopupControllerInterface {
         Dialogs.create()
                 .title("This is the title")
                 .masthead("this is an error message")
-                .message("Invalid input: \"" + defaultTextField.getText() + "\" change the text.")
+                .message("Invalid input:")
                 .showError();
     }
     
@@ -79,7 +76,7 @@ public class TEST_POP_UP_TESTController implements PopupControllerInterface {
         Dialogs.create()
                 .title("This is the title")
                 .masthead("this is an info message")
-                .message("The textfield above contains the text: " + defaultTextField.getText())
+                .message("The textfield above contains the text: ")
                 .showInformation();
     }
     

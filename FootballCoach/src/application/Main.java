@@ -49,6 +49,7 @@ public class Main extends Application {
             // Show the scene containing the root layout
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
+            primaryStage.getIcons().add(new Image("/application/img/icon.png"));
 
             // Temporary
             primaryStage.setResizable(false);            
@@ -227,6 +228,8 @@ public class Main extends Application {
             popupStage.getIcons().add(new Image(imagePath));
         Scene scene = new Scene(pane);
         popupStage.setScene(scene);
+        popupStage.setResizable(false);            
+
         
         // get the pop-up's controller class
         

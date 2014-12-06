@@ -47,25 +47,25 @@ public class GameScreenMenuController implements ViewControllerInterface {
     
     @FXML
     private void buttonSchedule(){
+        mainController.setCenterView("GameScreenSCHEDULE");
         currentMenuField.setText("Schedule");
-        //ADD: CHANGE CENTER VIEW
     }
     
     @FXML
     private void buttonRanking(){
+        mainController.setCenterView("GameScreenRANKING");	
         currentMenuField.setText("Ranking");
-        //ADD: CHANGE CENTER VIEW
     }
     
     @FXML
     private void buttonMarket(){
+        mainController.setCenterView("GameScreenMARKET");	
         currentMenuField.setText("Market");
-        //ADD: CHANGE CENTER VIEW
     }
     
     @FXML
     private void buttonOtherTeams(){
+        mainController.setCenterView("GameScreenOTHERTEAMS");		
         currentMenuField.setText("Other Teams");
-        //ADD: CHANGE CENTER VIEW
     }
 }

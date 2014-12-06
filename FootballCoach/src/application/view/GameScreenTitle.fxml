@@ -18,7 +18,7 @@
          </image>
       </ImageView>
       <Text layoutX="160.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Welcome, [PLAYER]" textAlignment="CENTER" wrappingWidth="220.0" />
-      <Button layoutX="400.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="30.0" styleClass="topMenuButton">
+      <Button layoutX="400.0" mnemonicParsing="false" onAction="#buttonSettings" prefHeight="50.0" prefWidth="30.0" styleClass="topMenuButton">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -53,7 +53,7 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <Button layoutX="430.0" mnemonicParsing="false" onAction="#buttonTitleScreen" prefHeight="50.0" prefWidth="30.0" styleClass="topMenuButton">
+      <Button layoutX="430.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="30.0" styleClass="topMenuButton">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
