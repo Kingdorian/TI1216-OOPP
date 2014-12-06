@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -17,13 +18,57 @@
          </image>
       </ImageView>
       <Text layoutX="160.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Welcome, [PLAYER]" textAlignment="CENTER" wrappingWidth="220.0" />
-      <Button layoutX="400.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="112.0" styleClass="topMenuButton" text="Save Game" />
-      <Button layoutX="512.0" mnemonicParsing="false" onAction="#buttonTitleScreen" prefHeight="50.0" prefWidth="119.0" styleClass="topMenuButton" text="Title Screen" />
-      <Text layoutX="650.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Budget: [BUDGET]" textAlignment="CENTER" wrappingWidth="193.97113037109375">
+      <Button layoutX="400.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="30.0" styleClass="topMenuButton">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/Settings.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <padding>
+            <Insets left="5.0" right="5.0" top="1.0" />
+         </padding></Button>
+      <Button layoutX="460.0" mnemonicParsing="false" onAction="#buttonTitleScreen" prefHeight="50.0" prefWidth="30.0" styleClass="topMenuButton">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/Home.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <padding>
+            <Insets left="5.0" right="5.0" top="1.0" />
+         </padding></Button>
+      <Text layoutX="674.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text=" [BUDGET]" textAlignment="CENTER" wrappingWidth="139.29815673828125">
          <font>
             <Font name="System Italic" size="13.0" />
          </font>
       </Text>
-      <Button layoutX="870.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="119.0" styleClass="topMenuButton" text="Next Match" />
+      <Button layoutX="850.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="139.0" styleClass="topMenuButton" text="Next Match">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/next.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button layoutX="430.0" mnemonicParsing="false" onAction="#buttonTitleScreen" prefHeight="50.0" prefWidth="30.0" styleClass="topMenuButton">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/Save.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <padding>
+            <Insets left="5.0" right="5.0" top="1.0" />
+         </padding>
+      </Button>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="680.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/money.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>
