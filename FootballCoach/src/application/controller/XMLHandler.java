@@ -1,5 +1,9 @@
+package application.controller;
+
 import java.io.File;
 import java.util.ArrayList;
+
+import application.model.*;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -15,7 +19,7 @@ import org.w3c.dom.NodeList;
 
 
 public class XMLHandler {
-		static final String Encoding = "UTF-8";
+		private static final String ENCODING = "UTF-8";
 		/**
 		 * Reads a competition xml file and returns an array of all the teams in the file
 		 * @param String the location for the file
@@ -81,7 +85,7 @@ public class XMLHandler {
 		 * @param playerNode to be parsed
 		 * @return Goalkeeper Object according to inputted node
 		 */
-		public static Goalkeeper parseGoalkeeper(Node playerNode){
+		private public static Goalkeeper parseGoalkeeper(Node playerNode){
 
 			String name = null, surname = null;
 			int number = Integer.MIN_VALUE, 
@@ -135,7 +139,7 @@ public class XMLHandler {
 		 * @param playerNode to be parsed
 		 * @return Player object according to the values in the playerNode
 		 */
-		public static Player parsePlayer(Node playerNode){
+		private static Player parsePlayer(Node playerNode){
 
 			String name = null, surname = null;
 			int number = Integer.MIN_VALUE, 

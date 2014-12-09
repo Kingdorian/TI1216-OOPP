@@ -1,4 +1,4 @@
-
+package application.model;
 public enum Status {
 	DEFAULT(0),
 	INJURED(1),

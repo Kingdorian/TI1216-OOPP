@@ -1,5 +1,7 @@
+package application.controllerTest;
 import static org.junit.Assert.*;
 
+import application.model.*;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -12,21 +14,21 @@ import org.junit.Test;
 
 public class XMLHandlerTest {
 	ArrayList<Team> refList;
-	Team team;
+	Competition refComp;
 	@Before public void initialize(){
-		refList = new ArrayList<Team>();
-		team = new Team("ADO Den Haag", true);
-		team.addPlayer(new Goalkeeper("Robert", "Zwinkels", 1, Status.DEFAULT, 0, Reason.DEFAULT, 62, 65));
-		team.addPlayer(new Player("Dion", "Malone", 2, Status.DEFAULT, 0, Reason.DEFAULT, 26, 60, 75));
-		refList.add(team);
+		Team[] team = new Team[1];
+		team[1] = new Team("ADO Den Haag", true);
+		team[1].addPlayer(new Goalkeeper("Robert", "Zwinkels", 1, Status.DEFAULT, 0, Reason.DEFAULT, 62, 65));
+		team[1].addPlayer(new Player("Dion", "Malone", 2, Status.DEFAULT, 0, Reason.DEFAULT, 26, 60, 75));
+		refComp = new Competition(team);
 	}
 	
 	
 	@Test
 	public void testReadCompetition() {
 		try {
-			ArrayList<Team> genList = XMLHandler.readCompetition("XML/XMLHandlerTestFile.xml");
-			assertEquals(genList, refList);
+			Competition comp = XMLHandler.readCompetition("XML/XMLHandlerTestFile.xml", "XML/XMLHanTestComp.xml");
+			assertEquals(comp, refComp);
 
 		} catch (Exception e) {
 			fail("Unexpected exception");
@@ -72,5 +74,8 @@ public class XMLHandlerTest {
 			fail("Unexpected Exception");
 		}
 		
+	}
+	@Test
+	public void testParseMatch(){
 	}
 }
