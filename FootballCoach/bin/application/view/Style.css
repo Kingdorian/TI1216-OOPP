@@ -104,5 +104,14 @@
 
 .choiceBox
 {
+    -fx-background-color: rgba(147, 147, 147, 1);
+}
+
+.teamLogo 
+{
     -fx-background-color: rgba(147, 147, 147,.8);
+    -fx-border-color: rgba(16, 16, 16,.7);
+    -fx-border-width: 10px;
+    -fx-border-radius: 200px;
+    -fx-background-radius: 100%;
 }

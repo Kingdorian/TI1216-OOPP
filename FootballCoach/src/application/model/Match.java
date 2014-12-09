@@ -1,3 +1,4 @@
+package application.model;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,7 +10,35 @@
  * @author faris
  */
 public class Match {
-    Team homeTeam;
+	public boolean equals(Object obj) {
+		if(!(obj instanceof Match)){
+			return false;
+		}
+		Match other = (Match) obj;
+		if (homeTeam == null) {
+			if (other.homeTeam != null)
+				return false;
+		} else if (!homeTeam.equals(other.homeTeam))
+			return false;
+		if (pointsHomeTeam != other.pointsHomeTeam)
+			return false;
+		if (pointsVisitorTeam != other.pointsVisitorTeam)
+			return false;
+		if (visitorTeam == null) {
+			if (other.visitorTeam != null)
+				return false;
+		} else if (!visitorTeam.equals(other.visitorTeam))
+			return false;
+		return true;
+	}
+	
+	public String toString() {
+		return "Match [homeTeam=" + homeTeam + ", visitorTeam=" + visitorTeam
+				+ ", pointsHomeTeam=" + pointsHomeTeam + ", pointsVisitorTeam="
+				+ pointsVisitorTeam + "]";
+	}
+
+	Team homeTeam;
     Team visitorTeam;
     int pointsHomeTeam;
     int pointsVisitorTeam;

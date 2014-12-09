@@ -11,7 +11,8 @@ import javafx.scene.text.Text;
 
 /**
  *
- * @author faris
+ * @author Faris
+ * @author Jochem
  */
 public class GameScreenMenuController implements ViewControllerInterface {
     
@@ -32,37 +33,55 @@ public class GameScreenMenuController implements ViewControllerInterface {
     public void setMainController(Main mainController){
         GameScreenMenuController.mainController = mainController;
     }
-    
+  
+    /**
+     * Method that changes the centerview to GameScreenHOME when the given button is clicked.
+     */
     @FXML
     private void buttonHome(){
-        currentMenuField.setText("Home");
         mainController.setCenterView("GameScreenHOME");
+        currentMenuField.setText("Home"); 
     }
     
+    /**
+     * Method that changes the centerview to GameScreenTEAM when the given button is clicked.
+     */  
     @FXML
     private void buttonTeam(){
         mainController.setCenterView("GameScreenTEAM");
         currentMenuField.setText("Team");
     }
     
+    /**
+     * Method that changes the centerview to GameScreenSCHEDULE when the given button is clicked.
+     */ 
     @FXML
     private void buttonSchedule(){
         mainController.setCenterView("GameScreenSCHEDULE");
         currentMenuField.setText("Schedule");
     }
     
+    /**
+     * Method that changes the centerview to GameScreenRANKING when the given button is clicked.
+     */ 
     @FXML
     private void buttonRanking(){
         mainController.setCenterView("GameScreenRANKING");	
         currentMenuField.setText("Ranking");
     }
-    
+
+    /**
+     * Method that changes the centerview to GameScreenMARKET when the given button is clicked.
+     */ 
     @FXML
     private void buttonMarket(){
         mainController.setCenterView("GameScreenMARKET");	
         currentMenuField.setText("Market");
     }
     
+    /**
+     * Method that changes the centerview to GameScreenOTHERTEAMS when the given button is clicked.
+     */ 
     @FXML
     private void buttonOtherTeams(){
         mainController.setCenterView("GameScreenOTHERTEAMS");		

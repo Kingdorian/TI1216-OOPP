@@ -1,3 +1,6 @@
+package application.model;
+
+import java.util.Arrays;
 
 public class Competition {
 	private Match competition[][] = new Match[34][9]; 
@@ -24,7 +27,7 @@ public class Competition {
 	 * @param the index int for the round
 	 * @return a match object
 	 */
-	public Match getMatch(int l, int n){
+	public Match getMatch(int n, int l){
 		return competition[n][l];
 	}
 	/**
@@ -33,6 +36,7 @@ public class Competition {
 	 * @param int l the index of the match
 	 */
 	public void addMatch(int n, int l,  Match m){
+		System.out.println(n);
 		competition[n][l] = m;
 	}
 	/**
@@ -42,7 +46,7 @@ public class Competition {
 	 */
 	public Team getTeamByName(String name){
 		for(int i =0; i<teams.length;i++){
-			if(teams[i].getName().equals(name)){
+			if(teams[i]!=null&&teams[i].getName().equals(name)){
 				return teams[i];
 			}
 		}
@@ -54,5 +58,49 @@ public class Competition {
 	 */
 	public Team[] getTeams(){
 		return teams;
+	}
+	public String toString() {
+		String returnString = "";
+		returnString+="Competition [competition=";
+		for(int i = 0; i<34;i++){
+			for(int j = 0; j<8;j++){
+				if(!(competition[i][j]==null))
+				returnString+=competition[i][j].toString()+",";
+			}
+		}
+		returnString+= ", teams=" + Arrays.toString(teams) + "]";
+		return returnString;
+	}
+
+	public boolean equals(Object obj) {
+		if(!(obj instanceof Competition)){
+			return false;
+		}
+		
+		Competition comp = (Competition)obj;
+		//Compare the matches
+		for(int i = 0; i<34;i++){
+			for(int j = 0; j<8;j++){
+				System.out.println(comp.getMatch(i,j));
+				System.out.println(competition[1][0]);
+				if((comp.getMatch(i,j)==null)||competition[i][j]==null){
+					if(!((comp.getMatch(i,j)==null)&&competition[i][j]==null)){
+						System.out.println("line 85" + i + j);
+						return false;
+					}
+				}else{
+					if(!(comp.getMatch(i,j).equals(competition[i][j]))){
+						System.out.println("line 90");
+						return false;
+					}
+				}
+			}
+		}
+		if(!Arrays.equals(teams, comp.getTeams())){
+			System.out.println("line 97");
+			return false;
+		}
+		//If it passes trough all of the above return true
+		return true;
 	}
 }

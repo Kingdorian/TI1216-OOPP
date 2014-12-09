@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -12,22 +14,26 @@
    <children>
       <Region prefHeight="50.0" prefWidth="684.0" styleClass="topMenu" />
       <Region layoutY="50.0" prefHeight="400.0" prefWidth="684.0" styleClass="contentView" />
-      <ImageView fitHeight="237.0" fitWidth="237.0" layoutX="419.0" layoutY="80.0">
-         <image>
-            <Image url="@../img/logo.png" />
-         </image>
-      </ImageView>
+      <HBox alignment="CENTER" layoutX="430.0" layoutY="70.0" prefHeight="240.0" prefWidth="240.0" styleClass="teamLogo">
+         <children>
+            <ImageView fx:id="teamLogo" fitHeight="150.0" fitWidth="150.0">
+               <image>
+                  <Image url="@../img/logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
       <Text layoutX="24.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Your Club:" />
-      <Text layoutX="200.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="[INSERT CLUB]" />
-      <Text layoutX="200.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="[INSERT RANKING]" />
+      <Text fx:id="textClub" layoutX="200.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="[INSERT CLUB]" />
+      <Text fx:id="textRanking" layoutX="200.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="[INSERT RANKING]" />
       <Text layoutX="24.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Ranking:" />
       <Text layoutX="25.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Number of Players:" />
-      <Text layoutX="200.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="[INSERT NO. PLAYERS]" />
-      <Text layoutX="200.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="[INSERT MATCHES LOST]" />
+      <Text fx:id="textNumberPlayers" layoutX="200.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="[INSERT NO. PLAYERS]" />
+      <Text fx:id="textMatchesLost" layoutX="200.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="[INSERT MATCHES LOST]" />
       <Text layoutX="25.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Matches Lost:" />
       <Text layoutX="24.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Matches Drawn:" />
-      <Text layoutX="200.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="[INSERT MATCHES DRAWN]" />
-      <Text layoutX="200.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="[INSERT MATCHES WON]" />
+      <Text fx:id="textMatchesDrawn" layoutX="200.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="[INSERT MATCHES DRAWN]" />
+      <Text fx:id="textMatchesWon" layoutX="200.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="[INSERT MATCHES WON]" />
       <Text layoutX="24.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Matches Won:" />
    </children>
 </Pane>

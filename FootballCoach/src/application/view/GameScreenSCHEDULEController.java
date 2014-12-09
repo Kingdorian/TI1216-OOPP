@@ -6,9 +6,7 @@
 package application.view;
 
 import application.Main;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.TableView;
 
 /**
  *
@@ -25,11 +23,10 @@ public class GameScreenSCHEDULEController implements ViewControllerInterface {
     private void initialize(){
         
     }
-   
     
     @Override
     public void setMainController(Main mainController){
-        this.mainController = mainController;
+        GameScreenSCHEDULEController.mainController = mainController;
     }
 
 }

@@ -10,7 +10,8 @@ import javafx.fxml.FXML;
 
 /**
  *
- * @author faris
+ * @author Faris
+ * @author Jochem
  */
 public class GameScreenTitleController implements ViewControllerInterface {
         
@@ -29,15 +30,21 @@ public class GameScreenTitleController implements ViewControllerInterface {
         GameScreenTitleController.mainController = mainController;
     }
     
+    /**
+     * Method that clears the rootlayout and changes the centerview to mainmenu (return to mainmenu..)
+     */ 
     @FXML
     private void buttonTitleScreen(){
         mainController.cleanRootLayout();
         mainController.setCenterView("MainMenu");
     }
     
+    /**
+     * Method that opens the settings popup.
+     */
     @FXML 
     private void buttonSettings() {
-        mainController.createPopup("Settings", "Settings", "/application/img/icon.png");
+        mainController.createPopup("PopupSETTINGS", "Settings", "/application/img/icon.png");
     }
     
 }

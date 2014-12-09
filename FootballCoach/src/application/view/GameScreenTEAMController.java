@@ -6,13 +6,11 @@
 package application.view;
 
 import application.Main;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.TableView;
 
 /**
  *
- * @author faris
+ * @author Faris
  * @author Jochem
  */
 public class GameScreenTEAMController implements ViewControllerInterface {
@@ -30,7 +28,7 @@ public class GameScreenTEAMController implements ViewControllerInterface {
     
     @Override
     public void setMainController(Main mainController){
-        this.mainController = mainController;
+        GameScreenTEAMController.mainController = mainController;
     }
 
 }

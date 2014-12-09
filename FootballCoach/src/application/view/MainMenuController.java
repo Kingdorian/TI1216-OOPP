@@ -11,11 +11,14 @@ import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
+
+import org.controlsfx.control.action.Action;
+import org.controlsfx.dialog.Dialog;
 import org.controlsfx.dialog.Dialogs;
 
 /**
  *
- * @author faris
+ * @author Faris
  * @author Jochem
  */
 public class MainMenuController implements ViewControllerInterface {
@@ -62,20 +65,47 @@ public class MainMenuController implements ViewControllerInterface {
     
     
     /**
-     * Method to close the application
+     * Method to close the application.
      */
     @FXML
     private void buttonExit(){
         // show pop-up: are you sure you want to quit? if ok is clicked: quit game, else don't quit game
-        System.exit(0);
+    	Action response = Dialogs.create()
+    	.title("Quit")
+    	.masthead("Are you sure you want to quit the application?")
+    	.actions(Dialog.Actions.OK, Dialog.Actions.CANCEL)
+    	.showConfirm();
+    	
+    	if (response == Dialog.Actions.OK) {
+            System.exit(0);
+    	}
+    	else {
+    		// User cancels and returns to the application
+    	}
     }
    
     
     /**
-     * current content only for testing !
+     * Method that opens the settings popup.
      */
     @FXML
     private void buttonSettings(){
-        mainController.createPopup("Settings", "Settings", "/application/img/icon.png");
+        mainController.createPopup("PopupSETTINGS", "Settings", "/application/img/icon.png");
+    }
+    
+    /**
+     * Method that opens the new game popup.
+     */
+    @FXML
+    private void buttonNewGame(){
+        mainController.createPopup("PopupNEWGAME", "New Game", "/application/img/icon.png");
+    }
+    
+    /**
+     * Method that opens the load game popup.
+     */
+    @FXML
+    private void buttonLoadGame(){
+        mainController.createPopup("PopupLOADGAME", "Load Game", "/application/img/icon.png");
     }
 }

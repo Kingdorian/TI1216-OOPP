@@ -52,7 +52,7 @@ public class Main extends Application {
             primaryStage.getIcons().add(new Image("/application/img/icon.png"));
 
             // Temporary
-            primaryStage.setResizable(false);            
+            primaryStage.setResizable(false);             
 
         } catch (IOException ex) {
             Logger.getLogger(getClass().getName()).log(Level.SEVERE, null, ex);
@@ -229,8 +229,7 @@ public class Main extends Application {
         Scene scene = new Scene(pane);
         popupStage.setScene(scene);
 		popupStage.sizeToScene();
-        popupStage.setResizable(false);            
-
+        popupStage.setResizable(false); 
         
         // get the pop-up's controller class
         

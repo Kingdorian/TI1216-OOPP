@@ -1,4 +1,4 @@
-
+package application.model;
 public class Goalkeeper extends Players {
 	
 	int stopPower;

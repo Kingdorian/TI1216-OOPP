@@ -1,3 +1,4 @@
+package application.model;
 import java.util.ArrayList;
 
 
@@ -23,6 +24,7 @@ public class Team {
 		this.goalsAgainst = 0;
 		this.artificialGrass = artificalGrass;
 	}
+
 	public boolean hasArtificialGrass() {
 		return artificialGrass;
 	}

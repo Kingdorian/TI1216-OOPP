@@ -25,8 +25,8 @@
                      </children>
                   </Group>
                   <Button layoutX="700.0" layoutY="150.0" mnemonicParsing="false" onAction="#buttonContinue" prefHeight="50.0" prefWidth="300.0" styleClass="itemMenu" text="Continue" />
-                  <Button layoutX="700.0" layoutY="200.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" styleClass="itemMenu" text="New Game" />
-                  <Button layoutX="700.0" layoutY="250.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" styleClass="itemMenu" text="Load Game" />
+                  <Button layoutX="700.0" layoutY="200.0" mnemonicParsing="false" onAction="#buttonNewGame" prefHeight="50.0" prefWidth="300.0" styleClass="itemMenu" text="New Game" />
+                  <Button layoutX="700.0" layoutY="250.0" mnemonicParsing="false" onAction="#buttonLoadGame" prefHeight="50.0" prefWidth="300.0" styleClass="itemMenu" text="Load Game" />
                   <Button layoutX="700.0" layoutY="300.0" mnemonicParsing="false" onAction="#buttonSettings" prefHeight="50.0" prefWidth="300.0" styleClass="itemMenu" text="Settings" />
                   <Button layoutX="700.0" layoutY="350.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" styleClass="itemMenu" text="Credits" />
                   <Button layoutX="700.0" layoutY="400.0" mnemonicParsing="false" onAction="#buttonExit" prefHeight="50.0" prefWidth="300.0" styleClass="itemMenu" text="Exit Game" />
