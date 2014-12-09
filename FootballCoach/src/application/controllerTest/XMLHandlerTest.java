@@ -2,6 +2,7 @@ package application.controllerTest;
 import static org.junit.Assert.*;
 
 import application.model.*;
+import application.controller.*;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -13,14 +14,15 @@ import org.junit.Test;
 
 
 public class XMLHandlerTest {
-	ArrayList<Team> refList;
 	Competition refComp;
 	@Before public void initialize(){
-		Team[] team = new Team[1];
-		team[1] = new Team("ADO Den Haag", true);
-		team[1].addPlayer(new Goalkeeper("Robert", "Zwinkels", 1, Status.DEFAULT, 0, Reason.DEFAULT, 62, 65));
-		team[1].addPlayer(new Player("Dion", "Malone", 2, Status.DEFAULT, 0, Reason.DEFAULT, 26, 60, 75));
+		Team[] team = new Team[18];
+		team[0] = new Team("ADO Den Haag", true);
+		team[0].addPlayer(new Goalkeeper("Robert", "Zwinkels", 1, Status.DEFAULT, 0, Reason.DEFAULT, 62, 65));
+		team[0].addPlayer(new Player("Dion", "Malone", 2, Status.DEFAULT, 0, Reason.DEFAULT, 26, 60, 75));
+		team[0].addPlayer(new Player("Dion", "Malone", 2, Status.INJUREDSUSPENDED, 0, Reason.DEFAULT, 26, 60, 75));
 		refComp = new Competition(team);
+		refComp.addMatch(0, 0, new Match(null, null, 5, 5));
 	}
 	
 	
@@ -28,17 +30,20 @@ public class XMLHandlerTest {
 	public void testReadCompetition() {
 		try {
 			Competition comp = XMLHandler.readCompetition("XML/XMLHandlerTestFile.xml", "XML/XMLHanTestComp.xml");
+			System.out.println(comp.toString());
+			System.out.println(refComp.toString());
 			assertEquals(comp, refComp);
 
 		} catch (Exception e) {
+			e.printStackTrace();
 			fail("Unexpected exception");
 		}
 	}
 	@Test
 	public void testReadCompetitionInv(){
 		try {
-			ArrayList<Team> genList = XMLHandler.readCompetition("XML/XMLHandlerTestFileInv.xml");
-			assertEquals(genList, refList);
+			Competition comp = XMLHandler.readCompetition("XML/XMLHandlerTestFileInv.xml","XML/XMLHanTestComp.xml");
+			assertEquals(comp, refComp);
 
 		} catch (Exception e) {
 			fail("Unexpected exception");
@@ -55,9 +60,9 @@ public class XMLHandlerTest {
 			
 		}
 		try{
-			XMLHandler.writeCompetition(345, refList);
-			ArrayList<Team> genList = XMLHandler.readCompetition("XML/XMLHandlerTestFile.xml");
-			assertEquals(genList,refList);
+			XMLHandler.writeCompetition(345, refComp);
+			Competition genComp = XMLHandler.readCompetition("XML/XMLHandlerTestFile.xml", "XML/XMLHanTestComp.xml");
+			assertEquals(genComp,refComp);
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail("Unexpected Exception");
@@ -67,9 +72,9 @@ public class XMLHandlerTest {
 	@Test
 	public void testWriteCompetitionFileExist(){
 		try {
-			XMLHandler.writeCompetition(360, refList);
-			ArrayList<Team> genList = XMLHandler.readCompetition("XML/XMLHandlerTestFile.xml");
-			assertEquals(genList,refList);
+			XMLHandler.writeCompetition(360, refComp);
+			Competition genComp = XMLHandler.readCompetition("XML/XMLHandlerTestFile.xml","XML/XMLHanTestComp.xml");
+			assertEquals(genComp,refComp);
 		} catch (Exception e) {
 			fail("Unexpected Exception");
 		}

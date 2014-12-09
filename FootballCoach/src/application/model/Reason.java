@@ -1,4 +1,4 @@
-
+package application.model;
 public enum Reason {
 	
 	DEFAULT(0),

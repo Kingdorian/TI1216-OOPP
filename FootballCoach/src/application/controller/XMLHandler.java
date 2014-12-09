@@ -41,7 +41,7 @@ public class XMLHandler {
 			for(int i = 0; i<rounds.getLength();i++){
 				Element round = (Element)rounds.item(i);
 				NodeList matches = round.getElementsByTagName("match");
-				for(int j = 0; j<matches.getLength();i++){
+				for(int j = 0; j<matches.getLength();j++){
 					comp.addMatch(Integer.parseInt(round.getAttribute("num")), j, parseMatch((Element)matches.item(j), comp));
 				}
 			}
@@ -85,7 +85,7 @@ public class XMLHandler {
 		 * @param playerNode to be parsed
 		 * @return Goalkeeper Object according to inputted node
 		 */
-		private public static Goalkeeper parseGoalkeeper(Node playerNode){
+		private static Goalkeeper parseGoalkeeper(Node playerNode){
 
 			String name = null, surname = null;
 			int number = Integer.MIN_VALUE, 
@@ -282,11 +282,11 @@ public class XMLHandler {
 						buffer.add(doc.createElement("number"));
 						buffer.get(2).setTextContent(p.getNumber()+"");
 						buffer.add(doc.createElement("status"));
-						buffer.get(3).setTextContent(p.getStatus().status+"");
+						buffer.get(3).setTextContent(p.getStatus()+"");
 						buffer.add(doc.createElement("timenotavailable"));
 						buffer.get(4).setTextContent(p.getTimeNotAvailable()+"");
 						buffer.add(doc.createElement("reason"));
-						buffer.get(5).setTextContent(p.getReason().reason+"");
+						buffer.get(5).setTextContent(p.getReason()+"");
 						buffer.add(doc.createElement("attack"));
 						buffer.get(6).setTextContent(p.getAttack()+"");
 						buffer.add(doc.createElement("defence"));
@@ -309,12 +309,12 @@ public class XMLHandler {
 						buffer.add(doc.createElement("number"));
 						buffer.get(2).setTextContent(k.getNumber()+"");
 						buffer.add(doc.createElement("status"));
-						buffer.get(3).setTextContent(k.getStatus().status+"");
+						buffer.get(3).setTextContent(k.getStatus()+"");
 						buffer.add(doc.createElement("timenotavailable"));
 						buffer.get(4).setTextContent(k.getTimeNotAvailable()+"");
 						buffer.add(doc.createElement("reason"));
 
-						buffer.get(5).setTextContent(k.getReason().reason+"");
+						buffer.get(5).setTextContent(k.getReason()+"");
 						buffer.add(doc.createElement("stoppower"));
 						buffer.get(6).setTextContent(k.getStopPower()+"");
 						buffer.add(doc.createElement("penaltystoppower"));
