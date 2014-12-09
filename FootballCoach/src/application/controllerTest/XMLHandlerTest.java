@@ -30,8 +30,6 @@ public class XMLHandlerTest {
 	public void testReadCompetition() {
 		try {
 			Competition comp = XMLHandler.readCompetition("XML/XMLHandlerTestFile.xml", "XML/XMLHanTestComp.xml");
-			System.out.println(comp.toString());
-			System.out.println(refComp.toString());
 			assertEquals(comp, refComp);
 
 		} catch (Exception e) {
@@ -81,6 +79,7 @@ public class XMLHandlerTest {
 		
 	}
 	@Test
-	public void testParseMatch(){
+	public void testWriteCompetition(){
+		
 	}
 }

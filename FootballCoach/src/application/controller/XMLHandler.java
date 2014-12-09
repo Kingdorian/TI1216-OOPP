@@ -250,6 +250,12 @@ public class XMLHandler {
 			StreamResult result = new StreamResult(new File(location));
 			t.transform(source, result);
 		}
+		/**
+		 * Writes the Teams to the file specified in the location string.
+		 * @param A string to the path where to store the files
+		 * @param teams An array with the teams to write to the file
+		 * @throws Exception
+		 */
 		private static void writeTeams(String location, Team[] teams) throws Exception{
 			// Setting up doc builder
 			DocumentBuilderFactory dF = DocumentBuilderFactory.newInstance();
