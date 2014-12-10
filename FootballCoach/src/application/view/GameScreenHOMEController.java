@@ -67,7 +67,7 @@ public class GameScreenHOMEController implements ViewControllerInterface {
     }
     
     /**
-     * Method to display change the results (Won:, Drawn:, Lost:) 
+     * Method to display change the results (Won:, Drawn:, Lost:)
      */
     private void setResults(int won, int drawn, int lost) {
     	textMatchesWon.setText(Integer.toString(won));
@@ -82,9 +82,7 @@ public class GameScreenHOMEController implements ViewControllerInterface {
     private void setTeamLogo(String url) {
     	Image image = new Image(url, 200, 200, true, false);
     	teamLogo.setImage(image);
-    	
-    	System.out.println("image loaded");
-    }
+    	}
     
 
 }

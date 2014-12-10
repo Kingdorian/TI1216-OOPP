@@ -7,6 +7,7 @@ package application.view;
 
 import application.Main;
 import javafx.fxml.FXML;
+import javafx.scene.text.Text;
 
 /**
  *
@@ -15,6 +16,8 @@ import javafx.fxml.FXML;
  */
 public class GameScreenTitleController implements ViewControllerInterface {
         
+	@FXML private Text textBudget;
+	
     private static Main mainController;
     
     /**
@@ -22,7 +25,6 @@ public class GameScreenTitleController implements ViewControllerInterface {
      */
     @FXML
     private void initialize(){
-        
     }
     
     @Override
@@ -45,6 +47,14 @@ public class GameScreenTitleController implements ViewControllerInterface {
     @FXML 
     private void buttonSettings() {
         mainController.createPopup("PopupSETTINGS", "Settings", "/application/img/icon.png");
+    }
+    
+    /**
+     * Method that sets the budget in the GUI
+     * @param budget	String representing the budget.
+     */
+    private void setTextBudget(String budget) {
+    	textBudget.setText(budget);
     }
     
 }
