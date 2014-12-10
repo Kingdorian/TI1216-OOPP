@@ -107,6 +107,13 @@
     -fx-background-color: rgba(147, 147, 147, 1);
 }
 
+.choiceBoxDark 
+{
+    -fx-background-color: rgba(16, 16, 16, 0.7);   
+    -fx-text-fill: rgb(242, 242, 242);
+ 
+}
+
 .teamLogo 
 {
     -fx-background-color: rgba(147, 147, 147,.8);
@@ -114,4 +121,5 @@
     -fx-border-width: 10px;
     -fx-border-radius: 200px;
     -fx-background-radius: 100%;
+    -fx-overflow: hidden;
 }

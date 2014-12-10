@@ -37,7 +37,7 @@ public class GameScreenHOMEController implements ViewControllerInterface {
         setTextRanking("Changed");
         setTextNumberPlayers("Changed");
         setResults(1, 2, 3);
-        setTeamLogo("http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/734/150x150.png");
+        setTeamLogo("http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/325/150x150.png");
     }
     
     @Override
