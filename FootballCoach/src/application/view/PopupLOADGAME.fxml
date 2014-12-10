@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
@@ -15,5 +16,7 @@
             <Button layoutX="200.0" layoutY="241.0" mnemonicParsing="false" onAction="#buttonCancel" prefHeight="30.0" prefWidth="200.0" styleClass="itemMenu" text="Cancel" />
          </children>
       </HBox>
+      <Text layoutX="26.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Select a savegame" />
+      <ChoiceBox layoutX="26.0" layoutY="36.0" prefHeight="29.0" prefWidth="345.0" styleClass="choiceBoxDark" />
    </children>
 </AnchorPane>

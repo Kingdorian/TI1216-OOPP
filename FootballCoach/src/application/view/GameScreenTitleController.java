@@ -17,6 +17,7 @@ import javafx.scene.text.Text;
 public class GameScreenTitleController implements ViewControllerInterface {
         
 	@FXML private Text textBudget;
+	@FXML private Text textWelcome;
 	
     private static Main mainController;
     
@@ -25,6 +26,8 @@ public class GameScreenTitleController implements ViewControllerInterface {
      */
     @FXML
     private void initialize(){
+    	setTextBudget("Changed");
+    	setTextWelcome("Changed");
     }
     
     @Override
@@ -55,6 +58,15 @@ public class GameScreenTitleController implements ViewControllerInterface {
      */
     private void setTextBudget(String budget) {
     	textBudget.setText(budget);
+   
     }
-    
+  
+    /**
+     * Method that sets the budget in the GUI
+     * @param name	String representing the budget.
+     */
+    private void setTextWelcome(String name) {
+    	textWelcome.setText("Welcome, " + name);
+    }
+    	
 }

@@ -17,7 +17,7 @@
             <Image url="@../img/logo.png" />
          </image>
       </ImageView>
-      <Text layoutX="160.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Welcome, [PLAYER]" textAlignment="CENTER" wrappingWidth="220.0" />
+      <Text fx:id="textWelcome" layoutX="160.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Welcome, [PLAYER]" textAlignment="CENTER" wrappingWidth="220.0" />
       <Button layoutX="400.0" mnemonicParsing="false" onAction="#buttonSettings" prefHeight="50.0" prefWidth="30.0" styleClass="topMenuButton">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
@@ -27,7 +27,7 @@
             </ImageView>
          </graphic>
          <padding>
-            <Insets left="5.0" right="5.0" top="1.0" />
+            <Insets left="5.0" right="5.0" />
          </padding></Button>
       <Button layoutX="460.0" mnemonicParsing="false" onAction="#buttonTitleScreen" prefHeight="50.0" prefWidth="30.0" styleClass="topMenuButton">
          <graphic>
@@ -38,9 +38,9 @@
             </ImageView>
          </graphic>
          <padding>
-            <Insets left="5.0" right="5.0" top="1.0" />
+            <Insets left="5.0" right="5.0" />
          </padding></Button>
-      <Text layoutX="674.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text=" [BUDGET]" textAlignment="CENTER" wrappingWidth="139.29815673828125">
+      <Text fx:id="textBudget" layoutX="594.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="[BUDGET]" wrappingWidth="200.0">
          <font>
             <Font name="System Italic" size="13.0" />
          </font>
@@ -62,10 +62,10 @@
             </ImageView>
          </graphic>
          <padding>
-            <Insets left="5.0" right="5.0" top="1.0" />
+            <Insets left="5.0" right="5.0" />
          </padding>
       </Button>
-      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="680.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="51.0" fitWidth="20.0" layoutX="569.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/money.png" />
          </image>
