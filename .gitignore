@@ -2,7 +2,7 @@
 /bin/
 .classpath
 .project
-.class
+*.class
 FootballCoach/bin/application/Main.class
 
 FootballCoach/bin/application/Main.class
