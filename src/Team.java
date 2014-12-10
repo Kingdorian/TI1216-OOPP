@@ -124,6 +124,20 @@ public class Team {
 	public void addPlayer(Players p){
 		players.add(p);
 	}
+	/**
+	 * Makes a transfer from the team to the other team t
+	 * @param p Player which is changing team
+	 * @param t Team which te player goes to
+	 * @param money The transfersum
+	 */
+	public void transferTo(Players p, Team t, int money){
+		if(this.getPlayers().contains(p)){
+			this.getPlayers().remove(p);
+			t.addPlayer(p);
+			this.setBudget(this.getBudget() + money);
+			t.setBudget(t.getBudget() - money);
+		}
+	}
 
 
 	
