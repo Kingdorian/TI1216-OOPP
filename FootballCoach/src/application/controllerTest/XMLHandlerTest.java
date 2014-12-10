@@ -58,7 +58,7 @@ public class XMLHandlerTest {
 			
 		}
 		try{
-			XMLHandler.writeCompetition(345, refComp);
+			XMLHandler.writeCompetition(345, refComp, "XML/TestSavegames/");
 			Competition genComp = XMLHandler.readCompetition("XML/XMLHandlerTestFile.xml", "XML/XMLHanTestComp.xml");
 			assertEquals(genComp,refComp);
 		} catch (Exception e) {
@@ -70,7 +70,7 @@ public class XMLHandlerTest {
 	@Test
 	public void testWriteCompetitionFileExist(){
 		try {
-			XMLHandler.writeCompetition(360, refComp);
+			XMLHandler.writeCompetition(360, refComp, "XML/TestSavegames");
 			Competition genComp = XMLHandler.readCompetition("XML/XMLHandlerTestFile.xml","XML/XMLHanTestComp.xml");
 			assertEquals(genComp,refComp);
 		} catch (Exception e) {

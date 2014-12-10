@@ -30,6 +30,7 @@ public class XMLHandler {
 			Team teams[] = new Team[18];
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 			DocumentBuilder db = dbf.newDocumentBuilder();
+			System.out.println(teamsLoc);
 			Document doc = db.parse(new File(teamsLoc));
 			NodeList teamnodes = doc.getElementsByTagName("team");
 			for(int i = 0; i<teamnodes.getLength();i++){
@@ -198,8 +199,8 @@ public class XMLHandler {
 		 * @param teams The arraylist with teams to store
 		 * @throws Exception
 		 */
-		public static void writeCompetition(int saveGameId, Competition comp){
-			File saveDir = new File("XML/Savegames/" + saveGameId + "/");
+		public static void writeCompetition(int saveGameId, Competition comp, String location){
+			File saveDir = new File(location);
 			//If the savedir does not yet exist create it and copy the default competition xml into it
 			if(!saveDir.exists()){
 				System.out.println("Making dir");

@@ -15,8 +15,15 @@ import java.util.Date;
 import application.model.*;
 
 public class SaveGameHandler {
-
-	private final static String DEFAULTLOC = "XML/Savegames/";
+	//The standardlocation of the savegames
+	private static String defaultloc = "XML/Savegames/";
+	/**
+	 * Changes the default location for savegames, usefull for for example testing purposes
+	 * @param String newLoc with the new path to the savegame
+	 */
+	public static void changeDefaultLoc(String newLoc){
+		defaultloc = newLoc;
+	}
 	/**
 	 * Reads a savegame by the inputted index
 	 * @param savegameNum the id of the savegame
@@ -24,7 +31,7 @@ public class SaveGameHandler {
 	 * @throws Exception
 	 */
 	public static Competition loadCompetition(int savegameId) throws Exception{
-		return XMLHandler.readCompetition(DEFAULTLOC + savegameId + "/competition.xml" , DEFAULTLOC + savegameId + "/Matches.xml");
+		return XMLHandler.readCompetition(defaultloc + savegameId + "/competition.xml" , defaultloc + savegameId + "/Matches.xml");
 		
 	}
 	/**
@@ -33,7 +40,7 @@ public class SaveGameHandler {
 	 */
 	public static ArrayList<Integer> getSaveGames(){
 		ArrayList<Integer> saveGameIds = new ArrayList<Integer>();
-		File saveFolder = new File(DEFAULTLOC);
+		File saveFolder = new File(defaultloc);
 		File[] listOfFiles = saveFolder.listFiles();
 		for(int i = 0; i<listOfFiles.length;i++){
 			//Check if the file is a directory
@@ -50,11 +57,17 @@ public class SaveGameHandler {
 	 * @throws FileNotFoundException 
 	 */
 	public static Date getDateById(int id) throws FileNotFoundException{
-		File saveGameFolder = new File(DEFAULTLOC + "/" + id);
+		File saveGameFolder = new File(defaultloc + "/" + id);
 		if(!saveGameFolder.exists())throw new FileNotFoundException();
+		System.out.println(saveGameFolder.lastModified());
 		return new Date(saveGameFolder.lastModified());
 	}
-	
+	/**
+	 * Creates a new savegame
+	 * @return the id of the created savegame
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	public static int createNewSave() throws FileNotFoundException, IOException{
 		// Getting a list of id's that are already in use
 		ArrayList<Integer> ids = getSaveGames();
@@ -62,8 +75,13 @@ public class SaveGameHandler {
 		//Getting the currently largest id
 		int newId = ids.get(ids.size()-1)+1;
 		//Make new directory
-		new File(DEFAULTLOC + "/" + newId).mkdirs();
+		new File(defaultloc + "/" + newId).mkdirs();
 		return newId;
 	}
-	
+	/**
+	 * 
+	 */
+	public static void saveGame(int id, Competition comp) throws IOException{
+		XMLHandler.writeCompetition(id, comp, defaultloc + id + "/");
+	}
 }

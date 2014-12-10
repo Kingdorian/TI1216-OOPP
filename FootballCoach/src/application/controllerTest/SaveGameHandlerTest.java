@@ -2,23 +2,29 @@ package application.controllerTest;
 
 import static org.junit.Assert.*;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import application.controller.*;
 import application.model.*;
 
 public class SaveGameHandlerTest {
+	@Before public void initialize(){
+		SaveGameHandler.changeDefaultLoc("XML/TestSaveGames/");
+	}
 	
 	@Test
 	public void testloadCompetition(){
 		try {
 			Competition genComp = SaveGameHandler.loadCompetition(1);
-			Competition refComp = XMLHandler.readCompetition("XML/Savegames/1/competition.xml", "XML/Savegames/1/Matches.xml");
+			Competition refComp = XMLHandler.readCompetition("XML/TestSavegames/1/competition.xml", "XML/TestSavegames/1/Matches.xml");
 			assertEquals(genComp, refComp);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -43,10 +49,9 @@ public class SaveGameHandlerTest {
 		try{
 			ArrayList<Integer> list = SaveGameHandler.getSaveGames();
 			ArrayList<Integer> reflist = new ArrayList<Integer>();
-			reflist.add(-1);
+			reflist.add(-2);
 			reflist.add(1);
-			reflist.add(2);
-			assertEquals(list, reflist);
+			assertEquals(reflist, list);
 		}catch (Exception e) {
 			e.printStackTrace();
 			fail("Unexpected exception");
@@ -59,7 +64,7 @@ public class SaveGameHandlerTest {
 	@Test
 	public void testGetDateById(){
 		try{
-			assertEquals(SaveGameHandler.getDateById(1),new Date(1418162297256L));
+			assertEquals(SaveGameHandler.getDateById(-2),new Date(1418203924370L));
 		}catch(FileNotFoundException e){
 			e.printStackTrace();
 			fail("File not Found");
@@ -80,7 +85,7 @@ public class SaveGameHandlerTest {
 	@Test
 	public void testCreateNewSave(){
 		try {
-			assertEquals(createNewSave, 6);
+			assertEquals(2, SaveGameHandler.createNewSave());
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 			fail("Unexpected FileNotFoundException");
@@ -95,5 +100,20 @@ public class SaveGameHandlerTest {
 	public void coverage(){
 	    SaveGameHandler a = new SaveGameHandler() {
 	    };
+	}
+	
+	@After
+	public void cleanUp(){
+		ArrayList<Integer> saveGameIds = new ArrayList<Integer>();
+		File saveFolder = new File("XML/TestSavegames/");
+		File[] listOfFiles = saveFolder.listFiles();
+		for(int i = 0; i<listOfFiles.length;i++){
+			//Delete all the directories that are not -2 or 1
+			String name = listOfFiles[i].getName();
+			if(!(name.equals("1")||name.equals("-2"))){
+				System.out.println("Deleting...");
+				listOfFiles[i].delete();
+			}
+		}
 	}
 }
