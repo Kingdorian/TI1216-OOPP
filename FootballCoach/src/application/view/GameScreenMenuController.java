@@ -15,76 +15,93 @@ import javafx.scene.text.Text;
  * @author Jochem
  */
 public class GameScreenMenuController implements ViewControllerInterface {
-    
+
     @FXML
     private Text currentMenuField;
-    
+
     private static Main mainController;
-    
-    
+
     /**
      * Code executed when the view is loaded.
      */
     @FXML
-    private void initialize(){
+    private void initialize() {
     }
-    
+
     @Override
-    public void setMainController(Main mainController){
+    public void setMainController(Main mainController) {
         GameScreenMenuController.mainController = mainController;
-    }
-  
-    /**
-     * Method that changes the centerview to GameScreenHOME when the given button is clicked.
-     */
-    @FXML
-    private void buttonHome(){
-        mainController.setCenterView("GameScreenHOME");
-        currentMenuField.setText("Home"); 
-    }
-    
-    /**
-     * Method that changes the centerview to GameScreenTEAM when the given button is clicked.
-     */  
-    @FXML
-    private void buttonTeam(){
-        mainController.setCenterView("GameScreenTEAM");
-        currentMenuField.setText("Team");
-    }
-    
-    /**
-     * Method that changes the centerview to GameScreenSCHEDULE when the given button is clicked.
-     */ 
-    @FXML
-    private void buttonSchedule(){
-        mainController.setCenterView("GameScreenSCHEDULE");
-        currentMenuField.setText("Schedule");
-    }
-    
-    /**
-     * Method that changes the centerview to GameScreenRANKING when the given button is clicked.
-     */ 
-    @FXML
-    private void buttonRanking(){
-        mainController.setCenterView("GameScreenRANKING");	
-        currentMenuField.setText("Ranking");
     }
 
     /**
-     * Method that changes the centerview to GameScreenMARKET when the given button is clicked.
-     */ 
+     * Method that changes the centerview to GameScreenHOME when the given
+     * button is clicked.
+     */
     @FXML
-    private void buttonMarket(){
-        mainController.setCenterView("GameScreenMARKET");	
-        currentMenuField.setText("Market");
+    private void buttonHome() {
+        if(!currentMenuField.getText().equals("Home")){
+            currentMenuField.setText("Home");
+            mainController.setCenterView("GameScreenHOME");
+        }
     }
-    
+
     /**
-     * Method that changes the centerview to GameScreenOTHERTEAMS when the given button is clicked.
-     */ 
+     * Method that changes the centerview to GameScreenTEAM when the given
+     * button is clicked.
+     */
     @FXML
-    private void buttonOtherTeams(){
-        mainController.setCenterView("GameScreenOTHERTEAMS");		
-        currentMenuField.setText("Other Teams");
+    private void buttonTeam() {
+        if(!currentMenuField.getText().equals("Team")){
+            currentMenuField.setText("Team");
+            mainController.setCenterView("GameScreenTEAM");
+        }
+    }
+
+    /**
+     * Method that changes the centerview to GameScreenSCHEDULE when the given
+     * button is clicked.
+     */
+    @FXML
+    private void buttonSchedule() {
+        if(!currentMenuField.getText().equals("Schedule")){
+            currentMenuField.setText("Schedule");
+            mainController.setCenterView("GameScreenSCHEDULE");
+        }
+    }
+
+    /**
+     * Method that changes the centerview to GameScreenRANKING when the given
+     * button is clicked.
+     */
+    @FXML
+    private void buttonRanking() {
+        if(!currentMenuField.getText().equals("Ranking")){
+            currentMenuField.setText("Ranking");
+            mainController.setCenterView("GameScreenRANKING");
+        }
+    }
+
+    /**
+     * Method that changes the centerview to GameScreenMARKET when the given
+     * button is clicked.
+     */
+    @FXML
+    private void buttonMarket() {
+        if(!currentMenuField.getText().equals("Market")){
+            currentMenuField.setText("Market");
+            mainController.setCenterView("GameScreenMARKET");
+        }
+    }
+
+    /**
+     * Method that changes the centerview to GameScreenOTHERTEAMS when the given
+     * button is clicked.
+     */
+    @FXML
+    private void buttonOtherTeams() {
+        if(!currentMenuField.getText().equals("Other Teams")){
+            currentMenuField.setText("Other Teams");
+            mainController.setCenterView("GameScreenOTHERTEAMS");
+        }
     }
 }

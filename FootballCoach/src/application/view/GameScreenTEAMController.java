@@ -6,7 +6,12 @@
 package application.view;
 
 import application.Main;
+import application.model.Goalkeeper;
 import application.model.Player;
+import application.model.Players;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -17,33 +22,59 @@ import javafx.scene.control.TableView;
  * @author Jochem
  */
 public class GameScreenTEAMController implements ViewControllerInterface {
-	
-	@FXML private TableView table;
-	@FXML private TableColumn columnNo;
-	@FXML private TableColumn columnName;
-	@FXML private TableColumn columnDefense;
-	@FXML private TableColumn columnOffense;
-	@FXML private TableColumn columnStamina;
-	
-	
+
+    @FXML
+    private TableView<Players> playerTable;
+    @FXML
+    private TableColumn<Players, Number> columnNo;
+    @FXML
+    private TableColumn<Players, String> columnName;
+    @FXML
+    private TableColumn<Players, String> columnAbility;
+    @FXML
+    private TableColumn<Players, String> columnAvailable;
+    @FXML
+    private TableColumn<Players, String> columnType;
+
     private static Main mainController;
- 
-    
+
     /**
      * Code executed when the view is loaded.
      */
     @FXML
-    private void initialize(){
-        Player test = new Player("test", "test", 10, null, 0, null, 10, 20, 30);
-       
-        
-        
-    }
-   
-    
-    @Override
-    public void setMainController(Main mainController){
-        GameScreenTEAMController.mainController = mainController;
+    private void initialize() {
+        // Initialize the Players table with the 5 columns
+        columnNo.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getNumber())); 
+        columnName.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getSurName())); 
+        columnAbility.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getAbility())); 
+        columnAvailable.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().isAvailable() ? "Yes" : "No")); 
+        columnType.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getKind())); 
     }
 
+    @Override
+    public void setMainController(Main mainController) {
+        this.mainController = mainController;
+        
+        // Add data to the table
+        playerTable.setItems(FXCollections.observableArrayList(mainController.getPlayersData(mainController.getChosenTeamName())));
+    }
+
+    @FXML
+    private void moreInfoButton(){
+        Players selectedPlayer = playerTable.getSelectionModel().selectedItemProperty().get();
+        if(selectedPlayer != null && selectedPlayer instanceof Player){
+            Main.setCurrentlySelected(selectedPlayer);
+            mainController.createPopup("PopupMOREINFOPLAYER", "Player info");
+        }
+//        Players selectedPlayer = playerTable.getSelectionModel().selectedItemProperty().get();
+//        if(selectedPlayer != null){
+//            System.out.println("Selected player: " + selectedPlayer.getSurName());
+//            if(selectedPlayer instanceof Player)
+//                System.out.println( "Attack: " + ((Player)selectedPlayer).getAttack() + "\nDefense: " + ((Player)selectedPlayer).getDefence() + "\nStamina: " + ((Player)selectedPlayer).getStamina());
+//            else
+//                System.out.println( "StopPower: " + ((Goalkeeper)selectedPlayer).getStopPower()+ "\nPenaltyStopPower: " + ((Goalkeeper)selectedPlayer).getPenaltyStopPower());
+//        }
+//        else
+//            System.out.println("No player selected");
+    }
 }

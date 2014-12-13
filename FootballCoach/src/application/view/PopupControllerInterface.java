@@ -11,7 +11,9 @@ import javafx.stage.Stage;
  *
  * @author faris
  */
-public interface PopupControllerInterface{
+public interface PopupControllerInterface {
+
     public boolean isOkClicked();
+
     public void setPopupStage(Stage popupStage);
 }

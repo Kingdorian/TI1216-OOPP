@@ -10,65 +10,68 @@
 <?import javafx.scene.layout.*?>
 
 <Pane prefHeight="50.0" prefWidth="1024.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.GameScreenTitleController">
-   <children>
-      <Region prefHeight="50.0" prefWidth="1024.0" rotate="180.0" styleClass="topMenu" />
-      <ImageView fitHeight="46.0" fitWidth="133.0" layoutX="40.0">
-         <image>
-            <Image url="@../img/logo.png" />
-         </image>
-      </ImageView>
-      <Text fx:id="textWelcome" layoutX="160.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Welcome, [PLAYER]" textAlignment="CENTER" wrappingWidth="220.0" />
-      <Button layoutX="400.0" mnemonicParsing="false" onAction="#buttonSettings" prefHeight="50.0" prefWidth="30.0" styleClass="topMenuButton">
-         <graphic>
-            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/Settings.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <padding>
-            <Insets left="5.0" right="5.0" />
-         </padding></Button>
-      <Button layoutX="460.0" mnemonicParsing="false" onAction="#buttonTitleScreen" prefHeight="50.0" prefWidth="30.0" styleClass="topMenuButton">
-         <graphic>
-            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/Home.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <padding>
-            <Insets left="5.0" right="5.0" />
-         </padding></Button>
-      <Text fx:id="textBudget" layoutX="594.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="[BUDGET]" wrappingWidth="200.0">
-         <font>
-            <Font name="System Italic" size="13.0" />
-         </font>
-      </Text>
-      <Button layoutX="850.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="139.0" styleClass="topMenuButton" text="Next Match">
-         <graphic>
-            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/next.png" />
-               </image>
-            </ImageView>
-         </graphic></Button>
-      <Button layoutX="430.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="30.0" styleClass="topMenuButton">
-         <graphic>
-            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/Save.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <padding>
-            <Insets left="5.0" right="5.0" />
-         </padding>
-      </Button>
-      <ImageView fitHeight="51.0" fitWidth="20.0" layoutX="569.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/money.png" />
-         </image>
-      </ImageView>
-   </children>
+    <children>
+        <Region prefHeight="50.0" prefWidth="1024.0" rotate="180.0" styleClass="topMenu" />
+        <ImageView fitHeight="46.0" fitWidth="133.0" layoutX="40.0">
+            <image>
+                <Image url="@../img/logo.png" />
+            </image>
+        </ImageView>
+        <Text fx:id="textWelcome" layoutX="160.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Welcome, [PLAYER]" textAlignment="CENTER" wrappingWidth="220.0" />
+        <Button layoutX="400.0" mnemonicParsing="false" onAction="#buttonSettings" prefHeight="50.0" prefWidth="30.0" styleClass="topMenuButton">
+            <graphic>
+                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../img/Settings.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+            <padding>
+                <Insets left="5.0" right="5.0" />
+            </padding>
+        </Button>
+        <Button layoutX="460.0" mnemonicParsing="false" onAction="#buttonTitleScreen" prefHeight="50.0" prefWidth="30.0" styleClass="topMenuButton">
+            <graphic>
+                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../img/Home.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+            <padding>
+                <Insets left="5.0" right="5.0" />
+            </padding>
+        </Button>
+        <Text fx:id="textBudget" layoutX="594.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="[BUDGET]" wrappingWidth="200.0">
+            <font>
+                <Font name="System Italic" size="13.0" />
+            </font>
+        </Text>
+        <Button layoutX="850.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="139.0" styleClass="topMenuButton" text="Next Match">
+            <graphic>
+                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../img/next.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button layoutX="430.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="30.0" styleClass="topMenuButton">
+            <graphic>
+                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../img/Save.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+            <padding>
+                <Insets left="5.0" right="5.0" />
+            </padding>
+        </Button>
+        <ImageView fitHeight="51.0" fitWidth="20.0" layoutX="569.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../img/money.png" />
+            </image>
+        </ImageView>
+    </children>
 </Pane>

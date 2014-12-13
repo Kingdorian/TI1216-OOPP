@@ -22,90 +22,87 @@ import org.controlsfx.dialog.Dialogs;
  * @author Jochem
  */
 public class MainMenuController implements ViewControllerInterface {
-    
+
     private static Main mainController;
-    
+
     //Load FXML elements to edit in code.
     @FXML
     private ImageView logo;
-    
+
     /**
      * Code executed when the view is loaded.
      */
     @FXML
-    private void initialize(){
+    private void initialize() {
         // Logo start animation
-    	FadeTransition fade = new FadeTransition(Duration.millis(6000), logo);
-    	fade.setFromValue(0);
-    	fade.setToValue(1);
-    	fade.setCycleCount(1);
-    	fade.play();
-    	TranslateTransition translate = new TranslateTransition(Duration.millis(6000), logo);
+        FadeTransition fade = new FadeTransition(Duration.millis(6000), logo);
+        fade.setFromValue(0);
+        fade.setToValue(1);
+        fade.setCycleCount(1);
+        fade.play();
+        TranslateTransition translate = new TranslateTransition(Duration.millis(6000), logo);
         translate.setFromY(-50);
         translate.setToY(0);
         translate.setCycleCount(1);
         translate.play();
-        
+
     }
-    
+
     @Override
-    public void setMainController(Main mainController){
+    public void setMainController(Main mainController) {
         MainMenuController.mainController = mainController;
     }
-    
+
     /**
      * Method to switch to the game's HOME screen.
      */
     @FXML
-    private void buttonContinue(){
+    private void buttonContinue() {
         mainController.setCenterView("GameScreenHOME");
         mainController.setLeftView("GameScreenMenu");
         mainController.setTopView("GameScreenTitle");
     }
-    
-    
+
     /**
      * Method to close the application.
      */
     @FXML
-    private void buttonExit(){
+    private void buttonExit() {
         // show pop-up: are you sure you want to quit? if ok is clicked: quit game, else don't quit game
-    	Action response = Dialogs.create()
-    	.title("Quit")
-    	.masthead("Are you sure you want to quit the application?")
-    	.actions(Dialog.Actions.OK, Dialog.Actions.CANCEL)
-    	.showConfirm();
-    	
-    	if (response == Dialog.Actions.OK) {
+        Action response = Dialogs.create()
+                .title("Quit")
+                .masthead("Are you sure you want to quit the application?")
+                .actions(Dialog.Actions.OK, Dialog.Actions.CANCEL)
+                .showConfirm();
+
+        if (response == Dialog.Actions.OK) {
             System.exit(0);
-    	}
-    	else {
-    		// User cancels and returns to the application
-    	}
+        } else {
+            // User cancels and returns to the application
+        }
     }
-   
-    
+
     /**
      * Method that opens the settings popup.
      */
     @FXML
-    private void buttonSettings(){
+    private void buttonSettings() {
         mainController.createPopup("PopupSETTINGS", "Settings", "/application/img/icon.png");
     }
-    
+
     /**
      * Method that opens the new game popup.
      */
     @FXML
-    private void buttonNewGame(){
+    private void buttonNewGame() {
         mainController.createPopup("PopupNEWGAME", "New Game", "/application/img/icon.png");
     }
-    
+
     /**
      * Method that opens the load game popup.
      */
     @FXML
-    private void buttonLoadGame(){
+    private void buttonLoadGame() {
         mainController.createPopup("PopupLOADGAME", "Load Game", "/application/img/icon.png");
     }
 }

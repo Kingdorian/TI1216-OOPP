@@ -1,79 +1,93 @@
 package application.model;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
+import java.text.DecimalFormat;
 
-import java.io.File;
 public class Player extends Players {
 
-	int attack;
-	int defence;
-	int stamina;
-	
-	/**
-	 * Constructor
-	 * 
-	 * @param name First name of the player.
-	 * @param surname Surname of the player.
-	 * @param number Backnumber of the player.
-	 * @param status Status if player is injured or suspended or both.
-	 * @param timeNotAvailable Time that the player isn't available.
-	 * @param reason Reason why the player is injured.
-	 * @param attack Attack skill of the player.
-	 * @param defence Defence skill of the player.
-	 * @param stamina Stamina of the players.
-	 */
-	public Player(String name, String surName, int number, Status status,
-			int timeNotAvailable, Reason reason, int attack, int defence, int stamina) {
-		super(name, surName, number, status, timeNotAvailable, reason);
-		this.attack = attack;
-		this.defence = defence;
-		this.stamina = stamina;
-		
-	}
+    int attack;
+    int defence;
+    int stamina;
 
-	public int getAttack() {
-		return attack;
-	}
+    /**
+     * Constructor
+     *
+     * @param name First name of the player.
+     * @param surName Surname of the player.
+     * @param number Backnumber of the player.
+     * @param status Status if player is injured or suspended or both.
+     * @param timeNotAvailable Time that the player isn't available.
+     * @param reason Reason why the player is injured.
+     * @param attack Attack skill of the player.
+     * @param defence Defence skill of the player.
+     * @param stamina Stamina of the players.
+     */
+    public Player(String name, String surName, int number, Status status,
+            int timeNotAvailable, Reason reason, int attack, int defence, int stamina) {
+        super(name, surName, number, status, timeNotAvailable, reason);
+        this.attack = attack;
+        this.defence = defence;
+        this.stamina = stamina;
 
-	public void setAttack(int attack) {
-		this.attack = attack;
-	}
+    }
 
-	public int getDefence() {
-		return defence;
-	}
+    public int getAttack() {
+        return attack;
+    }
 
-	public void setDefence(int defence) {
-		this.defence = defence;
-	}
+    public void setAttack(int attack) {
+        this.attack = attack;
+    }
 
-	public int getStamina() {
-		return stamina;
-	}
+    public int getDefence() {
+        return defence;
+    }
 
-	public void setStamina(int stamina) {
-		this.stamina = stamina;
-	}
-	
-	public String toString() {
-		return "Player [attack=" + attack + ", defence=" + defence
-				+ ", stamina=" + stamina + super.toString() + "]";
-	}
+    public void setDefence(int defence) {
+        this.defence = defence;
+    }
 
-	public boolean equals(Object obj) {
-		if(obj instanceof Player){
-			Player other = (Player) obj;
-			if(	super.equals(other)&&
-				this.attack==other.getAttack()&&
-				this.defence==other.getDefence()&&
-				this.stamina==other.getStamina())
-					return true;
-		}
-		return false;
-	}
+    public int getStamina() {
+        return stamina;
+    }
+
+    public void setStamina(int stamina) {
+        this.stamina = stamina;
+    }
+
+    public String toString() {
+        return "Player [attack=" + attack + ", defence=" + defence
+                + ", stamina=" + stamina + super.toString() + "]";
+    }
+
+    public boolean equals(Object obj) {
+        if (obj instanceof Player) {
+            Player other = (Player) obj;
+            if (super.equals(other)
+                    && this.attack == other.getAttack()
+                    && this.defence == other.getDefence()
+                    && this.stamina == other.getStamina()) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    @Override
+    public String getAbility(){
+        DecimalFormat df = new DecimalFormat("#.00");
+        return defence > attack ? df.format((defence + stamina + 0.5*attack) / 50.0)
+                                :  df.format((attack + stamina + 0.5*defence) / 50.0);
+    }
+    
+    @Override
+    public String getKind(){
+        if(attack > 75 && defence > 75)
+            return "Allrounder";
+        if(attack > defence + 25)
+            return "Attacker";
+        else if(defence > attack + 25)
+            return "Defender";
+        else
+            return "Midfielder";
+    }
 }

@@ -16,39 +16,37 @@ public class PopupNEWGAMEController implements PopupControllerInterface {
 
     private boolean isOkClicked = false;
     private static Stage popupStage;
-    
-    
+
     /**
      * Sets the stage of this dialog.
-     * 
+     *
+     * @param main
      * @param popupStage
      */
     @Override
     public void setPopupStage(Stage popupStage) {
-        PopupNEWGAMEController.popupStage = popupStage;
+        this.popupStage = popupStage;
     }
-    
-    
+
     @Override
     public boolean isOkClicked() {
         return isOkClicked;
     }
 
-    
     @FXML
-    private void initialize(){
+    private void initialize() {
         isOkClicked = false;
     }
-    
+
     @FXML
-    private void buttonOK(){
+    private void buttonOK() {
         isOkClicked = true;
         popupStage.close();
     }
-    
+
     @FXML
-    private void buttonCancel(){
+    private void buttonCancel() {
         popupStage.close();
     }
-    
+
 }

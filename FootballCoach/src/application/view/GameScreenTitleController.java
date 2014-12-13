@@ -15,58 +15,63 @@ import javafx.scene.text.Text;
  * @author Jochem
  */
 public class GameScreenTitleController implements ViewControllerInterface {
-        
-	@FXML private Text textBudget;
-	@FXML private Text textWelcome;
-	
+
+    @FXML
+    private Text textBudget;
+    @FXML
+    private Text textWelcome;
+
     private static Main mainController;
-    
+
     /**
      * Code executed when the view is loaded.
      */
     @FXML
-    private void initialize(){
-    	setTextBudget("Changed");
-    	setTextWelcome("Changed");
+    private void initialize() {
+        setTextBudget("Changed");
+        setTextWelcome("Changed");
     }
-    
+
     @Override
-    public void setMainController(Main mainController){
+    public void setMainController(Main mainController) {
         GameScreenTitleController.mainController = mainController;
     }
-    
+
     /**
-     * Method that clears the rootlayout and changes the centerview to mainmenu (return to mainmenu..)
-     */ 
+     * Method that clears the rootlayout and changes the centerview to mainmenu
+     * (return to mainmenu..)
+     */
     @FXML
-    private void buttonTitleScreen(){
+    private void buttonTitleScreen() {
         mainController.cleanRootLayout();
         mainController.setCenterView("MainMenu");
     }
-    
+
     /**
      * Method that opens the settings popup.
      */
-    @FXML 
+    @FXML
     private void buttonSettings() {
         mainController.createPopup("PopupSETTINGS", "Settings", "/application/img/icon.png");
     }
-    
+
     /**
      * Method that sets the budget in the GUI
+     *
      * @param budget	String representing the budget.
      */
     private void setTextBudget(String budget) {
-    	textBudget.setText(budget);
-   
+        textBudget.setText(budget);
+
     }
-  
+
     /**
      * Method that sets the budget in the GUI
+     *
      * @param name	String representing the budget.
      */
     private void setTextWelcome(String name) {
-    	textWelcome.setText("Welcome, " + name);
+        textWelcome.setText("Welcome, " + name);
     }
-    	
+
 }
