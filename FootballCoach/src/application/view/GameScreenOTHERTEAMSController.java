@@ -94,16 +94,9 @@ public class GameScreenOTHERTEAMSController implements ViewControllerInterface {
         if(selectedPlayer != null && selectedPlayer instanceof Player){
             Main.setCurrentlySelected(selectedPlayer);
             mainController.createPopup("PopupMOREINFOPLAYER", "Player info");
+        } else if(selectedPlayer instanceof Goalkeeper){
+            Main.setCurrentlySelected(selectedPlayer);
+            mainController.createPopup("PopupMOREINFOGOALKEEPER", "Player info");
         }
-//        Players selectedPlayer = playerTable.getSelectionModel().selectedItemProperty().get();
-//        if(selectedPlayer != null){
-//            System.out.println("Selected player: " + selectedPlayer.getSurName());
-//            if(selectedPlayer instanceof Player)
-//                System.out.println( "Attack: " + ((Player)selectedPlayer).getAttack() + "\nDefense: " + ((Player)selectedPlayer).getDefence() + "\nStamina: " + ((Player)selectedPlayer).getStamina());
-//            else
-//                System.out.println( "StopPower: " + ((Goalkeeper)selectedPlayer).getStopPower()+ "\nPenaltyStopPower: " + ((Goalkeeper)selectedPlayer).getPenaltyStopPower());
-//        }
-//        else
-//            System.out.println("No player selected");
     }
 }
