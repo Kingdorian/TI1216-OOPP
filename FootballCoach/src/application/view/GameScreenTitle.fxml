@@ -17,8 +17,8 @@
                 <Image url="@../img/logo.png" />
             </image>
         </ImageView>
-        <Text fx:id="textWelcome" layoutX="160.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Welcome, [PLAYER]" textAlignment="CENTER" wrappingWidth="220.0" />
-        <Button layoutX="400.0" mnemonicParsing="false" onAction="#buttonSettings" prefHeight="50.0" prefWidth="30.0" styleClass="topMenuButton">
+        <Text fx:id="textWelcome" layoutX="160.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Welcome, [PLAYER]" textAlignment="CENTER" wrappingWidth="220.0" />
+        <Button layoutX="794.0" mnemonicParsing="false" onAction="#buttonSettings" prefHeight="50.0" prefWidth="30.0" styleClass="topMenuButton">
             <graphic>
                 <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -30,7 +30,7 @@
                 <Insets left="5.0" right="5.0" />
             </padding>
         </Button>
-        <Button layoutX="460.0" mnemonicParsing="false" onAction="#buttonTitleScreen" prefHeight="50.0" prefWidth="30.0" styleClass="topMenuButton">
+        <Button layoutX="854.0" mnemonicParsing="false" onAction="#buttonTitleScreen" prefHeight="50.0" prefWidth="30.0" styleClass="topMenuButton">
             <graphic>
                 <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -42,12 +42,12 @@
                 <Insets left="5.0" right="5.0" />
             </padding>
         </Button>
-        <Text fx:id="textBudget" layoutX="594.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="[BUDGET]" wrappingWidth="200.0">
+        <Text fx:id="textBudget" layoutX="412.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="[BUDGET]" textAlignment="CENTER" wrappingWidth="200.0">
             <font>
                 <Font name="System Italic" size="13.0" />
             </font>
         </Text>
-        <Button layoutX="850.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="139.0" styleClass="topMenuButton" text="Next Match">
+        <Button layoutX="884.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="80.0" styleClass="topMenuButton" text="Play">
             <graphic>
                 <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -56,7 +56,7 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button layoutX="430.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="30.0" styleClass="topMenuButton">
+        <Button layoutX="824.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="30.0" styleClass="topMenuButton">
             <graphic>
                 <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -68,10 +68,5 @@
                 <Insets left="5.0" right="5.0" />
             </padding>
         </Button>
-        <ImageView fitHeight="51.0" fitWidth="20.0" layoutX="569.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../img/money.png" />
-            </image>
-        </ImageView>
     </children>
 </Pane>

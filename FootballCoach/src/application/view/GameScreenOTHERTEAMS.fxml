@@ -11,6 +11,7 @@
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="684.0" styleClass="wrapMenu" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.GameScreenOTHERTEAMSController">
     <children>
         <Region prefHeight="50.0" prefWidth="684.0" styleClass="topMenu" />
+      <Region layoutY="400.0" prefHeight="50.0" prefWidth="684.0" styleClass="contentView" />
       <ComboBox fx:id="selectTeamBox" layoutX="26.0" layoutY="11.0" prefHeight="29.0" prefWidth="273.0" promptText="Select a team" styleClass="choiceBox" />
         <TableView fx:id="playerTable" layoutY="50.0" prefHeight="350.0" prefWidth="684.0" styleClass="table">
             <columns>
@@ -24,6 +25,6 @@
                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
             </columnResizePolicy>
         </TableView>
-      <Button layoutX="513.0" layoutY="400.0" mnemonicParsing="false" onAction="#moreInfoButton" prefHeight="50.0" prefWidth="171.0" text="More info..." />
+      <Button layoutX="513.0" layoutY="400.0" mnemonicParsing="false" onAction="#moreInfoButton" prefHeight="50.0" prefWidth="171.0" styleClass="contentItemMenu" text="More info..." />
     </children>
 </Pane>

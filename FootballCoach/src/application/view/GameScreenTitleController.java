@@ -28,7 +28,7 @@ public class GameScreenTitleController implements ViewControllerInterface {
      */
     @FXML
     private void initialize() {
-        textBudget.setText("Not implemented yet");
+        textBudget.setText("€ " + "Not implemented yet");
         textWelcome.setText("Welcome, " + Main.getChosenName());
     }
 

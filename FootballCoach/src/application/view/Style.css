@@ -2,7 +2,7 @@
 {
     -fx-background-image: url('../img/bg.jpg');
     -fx-background-repeat: no-repeat;
-    -fx-background-size: 100%, auto;
+    -fx-background-size: cover;
     -fx-background-position: top left;
 }
 
@@ -79,42 +79,202 @@
     -fx-fill: rgb(242, 242, 242);
 }
 
-.table
+.table-view
 {
     -fx-base: transparent;
+    -fx-control-inner-background: transparent;
     -fx-background-color: rgba(147, 147, 147,.8);
+    -fx-background-insets: 30px 0 0 0;
     -fx-table-cell-border-color: transparent;
     -fx-table-header-border-color: transparent;
+    -fx-border-width: 0;
     -fx-padding: 0;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,.5), 10px, 0px, 0px, 2px);
 }
 
-.table:focused
+.table-cell
 {
-    -fx-background-insets: 0, 0, 0;
-    -fx-background-radius: 0, 0, 0;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+.table-row-cell
+{
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-background-insets: 0;
+}
+
+.table-row-cell:odd
+{
+    -fx-background-color: rgba(127, 127, 127,.5);
+    -fx-background-insets: 0;
+}
+
+.table-row-cell:focused
+{
+    -fx-background-color: rgba(16, 16, 16, .7);
+    -fx-background-insets: 1px 0 0 0;
+}
+
+.table-row-cell:hover
+{
+    -fx-background-color: rgba(200, 200, 200,.8);
+    -fx-background-insets: 1px 0 0 0;
+}
+
+.table-view:focused
+{
+    -fx-background-insets: 30px 0 0 0 ;
+    -fx-background-radius: 0;
     -fx-padding: 0;
 }
 
-.tableColumn
+.table-view .column-header,
+.table-view .filler
 {
-    -fx-background-color: rgba(16, 16, 16,.7);
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,.5), 10px, 0px, 0px, 2px);
+    -fx-border-width: 0;
+    -fx-background-color: rgba(16, 16, 16, .7);
+    -fx-padding: 0;
+}
+
+.table-view .column-drag-header
+{
+    -fx-background-color: rgba(147, 147, 147,.8);
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-opacity: .6;
 }
 
 .choiceBox
 {
+    -fx-background-color: rgba(147, 147, 147, 1);   
+}
+
+.choiceBoxDark
+{
+    -fx-background-color: rgba(127, 127, 127, 1);
+    -fx-text-fill: white;
+}
+
+
+.choiceBox .label, .choiceBoxDark .label {
+    -fx-text-fill: inherit;
+}
+
+.choiceBox .context-menu, .choiceBoxDark .context-menu  {
+    -fx-background-radius: 0;
     -fx-background-color: rgba(147, 147, 147, 1);
 }
 
-.choiceBoxDark 
-{
-    -fx-background-color: rgba(16, 16, 16, 0.7);   
-    -fx-text-fill: rgb(242, 242, 242);
- 
+.choiceBox:showing {
+    -fx-background-color: rgba(147, 147, 147, 1);
+    -fx-background-insets: 0;  
 }
 
-.teamLogo 
+.choiceBoxDark:showing { 
+    -fx-background-color: rgba(16, 16, 16, .7);
+    -fx-background-insets: 0;  
+}
+
+.choiceBox:hover, .choiceBoxDark:hover  {
+    -fx-background-color: rgba(127, 127, 127, 1);
+}
+
+.choiceBox .list-view {
+    -fx-background-color: rgba(147, 147, 147, 1);
+}
+
+.choiceBoxDark .list-view {
+    -fx-background-color: rgba(127, 127, 127, 1);
+}
+
+.choiceBox .list-cell {
+    -fx-background-color: rgba(147, 147, 147, 1);
+    -fx-text-fill: inherit;
+}
+
+.choiceBoxDark .list-cell {
+    -fx-background-color: rgba(127, 127, 127, 1);
+    -fx-text-fill: inherit;
+}
+
+.choiceBox .list-cell:hover {
+    -fx-background-color: rgba(127, 127, 127, 1);
+    -fx-text-fill: inherit;
+}
+
+.choiceBoxDark .list-cell:hover {
+    -fx-background-color: rgba(16, 16, 16, .7);
+    -fx-text-fill: inherit;
+}
+
+.choiceBox .arrow, .choiceBoxDark .arrow{
+    -fx-background-color: white;
+    -fx-background-insets: 1 0 -1 0, 0;
+    -fx-padding: 0.166667em 0.333333em 0.166667em 0.333333em; /* 2 3.5 2 3.5 */
+    -fx-shape: "M 0 0 h 7 l -3.5 4 z";
+}
+
+/* Semi-transparent overlay to indicate the column that is currently being moved */
+.table-view .column-overlay
+{
+    -fx-background-color: rgba(147, 147, 147,.8);
+    -fx-opacity: .3;
+}
+
+.table-view .scroll-bar:vertical
+{
+    -fx-background-insets: 1px 0 0 0;
+    -fx-padding: 1;
+}
+
+.scroll-bar:vertical
+{
+    -fx-background-color: rgba(147, 147, 147,.8);
+    -fx-background-insets: 0;
+    -fx-border-color: transparent;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button
+{
+    -fx-background-insets: 0;
+    -fx-padding: .25em;
+}
+
+.scroll-bar:vertical .increment-arrow
+{
+    -fx-background-color: white;
+    -fx-background-insets: 0;
+    -fx-padding: .333333em .5em .0em .0em; /* 4 6 0 0 */
+    -fx-shape: 'M -3 0 L 0 4 L 3 0 z';
+}
+
+.scroll-bar:vertical .decrement-arrow
+{
+    -fx-background-color: white;
+    -fx-background-insets: 0;
+    -fx-padding: .333333em .5em .0em .0em; /* 4 6 0 0 */
+    -fx-shape: 'M -3 0 L 0 -4 L 3 0 z';
+}
+
+.scroll-bar:vertical .thumb
+{
+    -fx-background-color: rgba(16, 16, 16, .7);
+    -fx-background-insets: 0 2px 0 2px;
+    -fx-background-radius: .5em;
+}
+
+.scroll-bar:vertical .track
+{
+    -fx-background-color: rgba(147, 147, 147,.8);
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+
+.teamLogo
 {
     -fx-background-color: rgba(147, 147, 147,.8);
     -fx-border-color: rgba(16, 16, 16,.7);
