@@ -66,6 +66,10 @@ public class GameScreenTEAMController implements ViewControllerInterface {
             Main.setCurrentlySelected(selectedPlayer);
             mainController.createPopup("PopupMOREINFOPLAYER", "Player info");
         }
+        else if(selectedPlayer instanceof Goalkeeper){
+            Main.setCurrentlySelected(selectedPlayer);
+            mainController.createPopup("PopupMOREINFOGOALKEEPER", "Player info");
+        }
 //        Players selectedPlayer = playerTable.getSelectionModel().selectedItemProperty().get();
 //        if(selectedPlayer != null){
 //            System.out.println("Selected player: " + selectedPlayer.getSurName());
