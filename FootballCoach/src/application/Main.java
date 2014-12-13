@@ -35,15 +35,15 @@ import javafx.stage.Modality;
  */
 public class Main extends Application {
 
-    private final String chosenTeamName = "Ajax";
-    private Competition competition;
+    private static String chosenName;
+    private static String chosenTeamName = "";
+    private static Competition competition;
 
     private static Stage primaryStage;
     private static BorderPane rootLayout;
-    
+
     private static Players currentlySelected;
 
-    
     @Override
     public void start(Stage primaryStage) {
         // load and show the start screen
@@ -54,13 +54,12 @@ public class Main extends Application {
         setCenterView("MainMenu");
 
         primaryStage.show();
-        
+
         // Add a scale handler to the scene
         scaleToScreenSize(rootLayout);
 
 //        primaryStage.setIconified(true);
 //        primaryStage.setFullScreen(true);
-        
         // load the competition
         try {
             competition = XMLHandler.readCompetition("XML/teams.xml", "XML/competition.xml");
@@ -69,10 +68,10 @@ public class Main extends Application {
             System.out.println("Couldn't open one of the following files: \"XML/Matches.xml\" or \"XML/Competition.xml\"");
         }
     }
-    
+
     /**
-    * Method to initialize the starting point of the application.
-    */
+     * Method to initialize the starting point of the application.
+     */
     public void initializeRootLayout() {
         try {
             // Load root layout from fxml file
@@ -87,34 +86,35 @@ public class Main extends Application {
 
             // Disable escape turning off full screen mode (so we won't get a message when going to full screen mode)
             primaryStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
-            
-             // Add a shortcut handler to our scene
-            rootLayout.getScene().addEventHandler(javafx.scene.input.KeyEvent.KEY_RELEASED, new ShortcutEventHandler()); 
-            
+
+            // Add a shortcut handler to our scene
+            rootLayout.getScene().addEventHandler(javafx.scene.input.KeyEvent.KEY_RELEASED, new ShortcutEventHandler());
+
         } catch (IOException ex) {
             Logger.getLogger(getClass().getName()).log(Level.SEVERE, null, ex);
             System.out.println("Failed to load interface: Pane");
         }
     }
-    
-    
+
     /**
      * This class handles shortcuts (like ctrl+f for full screen)
      */
     private static class ShortcutEventHandler implements EventHandler<javafx.scene.input.KeyEvent> {
+
         final KeyCombination ctrlF = new KeyCodeCombination(KeyCode.F, KeyCombination.CONTROL_DOWN);
         final KeyCombination ctrlS = new KeyCodeCombination(KeyCode.S, KeyCombination.CONTROL_DOWN);
 
         @Override
         public void handle(javafx.scene.input.KeyEvent event) {
-            if(ctrlF.match(event)) {
-                if(primaryStage.isFullScreen())
+            if (ctrlF.match(event)) {
+                if (primaryStage.isFullScreen()) {
                     primaryStage.setFullScreen(false);
-                else
+                } else {
                     primaryStage.setFullScreen(true);
+                }
                 System.out.println("Ctrl+F pressed: toggle full screen.");
             }
-            if(ctrlS.match(event)){
+            if (ctrlS.match(event)) {
                 System.out.println("Ctrl+S pressed: Save game.");
             }
         }
@@ -123,12 +123,12 @@ public class Main extends Application {
 // This code to adjust the screen size is coppied from http://stackoverflow.com/a/16608161
 // A few minor adjustments have been made to improve it and comments have been added.
 //****************************************************************************************************
-/**
- * Scale the size of the given stage.
- * coppied from: see header above
- * @param contentPane the stage to resize
- */
-private void scaleToScreenSize(final BorderPane contentPane) {
+    /**
+     * Scale the size of the given stage. coppied from: see header above
+     *
+     * @param contentPane the stage to resize
+     */
+    private void scaleToScreenSize(final BorderPane contentPane) {
         Scene scene = contentPane.getScene();
         final double initWidth = scene.getWidth();
         final double initHeight = scene.getHeight();
@@ -137,60 +137,62 @@ private void scaleToScreenSize(final BorderPane contentPane) {
         SceneSizeChangeListener sizeListener = new SceneSizeChangeListener(scene, ratio, initHeight, initWidth, contentPane);
         scene.widthProperty().addListener(sizeListener);
         scene.heightProperty().addListener(sizeListener);
-}
+    }
+
     /**
-     * When the user resizes the screen the method changed() in this class will be called
-     * coppied from: see header above
+     * When the user resizes the screen the method changed() in this class will
+     * be called coppied from: see header above
      */
     private static class SceneSizeChangeListener implements ChangeListener<Number> {
 
-    private final Scene scene;
-    private final double ratio;
-    private final double initHeight;
-    private final double initWidth;
-    private final BorderPane contentPane;
+        private final Scene scene;
+        private final double ratio;
+        private final double initHeight;
+        private final double initWidth;
+        private final BorderPane contentPane;
 
-    public SceneSizeChangeListener(Scene scene, double ratio, double initHeight, double initWidth, BorderPane contentPane) {
-        this.scene = scene;
-        this.ratio = ratio;
-        this.initHeight = initHeight;
-        this.initWidth = initWidth;
-        this.contentPane = contentPane;
-    }
-    /**
-     * Listen for size changes and change the scene accordingly
-     * coppied from: see header above
-     * @param observableValue   the value being observed
-     * @param oldValue          old size
-     * @param newValue          new size
-     */
-    @Override
-    public void changed(ObservableValue<? extends Number> observableValue, Number oldValue, Number newValue) {
-        final double newWidth = scene.getWidth();
-        final double newHeight = scene.getHeight();
+        public SceneSizeChangeListener(Scene scene, double ratio, double initHeight, double initWidth, BorderPane contentPane) {
+            this.scene = scene;
+            this.ratio = ratio;
+            this.initHeight = initHeight;
+            this.initWidth = initWidth;
+            this.contentPane = contentPane;
+        }
 
-        double scaleFactor
-                = newWidth / newHeight > ratio
-                        ? newHeight / initHeight
-                        : newWidth / initWidth;
+        /**
+         * Listen for size changes and change the scene accordingly coppied
+         * from: see header above
+         *
+         * @param observableValue the value being observed
+         * @param oldValue old size
+         * @param newValue new size
+         */
+        @Override
+        public void changed(ObservableValue<? extends Number> observableValue, Number oldValue, Number newValue) {
+            final double newWidth = scene.getWidth();
+            final double newHeight = scene.getHeight();
 
-        if (scaleFactor >= 1) {
-            Scale scale = new Scale(scaleFactor, scaleFactor);
-            scale.setPivotX(0);
-            scale.setPivotY(0);
-            scene.getRoot().getTransforms().setAll(scale);
+            double scaleFactor
+                    = newWidth / newHeight > ratio
+                            ? newHeight / initHeight
+                            : newWidth / initWidth;
 
-            contentPane.setPrefWidth(newWidth / scaleFactor);
-            contentPane.setPrefHeight(newHeight / scaleFactor);
-        } else {
-            contentPane.setPrefWidth(Math.max(initWidth, newWidth));
-            contentPane.setPrefHeight(Math.max(initHeight, newHeight));
+            if (scaleFactor >= 1) {
+                Scale scale = new Scale(scaleFactor, scaleFactor);
+                scale.setPivotX(0);
+                scale.setPivotY(0);
+                scene.getRoot().getTransforms().setAll(scale);
+
+                contentPane.setPrefWidth(newWidth / scaleFactor);
+                contentPane.setPrefHeight(newHeight / scaleFactor);
+            } else {
+                contentPane.setPrefWidth(Math.max(initWidth, newWidth));
+                contentPane.setPrefHeight(Math.max(initHeight, newHeight));
+            }
         }
     }
-}
 //****************************************************************************************************
 // End of coppied code.
-    
 
     /**
      * this method cleans all sections of the rootLayout's borderpane
@@ -315,29 +317,15 @@ private void scaleToScreenSize(final BorderPane contentPane) {
             Object[] result = new Object[2];
             // Load startup screen
             FXMLLoader loader = new FXMLLoader();
-            loader
-
-.setLocation(Main.class  
-
-    .getResource(viewPath));
-            result 
-    [0] = (Pane
-
-    ) loader.load ();
-    result 
-    [1] = loader ;
-    return result ;
-
-}
-
-
-catch (IOException ex) {
-            Logger.getLogger(Main.class  
-
-    .getName()).log(Level.SEVERE, null, ex);
-    System.out.println (
-
-"Failed to load interface: Pane");
+            loader.setLocation(Main.class.getResource(viewPath));
+            result[0] = (Pane) loader.load();
+            result[1] = loader;
+            return result;
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class
+                    .getName()).log(Level.SEVERE, null, ex);
+            System.out.println(
+                    "Failed to load interface: Pane");
         }
         System.exit(1);
         return null;
@@ -391,16 +379,28 @@ catch (IOException ex) {
 
         return popupController.isOkClicked();
     }
-    
-    public ArrayList<Players> getPlayersData(String teamName) {
+
+    public static ArrayList<Players> getPlayersData(String teamName) {
         return competition.getTeamByName(teamName).getPlayers();
     }
 
-    public String getChosenTeamName() {
+    public static String getChosenTeamName() {
         return chosenTeamName;
     }
+    
+    public static void SetChosenTeamName(String name){
+        chosenTeamName = name;
+    }
 
-    public Competition getCompetition() {
+    public static String getChosenName() {
+        return chosenName;
+    }
+
+    public static void setChosenName(String chosenName) {
+        Main.chosenName = chosenName;
+    }
+
+    public static Competition getCompetition() {
         return competition;
     }
 
@@ -411,6 +411,8 @@ catch (IOException ex) {
     public static void setCurrentlySelected(Players currentlySelected) {
         Main.currentlySelected = currentlySelected;
     }
+    
+    
 
     /**
      *

@@ -24,29 +24,32 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="First name:" />
-            <Label text="Last name:" GridPane.rowIndex="1" />
-            <Label text="Player number" GridPane.rowIndex="2" />
-            <Label text="Player type" GridPane.rowIndex="3" />
-            <Label text="Attack power" GridPane.rowIndex="4" />
-            <Label text="Defense power" GridPane.rowIndex="5" />
-            <Label text="Stamina" GridPane.rowIndex="6" />
-            <Label text="Kind of card:" GridPane.rowIndex="8" />
-            <Label text="Kind of injury" GridPane.rowIndex="9" />
-            <Label text="Time not available:" GridPane.rowIndex="7" />
+            <Label text="First name" />
+            <Label text="Last name" GridPane.rowIndex="1" />
+            <Label text="Player number" GridPane.rowIndex="3" />
+            <Label text="Player type" GridPane.rowIndex="4" />
+            <Label text="Attack power" GridPane.rowIndex="5" />
+            <Label text="Defense power" GridPane.rowIndex="6" />
+            <Label text="Stamina" GridPane.rowIndex="7" />
+            <Label text="Kind of card" GridPane.rowIndex="9" />
+            <Label text="Kind of injury" GridPane.rowIndex="10" />
+            <Label text="Time not available" GridPane.rowIndex="8" />
             <Text fx:id="firstName" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" />
             <Text fx:id="lastName" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Text fx:id="playerNumber" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Text fx:id="playerType" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Text fx:id="attackPower" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Text fx:id="defensePower" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Text fx:id="stamina" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <Text fx:id="timeNotAvailable" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <Text fx:id="kindOfCard" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-            <Text fx:id="kindOfInjury" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <Text fx:id="playerNumber" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Text fx:id="playerType" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Text fx:id="attackPower" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Text fx:id="defensePower" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Text fx:id="stamina" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Text fx:id="timeNotAvailable" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Text fx:id="kindOfCard" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <Text fx:id="kindOfInjury" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <Label text="Team" GridPane.rowIndex="2" />
+            <Text fx:id="playerTeam" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
       <Button defaultButton="true" layoutX="507.0" layoutY="374.0" mnemonicParsing="false" onAction="#buttonOK" text="OK" />

@@ -28,8 +28,8 @@ public class GameScreenTitleController implements ViewControllerInterface {
      */
     @FXML
     private void initialize() {
-        setTextBudget("Changed");
-        setTextWelcome("Changed");
+        textBudget.setText("Not implemented yet");
+        textWelcome.setText("Welcome, " + Main.getChosenName());
     }
 
     @Override
@@ -54,24 +54,4 @@ public class GameScreenTitleController implements ViewControllerInterface {
     private void buttonSettings() {
         mainController.createPopup("PopupSETTINGS", "Settings", "/application/img/icon.png");
     }
-
-    /**
-     * Method that sets the budget in the GUI
-     *
-     * @param budget	String representing the budget.
-     */
-    private void setTextBudget(String budget) {
-        textBudget.setText(budget);
-
-    }
-
-    /**
-     * Method that sets the budget in the GUI
-     *
-     * @param name	String representing the budget.
-     */
-    private void setTextWelcome(String name) {
-        textWelcome.setText("Welcome, " + name);
-    }
-
 }

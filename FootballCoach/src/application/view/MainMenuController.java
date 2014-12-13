@@ -9,6 +9,7 @@ import application.Main;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
@@ -28,6 +29,8 @@ public class MainMenuController implements ViewControllerInterface {
     //Load FXML elements to edit in code.
     @FXML
     private ImageView logo;
+    @FXML
+    private Button buttonContinue;
 
     /**
      * Code executed when the view is loaded.
@@ -46,6 +49,9 @@ public class MainMenuController implements ViewControllerInterface {
         translate.setCycleCount(1);
         translate.play();
 
+        // Disable continue button if the game hasn't started yet
+        if(Main.getChosenTeamName().equals(""))
+            buttonContinue.setDisable(true);
     }
 
     @Override
@@ -95,7 +101,8 @@ public class MainMenuController implements ViewControllerInterface {
      */
     @FXML
     private void buttonNewGame() {
-        mainController.createPopup("PopupNEWGAME", "New Game", "/application/img/icon.png");
+        if(mainController.createPopup("PopupNEWGAME", "New Game", "/application/img/icon.png"))
+            buttonContinue.setDisable(false);
     }
 
     /**
