@@ -43,6 +43,8 @@ public class PopupMOREINFOPLAYERController implements PopupControllerInterface {
     Text kindOfInjury;
     @FXML
     Text playerTeam;
+    @FXML
+    Text estimatedValue;
     
     
     @Override
@@ -57,7 +59,7 @@ public class PopupMOREINFOPLAYERController implements PopupControllerInterface {
         
     @FXML
     private void initialize(){
-        Player selectedPlayer = (Player) Main.getCurrentlySelected();
+        Player selectedPlayer = (Player) Main.getSelectedPlayer();
         
         firstName.setText(selectedPlayer.getName());
         lastName.setText(selectedPlayer.getSurName());
@@ -72,6 +74,24 @@ public class PopupMOREINFOPLAYERController implements PopupControllerInterface {
         for(Team teams : Main.getCompetition().getTeams())
             if(teams.getPlayers().contains(selectedPlayer))
                 playerTeam.setText(teams.getName());
+        estimatedValue.setText(formatPrice(selectedPlayer.getPrice()));
+    }
+    
+    /**
+     * Format a large number to make it more readable
+     * @param number    the number to format
+     * @return          a string containing the formatted number
+     */
+    private String formatPrice(int number){
+        String estimatedPriceString = Integer.toString(number);
+        String formattedEstimatedPrice = "";
+        int j =0;
+        for(int i=estimatedPriceString.length()-1; i>=0; i--, j++){
+            if(j%3 == 0 && j != 0)
+                formattedEstimatedPrice = "," + formattedEstimatedPrice;
+            formattedEstimatedPrice = estimatedPriceString.charAt(i) + formattedEstimatedPrice;
+        }
+        return "$ " + formattedEstimatedPrice;
     }
     
     @FXML

@@ -14,6 +14,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.SortType;
 import javafx.scene.control.TableView;
 
 /**
@@ -46,7 +47,7 @@ public class GameScreenTEAMController implements ViewControllerInterface {
         // Initialize the Players table with the 5 columns
         columnNo.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getNumber())); 
         columnName.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getSurName())); 
-        columnAbility.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getAbility())); 
+        columnAbility.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getAbilityStr())); 
         columnAvailable.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().isAvailable() ? "Yes" : "No")); 
         columnType.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getKind())); 
     }
@@ -55,19 +56,32 @@ public class GameScreenTEAMController implements ViewControllerInterface {
     public void setMainController(Main mainController) {
         this.mainController = mainController;
         
-        // Add data to the table
+        // Add data to the table and sort number column
         playerTable.setItems(FXCollections.observableArrayList(mainController.getPlayersData(mainController.getChosenTeamName())));
+        columnNo.setSortType(SortType.ASCENDING);
+        playerTable.getSortOrder().clear();
+        playerTable.getSortOrder().add(columnNo);
     }
 
     @FXML
     private void moreInfoButton(){
         Players selectedPlayer = playerTable.getSelectionModel().selectedItemProperty().get();
         if(selectedPlayer != null && selectedPlayer instanceof Player){
-            Main.setCurrentlySelected(selectedPlayer);
+            Main.setSelectedPlayer(selectedPlayer);
             mainController.createPopup("PopupMOREINFOPLAYER", "Player info");
         } else if(selectedPlayer instanceof Goalkeeper){
-            Main.setCurrentlySelected(selectedPlayer);
+            Main.setSelectedPlayer(selectedPlayer);
             mainController.createPopup("PopupMOREINFOGOALKEEPER", "Player info");
+        }
+    }
+    
+    @FXML
+    private void sellPlayerButton(){
+        Players selectedPlayer = playerTable.getSelectionModel().selectedItemProperty().get();
+        if(selectedPlayer != null){
+            Main.setSelectedPlayer(selectedPlayer);
+            if(mainController.createPopup("PopupSELECTPRICE", "Sell Player"))
+                System.out.println("Put player on market.");
         }
     }
 }

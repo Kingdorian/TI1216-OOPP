@@ -42,7 +42,7 @@ public class Main extends Application {
     private static Stage primaryStage;
     private static BorderPane rootLayout;
 
-    private static Players currentlySelected;
+    private static Players selectedPlayer;
 
     @Override
     public void start(Stage primaryStage) {
@@ -404,12 +404,12 @@ public class Main extends Application {
         return competition;
     }
 
-    public static Players getCurrentlySelected() {
-        return currentlySelected;
+    public static Players getSelectedPlayer() {
+        return selectedPlayer;
     }
 
-    public static void setCurrentlySelected(Players currentlySelected) {
-        Main.currentlySelected = currentlySelected;
+    public static void setSelectedPlayer(Players selectedPlayer) {
+        Main.selectedPlayer = selectedPlayer;
     }
     
     
