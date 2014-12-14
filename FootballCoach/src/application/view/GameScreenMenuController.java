@@ -7,6 +7,7 @@ package application.view;
 
 import application.Main;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 
 /**
@@ -18,6 +19,8 @@ public class GameScreenMenuController implements ViewControllerInterface {
 
     @FXML
     private Text currentMenuField;
+    @FXML
+    private Button buttonHome;
 
     private static Main mainController;
 
@@ -26,6 +29,8 @@ public class GameScreenMenuController implements ViewControllerInterface {
      */
     @FXML
     private void initialize() {
+    	buttonHome.setText(Main.getChosenTeamName());
+    	currentMenuField.setText(Main.getChosenTeamName());
     }
 
     @Override
@@ -39,8 +44,8 @@ public class GameScreenMenuController implements ViewControllerInterface {
      */
     @FXML
     private void buttonHome() {
-        if(!currentMenuField.getText().equals("Home")){
-            currentMenuField.setText("Home");
+        if(!currentMenuField.getText().equals(Main.getChosenTeamName())){
+            currentMenuField.setText(Main.getChosenTeamName());
             mainController.setCenterView("GameScreenHOME");
         }
     }
@@ -51,8 +56,8 @@ public class GameScreenMenuController implements ViewControllerInterface {
      */
     @FXML
     private void buttonTeam() {
-        if(!currentMenuField.getText().equals("Team")){
-            currentMenuField.setText("Team");
+        if(!currentMenuField.getText().equals("Players")){
+            currentMenuField.setText("Players");
             mainController.setCenterView("GameScreenTEAM");
         }
     }

@@ -11,7 +11,7 @@
 
 <Pane prefHeight="50.0" prefWidth="1024.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.GameScreenTitleController">
     <children>
-        <Region prefHeight="50.0" prefWidth="1024.0" rotate="180.0" styleClass="topMenu" />
+        <Region prefHeight="50.0" prefWidth="1024.0" styleClass="topMenuReversed" />
         <ImageView fitHeight="46.0" fitWidth="133.0" layoutX="40.0">
             <image>
                 <Image url="@../img/logo.png" />
