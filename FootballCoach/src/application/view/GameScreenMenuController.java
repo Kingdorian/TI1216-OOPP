@@ -31,6 +31,7 @@ public class GameScreenMenuController implements ViewControllerInterface {
     private void initialize() {
     	buttonHome.setText(Main.getChosenTeamName());
     	currentMenuField.setText(Main.getChosenTeamName());
+        Main.setMenuController(this);
     }
 
     @Override
@@ -109,4 +110,13 @@ public class GameScreenMenuController implements ViewControllerInterface {
             mainController.setCenterView("GameScreenOTHERTEAMS");
         }
     }
+
+    public Text getCurrentMenuField() {
+        return currentMenuField;
+    }
+
+    public void setCurrentMenuField(Text currentMenuField) {
+        this.currentMenuField = currentMenuField;
+    }
+
 }

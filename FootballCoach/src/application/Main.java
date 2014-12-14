@@ -3,6 +3,7 @@ package application;
 import application.controller.XMLHandler;
 import application.model.Competition;
 import application.model.Players;
+import application.view.GameScreenMenuController;
 import application.view.PopupControllerInterface;
 import application.view.ViewControllerInterface;
 import java.io.IOException;
@@ -36,13 +37,14 @@ import javafx.stage.Modality;
 public class Main extends Application {
 
     private static String chosenName;
-    private static String chosenTeamName = "";
+    private static String chosenTeamName = "Ajax";
     private static Competition competition;
 
     private static Stage primaryStage;
     private static BorderPane rootLayout;
 
     private static Players selectedPlayer;
+    private static GameScreenMenuController menuController;
 
     @Override
     public void start(Stage primaryStage) {
@@ -417,6 +419,14 @@ public class Main extends Application {
 
     public static Stage getPrimaryStage() {
         return primaryStage;
+    }
+
+    public static GameScreenMenuController getMenuController() {
+        return menuController;
+    }
+
+    public static void setMenuController(GameScreenMenuController menuController) {
+        Main.menuController = menuController;
     }
     
     

@@ -54,4 +54,15 @@ public class GameScreenTitleController implements ViewControllerInterface {
     private void buttonSettings() {
         mainController.createPopup("PopupSETTINGS", "Settings", "/application/img/icon.png");
     }
+    
+    /**
+     * Method that opens the play match screen.
+     */
+    @FXML
+    private void buttonNextMatch() {
+        if(!Main.getMenuController().getCurrentMenuField().getText().equals("Play Match")){
+            Main.getMenuController().getCurrentMenuField().setText("Play Match");
+            mainController.setCenterView("GameScreenPLAYMATCH");
+        }
+    }
 }
