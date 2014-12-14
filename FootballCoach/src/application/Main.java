@@ -52,7 +52,6 @@ public class Main extends Application {
 
         initializeRootLayout();
         setCenterView("MainMenu");
-
         primaryStage.show();
 
         // Add a scale handler to the scene
@@ -410,6 +409,14 @@ public class Main extends Application {
 
     public static void setSelectedPlayer(Players selectedPlayer) {
         Main.selectedPlayer = selectedPlayer;
+    }
+
+    public static BorderPane getRootLayout() {
+        return rootLayout;
+    }
+
+    public static Stage getPrimaryStage() {
+        return primaryStage;
     }
     
     
