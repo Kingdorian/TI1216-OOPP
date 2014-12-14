@@ -25,8 +25,7 @@
                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
             </columnResizePolicy>
         </TableView>
-        <Button layoutX="171.0" layoutY="399.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="171.0" styleClass="contentItemMenu" text="Buy Player" />
-        <Button layoutX="513.0" layoutY="399.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="171.0" styleClass="contentItemMenu" text="Remove Player" />
-        <Button layoutX="342.0" layoutY="399.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="171.0" styleClass="contentItemMenu" text="Sell Player" />
+        <Button layoutX="342.0" layoutY="400.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="171.0" styleClass="contentItemMenu" text="Buy Player" />
+        <Button layoutX="513.0" layoutY="400.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="171.0" styleClass="contentItemMenu" text="Remove Player" />
     </children>
 </Pane>

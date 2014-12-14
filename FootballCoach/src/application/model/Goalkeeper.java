@@ -50,9 +50,8 @@ public class Goalkeeper extends Players {
     }
     
     @Override
-    public String getAbility(){
-        DecimalFormat df = new DecimalFormat("#.00");
-        return df.format((stopPower * 0.04 + penaltyStopPower/100.0));
+    public double getAbility(){
+        return stopPower * 0.04 + penaltyStopPower/100.0;
     }
     
     @Override

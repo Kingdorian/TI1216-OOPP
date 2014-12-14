@@ -73,10 +73,9 @@ public class Player extends Players {
     }
     
     @Override
-    public String getAbility(){
-        DecimalFormat df = new DecimalFormat("#.00");
-        return defence > attack ? df.format((defence + stamina + 0.5*attack) / 50.0)
-                                :  df.format((attack + stamina + 0.5*defence) / 50.0);
+    public double getAbility(){
+        return defence > attack ? ((int)(defence + stamina + 0.5*attack) / 0.5) / 100.0
+                                : ((int)(attack + stamina + 0.5*defence) / 0.5) / 100.0; // return a double with 2 numbers after the decimal point
     }
     
     @Override

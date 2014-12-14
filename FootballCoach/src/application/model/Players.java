@@ -1,7 +1,5 @@
 package application.model;
 
-import org.w3c.dom.Node;
-
 public abstract class Players {
 
     private static int id;
@@ -38,7 +36,7 @@ public abstract class Players {
 
     }
 
-    public abstract String getAbility();
+    public abstract double getAbility();
     public abstract String getKind();
     
     public boolean equals(Object other) {
@@ -123,5 +121,31 @@ public abstract class Players {
     
     public boolean isAvailable(){
         return timeNotAvailable == 0;
+    }
+    
+    /**
+     * Get the estimated value of the player
+     * @return  int price
+     */
+    public int getPrice(){
+        double ability = this.getAbility();
+        int price = (int) (20000.0 * Math.pow(Math.E, 1.15*(ability+1)));
+        price -= price%10000; // set last 4 digits to 0
+        return price;
+    }
+    
+    /**
+     * Get the ability of the player in string format, with two numbers after
+     * the decimal point.
+     * @return  a String containing the ability of the player.
+     */
+    public String getAbilityStr(){
+        String ability = Double.toString(this.getAbility());
+        String result = "";
+        for(int i=0; i<ability.length() && i<4; i++)
+            result += ability.charAt(i);
+        while(result.length() < 4)
+            result += "0";
+        return result;
     }
 }

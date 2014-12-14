@@ -51,8 +51,11 @@ public class GameScreenOTHERTEAMSController implements ViewControllerInterface {
         @Override
         public void handle(ActionEvent t){
             String selectedTeamName = selectTeamBox.getItems().get(selectTeamBox.getSelectionModel().getSelectedIndex()).toString();
-            // Add data to the table
+            // Add data to the table and sort number column
             playerTable.setItems(FXCollections.observableArrayList(mainController.getPlayersData(selectedTeamName)));
+            columnNo.setSortType(TableColumn.SortType.ASCENDING);
+            playerTable.getSortOrder().clear();
+            playerTable.getSortOrder().add(columnNo);
         }
     };
     
@@ -66,7 +69,7 @@ public class GameScreenOTHERTEAMSController implements ViewControllerInterface {
         // Initialize the Players table with the 5 columns
         columnNo.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getNumber())); 
         columnName.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getSurName())); 
-        columnAbility.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getAbility())); 
+        columnAbility.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getAbilityStr())); 
         columnAvailable.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().isAvailable() ? "Yes" : "No")); 
         columnType.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getKind())); 
     }
@@ -92,10 +95,10 @@ public class GameScreenOTHERTEAMSController implements ViewControllerInterface {
     private void moreInfoButton(){
         Players selectedPlayer = playerTable.getSelectionModel().selectedItemProperty().get();
         if(selectedPlayer != null && selectedPlayer instanceof Player){
-            Main.setCurrentlySelected(selectedPlayer);
+            Main.setSelectedPlayer(selectedPlayer);
             mainController.createPopup("PopupMOREINFOPLAYER", "Player info");
         } else if(selectedPlayer instanceof Goalkeeper){
-            Main.setCurrentlySelected(selectedPlayer);
+            Main.setSelectedPlayer(selectedPlayer);
             mainController.createPopup("PopupMOREINFOGOALKEEPER", "Player info");
         }
     }
