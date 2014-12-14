@@ -56,13 +56,8 @@ public class GameScreenMenuController implements ViewControllerInterface {
      */
     @FXML
     private void buttonTeam() {
-<<<<<<< HEAD
-        if(!currentMenuField.getText().equals("Players")){
-            currentMenuField.setText("Players");
-=======
         if(!currentMenuField.getText().equals("My Team")){
             currentMenuField.setText("My Team");
->>>>>>> FETCH_HEAD
             mainController.setCenterView("GameScreenTEAM");
         }
     }
