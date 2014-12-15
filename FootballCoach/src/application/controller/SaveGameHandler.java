@@ -79,7 +79,7 @@ public class SaveGameHandler {
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 */
-	public static Competition createNewSave() throws FileNotFoundException, IOException{
+	public static Competition createNewSave(String teamsLoc, String matchesLoc) throws FileNotFoundException, IOException{
 		// Getting a list of id's that are already in use
 		ArrayList<Integer> ids = getSaveGames();
 		Collections.sort(ids);
@@ -89,7 +89,7 @@ public class SaveGameHandler {
 		new File(defaultloc + "/" + newId).mkdirs();
 		try {
 			new File(defaultloc + "/" + newId + "/images/").mkdirs();
-			Competition returnComp = ldByCompByUrl("XML/competition.xml", "XML/Matches.xml");
+			Competition returnComp = ldByCompByUrl(teamsLoc, matchesLoc);
 			fetchImages(defaultloc + "/" + newId + "/images/", returnComp);
 			return returnComp;
 		} catch (Exception e) {

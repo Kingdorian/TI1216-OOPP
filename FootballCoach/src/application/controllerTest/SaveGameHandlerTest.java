@@ -85,8 +85,8 @@ public class SaveGameHandlerTest {
 	@Test
 	public void testCreateNewSave(){
 		try {
-			Competition refComp = XMLHandler.readCompetition("XML/TestSavegames/1/competition.xml", "XML/TestSavegames/1/Matches.xml");
-			assertEquals(refComp,  SaveGameHandler.createNewSave());
+			Competition refComp = XMLHandler.readCompetition("XML/Teams.xml", "XML/Matches.xml");
+			assertEquals(refComp,  SaveGameHandler.createNewSave("XML/Teams.xml", "XML/Matches.xml"));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 			fail("Unexpected FileNotFoundException");
@@ -104,7 +104,7 @@ public class SaveGameHandlerTest {
 	public void coverage(){
 	    SaveGameHandler a = new SaveGameHandler() {
 	    };
-	}/*
+	}
 	@After
 	public void cleanUp(){
 		ArrayList<Integer> saveGameIds = new ArrayList<Integer>();
@@ -115,8 +115,22 @@ public class SaveGameHandlerTest {
 			String name = listOfFiles[i].getName();
 			if(!(name.equals("1")||name.equals("-2"))){
 				System.out.println("Deleting...");
-				listOfFiles[i].delete();
+				removeDirectory(listOfFiles[i]);
 			}
 		}
-	}*/
+	}
+	
+	public static void removeDirectory(File dir) {
+	    if (dir.isDirectory()) {
+	        File[] files = dir.listFiles();
+	        if (files != null && files.length > 0) {
+	            for (int i = 0; i < files.length; i++) {
+	                removeDirectory(files[i]);
+	            }
+	        }
+	        dir.delete();
+	    } else {
+	        dir.delete();
+	    }
+	}
 }
