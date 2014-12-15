@@ -1,1 +1,25 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><teams><team art_grass="true" logo="" name="ADO Den Haag"><goalkeeper><name>Robert</name><surname>Zwinkels</surname><number>1</number><status>0</status><timenotavailable>0</timenotavailable><reason>0</reason><stoppower>62</stoppower><penaltystoppower>62</penaltystoppower></goalkeeper><player><name>Dion</name><surname>Malone</surname><number>2</number><status>0</status><timenotavailable>0</timenotavailable><reason>0</reason><attack>26</attack><defence>60</defence><stamina>75</stamina></player></team></teams>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><teams>
+    <team art_grass="true" logo="" name="ADO Den Haag">
+        <goalkeeper>
+            <name>Robert</name>
+            <surname>Zwinkels</surname>
+            <number>1</number>
+            <status>0</status>
+            <timenotavailable>0</timenotavailable>
+            <reason>0</reason>
+            <stoppower>62</stoppower>
+            <penaltystoppower>62</penaltystoppower>
+        </goalkeeper>
+        <player>
+            <name>Dion</name>
+            <surname>Malone</surname>
+            <number>2</number>
+            <status>0</status>
+            <timenotavailable>0</timenotavailable>
+            <reason>0</reason>
+            <attack>26</attack>
+            <defence>60</defence>
+            <stamina>75</stamina>
+        </player>
+    </team>
+</teams>

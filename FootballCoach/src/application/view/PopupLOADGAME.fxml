@@ -8,15 +8,15 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane id="AnchorPane" prefHeight="200.0" prefWidth="400.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.PopupLOADGAMEController">
-   <children>
-      <Region prefHeight="200.0" prefWidth="400.0" styleClass="contentView" />
-      <HBox layoutY="172.0" prefHeight="30.0" prefWidth="400.0">
-         <children>
-            <Button defaultButton="true" layoutX="200.0" layoutY="241.0" mnemonicParsing="false" onAction="#buttonOK" prefWidth="200.0" styleClass="itemMenu" text="OK" />
-            <Button layoutX="200.0" layoutY="241.0" mnemonicParsing="false" onAction="#buttonCancel" prefHeight="30.0" prefWidth="200.0" styleClass="itemMenu" text="Cancel" />
-         </children>
-      </HBox>
-      <Text layoutX="26.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Select a savegame" />
-      <ChoiceBox layoutX="26.0" layoutY="36.0" prefHeight="29.0" prefWidth="345.0" styleClass="choiceBoxDark" />
-   </children>
+    <children>
+        <Region prefHeight="200.0" prefWidth="400.0" styleClass="contentView" />
+        <HBox layoutY="172.0" prefHeight="30.0" prefWidth="400.0">
+            <children>
+                <Button defaultButton="true" layoutX="200.0" layoutY="241.0" mnemonicParsing="false" onAction="#buttonOK" prefWidth="200.0" styleClass="itemMenu" text="OK" />
+                <Button layoutX="200.0" layoutY="241.0" mnemonicParsing="false" onAction="#buttonCancel" prefHeight="30.0" prefWidth="200.0" styleClass="itemMenu" text="Cancel" />
+            </children>
+        </HBox>
+        <Text layoutX="26.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Select a savegame:" />
+        <ChoiceBox layoutX="26.0" layoutY="36.0" prefHeight="29.0" prefWidth="345.0" styleClass="choiceBoxDark" />
+    </children>
 </AnchorPane>

@@ -13,19 +13,19 @@ import javafx.fxml.FXML;
  * @author Jochem
  */
 public class GameScreenSCHEDULEController implements ViewControllerInterface {
-	
+
     private static Main mainController;
-    
+
     /**
      * Code executed when the view is loaded.
      */
     @FXML
-    private void initialize(){
-        
+    private void initialize() {
+
     }
-    
+
     @Override
-    public void setMainController(Main mainController){
+    public void setMainController(Main mainController) {
         GameScreenSCHEDULEController.mainController = mainController;
     }
 

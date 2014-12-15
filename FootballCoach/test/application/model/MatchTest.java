@@ -1,11 +1,10 @@
-package application.modelTest;
+package application.model;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 import java.util.ArrayList;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -16,32 +15,35 @@ import org.junit.Before;
  * @author faris
  */
 public class MatchTest {
+
     Match match;
     Team homeTeam;
     Team outTeam;
     ArrayList<Players> homeList;
     ArrayList<Players> visitorList;
-    
+
     @Before
-    public void intialize(){
+    public void intialize() {
         homeTeam = new Team("home", 100000, 0, 0, 0, false);
         outTeam = new Team("out", 100000, 0, 0, 0, false);
-        
+
         homeList = new ArrayList<>();
         homeList.add(new Goalkeeper("name", "sname", 0, Status.DEFAULT, 0, Reason.DEFAULT, 100, 100));
-        for(int i=1; i<11; i++)
-            homeList.add(new Player("name", "sname", i, Status.DEFAULT, 0, Reason.DEFAULT, 100, 100 , 100));
+        for (int i = 1; i < 11; i++) {
+            homeList.add(new Player("name", "sname", i, Status.DEFAULT, 0, Reason.DEFAULT, 100, 100, 100));
+        }
         homeTeam.setPlayers(homeList);
-        
+
         visitorList = new ArrayList<>();
         visitorList.add(new Goalkeeper("name", "sname", 0, Status.DEFAULT, 0, Reason.DEFAULT, 100, 100));
-        for(int i=1; i<11; i++)
-            visitorList.add(new Player("name", "sname", i, Status.DEFAULT, 0, Reason.DEFAULT, 100, 100 , 100));
+        for (int i = 1; i < 11; i++) {
+            visitorList.add(new Player("name", "sname", i, Status.DEFAULT, 0, Reason.DEFAULT, 100, 100, 100));
+        }
         outTeam.setPlayers(visitorList);
-        
+
         match = new Match(homeTeam, outTeam, 2, 3);
     }
-    
+
     public MatchTest() {
     }
 
@@ -114,5 +116,5 @@ public class MatchTest {
         match.setPointsVisitorTeam(5);
         assertTrue(match.getPointsVisitorTeam() == 5);
     }
-    
+
 }

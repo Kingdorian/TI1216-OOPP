@@ -537,7 +537,17 @@
         </goalkeeper>
     </team>
     <team name="AZ" art_grass="false" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/313/150x150.png">
-        <player>
+        <goalkeeper>
+            <name>Esteban</name>
+            <surname>Alvarado</surname>
+            <number>1</number>
+            <status>DEFAULT</status>
+            <timenotavailable>0</timenotavailable>
+            <reason>DEFAULT</reason>
+            <stoppower>75</stoppower>
+            <penaltystoppower>78</penaltystoppower>
+        </goalkeeper>
+		<player>
             <name>Muamer</name>
             <surname>Tankovic</surname>
             <position>Forward</position>
@@ -549,16 +559,6 @@
             <defence>24</defence>
             <stamina>65</stamina>
         </player>
-        <goalkeeper>
-            <name>Esteban</name>
-            <surname>Alvarado</surname>
-            <number>1</number>
-            <status>DEFAULT</status>
-            <timenotavailable>0</timenotavailable>
-            <reason>DEFAULT</reason>
-            <stoppower>75</stoppower>
-            <penaltystoppower>78</penaltystoppower>
-        </goalkeeper>
         <goalkeeper>
             <name>Yves</name>
             <surname>de Winter</surname>

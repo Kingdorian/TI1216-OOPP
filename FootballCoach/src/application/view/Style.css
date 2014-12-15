@@ -1,46 +1,94 @@
+/* Main color palette from which other colors are derived. */
+.root {
+    /* Base color for menu headers */
+    -fx-base: rgba(16, 16, 16,.7);
+    /* Base color for window backgrounds */
+    -fx-background: rgba(147, 147, 147,.8); 
+    /* Custom lookup color for all text */
+    -fx-textcolor: rgb(247, 247, 247);
+    /* Custom lookup color for all shadows */
+    -fx-shadowcolor: rgba(0,0,0,.5);
+    -fx-accent: rgba(147, 147, 147,.8);
+}
+
+.text
+{
+    -fx-font: 11pt 'Verdana';
+    -fx-fill: -fx-textcolor;
+}
+
+/* Set the application Background properties */
 .applicationBackground
 {
     -fx-background-image: url('../img/bg.jpg');
     -fx-background-repeat: no-repeat;
-    -fx-background-size: 100%, auto;
+    -fx-background-size: cover;
     -fx-background-position: top left;
 }
 
-.applicationViewParent
+/* Styling for the Team Menu */
+.teamLogo
 {
-    -fx-background-color: rgba(0, 0, 0, 0);
+    -fx-background-color: -fx-background;
+    -fx-border-color: -fx-base;
+    -fx-border-width: 10px;
+    -fx-border-radius: 200px;
+    -fx-background-radius: 100%;
+    -fx-overflow: hidden;
 }
 
-/* topMenu create the rounded corners in the menu titles. */
+/* topMenu creates the rounded corners in the menu titles. */
 
 .topMenu
 {
-    -fx-background-color: rgba(16, 16, 16,.7);
+    -fx-background-color: -fx-base;
     -fx-background-radius: 15px 15px / 15px 15px 0 0;
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,.5), 10px, 0px, 0px, 2px);
+    -fx-effect: dropshadow(three-pass-box, -fx-shadowcolor, 10px, 0px, 0px, 2px);
 }
 
+/* topMenuReversed styles the "upside down" menu titles */
+.topMenuReversed {
+    -fx-background-color: -fx-base;
+    -fx-background-radius: 15px 15px / 0 0 15px 15px;
+    -fx-effect: dropshadow(three-pass-box, -fx-shadowcolor, 10px, 0px, 0px, 2px);
+}
+
+/* Styling of all menu buttons */
 .itemMenu
 {
-    -fx-background-color: rgba(147, 147, 147,.8);
+    -fx-background-color: -fx-background;
     -fx-background-radius: 0;
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,.5), 10px, 0px, 0px, 2px);
-    -fx-text-fill: inherit;
     -fx-border-width: 1px 0 0 0;
-    -fx-border-color: black;
+    -fx-border-color: -fx-base;
 }
 
+/* Styling for the VBox that contains the menu buttons */
+.menuContainer
+{
+    -fx-effect: dropshadow(three-pass-box, -fx-shadowcolor, 10px, 0px, 0px, 2px);
+}
+
+/* Styling of all default menu buttons */
+.itemMenu:default, 
+.contentItemMenu:default 
+{
+    -fx-border-width: 1px 0 0 0;
+    -fx-border-color: rgba(16, 16, 16,.7);    
+}
+
+/* Styling of all buttons in the GameScreens */
 .contentItemMenu
 {
     -fx-background-color: transparent;
     -fx-background-radius: 0;
-    -fx-text-fill: inherit;
+    -fx-border-width: 0 0 0 1px;
+    -fx-border-color: -fx-background;    
 }
 
 .itemMenu:hover,
 .contentItemMenu:hover
 {
-    -fx-background-color: rgba(200, 200, 200,.8);
+    -fx-background-color: derive(-fx-background, 20%);
 }
 
 .wrapMenu,
@@ -48,14 +96,14 @@
 {
     -fx-font: 11pt 'Verdana';
     -fx-font-weight: bold;
-    -fx-text-fill: rgb(242, 242, 242);
-    -fx-fill: rgb(242, 242, 242);
+    -fx-fill: -fx-textcolor;
 }
 
+/* Setting the style of the GameScreen layout */
 .contentView
 {
-    -fx-background-color: rgba(147, 147, 147,.8);
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,.5), 10px, 0px, 0px, 2px);
+    -fx-background-color: -fx-background;
+    -fx-effect: dropshadow(three-pass-box, -fx-shadowcolor, 10px, 0px, 0px, 2px);
 }
 
 .topMenuButton
@@ -64,62 +112,209 @@
     -fx-background-color: transparent;
     -fx-font: 11pt 'Verdana';
     -fx-font-weight: bold;
-    -fx-text-fill: rgb(242, 242, 242);
-    -fx-fill: rgb(242, 242, 242);
 }
 
 .topMenuButton:hover
 {
-    -fx-background-color: rgba(200, 200, 200,.8);
+    -fx-background-color: derive(-fx-background, 70%);
 }
 
-.text
-{
-    -fx-font: 11pt 'Verdana';
-    -fx-fill: rgb(242, 242, 242);
-}
-
-.table
+/* Styling for all table views */
+.table-view
 {
     -fx-base: transparent;
-    -fx-background-color: rgba(147, 147, 147,.8);
+    -fx-control-inner-background: transparent;
+    -fx-background-color: -fx-background;
+    -fx-background-insets: 30px 0 0 0;
     -fx-table-cell-border-color: transparent;
     -fx-table-header-border-color: transparent;
+    -fx-border-width: 0;
     -fx-padding: 0;
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,.5), 10px, 0px, 0px, 2px);
+    -fx-effect: dropshadow(three-pass-box, -fx-shadowcolor, 10px, 0px, 0px, 2px);
 }
 
-.table:focused
+.table-cell
 {
-    -fx-background-insets: 0, 0, 0;
-    -fx-background-radius: 0, 0, 0;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+.table-row-cell
+{
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-background-insets: 0;
+}
+
+.table-row-cell:odd
+{
+    -fx-background-color: rgba(127, 127, 127,.5);
+    -fx-background-insets: 0;
+}
+
+.table-row-cell:focused
+{
+    -fx-background-color: rgba(16, 16, 16, .7);
+    -fx-background-insets: 1px 0 0 0;
+}
+
+.table-row-cell:hover
+{
+    -fx-background-color: rgba(200, 200, 200,.8);
+    -fx-background-insets: 1px 0 0 0;
+}
+
+.table-view:focused
+{
+    -fx-background-insets: 30px 0 0 0 ;
+    -fx-background-radius: 0;
     -fx-padding: 0;
 }
 
-.tableColumn
+.table-view .column-header,
+.table-view .filler
 {
-    -fx-background-color: rgba(16, 16, 16,.7);
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,.5), 10px, 0px, 0px, 2px);
+    -fx-border-width: 0;
+    -fx-background-color: rgba(16, 16, 16, .7);
+    -fx-padding: 0;
 }
 
+.table-view .column-drag-header
+{
+    -fx-background-color: -fx-background;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-opacity: .6;
+}
+
+/* Semi-transparent overlay to indicate the column that is currently being moved */
+.table-view .column-overlay
+{
+    -fx-background-color: -fx-background;
+    -fx-opacity: .3;
+}
+
+.table-view .scroll-bar:vertical
+{
+    -fx-background-insets: 1px 0 0 0;
+    -fx-padding: 1;
+}
+
+
+/* Styling for all choice boxes */
 .choiceBox
 {
-    -fx-background-color: rgba(147, 147, 147, 1);
+    -fx-background-color: derive(-fx-background, 20%);   
 }
 
-.choiceBoxDark 
+.choiceBoxDark
 {
-    -fx-background-color: rgba(16, 16, 16, 0.7);   
-    -fx-text-fill: rgb(242, 242, 242);
- 
+    -fx-background-color: derive(-fx-base, 10%);
+    -fx-text-fill: -fx-textcolor;
+    -fx-background-insets: 0;   
 }
 
-.teamLogo 
-{
-    -fx-background-color: rgba(147, 147, 147,.8);
-    -fx-border-color: rgba(16, 16, 16,.7);
-    -fx-border-width: 10px;
-    -fx-border-radius: 200px;
-    -fx-background-radius: 100%;
-    -fx-overflow: hidden;
+
+.choiceBox .label, .choiceBoxDark .label {
+    -fx-text-fill: -fx-textcolor;
 }
+
+.choiceBox .context-menu, .choiceBoxDark .context-menu  {
+    -fx-background-radius: 0;
+    -fx-background-color: derive(-fx-background, 20%);   
+}
+
+.choiceBox:showing {
+    -fx-background-color: derive(-fx-background, 20%);   
+    -fx-background-insets: 0;  
+}
+
+.choiceBoxDark:showing { 
+    -fx-background-color: -fx-base;
+    -fx-background-insets: 0;  
+}
+
+.choiceBox:hover, .choiceBoxDark:hover  {
+    -fx-background-color: derive(-fx-base, 10%);
+}
+
+.choiceBox .list-view {
+    -fx-background-color: derive(-fx-background, 20%);   
+}
+
+.choiceBoxDark .list-view {
+    -fx-background-color: derive(-fx-base, 10%);
+}
+
+.choiceBox .list-cell {
+    -fx-background-color: derive(-fx-background, 20%);   
+    -fx-text-fill: -fx-textcolor;
+}
+
+.choiceBoxDark .list-cell {
+    -fx-background-color: derive(-fx-base, 10%);
+    -fx-text-fill: -fx-textcolor;
+}
+
+.choiceBox .list-cell:hover {
+    -fx-background-color: derive(-fx-base, 10%);
+    -fx-text-fill: -fx-textcolor;
+}
+
+.choiceBoxDark .list-cell:hover {
+    -fx-background-color: -fx-base;
+    -fx-text-fill: -fx-textcolor;
+}
+
+.choiceBox .arrow, .choiceBoxDark .arrow{
+    -fx-background-color: white;
+    -fx-background-insets: 1 0 -1 0, 0;
+    -fx-padding: 0.166667em 0.333333em 0.166667em 0.333333em; /* 2 3.5 2 3.5 */
+    -fx-shape: "M 0 0 h 7 l -3.5 4 z";
+}
+
+/* Styling for all scrollbars */
+.scroll-bar:vertical
+{
+    -fx-background-color: -fx-background;
+    -fx-background-insets: 0;
+    -fx-border-color: transparent;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button
+{
+    -fx-background-insets: 0;
+    -fx-padding: .25em;
+}
+
+.scroll-bar:vertical .increment-arrow
+{
+    -fx-background-color: white;
+    -fx-background-insets: 0;
+    -fx-padding: .333333em .5em .0em .0em; /* 4 6 0 0 */
+    -fx-shape: 'M -3 0 L 0 4 L 3 0 z';
+}
+
+.scroll-bar:vertical .decrement-arrow
+{
+    -fx-background-color: white;
+    -fx-background-insets: 0;
+    -fx-padding: .333333em .5em .0em .0em; /* 4 6 0 0 */
+    -fx-shape: 'M -3 0 L 0 -4 L 3 0 z';
+}
+
+.scroll-bar:vertical .thumb
+{
+    -fx-background-color: -fx-base;
+    -fx-background-insets: 0 2px 0 2px;
+    -fx-background-radius: .5em;
+}
+
+.scroll-bar:vertical .track
+{
+    -fx-background-color: -fx-background;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+

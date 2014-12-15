@@ -12,5 +12,6 @@ import application.Main;
  * @author faris
  */
 public interface ViewControllerInterface {
+
     public void setMainController(Main mainController);
 }
