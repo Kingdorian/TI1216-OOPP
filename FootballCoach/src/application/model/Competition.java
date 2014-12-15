@@ -6,6 +6,7 @@ public class Competition {
 
     private Match competition[][] = new Match[34][9];
     private Team teams[] = new Team[18];
+    private Market market = new Market();
 
     /**
      * Creates a new competition object
@@ -110,4 +111,20 @@ public class Competition {
         //If it passes trough all of the above return true
         return true;
     }
+
+    public Team getPlayersTeam(Players player){
+        for(Team team : teams)
+            if(team.getPlayers().contains(player))
+                return team;
+        return null;
+    }
+
+    public Market getMarket() {
+        return market;
+    }
+
+    public void setMarket(Market market) {
+        this.market = market;
+    }
+    
 }

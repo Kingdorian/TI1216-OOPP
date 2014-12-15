@@ -27,6 +27,9 @@ public class PopupSETTINGSController implements PopupControllerInterface {
     private BorderPane rootLayout;
     private Stage primaryStage;
     private String styleBeforeChanges;
+    private static Color oldBGColor;
+    private static Color oldHeaderColor;
+    private static Color oldTextColor;
     
     @FXML
     ColorPicker headerColor;
@@ -49,7 +52,6 @@ public class PopupSETTINGSController implements PopupControllerInterface {
         // reset colors if the stage is closed in any other way than by clicking one of the buttons
         popupStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
           public void handle(WindowEvent we) {
-              System.out.println("Stage is closing");
               if(isOkClicked == false)
                   rootLayout.setStyle(styleBeforeChanges);
           }
@@ -77,9 +79,16 @@ public class PopupSETTINGSController implements PopupControllerInterface {
             fullScreenCheckBox.setSelected(false);
 
         // set default colors
-        headerColor.setValue(new Color(16.0/256.0, 16.0/256.0, 16.0/256.0, .7));
-        backgroundColor.setValue(new Color(147.0/256.0, 147.0/256.0, 147.0/256.0, 0.8));
-        textColor.setValue(new Color(247.0/256.0, 247.0/256.0, 247.0/256.0, 1.0));
+        if(oldBGColor == null || oldHeaderColor == null || oldTextColor == null){
+            headerColor.setValue(new Color(16.0/256.0, 16.0/256.0, 16.0/256.0, .7));
+            backgroundColor.setValue(new Color(147.0/256.0, 147.0/256.0, 147.0/256.0, 0.8));
+            textColor.setValue(new Color(247.0/256.0, 247.0/256.0, 247.0/256.0, 1.0));
+        } else {
+            headerColor.setValue(oldHeaderColor);
+            backgroundColor.setValue(oldBGColor);
+            textColor.setValue(oldTextColor);
+        }
+            
         
         // add event handlers for when a different color gets selected to change the colors
         backgroundColor.setOnAction(new EventHandler() {
@@ -107,6 +116,11 @@ public class PopupSETTINGSController implements PopupControllerInterface {
             primaryStage.setFullScreen(false);
         else if(!primaryStage.isFullScreen() && fullScreenCheckBox.isSelected())
             primaryStage.setFullScreen(true);
+        
+        // remember chosen colors for next time
+        oldBGColor = backgroundColor.getValue();
+        oldHeaderColor = headerColor.getValue();
+        oldTextColor = textColor.getValue();
         
         isOkClicked = true;
         popupStage.close();

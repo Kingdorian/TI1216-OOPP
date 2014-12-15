@@ -80,8 +80,7 @@ public class GameScreenTEAMController implements ViewControllerInterface {
         Players selectedPlayer = playerTable.getSelectionModel().selectedItemProperty().get();
         if(selectedPlayer != null){
             Main.setSelectedPlayer(selectedPlayer);
-            if(mainController.createPopup("PopupSELECTPRICE", "Sell Player"))
-                System.out.println("Put player on market.");
+            mainController.createPopup("PopupSELECTPRICE", "Sell Player");
         }
     }
 }

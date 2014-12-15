@@ -78,6 +78,10 @@ public class PopupSELECTPRICEController implements PopupControllerInterface {
         if(new Scanner(priceText.getText().trim()).hasNextInt()){
             price = Integer.parseInt(priceText.getText().trim());
             isOkClicked = true;
+            
+            // put player on the market
+            Main.getCompetition().getMarket().addPlayersForSale(Main.getSelectedPlayer(), price);
+            
             popupStage.close();
         } else {
             Dialogs.create()
