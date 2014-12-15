@@ -11,27 +11,33 @@ import ContainerPackage.Vector;
 public class BallAI {
     
     private static final ExactPosition LEFT_GOAL_POSITION = new ExactPosition(60,381);
-    private static final ExactPosition RIGHT_GOAL_POSITION = new ExactPosition(60,955);
+    private static final ExactPosition RIGHT_GOAL_POSITION = new ExactPosition(955,381);
     
     private static final int GOAL_SIZE = 80;
     private static final double BALLSPEED = 20.0;
     
     private static ExactPosition currentBallPosition;
-   // private static ExactPosition finalDesitination;
     private static Vector ballVector;
     private static int counter = 0;
     private static boolean shootHard;
+    private static boolean shootToTeammate;
+    private static boolean lastShotByAllyTeam = false;
     
     
     /**
      * set the direction for the ball to move to
      * @param destination   an ExactPosition containing the direction of the ball
+     * @param ShotByAllyTeam    true if the ball was shot by a palyer of the ally team
      */
-    public static void shootBallTo(ExactPosition destination){
-        shootHard = false;
-        ballVector = new Vector(currentBallPosition, destination);
-        //finalDesitination = destination;
-        counter = 0;
+    public static void shootBallTo(ExactPosition destination, boolean ShotByAllyTeam){
+        // if ball has not just been shot
+        if(counter > 1){
+            lastShotByAllyTeam = ShotByAllyTeam;
+            shootHard = false;
+            shootToTeammate = false;
+            ballVector = new Vector(currentBallPosition, destination);
+            counter = 0;
+        }
     }
     
     
@@ -45,14 +51,19 @@ public class BallAI {
         
         if(shootHard)
             speed *= 5;
+        if(shootToTeammate && ballVector != null)
+            speed = ballVector.getLength()/2;
         
-        if(counter < 4){
+        if(counter < 15){
             for(int i=1; i<counter; i++)
                 speed /= Math.sqrt(2);
         } else
             return currentBallPosition;
-
-        currentBallPosition = ballVector.translate(currentBallPosition, speed);
+        if(speed < 5)
+            return currentBallPosition;
+        
+        if(ballVector != null)
+            currentBallPosition = ballVector.translate(currentBallPosition, speed);
 
         return currentBallPosition;
     }
@@ -76,16 +87,51 @@ public class BallAI {
     }
 
     
-
-    
     public static void shootLeftGoal(){
-        // decide direction to shoot ball
-        double xPos = LEFT_GOAL_POSITION.getxPos();
-        double yPos = LEFT_GOAL_POSITION.getyPos();
-        yPos += (Math.random() *  GOAL_SIZE * 0.8) - (Math.random() *  GOAL_SIZE * 0.8);
-        
-        // shoot ball
-        shootBallTo(new ExactPosition(xPos, yPos));
-        shootHard = true;
+        if(counter > 1){
+            // decide direction to shoot ball
+            double xPos = LEFT_GOAL_POSITION.getxPos();
+            double yPos = LEFT_GOAL_POSITION.getyPos();
+            yPos += (Math.random() *  GOAL_SIZE * 0.8) - (Math.random() *  GOAL_SIZE * 0.8);
+
+            // shoot ball
+            shootBallTo(new ExactPosition(xPos, yPos), false);
+            shootHard = true;
+            shootToTeammate = false;
+        }
+    }
+    
+    
+    public static void shootRightGoal(){
+        if(counter > 1){
+            // decide direction to shoot ball
+            double xPos = RIGHT_GOAL_POSITION.getxPos();
+            double yPos = RIGHT_GOAL_POSITION.getyPos();
+            yPos += (Math.random() *  GOAL_SIZE * 0.8) - (Math.random() *  GOAL_SIZE * 0.8);
+
+            // shoot ball
+            shootBallTo(new ExactPosition(xPos, yPos), true);
+            shootHard = true;
+            shootToTeammate = false;
+        }
+    }
+    
+    /**
+     * return if the ball is moving to the right
+     * @return boolean
+     */
+    public static boolean islastShotByAllyTeam(){
+//        if(ballVector == null)
+//            return false;
+//        return ballVector.getPointFrom().getxPos() < ballVector.getPointTo().getxPos();
+        return lastShotByAllyTeam;
+    }
+    
+    
+    public static void shootToTeammate(ExactPosition to, boolean ShotByAllyTeam){
+        if(counter > 1){
+            shootBallTo(to, ShotByAllyTeam);
+            shootToTeammate = true;
+        }
     }
 }

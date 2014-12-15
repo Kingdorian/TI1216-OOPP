@@ -1,6 +1,7 @@
 package CalculateMatch;
 
 import ContainerPackage.ExactPosition;
+import ContainerPackage.PlayerInfo;
 import ContainerPackage.PlayerPosition;
 import ContainerPackage.Position;
 import ContainerPackage.PositionsTimeSlice;
@@ -17,6 +18,10 @@ public class CurrentPositions {
     private ArrayList<ExactPosition> allyTeam = new ArrayList<>();
     private ArrayList<ExactPosition> enemyTeam = new ArrayList<>();
     private ExactPosition ballPosition = new ExactPosition();
+    
+    // Specific player information
+    private static ArrayList<PlayerInfo> allyInfo = new ArrayList<>();
+    private static ArrayList<PlayerInfo> enemyInfo = new ArrayList<>();
 
     
     /**
@@ -43,9 +48,9 @@ public class CurrentPositions {
         allyTeam.add(new ExactPosition( 60.0, 381.0));
         allyTeam.add(new ExactPosition(170.0, 250.0));
         allyTeam.add(new ExactPosition(240.0, 312.0));
-        allyTeam.add(new ExactPosition(275.0, 385.0));
         allyTeam.add(new ExactPosition(240.0, 462.0));
         allyTeam.add(new ExactPosition(170.0, 512.0));
+        allyTeam.add(new ExactPosition(275.0, 385.0));
         allyTeam.add(new ExactPosition(345.0, 290.0));
         allyTeam.add(new ExactPosition(345.0, 492.0));
         allyTeam.add(new ExactPosition(467.0, 282.0));
@@ -56,9 +61,9 @@ public class CurrentPositions {
         enemyTeam.add(new ExactPosition(963.0, 381.0));
         enemyTeam.add(new ExactPosition(846.0, 250.0));
         enemyTeam.add(new ExactPosition(785.0, 312.0));
-        enemyTeam.add(new ExactPosition(743.0, 385.0));
         enemyTeam.add(new ExactPosition(785.0, 462.0));
         enemyTeam.add(new ExactPosition(846.0, 512.0));
+        enemyTeam.add(new ExactPosition(743.0, 385.0));
         enemyTeam.add(new ExactPosition(678.0, 290.0));
         enemyTeam.add(new ExactPosition(678.0, 492.0));
         enemyTeam.add(new ExactPosition(520.0, 332.0));
@@ -92,7 +97,7 @@ public class CurrentPositions {
      * @param player    the player being checked
      * @return          an arraylist of playerpositions of all opponents in front of player
      */
-    public ArrayList<ExactPosition> getEnemiesInFrontOf(ExactPosition player){
+    public ArrayList<ExactPosition> getOpponentsInFrontOf(ExactPosition player){
         
         ArrayList<ExactPosition> res = new ArrayList<>();
         
@@ -210,5 +215,31 @@ public class CurrentPositions {
      */
     public ArrayList<ExactPosition> getEnemyTeam() {
         return enemyTeam;
+    }
+    
+    
+
+    public static PlayerInfo getAllyInfo(int i) {
+        return allyInfo.get(i);
+    }
+
+    public static void setAllyInfo(PlayerInfo allyInf, int i) {
+        allyInfo.add(i, allyInf);
+    }
+
+    public static PlayerInfo getEnemyInfo(int i) {
+        return enemyInfo.get(i);
+    }
+
+    public static void setEnemyInfo(PlayerInfo enemyInf, int i) {
+        enemyInfo.add(i, enemyInf);
+    }
+    
+    
+    public int getPlayerID(ExactPosition player){
+        for(int i=0; i<11; i++)
+            if(player.equals(allyTeam.get(i)) || player.equals(enemyTeam.get(i)))
+                return i;
+        return -1;
     }
 }

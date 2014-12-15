@@ -27,7 +27,7 @@ import javafx.util.Duration;
 public class AnimateFootballMatch {
     
     // The amount of slides to play per second. Change this to change the playing speed.
-    private int MILLISECONDS_PER_SLICE = 245;
+    private int MILLISECONDS_PER_SLICE = 145; // should be 245
         
     // Circles representing the players
     private final Circle playerCircle[] = new Circle[11];

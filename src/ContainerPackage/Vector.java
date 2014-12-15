@@ -71,4 +71,8 @@ public class Vector {
         double yCoordinate = (this.pointTo.getyPos() - this.pointFrom.getyPos()) * factor + from.getyPos();
         return new ExactPosition(xCoordinate, yCoordinate);
     }
+    
+    public double getLength(){
+        return Math.sqrt(Math.pow(pointFrom.getxPos() - pointTo.getxPos(), 2) + Math.pow(pointFrom.getyPos() - pointTo.getyPos(), 2)) ;
+    }
 }

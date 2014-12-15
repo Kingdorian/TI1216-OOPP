@@ -27,10 +27,10 @@ public class ExactPosition {
             this.yPos = 0;
         if(xPos < 0)
             this.xPos = 0;
-        if(yPos > 768)
-            this.yPos = 768;
-        if(xPos > 1024)
-            this.xPos = 1024;
+        if(yPos > 760)
+            this.yPos = 760;
+        if(xPos > 1010)
+            this.xPos = 1010;
     }
        
     /**
@@ -48,8 +48,8 @@ public class ExactPosition {
 
         if(xPos < 0)
             this.xPos = 0;
-        if(xPos > 1024)
-            this.xPos = 1024;
+        if(xPos > 1010)
+            this.xPos = 1010;
     }
 
     public double getyPos() {
@@ -61,8 +61,8 @@ public class ExactPosition {
         
         if(yPos < 0)
             this.xPos = 0;
-        if(yPos > 768)
-            this.xPos = 768;
+        if(yPos > 760)
+            this.xPos = 760;
     }
     
     
