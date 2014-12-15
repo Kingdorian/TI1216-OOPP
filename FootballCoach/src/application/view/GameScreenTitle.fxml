@@ -18,55 +18,59 @@
             </image>
         </ImageView>
         <Text fx:id="textWelcome" layoutX="160.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Welcome, [PLAYER]" textAlignment="CENTER" wrappingWidth="220.0" />
-        <Button layoutX="794.0" mnemonicParsing="false" onAction="#buttonSettings" prefHeight="50.0" prefWidth="30.0" styleClass="topMenuButton">
-            <graphic>
-                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../img/Settings.png" />
-                    </image>
-                </ImageView>
-            </graphic>
-            <padding>
-                <Insets left="5.0" right="5.0" />
-            </padding>
-        </Button>
-        <Button layoutX="854.0" mnemonicParsing="false" onAction="#buttonTitleScreen" prefHeight="50.0" prefWidth="30.0" styleClass="topMenuButton">
-            <graphic>
-                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../img/Home.png" />
-                    </image>
-                </ImageView>
-            </graphic>
-            <padding>
-                <Insets left="5.0" right="5.0" />
-            </padding>
-        </Button>
+      <HBox layoutX="794.0">
+         <children>
+              <Button layoutX="794.0" mnemonicParsing="false" onAction="#buttonSettings" prefHeight="50.0" prefWidth="30.0" styleClass="topMenuButton">
+                  <graphic>
+                      <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@../img/settings.png" />
+                          </image>
+                      </ImageView>
+                  </graphic>
+                  <padding>
+                      <Insets left="5.0" right="5.0" />
+                  </padding>
+              </Button>
+              <Button layoutX="824.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="30.0" styleClass="topMenuButton">
+                  <graphic>
+                      <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@../img/save.png" />
+                          </image>
+                      </ImageView>
+                  </graphic>
+                  <padding>
+                      <Insets left="5.0" right="5.0" />
+                  </padding>
+              </Button>
+              <Button layoutX="854.0" mnemonicParsing="false" onAction="#buttonTitleScreen" prefHeight="50.0" prefWidth="30.0" styleClass="topMenuButton">
+                  <graphic>
+                      <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@../img/home.png" />
+                          </image>
+                      </ImageView>
+                  </graphic>
+                  <padding>
+                      <Insets left="5.0" right="5.0" />
+                  </padding>
+              </Button>
+              <Button layoutX="884.0" mnemonicParsing="false" onAction="#buttonNextMatch" prefHeight="50.0" prefWidth="80.0" styleClass="topMenuButton" text="Play">
+                  <graphic>
+                      <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@../img/next.png" />
+                          </image>
+                      </ImageView>
+                  </graphic>
+              </Button>
+         </children>
+      </HBox>
         <Text fx:id="textBudget" layoutX="412.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="[BUDGET]" textAlignment="CENTER" wrappingWidth="200.0">
             <font>
                 <Font name="System Italic" size="13.0" />
             </font>
         </Text>
-        <Button layoutX="884.0" mnemonicParsing="false" onAction="#buttonNextMatch" prefHeight="50.0" prefWidth="80.0" styleClass="topMenuButton" text="Play">
-            <graphic>
-                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../img/next.png" />
-                    </image>
-                </ImageView>
-            </graphic>
-        </Button>
-        <Button layoutX="824.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="30.0" styleClass="topMenuButton">
-            <graphic>
-                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../img/Save.png" />
-                    </image>
-                </ImageView>
-            </graphic>
-            <padding>
-                <Insets left="5.0" right="5.0" />
-            </padding>
-        </Button>
     </children>
 </Pane>

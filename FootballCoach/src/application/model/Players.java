@@ -129,7 +129,7 @@ public abstract class Players {
      */
     public int getPrice(){
         double ability = this.getAbility();
-        int price = (int) (20000.0 * Math.pow(Math.E, 1.15*(ability+1)));
+        int price = (int) (20000.0 * Math.pow(Math.E, 1.2*(ability+1)) - 430000);
         price -= price%10000; // set last 4 digits to 0
         return price;
     }

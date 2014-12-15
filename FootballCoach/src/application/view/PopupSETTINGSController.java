@@ -143,8 +143,8 @@ public class PopupSETTINGSController implements PopupControllerInterface {
         header += ", " + Double.toString(headerColor.getValue().getBlue()*256.0);
         
         // set header color
-        rootLayout.setStyle("    -fx-basecolor: rgba(" + header + ", 0.7); \n" +
-                            "    -fx-backgroundcolor: rgba(" + background + ", 0.8); \n" +
+        rootLayout.setStyle("    -fx-base: rgba(" + header + ", 0.7); \n" +
+                            "    -fx-background: rgba(" + background + ", 0.8); \n" +
                             "    -fx-textcolor: rgb(" + text + "); \n" +
                             "    -fx-shadowcolor: rgba(0,0,0,.5); \n" +
                             "    -fx-accent: rgba(" + background + ", 0.8); \n");

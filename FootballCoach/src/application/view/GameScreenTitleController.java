@@ -28,7 +28,11 @@ public class GameScreenTitleController implements ViewControllerInterface {
      */
     @FXML
     private void initialize() {
-        textBudget.setText("€ " + "Not implemented yet");
+        // set this as the title controller class in the Main class
+        Main.setTitleController(this);
+        
+        // add texts
+        textBudget.setText("€ " + Main.getCompetition().getTeamByName(Main.getChosenTeamName()).getBudget());
         textWelcome.setText("Welcome, " + Main.getChosenName());
     }
 
@@ -64,5 +68,9 @@ public class GameScreenTitleController implements ViewControllerInterface {
             Main.getMenuController().getCurrentMenuField().setText("Play Match");
             mainController.setCenterView("GameScreenPLAYMATCH");
         }
+    }
+    
+    public void refreshMoney(){
+        textBudget.setText("€ " + Main.getCompetition().getTeamByName(Main.getChosenTeamName()).getBudget());
     }
 }

@@ -21,14 +21,14 @@ public class Market {
         return playersForSale;
     }
 
-    public void addPlayersForSale(Players player, int price) {
+    public void addPlayer(Players player, int price) {
         if(!playersForSale.contains(player)){
             playersForSale.add(player);
            this.price.add(price);
         }
     }
     
-    public void removePlayersForSale(Players player){
+    public void removePlayer(Players player){
         for(int i=0; i<playersForSale.size(); i++)
             if(playersForSale.get(i).equals(player)){
                 playersForSale.remove(i);

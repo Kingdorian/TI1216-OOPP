@@ -16,18 +16,18 @@
             <columns>
                 <TableColumn fx:id="columnNo" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" styleClass="tableColumn" text="No." />
                 <TableColumn fx:id="columnName" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" styleClass="tableColumn" text="Name" />
-                <TableColumn fx:id="columnClubName" maxWidth="95.0" minWidth="95.0" prefWidth="95.0" styleClass="tableColumn" text="Club" />
+                <TableColumn fx:id="columnClubName" maxWidth="95.0" minWidth="95.0" prefWidth="95.0" styleClass="tableColumn" text="Team" />
                 <TableColumn fx:id="columnType" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" styleClass="tableColumn" text="Type" />
                 <TableColumn fx:id="columnAbility" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" styleClass="tableColumn" text="Ability" />
-                <TableColumn fx:id="columnEstimatedValue" prefWidth="75.0" styleClass="tableColumn" text="Estimated Value" />
+                <TableColumn fx:id="columnEstimatedValue" maxWidth="149.0" minWidth="149.0" prefWidth="149.0" styleClass="tableColumn" text="Estimated Value" />
             <TableColumn fx:id="columnPrice" maxWidth="110.0" minWidth="110.0" prefWidth="110.0" text="Price" />
             </columns>
             <columnResizePolicy>
                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
             </columnResizePolicy>
         </TableView>
-        <Button layoutX="171.0" layoutY="400.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="171.0" styleClass="contentItemMenu" text="Buy Player" />
-        <Button layoutX="342.0" layoutY="400.0" mnemonicParsing="false" onAction="#removePlayerButton" prefHeight="50.0" prefWidth="171.0" styleClass="contentItemMenu" text="Remove Player" />
+        <Button fx:id="buyButton" layoutX="171.0" layoutY="400.0" mnemonicParsing="false" onAction="#buyPlayerButton" prefHeight="50.0" prefWidth="171.0" styleClass="contentItemMenu" text="Buy Player" />
+        <Button fx:id="removeButton" layoutX="342.0" layoutY="400.0" mnemonicParsing="false" onAction="#removePlayerButton" prefHeight="50.0" prefWidth="171.0" styleClass="contentItemMenu" text="Remove Player" />
       <Button layoutX="513.0" layoutY="400.0" mnemonicParsing="false" onAction="#moreInfoButton" prefHeight="50.0" prefWidth="171.0" styleClass="contentItemMenu" text="More info..." />
     </children>
 </Pane>

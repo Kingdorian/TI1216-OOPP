@@ -4,6 +4,7 @@ import application.controller.XMLHandler;
 import application.model.Competition;
 import application.model.Players;
 import application.view.GameScreenMenuController;
+import application.view.GameScreenTitleController;
 import application.view.PopupControllerInterface;
 import application.view.ViewControllerInterface;
 import java.io.IOException;
@@ -45,6 +46,7 @@ public class Main extends Application {
 
     private static Players selectedPlayer;
     private static GameScreenMenuController menuController;
+    private static GameScreenTitleController titleController;
 
     @Override
     public void start(Stage primaryStage) {
@@ -68,6 +70,42 @@ public class Main extends Application {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("Couldn't open one of the following files: \"XML/Matches.xml\" or \"XML/Competition.xml\"");
         }
+        // FOR TESTING:
+        for(Players pl : competition.getTeamByName("Feyenoord").getPlayers())
+                competition.getMarket().addPlayer(pl, 5);
+        for(Players pl : competition.getTeamByName("PSV").getPlayers())
+              competition.getMarket().addPlayer(pl, 5);  
+        for(Players pl : competition.getTeamByName("ADO Den Haag").getPlayers())
+              competition.getMarket().addPlayer(pl, 5);
+        for(Players pl : competition.getTeamByName("AZ").getPlayers())
+              competition.getMarket().addPlayer(pl, 5);
+        for(Players pl : competition.getTeamByName("SC Cambuur").getPlayers())
+              competition.getMarket().addPlayer(pl, 5);
+        for(Players pl : competition.getTeamByName("FC Dordrecht").getPlayers())
+              competition.getMarket().addPlayer(pl, 5);
+        for(Players pl : competition.getTeamByName("Excelsior").getPlayers())
+              competition.getMarket().addPlayer(pl, 5);
+        for(Players pl : competition.getTeamByName("Go Ahead Eagles").getPlayers())
+              competition.getMarket().addPlayer(pl, 5);
+        for(Players pl : competition.getTeamByName("FC Groningen").getPlayers())
+              competition.getMarket().addPlayer(pl, 5);
+        for(Players pl : competition.getTeamByName("Heracles Almelo").getPlayers())
+              competition.getMarket().addPlayer(pl, 5);
+        for(Players pl : competition.getTeamByName("NAC Breda").getPlayers())
+              competition.getMarket().addPlayer(pl, 5);
+        for(Players pl : competition.getTeamByName("Ajax").getPlayers())
+              competition.getMarket().addPlayer(pl, 5);
+        for(Players pl : competition.getTeamByName("PEC Zwolle").getPlayers())
+              competition.getMarket().addPlayer(pl, 5);
+        for(Players pl : competition.getTeamByName("FC Twente").getPlayers())
+              competition.getMarket().addPlayer(pl, 5);
+        for(Players pl : competition.getTeamByName("FC Utrecht").getPlayers())
+              competition.getMarket().addPlayer(pl, 5);
+        for(Players pl : competition.getTeamByName("Vitesse").getPlayers())
+              competition.getMarket().addPlayer(pl, 5);
+        for(Players pl : competition.getTeamByName("Willem II").getPlayers())
+              competition.getMarket().addPlayer(pl, 5);
+
     }
 
     /**
@@ -428,7 +466,14 @@ public class Main extends Application {
     public static void setMenuController(GameScreenMenuController menuController) {
         Main.menuController = menuController;
     }
-    
+
+    public static GameScreenTitleController getTitleController() {
+        return titleController;
+    }
+
+    public static void setTitleController(GameScreenTitleController titleController) {
+        Main.titleController = titleController;
+    }
     
 
     /**
