@@ -1,16 +1,21 @@
 package application.controller;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.nio.file.CopyOption;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
+
+import javax.imageio.ImageIO;
 
 import application.model.*;
 
@@ -31,8 +36,14 @@ public class SaveGameHandler {
 	 * @throws Exception
 	 */
 	public static Competition loadCompetition(int savegameId) throws Exception{
-		return XMLHandler.readCompetition(defaultloc + savegameId + "/competition.xml" , defaultloc + savegameId + "/Matches.xml");
-		
+		return ldByCompByUrl(defaultloc + savegameId + "/competition.xml" , defaultloc + savegameId + "/Matches.xml");
+	}
+	/**
+	 * @throws Exception 
+	 * 
+	 */
+	private static Competition ldByCompByUrl(String compUrl, String matchUrl) throws Exception{
+		return XMLHandler.readCompetition(compUrl, matchUrl);
 	}
 	/**
 	 * Gives a ArrayList with all the ids of savegames at the savegame location
@@ -68,7 +79,7 @@ public class SaveGameHandler {
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 */
-	public static int createNewSave() throws FileNotFoundException, IOException{
+	public static Competition createNewSave() throws FileNotFoundException, IOException{
 		// Getting a list of id's that are already in use
 		ArrayList<Integer> ids = getSaveGames();
 		Collections.sort(ids);
@@ -76,12 +87,38 @@ public class SaveGameHandler {
 		int newId = ids.get(ids.size()-1)+1;
 		//Make new directory
 		new File(defaultloc + "/" + newId).mkdirs();
-		return newId;
+		try {
+			new File(defaultloc + "/" + newId + "/images/").mkdirs();
+			Competition returnComp = ldByCompByUrl("XML/competition.xml", "XML/Matches.xml");
+			fetchImages(defaultloc + "/" + newId + "/images/", returnComp);
+			return returnComp;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return null;
 	}
 	/**
 	 * 
 	 */
 	public static void saveGame(int id, Competition comp) throws IOException{
 		XMLHandler.writeCompetition(id, comp, defaultloc + id + "/");
+	}
+	
+	private static void fetchImages(String location, Competition comp){
+		System.out.println("Fetching images...");
+		File file = new File(location);
+		file.mkdirs();
+		for(int i = 0; i < comp.getTeams().length; i ++){
+			try {
+				BufferedImage img = ImageIO.read(new URL(comp.getTeams()[i].getImgUrl()));
+				File outputfile = new File(location + comp.getTeams()[i].getName() + ".png");
+				ImageIO.write(img, "png", outputfile);
+			} catch (MalformedURLException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 }

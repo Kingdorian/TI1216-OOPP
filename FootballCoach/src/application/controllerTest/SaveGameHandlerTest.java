@@ -85,13 +85,17 @@ public class SaveGameHandlerTest {
 	@Test
 	public void testCreateNewSave(){
 		try {
-			assertEquals(2, SaveGameHandler.createNewSave());
+			Competition refComp = XMLHandler.readCompetition("XML/TestSavegames/1/competition.xml", "XML/TestSavegames/1/Matches.xml");
+			assertEquals(refComp,  SaveGameHandler.createNewSave());
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 			fail("Unexpected FileNotFoundException");
 		} catch (IOException e) {
 			e.printStackTrace();
 			fail("Unexpected IOException");
+		} catch (Exception e) {
+			fail("Unexpected Exception");
+			e.printStackTrace();
 		}
 	}
 	
@@ -100,8 +104,7 @@ public class SaveGameHandlerTest {
 	public void coverage(){
 	    SaveGameHandler a = new SaveGameHandler() {
 	    };
-	}
-	
+	}/*
 	@After
 	public void cleanUp(){
 		ArrayList<Integer> saveGameIds = new ArrayList<Integer>();
@@ -115,5 +118,5 @@ public class SaveGameHandlerTest {
 				listOfFiles[i].delete();
 			}
 		}
-	}
+	}*/
 }

@@ -63,7 +63,7 @@ public class XMLHandler {
 		 * @return the Team composed out of the values in the Element supplied
 		 */
 		public static Team parseTeam(Element teamElement){
-			Team team = new Team(teamElement.getAttribute("name"), Boolean.parseBoolean(teamElement.getAttribute("art_grass")));
+			Team team = new Team(teamElement.getAttribute("name"), Boolean.parseBoolean(teamElement.getAttribute("art_grass")), teamElement.getAttribute("logo"));
 			NodeList nodes = teamElement.getChildNodes();
 			for(int i = 0; i<nodes.getLength();i++){
 				Players p; 
@@ -305,7 +305,6 @@ public class XMLHandler {
 							pE.appendChild(buffer.get(k));
 						}
 					}else{
-						System.out.println("hey");
 						Goalkeeper k = (Goalkeeper)pl;
 						pE = doc.createElement("goalkeeper");
 						ArrayList<Element> buffer = new ArrayList<Element>();

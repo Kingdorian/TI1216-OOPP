@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Team {
 
 	private String name;
+	private String imgUrl;
 	private ArrayList<Players> players = new ArrayList<Players>();
 	private int budget, points, goals, goalsAgainst;
 	boolean artificialGrass;
@@ -23,6 +24,16 @@ public class Team {
 		this.goals = 0;
 		this.goalsAgainst = 0;
 		this.artificialGrass = artificalGrass;
+	}
+	public Team(String name, boolean artificalGrass, String imgUrl) {
+		this(name, artificalGrass);
+		this.setImgUrl(imgUrl);
+	}
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;		
+	}
+	public String getImgUrl(){
+		return this.imgUrl;
 	}
 	public boolean hasArtificialGrass() {
 		return artificialGrass;
@@ -62,7 +73,7 @@ public class Team {
 
 
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 

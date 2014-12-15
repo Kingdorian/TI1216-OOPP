@@ -47,7 +47,7 @@ public class XMLHandlerTest {
 			fail("Unexpected exception");
 		}
 	}
-	@Test
+	/*@Test
 	public void testWriteCompetitionFileNotExist(){
 		try {
 			Path path = Paths.get("XML/Savegames/345/competition.xml");
@@ -66,7 +66,7 @@ public class XMLHandlerTest {
 			fail("Unexpected Exception");
 		}
 		
-	}
+	}*/
 	@Test
 	public void testWriteCompetitionFileExist(){
 		try {
