@@ -1,9 +1,11 @@
 /* Main color palette from which other colors are derived. */
 .root {
     /* Base color for menu headers */
-    -fx-base: rgba(16, 16, 16,.7);
+    -fx-basecolor: rgba(16, 16, 16,.7);  
+    -fx-base: -fx-basecolor; 
     /* Base color for window backgrounds */
-    -fx-background: rgba(147, 147, 147,.8); 
+    -fx-backgroundcolor: rgba(147, 147, 147,.8);       
+    -fx-background: -fx-backgroundcolor; 
     /* Custom lookup color for all text */
     -fx-textcolor: rgb(247, 247, 247);
     /* Custom lookup color for all shadows */
@@ -143,25 +145,28 @@
 {
     -fx-background-color: transparent;
     -fx-border-width: 0;
-    -fx-background-insets: 0;
+    -fx-background-insets: 1px 0 0 0;
 }
 
 .table-row-cell:odd
 {
-    -fx-background-color: rgba(127, 127, 127,.5);
-    -fx-background-insets: 0;
+    -fx-background-color: derive(-fx-backgroundcolor, -10%);
+    -fx-background-insets: 1px 0 0 0;
+    -fx-border-width: 0;    
 }
 
 .table-row-cell:focused
 {
-    -fx-background-color: rgba(16, 16, 16, .7);
+    -fx-background-color: -fx-basecolor;
     -fx-background-insets: 1px 0 0 0;
+    -fx-border-width: 0;        
 }
 
 .table-row-cell:hover
 {
-    -fx-background-color: rgba(200, 200, 200,.8);
+    -fx-background-color: derive(-fx-backgroundcolor, -30%);
     -fx-background-insets: 1px 0 0 0;
+    -fx-border-width: 0;        
 }
 
 .table-view:focused
@@ -174,8 +179,9 @@
 .table-view .column-header,
 .table-view .filler
 {
+    -fx-
     -fx-border-width: 0;
-    -fx-background-color: rgba(16, 16, 16, .7);
+    -fx-background-color: -fx-basecolor;
     -fx-padding: 0;
 }
 
@@ -306,7 +312,7 @@
 
 .scroll-bar:vertical .thumb
 {
-    -fx-background-color: -fx-base;
+    -fx-background-color: -fx-basecolor;
     -fx-background-insets: 0 2px 0 2px;
     -fx-background-radius: .5em;
 }
