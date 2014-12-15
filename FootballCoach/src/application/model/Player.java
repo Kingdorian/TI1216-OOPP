@@ -74,17 +74,17 @@ public class Player extends Players {
     
     @Override
     public double getAbility(){
-        return defence > attack ? ((int)(defence + stamina + 0.5*attack) / 0.5) / 100.0
-                                : ((int)(attack + stamina + 0.5*defence) / 0.5) / 100.0; // return a double with 2 numbers after the decimal point
+        return defence > attack ? ((int)(defence + stamina + 0.1*attack) * 5.0 / 2.1) / 100.0
+                                : ((int)(attack + stamina + 0.1*defence) * 5.0 / 2.1) / 100.0; // return a double with 2 numbers after the decimal point
     }
     
     @Override
     public String getKind(){
         if(attack > 75 && defence > 75)
             return "Allrounder";
-        if(attack > defence + 25)
-            return "Attacker";
-        else if(defence > attack + 25)
+        if(attack > defence + 20)
+            return "Forward";
+        else if(defence > attack + 20)
             return "Defender";
         else
             return "Midfielder";

@@ -1,11 +1,12 @@
 package application.model;
 
+import application.Main;
 import java.util.ArrayList;
 
 public class Team {
 
     private String name;
-    private ArrayList<Players> players = new ArrayList<Players>();
+    private ArrayList<Players> players = new ArrayList<>();
     private int budget, points, goals, goalsAgainst;
     boolean artificialGrass;
 
@@ -17,7 +18,7 @@ public class Team {
      */
     public Team(String name, boolean artificialGrass) {
         this.name = name;
-        this.budget = Integer.MIN_VALUE;
+        this.budget = 5000000;//Integer.MIN_VALUE;
         this.points = 0;
         this.goals = 0;
         this.goalsAgainst = 0;
@@ -142,17 +143,33 @@ public class Team {
     /**
      * Makes a transfer from the team to the other team t
      *
-     * @param p Player which is changing team
-     * @param t Team which te player goes to
+     * @param player Player which is changing team
+     * @param team Team which te player goes to
      * @param money The transfersum
+     * @return  true if the transfer was done succesfully
      */
-    public void transferTo(Players p, Team t, int money) {
-        if (this.getPlayers().contains(p)) {
-            this.getPlayers().remove(p);
-            t.addPlayer(p);
+    public boolean transferTo(Players player, Team team, int money) {
+        if (this.getPlayers().contains(player) && team.budget > money) {
+            this.getPlayers().remove(player);
+            this.formatPlayerID();
+            team.addPlayer(player);
+            player.setNumber(team.getPlayers().size());
             this.setBudget(this.getBudget() + money);
-            t.setBudget(t.getBudget() - money);
+            team.setBudget(team.getBudget() - money);
+            
+            // remove player from market
+            Main.getCompetition().getMarket().removePlayer(player);
+            
+            // refresh budget in title bar
+            Main.getTitleController().refreshMoney();
+            
+            return true;
         }
+        return false;
     }
 
+    private void formatPlayerID(){
+        for(int i=0; i<players.size(); i++)
+            players.get(i).setId(i);
+    }
 }

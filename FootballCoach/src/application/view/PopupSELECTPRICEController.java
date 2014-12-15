@@ -80,7 +80,7 @@ public class PopupSELECTPRICEController implements PopupControllerInterface {
             isOkClicked = true;
             
             // put player on the market
-            Main.getCompetition().getMarket().addPlayersForSale(Main.getSelectedPlayer(), price);
+            Main.getCompetition().getMarket().addPlayer(Main.getSelectedPlayer(), price);
             
             popupStage.close();
         } else {
