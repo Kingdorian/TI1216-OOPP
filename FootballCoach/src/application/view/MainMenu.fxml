@@ -30,7 +30,7 @@
                               <Button mnemonicParsing="false" onAction="#buttonNewGame" prefHeight="50.0" prefWidth="300.0" styleClass="itemMenu" text="New Game" />
                               <Button mnemonicParsing="false" onAction="#buttonLoadGame" prefHeight="50.0" prefWidth="300.0" styleClass="itemMenu" text="Load Game" />
                               <Button mnemonicParsing="false" onAction="#buttonSettings" prefHeight="50.0" prefWidth="300.0" styleClass="itemMenu" text="Settings" />
-                              <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" styleClass="itemMenu" text="Credits" />
+                              <Button mnemonicParsing="false" onAction="#buttonCredits" prefHeight="50.0" prefWidth="300.0" styleClass="itemMenu" text="Credits" />
                               <Button mnemonicParsing="false" onAction="#buttonExit" prefHeight="50.0" prefWidth="300.0" styleClass="itemMenu" text="Exit Game" />
                      </children>
                   </VBox>

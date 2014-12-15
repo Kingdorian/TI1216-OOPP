@@ -10,9 +10,9 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Jochem
+ * @author Faris
  */
-public class PopupLOADGAMEController implements PopupControllerInterface {
+public class PopupCREDITSController implements PopupControllerInterface {
 
     private boolean isOkClicked = false;
     private static Stage popupStage;
@@ -40,6 +40,11 @@ public class PopupLOADGAMEController implements PopupControllerInterface {
     @FXML
     private void buttonOK() {
         isOkClicked = true;
+        popupStage.close();
+    }
+
+    @FXML
+    private void buttonCancel() {
         popupStage.close();
     }
 

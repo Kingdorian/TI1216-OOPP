@@ -19,6 +19,11 @@
     -fx-fill: -fx-textcolor;
 }
 
+.text-field {
+    -fx-font: 11pt 'Verdana';
+    -fx-text-fill: -fx-textcolor; 
+}
+
 /* Set the application Background properties */
 .applicationBackground
 {
@@ -75,7 +80,8 @@
 .contentItemMenu:default 
 {
     -fx-border-width: 1px 0 0 0;
-    -fx-border-color: rgba(16, 16, 16,.7);    
+    -fx-border-color: rgba(16, 16, 16,.7);   
+    -fx-background-color: derive(-fx-background, 30%);
 }
 
 /* Styling of all buttons in the GameScreens */

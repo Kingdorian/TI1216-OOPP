@@ -112,4 +112,12 @@ public class MainMenuController implements ViewControllerInterface {
     private void buttonLoadGame() {
         mainController.createPopup("PopupLOADGAME", "Load Game", "/application/img/icon.png");
     }
+
+    /**
+     * Method that opens the credits popup.
+     */
+    @FXML
+    private void buttonCredits() {
+        mainController.createPopup("PopupCREDITS", "Credits", "/application/img/icon.png");
+    }
 }
