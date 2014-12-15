@@ -179,7 +179,6 @@
 .table-view .column-header,
 .table-view .filler
 {
-    -fx-
     -fx-border-width: 0;
     -fx-background-color: -fx-basecolor;
     -fx-padding: 0;
