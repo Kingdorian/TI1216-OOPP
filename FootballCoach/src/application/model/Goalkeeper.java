@@ -1,8 +1,7 @@
 package application.model;
 public class Goalkeeper extends Players {
 	
-	int stopPower;
-	int penaltyStopPower;
+	private int stopPower, penaltyStopPower;
 	
 	/**
 	 * Constructor
@@ -17,17 +16,17 @@ public class Goalkeeper extends Players {
 	 * @param stopPower Skill of the goalkeeper to stop goals.
 	 * @param penalyStopPower Skill of the goalkeeper to stop penalty's. 
 	 */
-	public Goalkeeper(String name, String surName, int number, Status status, int timeNotAvailable, Reason reason, int stopPower, int penalyStopPower){
+	public Goalkeeper(String name, String surName, int number, Status status, int timeNotAvailable, Reason reason, int stopPower, int penaltyStopPower){
 		super(name, surName, number, status, timeNotAvailable, reason);
 		
 		this.stopPower = stopPower;
-		this.penaltyStopPower = stopPower;
+		this.penaltyStopPower = penaltyStopPower;
 		
 	}
 
 
 	public int getStopPower() {
-		return stopPower;
+		return this.stopPower;
 	}
 
 
@@ -46,6 +45,20 @@ public class Goalkeeper extends Players {
 	}
 	public String toString() {
 		return "Goalkeeper [stopPower=" + stopPower + ", penaltyStopPower="
-				+ penaltyStopPower + super.toString() + "]";
+				+ penaltyStopPower + ", " + super.toString() + "]";
+	}
+	
+
+	public boolean equals(Object obj) {
+		
+		if(!(obj instanceof Goalkeeper))
+			return false;
+		Goalkeeper other = (Goalkeeper) obj;
+		if (this.getPenaltyStopPower() != other.getPenaltyStopPower())
+			return false;
+		if (this.getStopPower() != other.getStopPower()){
+			return false;
+		}
+		return true;
 	}
 }
