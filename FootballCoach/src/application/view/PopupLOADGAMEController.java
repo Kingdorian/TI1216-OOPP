@@ -54,7 +54,6 @@ public class PopupLOADGAMEController implements PopupControllerInterface {
 
     @FXML
     private void buttonOK() {
-        isOkClicked = true;
         if(selectSaveGameBox.getSelectionModel().getSelectedIndex() == -1)
             Dialogs.create()
                             .title("No Selection")
@@ -65,13 +64,14 @@ public class PopupLOADGAMEController implements PopupControllerInterface {
         	int choice = Integer.parseInt(selectSaveGameBox.getItems().get(selectSaveGameBox.getSelectionModel().getSelectedIndex()).toString());
 			try {
 				Main.setCompetition(SaveGameHandler.loadCompetition(choice));
-	            Main.setChosenName("[NEEDS IMPLEMENTATION]");	
-	            popupStage.close();	
-	            
+	            Main.setChosenName("[NEEDS IMPLEMENTATION]");		            
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+	        isOkClicked = true;
+            popupStage.close();	    
+
         }
     }
     

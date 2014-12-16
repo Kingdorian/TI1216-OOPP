@@ -112,7 +112,8 @@ public class MainMenuController implements ViewControllerInterface {
      */
     @FXML
     private void buttonLoadGame() {
-        mainController.createPopup("PopupLOADGAME", "Load Game", "/application/img/icon.png");
+        if(mainController.createPopup("PopupLOADGAME", "Load Game", "/application/img/icon.png"))
+            buttonContinue.setDisable(false);
     }
 
     /**
