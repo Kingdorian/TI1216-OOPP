@@ -1,8 +1,8 @@
 package application.controller;
 
 import static org.junit.Assert.*;
-
 import application.model.*;
+
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -69,17 +69,16 @@ public class XMLHandlerTest {
 
     }
 
-    @Test
-    public void testWriteCompetitionFileExist() {
-        try {
-            XMLHandler.writeCompetition(360, refComp, "XML/TestSavegames");
-            Competition genComp = XMLHandler.readCompetition("XML/XMLHandlerTestFile.xml", "XML/XMLHanTestComp.xml");
-            assertEquals(genComp, refComp);
-        } catch (Exception e) {
-            fail("Unexpected Exception");
-        }
-
-    }
+	@Test
+	public void testWriteCompetitionFileExist(){
+		try {
+			Competition genComp = XMLHandler.readCompetition("XML/XMLHandlerTestFile.xml","XML/XMLHanTestComp.xml");
+			assertEquals(genComp.getMatch(0, 0),refComp.getMatch(0, 0));
+		} catch (Exception e) {
+			fail("Unexpected Exception");
+		}
+		
+	}
 
     @Test
     public void testWriteCompetition() {
