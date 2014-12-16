@@ -341,6 +341,4 @@ public class XMLHandler {
 			StreamResult result = new StreamResult(new File(location));
 			t.transform(source, result);
 		}
-		
->>>>>>> SavegameUI
 }

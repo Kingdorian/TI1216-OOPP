@@ -61,11 +61,11 @@ public class Main extends Application {
         // Add a scale handler to the scene
         scaleToScreenSize(rootLayout);
 
-//        primaryStage.setIconified(true);
-//        primaryStage.setFullScreen(true);
+        // primaryStage.setIconified(true);
+        // primaryStage.setFullScreen(true);
         // load the competition
         try {
-            competition = XMLHandler.readCompetition("XML/teams.xml", "XML/competition.xml");
+            competition = XMLHandler.readCompetition("XML/Teams.xml", "XML/Matches.xml");
         } catch (Exception ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("Couldn't open one of the following files: \"XML/Matches.xml\" or \"XML/Competition.xml\"");
