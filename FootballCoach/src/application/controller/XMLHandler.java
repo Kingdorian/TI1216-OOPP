@@ -30,7 +30,6 @@ public class XMLHandler {
 			Team teams[] = new Team[18];
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 			DocumentBuilder db = dbf.newDocumentBuilder();
-			System.out.println(teamsLoc);
 			Document doc = db.parse(new File(teamsLoc));
 			NodeList teamnodes = doc.getElementsByTagName("team");
 			for(int i = 0; i<teamnodes.getLength();i++){
@@ -55,7 +54,11 @@ public class XMLHandler {
 			int	hTp = Integer.parseInt(homeTeam.getAttribute("points"));
 			Element visitorTeam = (Element)match.getElementsByTagName("visitorteam").item(0);
 			Team vT = comp.getTeamByName(visitorTeam.getAttribute("name"));
-			int vTp = Integer.parseInt(homeTeam.getAttribute("points"));
+			int vTp = Integer.parseInt(visitorTeam.getAttribute("points"));
+			System.out.println("HT: " + hT);
+			System.out.println("vT: " + vT);
+			System.out.println("hTp: " + hTp);
+			System.out.println("vTp: " + vTp);
 			return new Match(hT, vT, hTp, vTp);
 		}
 		/**
@@ -70,14 +73,10 @@ public class XMLHandler {
 				if(nodes.item(i).getNodeName().equals("player")){
 					p = parsePlayer(nodes.item(i));
 					if(p!=null)team.addPlayer(p);
-					//System.out.println(p);
 				}else if(nodes.item(i).getNodeName().equals("goalkeeper")){
 					p = parseGoalkeeper(nodes.item(i));
 					if(p!=null)team.addPlayer(p);
-					//System.out.println(p);
 				}
-
-				//System.out.println(team.toString());
 			}
 			return team;
 		}
@@ -195,11 +194,10 @@ public class XMLHandler {
 		}
 		/**
 		 * Stores a competition in the competition.xml file in the specified savegame
-		 * @param saveGameId the Id/number of the savegame
 		 * @param teams The arraylist with teams to store
 		 * @throws Exception
 		 */
-		public static void writeCompetition(int saveGameId, Competition comp, String location){
+		public static void writeCompetition(Competition comp, String location){
 			File saveDir = new File(location);
 			//If the savedir does not yet exist create it and copy the default competition xml into it
 			if(!saveDir.exists()){
@@ -207,8 +205,8 @@ public class XMLHandler {
 				saveDir.mkdir();
 			}
 			try{
-				writeTeams("XML/Savegames/" + saveGameId + "/competition.xml", comp.getTeams());
-				writeMatches("XML/Savegames/" + saveGameId + "/competition.xml", comp);
+				writeTeams(location + comp.getSaveGameId() + "/Competition.xml", comp.getTeams());
+				writeMatches(location + comp.getSaveGameId() + "/Competition.xml", comp);
 			}catch(Exception e){
 				e.printStackTrace();
 			}
@@ -231,17 +229,18 @@ public class XMLHandler {
 				//Looping over the matches
 				for(int j = 0; j<9; j++){
 					Match match = comp.getMatch(i, j);
-
-					Element matchElement = doc.createElement("match");
-					roundElement.appendChild(matchElement);
-					Element homeTeam = doc.createElement("hometeam");
-					roundElement.appendChild(homeTeam);
-					homeTeam.setAttribute("name", match.getHomeTeam().getName());
-					homeTeam.setAttribute("points", match.getHomeTeam().getPoints()+"");
-					Element visTeam = doc.createElement("visitorteam");
-					roundElement.appendChild(visTeam);
-					visTeam.setAttribute("name", match.getVisitorTeam().getName());
-					visTeam.setAttribute("points", match.getVisitorTeam().getPoints()+"");
+					if(!(match==null)){
+						Element matchElement = doc.createElement("match");
+						roundElement.appendChild(matchElement);
+						Element homeTeam = doc.createElement("hometeam");
+						roundElement.appendChild(homeTeam);
+						homeTeam.setAttribute("name", match.getHomeTeam().getName());
+						homeTeam.setAttribute("points", match.getHomeTeam().getPoints()+"");
+						Element visTeam = doc.createElement("visitorteam");
+						roundElement.appendChild(visTeam);
+						visTeam.setAttribute("name", match.getVisitorTeam().getName());
+						visTeam.setAttribute("points", match.getVisitorTeam().getPoints()+"");
+					}
 				}
 			}
 			//Storing xml into a file
@@ -269,9 +268,6 @@ public class XMLHandler {
 			for(int i = 0; i<teams.length;i++){
 				Element teamElement = doc.createElement("team");
 				teamsElement.appendChild(teamElement);	
-				teamElement.setAttribute("name", teams[i].getName());
-	
-				// TODO WRITE LOGO TO XML FILE
 				teamElement.setAttribute("logo", "");
 				teamElement.setAttribute("art_grass", teams[i].hasArtificialGrass()+"");
 		
@@ -339,6 +335,6 @@ public class XMLHandler {
 			Transformer t = tF.newTransformer();
 			DOMSource source = new DOMSource(doc);
 			StreamResult result = new StreamResult(new File(location));
-			t.transform(source, result);
+			t.transform(source,	result);
 		}
 }
