@@ -420,7 +420,8 @@ public class Main extends Application {
     }
 
     public static ArrayList<Players> getPlayersData(String teamName) {
-        return competition.getTeamByName(teamName).getPlayers();
+        return competition.getTeamByName(teamName)
+        		.getPlayers();
     }
 
     public static String getChosenTeamName() {
@@ -444,6 +445,8 @@ public class Main extends Application {
     }
     
     public static void setCompetition(Competition competition) {
+    	System.out.println("setting competition" + competition.toString());
+  
         Main.competition = competition;
     }
 

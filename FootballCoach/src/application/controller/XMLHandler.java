@@ -46,14 +46,18 @@ public class XMLHandler {
 				}
 			}
 			int saveGameId = 0;
+			String chosenTeamName = "", name = "";
 			try{
+				chosenTeamName = ((Element)doc.getElementsByTagName("rounds").item(0)).getAttribute("chosenTeam");
+				name = ((Element)doc.getElementsByTagName("rounds").item(0)).getAttribute("name");
 				saveGameId = Integer.parseInt(((Element)doc.getElementsByTagName("rounds").item(0)).getAttribute("saveGameId"));
 			}catch(NumberFormatException e){
 				e.printStackTrace();
 				
 			}
+			comp.setChosenTeamName(chosenTeamName);
+			comp.setName(name);
 			comp.setSaveGameId(saveGameId);
-			System.out.println(comp.getSaveGameId());
 			return comp;
 			
 		}
@@ -72,6 +76,7 @@ public class XMLHandler {
 		 */
 		public static Team parseTeam(Element teamElement){
 			Team team = new Team(teamElement.getAttribute("name"), Boolean.parseBoolean(teamElement.getAttribute("art_grass")), teamElement.getAttribute("logo"));
+			team.setName(teamElement.getAttribute("name"));
 			NodeList nodes = teamElement.getChildNodes();
 			for(int i = 0; i<nodes.getLength();i++){
 				Players p; 
@@ -250,6 +255,9 @@ public class XMLHandler {
 				}
 			}
 			roundsElement.setAttribute("saveGameId", comp.getSaveGameId()+"");
+			roundsElement.setAttribute("chosenTeam", comp.getChosenTeamName()+"");
+			roundsElement.setAttribute("name", comp.getName()+"");
+			
 			//Storing xml into a file
 			TransformerFactory tF = TransformerFactory.newInstance();
 			Transformer t = tF.newTransformer();
@@ -277,6 +285,7 @@ public class XMLHandler {
 				teamsElement.appendChild(teamElement);	
 				teamElement.setAttribute("logo", "");
 				teamElement.setAttribute("art_grass", teams[i].hasArtificialGrass()+"");
+				teamElement.setAttribute("name", teams[i].getName());
 		
 				for(int j = 0; j<teams[i].getPlayers().size();j++){
 					Players pl = teams[i].getPlayers().get(j);

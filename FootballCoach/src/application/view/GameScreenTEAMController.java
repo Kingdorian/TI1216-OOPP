@@ -57,7 +57,7 @@ public class GameScreenTEAMController implements ViewControllerInterface {
         this.mainController = mainController;
         
         // Add data to the table and sort number column
-        playerTable.setItems(FXCollections.observableArrayList(mainController.getPlayersData(mainController.getChosenTeamName())));
+        playerTable.setItems(FXCollections.observableArrayList(mainController.getPlayersData(mainController.getCompetition().getChosenTeamName())));
         columnNo.setSortType(SortType.ASCENDING);
         playerTable.getSortOrder().clear();
         playerTable.getSortOrder().add(columnNo);

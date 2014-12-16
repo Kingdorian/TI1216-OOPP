@@ -106,8 +106,10 @@ public class PopupNEWGAMEController implements PopupControllerInterface {
 				// Hier wordt de gekozen naam van de gebruiker in de UI geset.
 	            Main.setChosenName(nameField.getText());
 	            //TODO: Methode om de naam van de gebruiker in de competition te setten.
-	            // nameField.getText()
 	            Main.SetChosenTeamName(selectTeamBox.getItems().get(selectTeamBox.getSelectionModel().getSelectedIndex()).toString());
+	            Main.getCompetition().setChosenTeamName(Main.getChosenTeamName());
+	            Main.getCompetition().setName(Main.getChosenName());
+	            // nameField.getText()
 	            //TODO: Methode om de naam vna het gekozen team in de competition te setten, waarbij dit geset wordt: 
 	            // selectTeamBox.getItems().get(selectTeamBox.getSelectionModel().getSelectedIndex()).toString()
 			} catch (FileNotFoundException e) {

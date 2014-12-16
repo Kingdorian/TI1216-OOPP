@@ -32,7 +32,7 @@ public class GameScreenTitleController implements ViewControllerInterface {
         Main.setTitleController(this);
         
         // add texts
-        textBudget.setText("€ " + Main.getCompetition().getTeamByName(Main.getChosenTeamName()).getBudget());
+        textBudget.setText("€ "); //+ Main.getCompetition().getTeamByName(Main.getChosenTeamName()).getBudget());
         textWelcome.setText("Welcome, " + Main.getChosenName());
     }
 

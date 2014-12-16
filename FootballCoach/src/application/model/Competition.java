@@ -9,6 +9,8 @@ public class Competition {
 	private int saveGameId;
 	private int results[][] = new int[18][4];
     private Market market = new Market();
+    private String chosenTeamName;
+    private String name;
     
 	/*
 	 * Results: 2d array with 18 teams (corresponding id to teams[]) and:
@@ -23,6 +25,19 @@ public class Competition {
 	 */
 	public Competition(Team[] t){
 		this.teams = t;
+	}
+	public void setName(String name){
+		this.name = name;
+	}
+	public String getName(){
+		System.out.println(name);
+		return name;
+	}
+	public void setChosenTeamName(String cTN){
+		chosenTeamName = cTN;
+	}
+	public String getChosenTeamName(){
+		return chosenTeamName;
 	}
 	/**
 	 * Returns the id of the savegame the competition belongs to

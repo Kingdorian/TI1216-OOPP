@@ -44,13 +44,14 @@ public class GameScreenHOMEController implements ViewControllerInterface {
     private void initialize() {
         textClub.setText(Main.getChosenTeamName());
         textRanking.setText("Not implemented yet");
-        textNumberPlayers.setText(Integer.toString(Main.getCompetition().getTeamByName(mainController.getChosenTeamName()).getPlayers().size()));
+        textNumberPlayers.setText(Integer.toString(Main.getCompetition().getTeamByName(Main.getCompetition().getChosenTeamName()).getPlayers().size()));
+        textNumberPlayers.setText("Not implemented yet");
         textMatchesWon.setText("Not implemented yet");
         textMatchesDrawn.setText("Not implemented yet");
         textMatchesLost.setText("Not implemented yet");
         
         try {
-			java.io.FileInputStream imageLoader = new FileInputStream("FootballCoach/XML/Savegames/" + Main.getCompetition().getSaveGameId() + "/images/" + Main.getChosenTeamName() + ".png");
+			java.io.FileInputStream imageLoader = new FileInputStream("XML/Savegames/" + Main.getCompetition().getSaveGameId() + "/images/" + Main.getChosenTeamName() + ".png");
 	        Image image = new Image(imageLoader, 200, 200, true, false);
 	        teamLogo.setImage(image);	
 		} catch (FileNotFoundException e) {

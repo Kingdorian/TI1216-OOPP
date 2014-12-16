@@ -64,10 +64,8 @@ public class PopupLOADGAMEController implements PopupControllerInterface {
         	int choice = Integer.parseInt(selectSaveGameBox.getItems().get(selectSaveGameBox.getSelectionModel().getSelectedIndex()).toString());
 			try {
 				Main.setCompetition(SaveGameHandler.loadCompetition(choice));
-				// TODO: Hieronder de naam setten
-	            Main.setChosenName("[NEEDS IMPLEMENTATION]");
-	            // TODO: Hieronder de gekozen teamname setten
-	            Main.SetChosenTeamName("NEEDS IMPLEMENTATION");
+	            Main.setChosenName(Main.getCompetition().getName());
+	            Main.SetChosenTeamName(Main.getCompetition().getChosenTeamName());
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
