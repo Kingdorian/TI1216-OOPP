@@ -3,9 +3,9 @@ package application.model;
 public enum Status {
 
     DEFAULT(0),
-    INJURED(1),
-    SUSPENDED(2),
-    INJUREDSUSPENDED(3);
+    YELLOW(1),
+    RED(2);
+
 
     private Status(int status) {
         this.status = status;

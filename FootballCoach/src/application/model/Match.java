@@ -1,4 +1,7 @@
 package application.model;
+
+import java.util.ArrayList;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -15,12 +18,26 @@ public class Match {
     Team visitorTeam;
     int pointsHomeTeam;
     int pointsVisitorTeam;
-
+    ArrayList<Players> players;
+    ArrayList<Status> status;
+    ArrayList<Reason> reason;
+    
     public Match(Team homeTeam, Team visitorTeam, int pointsHomeTeam, int pointsVisitorTeam) {
+    this.homeTeam = homeTeam;
+    this.visitorTeam = visitorTeam;
+    this.pointsHomeTeam = pointsHomeTeam;
+    this.pointsVisitorTeam = pointsVisitorTeam;
+    }
+    
+    public Match(Team homeTeam, Team visitorTeam, int pointsHomeTeam, int pointsVisitorTeam, ArrayList<Players> players,
+    			ArrayList<Status> status,  ArrayList<Reason> reason) {
         this.homeTeam = homeTeam;
         this.visitorTeam = visitorTeam;
         this.pointsHomeTeam = pointsHomeTeam;
         this.pointsVisitorTeam = pointsVisitorTeam;
+        this.players = players;
+        this.status = status;
+        this.reason = reason;
     }
 
     public Team getHomeTeam() {

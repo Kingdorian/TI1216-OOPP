@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Team {
 
     private String name;
-    private ArrayList<Players> players = new ArrayList<>();
+    private ArrayList<Players> players = new ArrayList<Players>();
     private int budget, points, goals, goalsAgainst;
     boolean artificialGrass;
 
