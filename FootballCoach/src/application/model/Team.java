@@ -55,7 +55,7 @@ public class Team {
 				this.artificialGrass == team.hasArtificialGrass())return true;
 			
 		}
-		
+		System.out.println("Not an instance of team");
 		return false;
 		
 	}
@@ -150,7 +150,4 @@ public class Team {
 			t.setBudget(t.getBudget() - money);
 		}
 	}
-
-
-	
 }

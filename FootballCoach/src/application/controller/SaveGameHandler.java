@@ -36,14 +36,17 @@ public class SaveGameHandler {
 	 * @throws Exception
 	 */
 	public static Competition loadCompetition(int savegameId) throws Exception{
-		return ldByCompByUrl(defaultloc + savegameId + "/competition.xml" , defaultloc + savegameId + "/Matches.xml");
+		Competition returnComp = ldByCompByPath(defaultloc + savegameId + "/competition.xml" , defaultloc + savegameId + "/Matches.xml");
+		returnComp.setSaveGameId(savegameId);
+		return returnComp;
 	}
 	/**
-	 * @throws Exception 
+	 * Loads a competition by the specified path
+	 * @throws Exception if one of both files does not exist
 	 * 
 	 */
-	private static Competition ldByCompByUrl(String compUrl, String matchUrl) throws Exception{
-		return XMLHandler.readCompetition(compUrl, matchUrl);
+	private static Competition ldByCompByPath(String compPath, String matchPath) throws Exception{
+		return XMLHandler.readCompetition(compPath, matchPath);
 	}
 	/**
 	 * Gives a ArrayList with all the ids of savegames at the savegame location
@@ -89,8 +92,9 @@ public class SaveGameHandler {
 		new File(defaultloc + "/" + newId).mkdirs();
 		try {
 			new File(defaultloc + "/" + newId + "/images/").mkdirs();
-			Competition returnComp = ldByCompByUrl(teamsLoc, matchesLoc);
+			Competition returnComp = ldByCompByPath(teamsLoc, matchesLoc);
 			fetchImages(defaultloc + "/" + newId + "/images/", returnComp);
+			returnComp.setSaveGameId(newId);
 			return returnComp;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -99,11 +103,17 @@ public class SaveGameHandler {
 		return null;
 	}
 	/**
-	 * 
+	 * Save a competition to the hard drive
+	 * @param Competition comp the competition to store
 	 */
-	public static void saveGame(int id, Competition comp) throws IOException{
-		XMLHandler.writeCompetition(id, comp, defaultloc + id + "/");
+	public static void saveGame(Competition comp) throws IOException{
+		XMLHandler.writeCompetition(comp, defaultloc + comp.getSaveGameId()+ "/");
 	}
+	/**
+	 * 
+	 * @param location
+	 * @param comp
+	 */
 	
 	private static void fetchImages(String location, Competition comp){
 		System.out.println("Fetching images...");
@@ -120,5 +130,30 @@ public class SaveGameHandler {
 				e.printStackTrace();
 			}
 		}
+	}
+	/**
+	 * Deletes the savegame with the specfied id from the filesystem
+	 * @param id of the savegame to delete
+	 */
+	public static void deleteSaveGame(int id){
+		File dir = new File(defaultloc);
+		File[] savegames = dir.listFiles();
+		for(int i = 0; i<savegames.length;i++){
+			removeDirectory(savegames[i]);
+		}
+	}
+	
+	private static void removeDirectory(File dir) {
+	    if (dir.isDirectory()) {
+	        File[] files = dir.listFiles();
+	        if (files != null && files.length > 0) {
+	            for (int i = 0; i < files.length; i++) {
+	                removeDirectory(files[i]);
+	            }
+	        }
+	        dir.delete();
+	    } else {
+	        dir.delete();
+	    }
 	}
 }
