@@ -2,7 +2,7 @@
 <rounds>
 	<round num="1">
 		<match>
-			<hometeam name="AJAX" points="5"/>
+			<hometeam name="Ajax" points="5"/>
 			<visitorteam name="Feyenoord" points="3"/>
 		</match>
 	</round>
