@@ -93,7 +93,7 @@ public class MainMenuController implements ViewControllerInterface {
      */
     @FXML
     private void buttonSettings() {
-        mainController.createPopup("PopupSETTINGS", "Settings", "/application/img/icon.png");
+        mainController.createPopup("PopupSETTINGS", "Settings", "/application/img/settings.png");
     }
 
     /**
