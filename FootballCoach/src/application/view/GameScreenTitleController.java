@@ -60,6 +60,14 @@ public class GameScreenTitleController implements ViewControllerInterface {
     }
     
     /**
+     * Method that opens the save game popup.
+     */
+    @FXML 
+    private void buttonSaveGame() {
+        mainController.createPopup("PopupSAVEGAME", "Save Game", "/application/img/save.png");
+    }
+    
+    /**
      * Method that opens the play match screen.
      */
     @FXML

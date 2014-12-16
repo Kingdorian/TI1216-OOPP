@@ -50,7 +50,7 @@ public class GameScreenHOMEController implements ViewControllerInterface {
         textMatchesLost.setText("Not implemented yet");
         
         try {
-			java.io.FileInputStream imageLoader = new FileInputStream("XML/Savegames/" + Main.GetCurrentGameID() + "/images/" + Main.getChosenTeamName() + ".png");
+			java.io.FileInputStream imageLoader = new FileInputStream("XML/Savegames/" + Main.getCompetition().getSaveGameId() + "/images/" + Main.getChosenTeamName() + ".png");
 	        Image image = new Image(imageLoader, 200, 200, true, false);
 	        teamLogo.setImage(image);	
 		} catch (FileNotFoundException e) {

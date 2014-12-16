@@ -5,6 +5,7 @@
  */
 package application.view;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import org.controlsfx.dialog.Dialogs;
@@ -15,18 +16,19 @@ import application.model.Team;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
  *
  * @author Jochem
  */
-public class PopupLOADGAMEController implements PopupControllerInterface {
+public class PopupSAVEGAMEController implements PopupControllerInterface {
 
     private boolean isOkClicked = false;
     private static Stage popupStage;
     @FXML
-    private ComboBox selectSaveGameBox;
+    private Text saveGameID;
 
     /**
      * Sets the stage of this dialog.
@@ -45,34 +47,20 @@ public class PopupLOADGAMEController implements PopupControllerInterface {
 
     @FXML
     private void initialize() {
+    	saveGameID.setText(Integer.toString(Main.getCompetition().getSaveGameId()));
         isOkClicked = false;
-        
-        //Add items to the dropdown list
-        ArrayList<Integer> saveGames = SaveGameHandler.getSaveGames();
-        selectSaveGameBox.setItems(FXCollections.observableArrayList(saveGames));
     }
 
     @FXML
     private void buttonOK() {
-        isOkClicked = true;
-        if(selectSaveGameBox.getSelectionModel().getSelectedIndex() == -1)
-            Dialogs.create()
-                            .title("No Selection")
-                            .masthead("No savegame selected")
-                            .message("Please select a savegame in the dropdown list.")
-                            .showWarning(); 
-        else {
-        	int choice = Integer.parseInt(selectSaveGameBox.getItems().get(selectSaveGameBox.getSelectionModel().getSelectedIndex()).toString());
-			try {
-				Main.setCompetition(SaveGameHandler.loadCompetition(choice));
-	            Main.setChosenName("[NEEDS IMPLEMENTATION]");	
-	            popupStage.close();	
-	            
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-        }
+    	try {
+            isOkClicked = true; 		
+			SaveGameHandler.saveGame(Main.getCompetition());
+	        popupStage.close();			
+		} catch (IOException e) {
+			System.out.println("Game could not be saved");
+			e.printStackTrace();
+		}
     }
     
     @FXML

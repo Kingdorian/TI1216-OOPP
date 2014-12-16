@@ -40,7 +40,6 @@ public class Main extends Application {
     private static String chosenName;
     private static String chosenTeamName = "Ajax";
     private static Competition competition;
-    private static int currentGameID = 3;
 
     private static Stage primaryStage;
     private static BorderPane rootLayout;
@@ -430,14 +429,6 @@ public class Main extends Application {
     
     public static void SetChosenTeamName(String name){
         chosenTeamName = name;
-    }
-    
-    public static void SetCurrentGameID(int id) {
-    	currentGameID = id;
-    }
-    
-    public static int GetCurrentGameID() {
-    	return currentGameID;
     }
 
     public static String getChosenName() {

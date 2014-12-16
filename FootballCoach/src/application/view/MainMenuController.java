@@ -50,8 +50,9 @@ public class MainMenuController implements ViewControllerInterface {
         translate.play();
 
         // Disable continue button if the game hasn't started yet
-        if(Main.getChosenTeamName().equals(""))
-            buttonContinue.setDisable(true);
+        if (Main.getCompetition() == null) {
+        buttonContinue.setDisable(true);
+        }
     }
 
     @Override
@@ -64,6 +65,7 @@ public class MainMenuController implements ViewControllerInterface {
      */
     @FXML
     private void buttonContinue() {
+    
         mainController.setCenterView("GameScreenHOME");
         mainController.setLeftView("GameScreenMenu");
         mainController.setTopView("GameScreenTitle");
