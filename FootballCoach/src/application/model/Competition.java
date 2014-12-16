@@ -207,4 +207,11 @@ public class Competition {
     public void setMarket(Market market) {
         this.market = market;
     }
+    
+    public Team getPlayersTeam(Players player){
+    	for(Team team : teams)
+    	if(team.getPlayers().contains(player))
+    		return team;
+    	return null;
+    }
 }
