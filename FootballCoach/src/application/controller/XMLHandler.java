@@ -45,6 +45,15 @@ public class XMLHandler {
 					comp.addMatch(i, j, parseMatch((Element)matches.item(j), comp));
 				}
 			}
+			int saveGameId = 0;
+			try{
+				saveGameId = Integer.parseInt(((Element)doc.getElementsByTagName("rounds").item(0)).getAttribute("saveGameId"));
+			}catch(NumberFormatException e){
+				e.printStackTrace();
+				
+			}
+			comp.setSaveGameId(saveGameId);
+			System.out.println(comp.getSaveGameId());
 			return comp;
 			
 		}
@@ -240,6 +249,7 @@ public class XMLHandler {
 					}
 				}
 			}
+			roundsElement.setAttribute("saveGameId", comp.getSaveGameId()+"");
 			//Storing xml into a file
 			TransformerFactory tF = TransformerFactory.newInstance();
 			Transformer t = tF.newTransformer();

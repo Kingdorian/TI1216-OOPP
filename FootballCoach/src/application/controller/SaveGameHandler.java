@@ -22,7 +22,7 @@ import application.model.*;
 public class SaveGameHandler {
 	
 	//The standardlocation of the savegames
-	private static String defaultloc = "FootballCoach/XML/Savegames/";
+	private static String defaultloc = "XML/Savegames/";
 	/**
 	 * Changes the default location for savegames, usefull for for example testing purposes
 	 * @param String newLoc with the new path to the savegame

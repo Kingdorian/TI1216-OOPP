@@ -61,4 +61,15 @@ public class Goalkeeper extends Players {
 		}
 		return true;
 	}
+	
+    @Override
+    public String getKind(){
+            return "Goalkeeper";
+    }
+
+
+    @Override
+    public double getAbility(){
+        return stopPower * 0.04 + penaltyStopPower/100.0;
+    }
 }
