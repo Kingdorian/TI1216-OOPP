@@ -76,6 +76,7 @@ public class XMLHandler {
 		 */
 		public static Team parseTeam(Element teamElement){
 			Team team = new Team(teamElement.getAttribute("name"), Boolean.parseBoolean(teamElement.getAttribute("art_grass")), teamElement.getAttribute("logo"));
+			//team.setBudget(Integer.parseInt(teamElement.getAttribute("budget")));
 			team.setName(teamElement.getAttribute("name"));
 			NodeList nodes = teamElement.getChildNodes();
 			for(int i = 0; i<nodes.getLength();i++){
@@ -286,6 +287,7 @@ public class XMLHandler {
 				teamElement.setAttribute("logo", "");
 				teamElement.setAttribute("art_grass", teams[i].hasArtificialGrass()+"");
 				teamElement.setAttribute("name", teams[i].getName());
+				//teamElement.setAttribute("budget", teams[i].getBudget()+"");
 		
 				for(int j = 0; j<teams[i].getPlayers().size();j++){
 					Players pl = teams[i].getPlayers().get(j);
