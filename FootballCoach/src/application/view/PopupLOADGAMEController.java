@@ -5,7 +5,16 @@
  */
 package application.view;
 
+import java.util.ArrayList;
+
+import org.controlsfx.dialog.Dialogs;
+
+import application.Main;
+import application.controller.SaveGameHandler;
+import application.model.Team;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 
 /**
@@ -16,6 +25,8 @@ public class PopupLOADGAMEController implements PopupControllerInterface {
 
     private boolean isOkClicked = false;
     private static Stage popupStage;
+    @FXML
+    private ComboBox selectSaveGameBox;
 
     /**
      * Sets the stage of this dialog.
@@ -35,12 +46,33 @@ public class PopupLOADGAMEController implements PopupControllerInterface {
     @FXML
     private void initialize() {
         isOkClicked = false;
+        
+        //Add items to the dropdown list
+        ArrayList<Integer> saveGames = SaveGameHandler.getSaveGames();
+        selectSaveGameBox.setItems(FXCollections.observableArrayList(saveGames));
     }
 
     @FXML
     private void buttonOK() {
         isOkClicked = true;
-        popupStage.close();
+        if(selectSaveGameBox.getSelectionModel().getSelectedIndex() == -1)
+            Dialogs.create()
+                            .title("No Selection")
+                            .masthead("No savegame selected")
+                            .message("Please select a savegame in the dropdown list.")
+                            .showWarning(); 
+        else {
+        	int choice = Integer.parseInt(selectSaveGameBox.getItems().get(selectSaveGameBox.getSelectionModel().getSelectedIndex()).toString());
+			try {
+				Main.setCompetition(SaveGameHandler.loadCompetition(choice));
+	            Main.setChosenName("[NEEDS IMPLEMENTATION]");
+	        	Main.SetCurrentGameID(choice);		
+	            popupStage.close();		
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        }
     }
     
     @FXML

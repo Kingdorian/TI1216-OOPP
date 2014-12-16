@@ -5,6 +5,9 @@
  */
 package application.view;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 import application.Main;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
@@ -46,8 +49,14 @@ public class GameScreenHOMEController implements ViewControllerInterface {
         textMatchesDrawn.setText("Not implemented yet");
         textMatchesLost.setText("Not implemented yet");
         
-        Image image = new Image("http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/325/150x150.png", 200, 200, true, false);
-        teamLogo.setImage(image);
+        try {
+			java.io.FileInputStream imageLoader = new FileInputStream("XML/Savegames/" + Main.GetCurrentGameID() + "/images/" + Main.getChosenTeamName() + ".png");
+	        Image image = new Image(imageLoader, 200, 200, true, false);
+	        teamLogo.setImage(image);	
+		} catch (FileNotFoundException e) {
+			System.out.println("Image could not be found");
+			e.printStackTrace();
+		}
     }
 
     @Override

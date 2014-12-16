@@ -26,7 +26,7 @@
         </rowConstraints>
          <children>
               <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Select a savegame:" />
-              <ChoiceBox prefHeight="29.0" prefWidth="345.0" styleClass="choiceBox" GridPane.rowIndex="1" />
+              <ComboBox fx:id="selectSaveGameBox" prefHeight="29.0" prefWidth="345.0" styleClass="choiceBox" GridPane.rowIndex="1" />
          </children>
       </GridPane>
     </children>

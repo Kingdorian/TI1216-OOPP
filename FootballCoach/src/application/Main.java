@@ -40,6 +40,7 @@ public class Main extends Application {
     private static String chosenName;
     private static String chosenTeamName = "Ajax";
     private static Competition competition;
+    private static int currentGameID = 3;
 
     private static Stage primaryStage;
     private static BorderPane rootLayout;
@@ -68,7 +69,7 @@ public class Main extends Application {
             competition = XMLHandler.readCompetition("XML/Teams.xml", "XML/Matches.xml");
         } catch (Exception ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Couldn't open one of the following files: \"XML/Matches.xml\" or \"XML/Competition.xml\"");
+            System.out.println("Couldn't open one of the following files: \"XML/Teams.xml\" or \"XML/Matches.xml\"");
         }
         // FOR TESTING:
         for(Players pl : competition.getTeamByName("Feyenoord").getPlayers())
@@ -430,6 +431,14 @@ public class Main extends Application {
     public static void SetChosenTeamName(String name){
         chosenTeamName = name;
     }
+    
+    public static void SetCurrentGameID(int id) {
+    	currentGameID = id;
+    }
+    
+    public static int GetCurrentGameID() {
+    	return currentGameID;
+    }
 
     public static String getChosenName() {
         return chosenName;
@@ -442,6 +451,11 @@ public class Main extends Application {
     public static Competition getCompetition() {
         return competition;
     }
+    
+    public static void setCompetition(Competition competition) {
+        Main.competition = competition;
+    }
+
 
     public static Players getSelectedPlayer() {
         return selectedPlayer;

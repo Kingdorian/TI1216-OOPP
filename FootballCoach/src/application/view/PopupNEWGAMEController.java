@@ -6,13 +6,20 @@
 package application.view;
 
 import application.Main;
+import application.controller.SaveGameHandler;
+import application.model.Competition;
 import application.model.Team;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
+
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
 import org.controlsfx.dialog.Dialogs;
 
 /**
@@ -92,8 +99,19 @@ public class PopupNEWGAMEController implements PopupControllerInterface {
                             .showWarning();
         else{
             // Set the chosen name and team in the Main class
-            Main.setChosenName(nameField.getText());
-            Main.SetChosenTeamName(selectTeamBox.getItems().get(selectTeamBox.getSelectionModel().getSelectedIndex()).toString());
+        	
+        	try {
+        	// Creating a new save and returning the competition to main.
+				Main.setCompetition(SaveGameHandler.createNewSave("XML/Teams.xml", "XML/Matches.xml"));
+	            Main.setChosenName(nameField.getText());
+	            Main.SetChosenTeamName(selectTeamBox.getItems().get(selectTeamBox.getSelectionModel().getSelectedIndex()).toString());	
+			} catch (FileNotFoundException e) {
+				System.out.println("The required files could not be found.");
+				e.printStackTrace();
+			} catch (IOException e) {
+				System.out.println("IO Exception");
+				e.printStackTrace();
+			}
             isOkClicked = true;
             popupStage.close();
         }
