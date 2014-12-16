@@ -5,8 +5,15 @@
  */
 package application.view;
 
+import application.Main;
+import application.model.Team;
+import java.util.ArrayList;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.controlsfx.dialog.Dialogs;
 
 /**
  *
@@ -17,38 +24,84 @@ public class PopupNEWGAMEController implements PopupControllerInterface {
     private boolean isOkClicked = false;
     private static Stage popupStage;
     
-    
+    @FXML
+    private ComboBox selectTeamBox;
+    @FXML
+    private ComboBox selectCompetitionBox;
+    @FXML
+    private TextField nameField;
+
     /**
      * Sets the stage of this dialog.
-     * 
+     *
+     * @param main
      * @param popupStage
      */
     @Override
     public void setPopupStage(Stage popupStage) {
-        PopupNEWGAMEController.popupStage = popupStage;
+        this.popupStage = popupStage;
     }
-    
-    
+
     @Override
     public boolean isOkClicked() {
         return isOkClicked;
     }
 
-    
     @FXML
-    private void initialize(){
+    private void initialize() {
         isOkClicked = false;
+        
+        // add items to the dropdown list
+        ArrayList<String> teamNames = new ArrayList<>();
+        Team[] teams = Main.getCompetition().getTeams();
+        for(Team t : teams){
+            if(!t.getName().equals(Main.getChosenTeamName()))
+            teamNames.add(t.getName());
+        }
+        selectTeamBox.setItems(FXCollections.observableArrayList(teamNames));
+        
+        // WIP :: Add competition types.
+        selectCompetitionBox.setItems(FXCollections.observableArrayList(new ArrayList<String>(){{ add("Not implemented yet"); add("Not implemented yet"); }}));
     }
-    
+
     @FXML
-    private void buttonOK(){
-        isOkClicked = true;
+    private void buttonOK() {
+        if(nameField.getText().isEmpty())
+            Dialogs.create()
+                            .title("No Name")
+                            .masthead("The name field is empty")
+                            .message("Please write down your name in the text field.")
+                            .showWarning();
+        else if(selectTeamBox.getSelectionModel().getSelectedIndex() == -1 && selectCompetitionBox.getSelectionModel().getSelectedIndex() == -1)
+            Dialogs.create()
+                            .title("No Selection")
+                            .masthead("No team and competition selected")
+                            .message("Please select a team and competition in the dropdown list.")
+                            .showWarning();
+        else if(selectTeamBox.getSelectionModel().getSelectedIndex() == -1)
+            Dialogs.create()
+                            .title("No Selection")
+                            .masthead("No team selected")
+                            .message("Please select a team in the dropdown list.")
+                            .showWarning();
+        else if(selectCompetitionBox.getSelectionModel().getSelectedIndex() == -1)
+            Dialogs.create()
+                            .title("No Selection")
+                            .masthead("No competition selected")
+                            .message("Please select a competition in the dropdown list.")
+                            .showWarning();
+        else{
+            // Set the chosen name and team in the Main class
+            Main.setChosenName(nameField.getText());
+            Main.SetChosenTeamName(selectTeamBox.getItems().get(selectTeamBox.getSelectionModel().getSelectedIndex()).toString());
+            isOkClicked = true;
+            popupStage.close();
+        }
+    }
+
+    @FXML
+    private void buttonCancel() {
         popupStage.close();
     }
-    
-    @FXML
-    private void buttonCancel(){
-        popupStage.close();
-    }
-    
+
 }

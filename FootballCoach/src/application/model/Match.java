@@ -15,39 +15,16 @@ public class Match {
     private int pointsHomeTeam;
     private int pointsVisitorTeam;
 	
-	public boolean equals(Object obj) {
-		if(!(obj instanceof Match)){
-			return false;
-		}
-		Match other = (Match) obj;
-		if (homeTeam == null) {
-			if (other.homeTeam != null)
-				return false;
 		} else if (!homeTeam.equals(other.getHomeTeam())){
 			System.out.println(homeTeam.toString() + "\n" + other.getHomeTeam().toString() );
 			System.out.println("Hometeams not equal");
-			return false;
 		}
 		if (pointsHomeTeam != other.pointsHomeTeam){
 			System.out.println("Points Hometeam not equal");
-			return false;
-		}if (pointsVisitorTeam != other.pointsVisitorTeam){
+		if (pointsVisitorTeam != other.pointsVisitorTeam)
 			System.out.println("Points visitor team not equal");
-			return false;
 		}	
-		if (visitorTeam == null) {
-			if (other.visitorTeam != null)
-				return false;
-		} else if (!visitorTeam.equals(other.visitorTeam))
-			return false;
-		return true;
-	}
-	
-	public String toString() {
 		return "Match [homeTeam=" + homeTeam.getName() + ", visitorTeam=" + visitorTeam.getName()
-				+ ", pointsHomeTeam=" + pointsHomeTeam + ", pointsVisitorTeam="
-				+ pointsVisitorTeam + "]";
-	}
 
 
 
@@ -90,6 +67,38 @@ public class Match {
         this.pointsVisitorTeam = pointsVisitorTeam;
     }
 
-    
-    
+
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Match)) {
+            return false;
+        }
+        Match other = (Match) obj;
+        if (homeTeam == null) {
+            if (other.homeTeam != null) {
+                return false;
+            }
+        } else if (!homeTeam.equals(other.homeTeam)) {
+            return false;
+        }
+        if (pointsHomeTeam != other.pointsHomeTeam) {
+            return false;
+        }
+        if (pointsVisitorTeam != other.pointsVisitorTeam) {
+            return false;
+        }
+        if (visitorTeam == null) {
+            if (other.visitorTeam != null) {
+                return false;
+            }
+        } else if (!visitorTeam.equals(other.visitorTeam)) {
+            return false;
+        }
+        return true;
+    }
+
+    public String toString() {
+        return "Match [homeTeam=" + homeTeam + ", visitorTeam=" + visitorTeam
+                + ", pointsHomeTeam=" + pointsHomeTeam + ", pointsVisitorTeam="
+                + pointsVisitorTeam + "]";
+    }
 }
