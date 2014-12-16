@@ -114,7 +114,7 @@ public abstract class Players {
 	
 
 	public String toString() {
-		return "Players [id=" + id + ", name=" + name + ", surname=" + surname
+		return "Players [name=" + name + ", surname=" + surname
 				+ ", number=" + number + ", status=" + status
 				+ ", timeNotAvailable=" + timeNotAvailable + ", reason="
 				+ reason + "]";
