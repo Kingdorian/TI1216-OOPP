@@ -42,7 +42,7 @@ public class XMLHandler {
 				Element round = (Element)rounds.item(i);
 				NodeList matches = round.getElementsByTagName("match");
 				for(int j = 0; j<matches.getLength();j++){
-					comp.addMatch(Integer.parseInt(round.getAttribute("num")), j, parseMatch((Element)matches.item(j), comp));
+					comp.addMatch(i, j, parseMatch((Element)matches.item(j), comp));
 				}
 			}
 			return comp;
@@ -55,10 +55,6 @@ public class XMLHandler {
 			Element visitorTeam = (Element)match.getElementsByTagName("visitorteam").item(0);
 			Team vT = comp.getTeamByName(visitorTeam.getAttribute("name"));
 			int vTp = Integer.parseInt(visitorTeam.getAttribute("points"));
-			System.out.println("HT: " + hT);
-			System.out.println("vT: " + vT);
-			System.out.println("hTp: " + hTp);
-			System.out.println("vTp: " + vTp);
 			return new Match(hT, vT, hTp, vTp);
 		}
 		/**
@@ -206,7 +202,7 @@ public class XMLHandler {
 			}
 			try{
 				writeTeams(location + comp.getSaveGameId() + "/Competition.xml", comp.getTeams());
-				writeMatches(location + comp.getSaveGameId() + "/Competition.xml", comp);
+				writeMatches(location + comp.getSaveGameId() + "/Matches.xml", comp);
 			}catch(Exception e){
 				e.printStackTrace();
 			}
@@ -215,6 +211,7 @@ public class XMLHandler {
 		}
 		
 		private static void writeMatches(String location, Competition comp) throws Exception {
+			System.out.println(location + "   loc");
 			// Setting up doc builder
 			DocumentBuilderFactory dF = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dB = dF.newDocumentBuilder();
@@ -233,11 +230,11 @@ public class XMLHandler {
 						Element matchElement = doc.createElement("match");
 						roundElement.appendChild(matchElement);
 						Element homeTeam = doc.createElement("hometeam");
-						roundElement.appendChild(homeTeam);
+						matchElement.appendChild(homeTeam);
 						homeTeam.setAttribute("name", match.getHomeTeam().getName());
 						homeTeam.setAttribute("points", match.getHomeTeam().getPoints()+"");
 						Element visTeam = doc.createElement("visitorteam");
-						roundElement.appendChild(visTeam);
+						matchElement.appendChild(visTeam);
 						visTeam.setAttribute("name", match.getVisitorTeam().getName());
 						visTeam.setAttribute("points", match.getVisitorTeam().getPoints()+"");
 					}

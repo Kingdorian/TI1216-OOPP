@@ -102,7 +102,7 @@ public class PopupNEWGAMEController implements PopupControllerInterface {
         	
         	try {
         	// Creating a new save and returning the competition to main.
-				Main.setCompetition(SaveGameHandler.createNewSave("XML/Teams.xml", "XML/Matches.xml"));
+				Main.setCompetition(SaveGameHandler.createNewSave("FootballCoach/XML/Teams.xml", "FootballCoach/XML/Matches.xml"));
 	            Main.setChosenName(nameField.getText());
 	            Main.SetChosenTeamName(selectTeamBox.getItems().get(selectTeamBox.getSelectionModel().getSelectedIndex()).toString());	
 			} catch (FileNotFoundException e) {

@@ -65,7 +65,7 @@ public class Main extends Application {
         // primaryStage.setFullScreen(true);
         // load the competition
         try {
-            competition = XMLHandler.readCompetition("XML/Teams.xml", "XML/Matches.xml");
+            competition = XMLHandler.readCompetition("FootballCoach/XML/Teams.xml", "FootballCoach/XML/Matches.xml");
         } catch (Exception ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("Couldn't open one of the following files: \"XML/Teams.xml\" or \"XML/Matches.xml\"");

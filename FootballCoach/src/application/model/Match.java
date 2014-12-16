@@ -45,7 +45,11 @@ public class Match {
 	}
 	
 	public String toString() {
-		return "Match [homeTeam=" + homeTeam.getName() + ", visitorTeam=" + visitorTeam.getName()
+		if(homeTeam==null||visitorTeam==null){
+			return "";
+		}
+		return "Match [homeTeam=" + homeTeam.getName() 
+				+ ", visitorTeam=" + visitorTeam.getName()
 				+ ", pointsHomeTeam=" + pointsHomeTeam + ", pointsVisitorTeam="
 				+ pointsVisitorTeam + "]";
 	}
