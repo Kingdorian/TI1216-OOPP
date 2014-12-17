@@ -99,6 +99,6 @@
       <Label layoutX="406.0" layoutY="16.0" text="Visitor Team/Home Team" />
       <Label layoutX="28.0" layoutY="413.0" styleClass="menuTitle" text="Score:  " />
       <Line endX="684.0" layoutY="400.0" styleClass="contentView" />
-      <Text fx:id="score" disable="true" layoutX="87.0" layoutY="428.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Test" wrappingWidth="35.11979293823242" />
+      <Text fx:id="score" disable="true" layoutX="87.0" layoutY="428.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Test" wrappingWidth="150.0" />
    </children>
 </Pane>
