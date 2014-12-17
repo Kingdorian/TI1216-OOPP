@@ -78,7 +78,6 @@ public class PopupLOADGAMEController implements PopupControllerInterface {
     
     @FXML
     private void buttonCancel() {
-        isOkClicked = true;
         popupStage.close();
     }
 

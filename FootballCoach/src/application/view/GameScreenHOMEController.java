@@ -45,7 +45,6 @@ public class GameScreenHOMEController implements ViewControllerInterface {
         textClub.setText(Main.getChosenTeamName());
         textRanking.setText("Not implemented yet");
         textNumberPlayers.setText(Integer.toString(Main.getCompetition().getTeamByName(Main.getCompetition().getChosenTeamName()).getPlayers().size()));
-        textNumberPlayers.setText("Not implemented yet");
         textMatchesWon.setText("Not implemented yet");
         textMatchesDrawn.setText("Not implemented yet");
         textMatchesLost.setText("Not implemented yet");
