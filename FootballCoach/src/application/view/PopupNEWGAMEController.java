@@ -61,10 +61,9 @@ public class PopupNEWGAMEController implements PopupControllerInterface {
         // add items to the dropdown list
         ArrayList<String> teamNames = new ArrayList<>();
         Team[] teams = Main.getCompetition().getTeams();
-        for(Team t : teams){
-            if(!t.getName().equals(Main.getChosenTeamName()))
+        for(Team t : teams)
             teamNames.add(t.getName());
-        }
+        
         selectTeamBox.setItems(FXCollections.observableArrayList(teamNames));
         
         // WIP :: Add competition types.

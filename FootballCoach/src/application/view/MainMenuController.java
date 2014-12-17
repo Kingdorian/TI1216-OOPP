@@ -52,7 +52,7 @@ public class MainMenuController implements ViewControllerInterface {
 
         // Disable continue button if the game hasn't started yet
         if (Main.getCompetition() == null) {
-        buttonContinue.setDisable(true);
+            buttonContinue.setDisable(true);
         }
     }
 
