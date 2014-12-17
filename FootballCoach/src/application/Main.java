@@ -71,40 +71,6 @@ public class Main extends Application {
             System.out.println("Couldn't open one of the following files: \"XML/Teams.xml\" or \"XML/Matches.xml\"");
         }
         // FOR TESTING:
-        for(Players pl : competition.getTeamByName("Feyenoord").getPlayers())
-                competition.getMarket().addPlayer(pl, 5);
-        for(Players pl : competition.getTeamByName("PSV").getPlayers())
-              competition.getMarket().addPlayer(pl, 5);  
-        for(Players pl : competition.getTeamByName("ADO Den Haag").getPlayers())
-              competition.getMarket().addPlayer(pl, 5);
-        for(Players pl : competition.getTeamByName("AZ").getPlayers())
-              competition.getMarket().addPlayer(pl, 5);
-        for(Players pl : competition.getTeamByName("SC Cambuur").getPlayers())
-              competition.getMarket().addPlayer(pl, 5);
-        for(Players pl : competition.getTeamByName("FC Dordrecht").getPlayers())
-              competition.getMarket().addPlayer(pl, 5);
-        for(Players pl : competition.getTeamByName("Excelsior").getPlayers())
-              competition.getMarket().addPlayer(pl, 5);
-        for(Players pl : competition.getTeamByName("Go Ahead Eagles").getPlayers())
-              competition.getMarket().addPlayer(pl, 5);
-        for(Players pl : competition.getTeamByName("FC Groningen").getPlayers())
-              competition.getMarket().addPlayer(pl, 5);
-        for(Players pl : competition.getTeamByName("Heracles Almelo").getPlayers())
-              competition.getMarket().addPlayer(pl, 5);
-        for(Players pl : competition.getTeamByName("NAC Breda").getPlayers())
-              competition.getMarket().addPlayer(pl, 5);
-        for(Players pl : competition.getTeamByName("Ajax").getPlayers())
-              competition.getMarket().addPlayer(pl, 5);
-        for(Players pl : competition.getTeamByName("PEC Zwolle").getPlayers())
-              competition.getMarket().addPlayer(pl, 5);
-        for(Players pl : competition.getTeamByName("FC Twente").getPlayers())
-              competition.getMarket().addPlayer(pl, 5);
-        for(Players pl : competition.getTeamByName("FC Utrecht").getPlayers())
-              competition.getMarket().addPlayer(pl, 5);
-        for(Players pl : competition.getTeamByName("Vitesse").getPlayers())
-              competition.getMarket().addPlayer(pl, 5);
-        for(Players pl : competition.getTeamByName("Willem II").getPlayers())
-              competition.getMarket().addPlayer(pl, 5);
 
     }
 

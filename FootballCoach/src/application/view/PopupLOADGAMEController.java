@@ -11,6 +11,7 @@ import org.controlsfx.dialog.Dialogs;
 
 import application.Main;
 import application.controller.SaveGameHandler;
+import application.model.Players;
 import application.model.Team;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -66,10 +67,12 @@ public class PopupLOADGAMEController implements PopupControllerInterface {
 				Main.setCompetition(SaveGameHandler.loadCompetition(choice));
 	            Main.setChosenName(Main.getCompetition().getName());
 	            Main.SetChosenTeamName(Main.getCompetition().getChosenTeamName());
+	            
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
 	        isOkClicked = true;
             popupStage.close();	    
 

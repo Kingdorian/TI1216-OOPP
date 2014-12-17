@@ -143,12 +143,36 @@ public class Team {
 	 * @param t Team which te player goes to
 	 * @param money The transfersum
 	 */
-	public void transferTo(Players p, Team t, int money){
-		if(this.getPlayers().contains(p)){
-			this.getPlayers().remove(p);
-			t.addPlayer(p);
-			this.setBudget(this.getBudget() + money);
-			t.setBudget(t.getBudget() - money);
-		}
-	}
+	/**
+     * Makes a transfer from the team to the other team t
+     *
+     * @param player Player which is changing team
+     * @param team Team which te player goes to
+     * @param money The transfersum
+     * @return  true if the transfer was done succesfully
+     */
+    public boolean transferTo(Players player, Team team, int money) {
+        if (this.getPlayers().contains(player) && team.budget > money) {
+            this.getPlayers().remove(player);
+            this.formatPlayerID();
+            team.addPlayer(player);
+            player.setNumber(team.getPlayers().size());
+            this.setBudget(this.getBudget() + money);
+            team.setBudget(team.getBudget() - money);
+            
+            // remove player from market
+            Main.getCompetition().getMarket().removePlayer(player);
+            
+            // refresh budget in title bar
+            Main.getTitleController().refreshMoney();
+            
+            return true;
+        }
+        return false;
+    }
+
+    private void formatPlayerID(){
+        for(int i=0; i<players.size(); i++)
+            players.get(i).setId(i);
+    }
 }

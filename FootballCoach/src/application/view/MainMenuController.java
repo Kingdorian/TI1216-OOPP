@@ -6,6 +6,7 @@
 package application.view;
 
 import application.Main;
+import application.model.Players;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
@@ -65,7 +66,13 @@ public class MainMenuController implements ViewControllerInterface {
      */
     @FXML
     private void buttonContinue() {
-    
+    	// Market test
+		for(Players pl : Main.getCompetition().getTeamByName("Feyenoord").getPlayers())
+			Main.getCompetition().getMarket().addPlayer(pl, 5);
+		
+		//Testing budget.
+		Main.getCompetition().getTeamByName(Main.getChosenTeamName()).setBudget(5000000);
+		
         mainController.setCenterView("GameScreenHOME");
         mainController.setLeftView("GameScreenMenu");
         mainController.setTopView("GameScreenTitle");
@@ -103,8 +110,10 @@ public class MainMenuController implements ViewControllerInterface {
      */
     @FXML
     private void buttonNewGame() {
-        if(mainController.createPopup("PopupNEWGAME", "New Game", "/application/img/icon.png"))
+        if(mainController.createPopup("PopupNEWGAME", "New Game", "/application/img/icon.png")) {
             buttonContinue.setDisable(false);
+        	buttonContinue();
+        }    
     }
 
     /**
@@ -112,8 +121,10 @@ public class MainMenuController implements ViewControllerInterface {
      */
     @FXML
     private void buttonLoadGame() {
-        if(mainController.createPopup("PopupLOADGAME", "Load Game", "/application/img/icon.png"))
+        if(mainController.createPopup("PopupLOADGAME", "Load Game", "/application/img/icon.png")) {
             buttonContinue.setDisable(false);
+        	buttonContinue();
+        }	
     }
 
     /**

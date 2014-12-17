@@ -58,6 +58,7 @@ public class GameScreenMARKETController implements ViewControllerInterface {
      */
     @FXML
     private void initialize() {
+    	
         playerTable.setPlaceholder(new Label("There are no players for sale at the moment"));
 
         // Initialize the Players table with the 5 columns
