@@ -157,16 +157,6 @@ public class CurrentPositions {
     
     
     /**
-     * checks if the player standing on a specific position is from the allyTeam
-     * @param p     the position at which a pleyer is standing
-     * @return      boolean: if the player is from the allyTeam
-     */
-    public boolean isAlly(ExactPosition p){
-        return allyTeam.contains(p);
-    }
-    
-    
-    /**
      * get the position of the ball
      * @return      ExactPosition containing the position of the ball
      */
@@ -185,25 +175,6 @@ public class CurrentPositions {
         }
         return true;
     }
-
-    
-    /**
-     * set the positions of the players in the allyTeam
-     * @param allyTeam  an arrayList containing the positions of the allyTeam
-     */
-    public void setAllyTeam(ArrayList<ExactPosition> allyTeam) {
-        this.allyTeam = allyTeam;
-    }
-
-    
-    /**
-     * set the positions of the players in the enemyTeam
-     * @param enemyTeam  an arrayList containing the positions of the enemyTeam
-     */
-    public void setEnemyTeam(ArrayList<ExactPosition> enemyTeam) {
-        this.enemyTeam = enemyTeam;
-    }
-
     
     /**
      * set the position of ball
@@ -229,9 +200,7 @@ public class CurrentPositions {
      */
     public ArrayList<ExactPosition> getEnemyTeam() {
         return enemyTeam;
-    }
-    
-    
+    }    
 
     public static PlayerInfo getAllyInfo(int i) {
         return allyInfo.get(i);
@@ -249,12 +218,12 @@ public class CurrentPositions {
         enemyInfo.add(i, enemyInf);
     }
     
-    
     public int getPlayerID(ExactPosition player){
-        for(int i=0; i<11; i++)
+        int i;
+        for(i=0; i<11; i++)
             if(player.equals(allyTeam.get(i)) || player.equals(enemyTeam.get(i)))
-                return i;
-        return -1;
+                break;
+        return i;
     }
     
     public static void addPointLeft(){

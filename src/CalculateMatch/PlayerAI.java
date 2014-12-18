@@ -68,8 +68,15 @@ public abstract class PlayerAI {
         double opponentDistance = closest.distanceTo(BallAI.getCurrentBallPosition());
         double ownDistance = thisAttacker.distanceTo(BallAI.getCurrentBallPosition());
         int opponentID = positions.getPlayerID(closest);
-        double opponentDefense = CurrentPositions.getAllyInfo(opponentID).getDefensePower();
-        double thisAttackPower =  CurrentPositions.getAllyInfo(playerID).getAttackPower();
+        double opponentDefense;
+        double thisAttackPower;
+        if(isOnAllyTeam){
+            opponentDefense = CurrentPositions.getEnemyInfo(opponentID).getDefensePower();
+            thisAttackPower =  CurrentPositions.getAllyInfo(playerID).getAttackPower();
+        } else{
+            opponentDefense = CurrentPositions.getAllyInfo(opponentID).getDefensePower();
+            thisAttackPower =  CurrentPositions.getEnemyInfo(playerID).getAttackPower();
+        }
         double chance;
         if(opponentDistance != 0 && ownDistance != 0)
             chance = (ownDistance / thisAttackPower)/(opponentDistance / opponentDefense);

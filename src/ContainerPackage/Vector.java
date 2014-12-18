@@ -15,12 +15,6 @@ public class Vector {
     private ExactPosition pointTo;
     
     /**
-     * Basic constructor
-     */
-    public Vector(){
-    }
-    
-    /**
      * Constructor with two point parameters
      * @param point1    ExactPosition of the position
      * @param point2    ExactPosition of the direction
@@ -40,24 +34,7 @@ public class Vector {
     public Vector(double x1, double y1, double x2, double y2){
         pointFrom = new ExactPosition(x1, y1);
         pointTo = new ExactPosition(x2, y2);
-    }
-
-    public ExactPosition getPointFrom() {
-        return pointFrom;
-    }
-
-    public void setPointFrom(ExactPosition pointFrom) {
-        this.pointFrom = pointFrom;
-    }
-
-    public ExactPosition getPointTo() {
-        return pointTo;
-    }
-
-    public void setPointTo(ExactPosition pointTo) {
-        this.pointTo = pointTo;
-    }
-    
+    }    
     
     /**
      * translates the point into the direction this vector points at, over the distance specified

@@ -22,8 +22,24 @@ public class TestFX extends Application {
         stage.setResizable(false);
         initializeRootLayout();
         
+        // animate play match:
         Match testMatch = MainAIController.createMatch();
-        (new AnimateFootballMatch()).playMatch(rootLayout, testMatch, stage);      
+        (new AnimateFootballMatch()).playMatch(rootLayout, testMatch, stage);   
+        
+        
+        // test choose positions:
+//        AnchorPane anchorPane;
+//        try {
+//            FXMLLoader loader = new FXMLLoader();
+//            loader.setLocation(AnimateFootballMatch.class.getResource("ChoosePositions.fxml"));
+//            anchorPane = (AnchorPane) loader.load();
+//            //ChoosePositionsController viewController = (ChoosePositionsController) loader.getController();
+//        } catch (IOException ex) {
+//            Logger.getLogger(AnimateFootballMatch.class.getName()).log(Level.SEVERE, null, ex);
+//            System.out.println("Failed to read FootballField.fxml file");
+//            return;
+//        }
+//        rootLayout.setCenter(anchorPane);
     }
 
     

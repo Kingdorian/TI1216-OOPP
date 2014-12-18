@@ -88,14 +88,13 @@ public class ExactPosition {
         return other.getxPos() == this.getxPos() && other.getyPos() == this.getyPos();
     }
     
-        /**
+    /**
      * gives if this player is on the field
      * @return      a boolean: is the player currently on the field?
      */
     public boolean isOnField() {
         return onField;
     }
-
     
     /**
      * set: is this player on the field?

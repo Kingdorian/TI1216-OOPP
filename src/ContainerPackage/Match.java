@@ -12,25 +12,8 @@ import java.util.ArrayList;
  * @author faris
  */
 public class Match {
-    
-    private TeamInfo opponentTeamInfo, allyTeamInfo;
+
     private ArrayList<PositionsTimeSlice> positionsList = new ArrayList<>();
-
-    public TeamInfo getOpponentTeamInfo() {
-        return opponentTeamInfo;
-    }
-
-    public void setOpponentTeamInfo(TeamInfo opponentTeamInfo) {
-        this.opponentTeamInfo = opponentTeamInfo;
-    }
-
-    public TeamInfo getAllyTeamInfo() {
-        return allyTeamInfo;
-    }
-
-    public void setAllyTeamInfo(TeamInfo allyTeamInfo) {
-        this.allyTeamInfo = allyTeamInfo;
-    }
 
     public PositionsTimeSlice getPositions(int timeElapsedInSeconds) {
         return positionsList.get(timeElapsedInSeconds);
