@@ -11,4 +11,9 @@ package CalculateMatch;
  */
 public class CenterAI {
     
+    // TODO: Ball far from middle line: support defend (create counters) <><><><><><><><><><><><><><><><><><><><><><><><>
+    
+    // TODO: Ball far from middle line: support attack (prevent counters) <><><><><><><><><><><><><><><><><><><><><><><><>
+    
+    // TODO: Ball close to middle line: try to get ball (stay close to ball) <><><><><><><><><><><><><><><><><><><><><><><><>
 }

@@ -1,7 +1,6 @@
 package Playmatch;
 
 import ContainerPackage.Match;
-import ContainerPackage.PlayerPosition;
 import ContainerPackage.PositionsTimeSlice;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -18,6 +17,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 /**
@@ -27,7 +27,8 @@ import javafx.util.Duration;
 public class AnimateFootballMatch {
     
     // The amount of slides to play per second. Change this to change the playing speed.
-    private int MILLISECONDS_PER_SLICE = 145; // should be 245
+    private static final int MILLISECONDS_PER_SLICE = 245; // base speed (at x1 speed)
+    private static int speed = 245; // speed to play at
         
     // Circles representing the players
     private final Circle playerCircle[] = new Circle[11];
@@ -38,18 +39,21 @@ public class AnimateFootballMatch {
     private EventHandler onFinished;
     
     // Integer holding the elapsed time
-    private Integer time = 0;
+    private static int time = 0;
     
     // The footballMatch which is being animated
     private Match footballMatch;
     
+    private static int playerPause = 0; // if this is 1, there is a pause, if this is 2, there was a pause last slice, if it is 3, still setting up new positions, if this is 0, there is no pause
+    private FootballFieldController viewController;
     
     /**
      * play a match defined in the Match parameter
      * @param rootLayout        a BorderPane, which center should contain the animated match
      * @param footballMatch     Match containing a full match to play
+     * @param stage
      */
-    public void playMatch(BorderPane rootLayout, Match footballMatch){
+    public void playMatch(BorderPane rootLayout, Match footballMatch, Stage stage){
         
         this.footballMatch = footballMatch;
      
@@ -59,16 +63,12 @@ public class AnimateFootballMatch {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(AnimateFootballMatch.class.getResource("FootballField.fxml"));
             anchorPane = (AnchorPane) loader.load();
+            viewController = (FootballFieldController) loader.getController();
         } catch (IOException ex) {
             Logger.getLogger(AnimateFootballMatch.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("Failed to read FootballField.fxml file");
             return;
         }
-
-        // get positions to draw circles
-        PositionsTimeSlice pts = footballMatch.getPositions(0);
-        PlayerPosition player1 = pts.getPlayersAlly(0);
-        PlayerPosition adversary1 = pts.getPlayersAdversary(0);
 
         // get starting positions and increase time variable
         PositionsTimeSlice startPositions = footballMatch.getPositions(time++);
@@ -116,6 +116,7 @@ public class AnimateFootballMatch {
         
         // draw the scene
         rootLayout.setCenter(anchorPane);
+        stage.sizeToScene(); // make sure there are no white borders
 
         // create event handler
         onFinished = new EventHandler<ActionEvent>(){
@@ -124,7 +125,6 @@ public class AnimateFootballMatch {
                 if(time < footballMatch.amoutOfSlices() - 1){
                     time++;
                     playTimeSlice();
-                    System.out.println("current time: "+time/4.0+"s");
                 }
             }
         };
@@ -139,19 +139,28 @@ public class AnimateFootballMatch {
      * play a TimeSlice from the footballMatch, based on the current time variable
      */
     private void playTimeSlice(){
-        
-        System.out.println("playing next scene");
-        
+
         // declare a time line, key frames to later add to the time line and key values to put in the key frames
         Timeline timeline = new Timeline();
         KeyValue kvX, kvY;
-        KeyFrame kf = new KeyFrame(Duration.millis(MILLISECONDS_PER_SLICE), onFinished);
+        KeyFrame kf;
+        if(footballMatch.getPositions(time).isPause()){
+            kf = new KeyFrame(Duration.millis(speed * 4), onFinished);
+            playerPause = 1;
+        } else if(playerPause == 1){
+            kf = new KeyFrame(Duration.millis(0), onFinished);
+            playerPause = 2;
+        } else{
+            playerPause = playerPause == 2 ? 3 : 0;
+            kf = new KeyFrame(Duration.millis(speed), onFinished);
+        }
+        
         timeline.getKeyFrames().add(kf); // use this keyframe to trigger onFinished once, after the animation is finished
         
         for(int i=0; i<11; i++){
             // get location which circle1 and circle2 should move to
             if(footballMatch.getPositions(time).getPlayersAlly(i) != null && footballMatch.getPositions(time).getPlayersAlly(i).isOnField()){
-                playerCircle[i].setVisible(true);
+                playerCircle[i].setVisible(playerPause < 2); // only visible if there wasn't a pause before this slice
                 playerCircle[i].setEffect(new Lighting());
 
                 // get location which playerCircle[i] should move to
@@ -159,7 +168,7 @@ public class AnimateFootballMatch {
                 kvY = new KeyValue(playerCircle[i].centerYProperty(), footballMatch.getPositions(time).getPlayersAlly(i).getyPos(), Interpolator.LINEAR);
                 
                 // set the locations to keyframes
-                kf = new KeyFrame(Duration.millis(MILLISECONDS_PER_SLICE)/*,onFinished*/,  kvX, kvY);
+                kf = new KeyFrame(Duration.millis(speed)/*,onFinished*/,  kvX, kvY);
                 
                 // add key frame to timeline
                 timeline.getKeyFrames().add(kf);
@@ -167,7 +176,7 @@ public class AnimateFootballMatch {
                 playerCircle[i].setVisible(false);
 
             if(footballMatch.getPositions(time).getPlayersAdversary(i) != null && footballMatch.getPositions(time).getPlayersAdversary(i).isOnField()){
-                adversaryCircle[i].setVisible(true);
+                adversaryCircle[i].setVisible(playerPause < 2);
                 adversaryCircle[i].setEffect(new Lighting());
                 
                 // get location which adversaryCircle[i] should move to
@@ -175,7 +184,7 @@ public class AnimateFootballMatch {
                  kvY = new KeyValue(adversaryCircle[i].centerYProperty(), footballMatch.getPositions(time).getPlayersAdversary(i).getyPos(), Interpolator.LINEAR);
                 
                 // set the locations to keyframes
-                kf = new KeyFrame(Duration.millis(MILLISECONDS_PER_SLICE), kvX, kvY);
+                kf = new KeyFrame(Duration.millis(speed), kvX, kvY);
                 
                 // add key frame to timeline
                 timeline.getKeyFrames().add(kf);
@@ -184,10 +193,17 @@ public class AnimateFootballMatch {
         }
         
         // also animate the ball
+        ballCircle.setVisible(!footballMatch.getPositions(time).isPause() && playerPause < 2);
         kvX = new KeyValue(ballCircle.centerXProperty(), footballMatch.getPositions(time).getBallPosition().getxPos(), Interpolator.LINEAR);
         kvY = new KeyValue(ballCircle.centerYProperty(), footballMatch.getPositions(time).getBallPosition().getyPos(), Interpolator.LINEAR);
-        kf = new KeyFrame(Duration.millis(MILLISECONDS_PER_SLICE), kvX, kvY);
+        kf = new KeyFrame(Duration.millis(speed), kvX, kvY);
         timeline.getKeyFrames().add(kf);
+        
+        // set the score
+        viewController.setScore("Score: " + footballMatch.getPositions(time).getScoreLeft() + " - " + footballMatch.getPositions(time).getScoreRight());
+        
+        // set the time
+        viewController.setTime(time);
         
         // play timeline
         timeline.play();
@@ -197,11 +213,11 @@ public class AnimateFootballMatch {
      * Change the speed to play at. 1 is the default, 2 is twice the speed, etc.
      * @param factor    int: the factor to the speed
      */
-    public void setSpeed(int factor){
-        if(factor < 0.5)
-            return;
-            
-        MILLISECONDS_PER_SLICE = 245/factor;
-        
+    public static void setSpeed(double factor){   
+        speed = (int) (MILLISECONDS_PER_SLICE/factor);
+    }
+
+    public static void setTime(int time) {
+        AnimateFootballMatch.time = time;
     }
 }

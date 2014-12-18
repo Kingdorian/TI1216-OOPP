@@ -2,8 +2,6 @@ package CalculateMatch;
 
 import ContainerPackage.ExactPosition;
 import ContainerPackage.PlayerInfo;
-import ContainerPackage.PlayerPosition;
-import ContainerPackage.Position;
 import ContainerPackage.PositionsTimeSlice;
 import java.util.ArrayList;
 
@@ -22,7 +20,9 @@ public class CurrentPositions {
     // Specific player information
     private static ArrayList<PlayerInfo> allyInfo = new ArrayList<>();
     private static ArrayList<PlayerInfo> enemyInfo = new ArrayList<>();
-
+    
+    private static int scoreLeft;
+    private static int scoreRight;
     
     /**
      * Constructor: sets start positions
@@ -32,7 +32,6 @@ public class CurrentPositions {
             allyTeam.add(new ExactPosition());
             enemyTeam.add(new ExactPosition());
         }
-        setStartOfMatchPositions();
     }
     
     
@@ -72,6 +71,8 @@ public class CurrentPositions {
         
         // set ball position
         ballPosition = new ExactPosition(510.0, 382.0);
+        BallAI.setCurrentBallPosition(ballPosition);
+        BallAI.setOutsideOfField(false);
     }
     
     
@@ -81,13 +82,26 @@ public class CurrentPositions {
      * @return 
      */
     public PositionsTimeSlice convertToTimeSlice(){
-        PositionsTimeSlice res = new PositionsTimeSlice();
-        for(int i=0; i<11; i++){
-            res.setPlayersAlly(new PlayerPosition((int) allyTeam.get(i).getxPos(), (int) allyTeam.get(i).getyPos()), i);
-            res.setPlayersAdversary(new PlayerPosition((int) enemyTeam.get(i).getxPos(), (int) enemyTeam.get(i).getyPos()), i);
+        
+        // if the ball is outside of the field, return a pause slice, else return next positions.
+        if(BallAI.isOutsideOfField()){
+            PositionsTimeSlice res = new PositionsTimeSlice();
+            res.setPause(true);
+            res.setScoreLeft(scoreLeft);
+            res.setScoreRight(scoreRight);
+            setStartOfMatchPositions();
+            return res;
+        } else{
+            PositionsTimeSlice res = new PositionsTimeSlice();
+            for(int i=0; i<11; i++){
+                res.setPlayersAlly(allyTeam.get(i), i);
+                res.setPlayersAdversary(enemyTeam.get(i), i);
+            }
+            res.setBallPosition(ballPosition);
+            res.setScoreLeft(scoreLeft);
+            res.setScoreRight(scoreRight);
+            return res;
         }
-        res.setBallPosition(new Position((int) ballPosition.getxPos(), (int) ballPosition.getyPos()));
-        return res;
     }
     
     
@@ -241,5 +255,13 @@ public class CurrentPositions {
             if(player.equals(allyTeam.get(i)) || player.equals(enemyTeam.get(i)))
                 return i;
         return -1;
+    }
+    
+    public static void addPointLeft(){
+        scoreLeft++;
+    }
+    
+    public static void addPointRight(){
+        scoreRight++;
     }
 }

@@ -1,0 +1,9 @@
+.animationBottomRegion
+{
+    -fx-background-color: whitesmoke;
+}
+
+.animationTopRegion
+{
+    -fx-background-color: rgba(255, 255, 255, 0.3);
+}

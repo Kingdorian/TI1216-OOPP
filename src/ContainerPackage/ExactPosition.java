@@ -12,6 +12,7 @@ package ContainerPackage;
 public class ExactPosition {
     private double xPos; // stores x position
     private double yPos; // stores y position
+    private boolean onField = true;
     
     /**
      * constructor with player positions
@@ -85,5 +86,22 @@ public class ExactPosition {
         
         ExactPosition other = (ExactPosition) o;
         return other.getxPos() == this.getxPos() && other.getyPos() == this.getyPos();
+    }
+    
+        /**
+     * gives if this player is on the field
+     * @return      a boolean: is the player currently on the field?
+     */
+    public boolean isOnField() {
+        return onField;
+    }
+
+    
+    /**
+     * set: is this player on the field?
+     * @param onField       a boolean: is the player currently on the field?
+     */
+    public void setOnField(boolean onField) {
+        this.onField = onField;
     }
 }

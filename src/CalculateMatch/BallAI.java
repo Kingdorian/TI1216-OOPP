@@ -18,10 +18,11 @@ public class BallAI {
     
     private static ExactPosition currentBallPosition;
     private static Vector ballVector;
-    private static int counter = 0;
+    private static int counter = 2;
     private static boolean shootHard;
     private static boolean shootToTeammate;
     private static boolean lastShotByAllyTeam = false;
+    private static boolean isOutsideOfField = false;
     
     
     /**
@@ -46,13 +47,21 @@ public class BallAI {
      * @return      ExactPosition containing the position the ball will move to next
      */
     public static ExactPosition getNextBallPosition(){
+        
+        //if ball is outside of field, return ball position and set outside of field variable to true
+        isOutsideOfField = false;
+        if(checkBallOutsideOfField()){
+            isOutsideOfField = true;
+            return currentBallPosition;
+        }
+        
         counter++;
         double speed = Math.random() * 7.5 + BALLSPEED;
         
         if(shootHard)
             speed *= 5;
         if(shootToTeammate && ballVector != null)
-            speed = ballVector.getLength()/2;
+            speed = ballVector.getLength()/3;
         
         if(counter < 15){
             for(int i=1; i<counter; i++)
@@ -65,7 +74,34 @@ public class BallAI {
         if(ballVector != null)
             currentBallPosition = ballVector.translate(currentBallPosition, speed);
 
+        // TODO: Check for ball outside of field <><><><><><><><><><><><><><><><><><><><><><><><>
+        
         return currentBallPosition;
+    }
+    
+    /**
+     * Checks if the ball is currently outside of the field
+     * @return 
+     */
+    private static boolean checkBallOutsideOfField(){
+        double xPos = currentBallPosition.getxPos();
+        double yPos = currentBallPosition.getyPos();
+        
+        // check if the ball is outside the field
+        if(xPos < 60)
+            if(yPos < LEFT_GOAL_POSITION.getyPos() + (GOAL_SIZE/2) && yPos > LEFT_GOAL_POSITION.getyPos() - (GOAL_SIZE/2)){
+                CurrentPositions.addPointRight(); // left team scored
+                return true;
+            } else 
+                return true;
+        else if(xPos > 995)
+            if(yPos < RIGHT_GOAL_POSITION.getyPos() + (GOAL_SIZE/2) && yPos > RIGHT_GOAL_POSITION.getyPos() - (GOAL_SIZE/2)){
+                CurrentPositions.addPointLeft(); // right team scored
+                return true;
+            } else 
+                return true;
+        else
+            return yPos < 58 || yPos > 703;
     }
 
     
@@ -92,7 +128,7 @@ public class BallAI {
             // decide direction to shoot ball
             double xPos = LEFT_GOAL_POSITION.getxPos();
             double yPos = LEFT_GOAL_POSITION.getyPos();
-            yPos += (Math.random() *  GOAL_SIZE * 0.8) - (Math.random() *  GOAL_SIZE * 0.8);
+            yPos += (Math.random() *  GOAL_SIZE) - (Math.random() *  GOAL_SIZE);
 
             // shoot ball
             shootBallTo(new ExactPosition(xPos, yPos), false);
@@ -107,7 +143,7 @@ public class BallAI {
             // decide direction to shoot ball
             double xPos = RIGHT_GOAL_POSITION.getxPos();
             double yPos = RIGHT_GOAL_POSITION.getyPos();
-            yPos += (Math.random() *  GOAL_SIZE * 0.8) - (Math.random() *  GOAL_SIZE * 0.8);
+            yPos += (Math.random() *  GOAL_SIZE) - (Math.random() *  GOAL_SIZE);
 
             // shoot ball
             shootBallTo(new ExactPosition(xPos, yPos), true);
@@ -121,9 +157,6 @@ public class BallAI {
      * @return boolean
      */
     public static boolean islastShotByAllyTeam(){
-//        if(ballVector == null)
-//            return false;
-//        return ballVector.getPointFrom().getxPos() < ballVector.getPointTo().getxPos();
         return lastShotByAllyTeam;
     }
     
@@ -134,4 +167,13 @@ public class BallAI {
             shootToTeammate = true;
         }
     }
+
+    public static boolean isOutsideOfField() {
+        return isOutsideOfField;
+    }
+
+    public static void setOutsideOfField(boolean isOutsideOfField) {
+        BallAI.isOutsideOfField = isOutsideOfField;
+    }
+
 }

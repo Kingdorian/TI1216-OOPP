@@ -19,11 +19,11 @@ public class TestFX extends Application {
     @Override
     public void start(Stage stage) {
         primaryStage = stage;
-        
+        stage.setResizable(false);
         initializeRootLayout();
         
         Match testMatch = MainAIController.createMatch();
-        (new AnimateFootballMatch()).playMatch(rootLayout, testMatch);      
+        (new AnimateFootballMatch()).playMatch(rootLayout, testMatch, stage);      
     }
 
     

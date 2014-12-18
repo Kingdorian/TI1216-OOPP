@@ -11,4 +11,10 @@ package CalculateMatch;
  */
 public class KeeperAI {
     
+    // TODO: Normally: stay in center of goal <><><><><><><><><><><><><><><><><><><><><><><><>
+    
+    // TODO: Ball close to goal: go toward y pos of ball <><><><><><><><><><><><><><><><><><><><><><><><>
+    
+    // TODO: Ball shot at goal: stop ball based on luck and skills <><><><><><><><><><><><><><><><><><><><><><><><>
+    
 }

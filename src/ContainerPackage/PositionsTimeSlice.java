@@ -8,26 +8,19 @@ package ContainerPackage;
 public class PositionsTimeSlice {
     
     // Players are sorted by their numbers, the player with the lowest number will be Player[0], the one after that Player[1], ...
-    private PlayerPosition[] playersAlly = new PlayerPosition[12];      // array of players played by the player
-    private PlayerPosition[] playersAdversary = new PlayerPosition[12];  // array of players played by the computer
-    private Position ballPosition = new Position();
+    private ExactPosition[] playersAlly = new ExactPosition[12];      // array of players played by the player
+    private ExactPosition[] playersAdversary = new ExactPosition[12];  // array of players played by the computer
+    private ExactPosition ballPosition = new ExactPosition();
     
     private boolean isPause = false; // if the frame represents a pause, this value will be true
+    private int scoreRight = 0;
+    private int scoreLeft = 0;
 
     
     /**
      * basic constructor
      */
     public PositionsTimeSlice(){
-    }
-    
-    
-    /**
-     * constructor used when this frame should represent a pause.
-     * @param isPause   true if this frame is a pause, else false
-     */
-    public PositionsTimeSlice(boolean isPause){
-        this.isPause = isPause;
     }
 
     
@@ -36,7 +29,7 @@ public class PositionsTimeSlice {
      * @param index     the index of the player (player with the lowest back number will have index 0, the one after that 1, ...)
      * @return          a player object of the player with the indicated index
      */
-    public PlayerPosition getPlayersAlly(int index) {
+    public ExactPosition getPlayersAlly(int index) {
         return playersAlly[index];
     }
 
@@ -46,7 +39,7 @@ public class PositionsTimeSlice {
      * @param index     the index of the Player (Player with the lowest back number will have index 0, the one after that 1, ...)
      * @return          a Player object of the player with the indicated index
      */
-    public PlayerPosition getPlayersAdversary(int index) {
+    public ExactPosition getPlayersAdversary(int index) {
         return playersAdversary[index];
     }
 
@@ -56,7 +49,7 @@ public class PositionsTimeSlice {
      * @param playersAlly   a Player object containing the players position
      * @param index         the index of the player (Player with the lowest back number will have index 0, the one after that 1, ...)
      */
-    public void setPlayersAlly(PlayerPosition playersAlly, int index ) {
+    public void setPlayersAlly(ExactPosition playersAlly, int index ) {
         this.playersAlly[index] = playersAlly;
     }
 
@@ -66,7 +59,7 @@ public class PositionsTimeSlice {
      * @param playersAdversary  a Player object containing the players position
      * @param index             the index of the player (Player with the lowest back number will have index 0, the one after that 1, ...)
      */
-    public void setPlayersAdversary(PlayerPosition playersAdversary, int index) {
+    public void setPlayersAdversary(ExactPosition playersAdversary, int index) {
         this.playersAdversary[index] = playersAdversary;
     }
 
@@ -75,7 +68,7 @@ public class PositionsTimeSlice {
      * gives the balls position
      * @return      the Position of the ball
      */
-    public Position getBallPosition() {
+    public ExactPosition getBallPosition() {
         return ballPosition;
     }
 
@@ -84,8 +77,33 @@ public class PositionsTimeSlice {
      * set the position of the ball
      * @param ballPosition      a Position containing the balls position
      */
-    public void setBallPosition(Position ballPosition) {
+    public void setBallPosition(ExactPosition ballPosition) {
         this.ballPosition = ballPosition;
     }
+
+    public boolean isPause() {
+        return isPause;
+    }
+
+    public void setPause(boolean isPause) {
+        this.isPause = isPause;
+    }
+
+    public int getScoreRight() {
+        return scoreRight;
+    }
+
+    public void setScoreRight(int scoreRight) {
+        this.scoreRight = scoreRight;
+    }
+
+    public int getScoreLeft() {
+        return scoreLeft;
+    }
+
+    public void setScoreLeft(int scoreLeft) {
+        this.scoreLeft = scoreLeft;
+    }
+    
     
 }

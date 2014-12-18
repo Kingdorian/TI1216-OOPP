@@ -113,11 +113,11 @@ public class AttackerAI extends PlayerAI {
                                 ExactPosition closestOfOwnTeam = null;
                                 if(isOnAllyTeam){
                                     for(ExactPosition pp : positions.getAllyTeam())
-                                        if(pp != thisAttacker && thisAttacker.distanceTo(pp) < thisAttacker.distanceTo(closestOfOwnTeam) && positions.getClosestEnemyTo(pp).distanceTo(pp) > 50 && thisAttacker.distanceTo(pp) < 200)
+                                        if(pp != thisAttacker && thisAttacker.distanceTo(pp) < thisAttacker.distanceTo(closestOfOwnTeam) && positions.getClosestEnemyTo(pp).distanceTo(pp) > 50 && thisAttacker.distanceTo(pp) < 150)
                                             closestOfOwnTeam = pp;
                                 } else
                                     for(ExactPosition pp : positions.getEnemyTeam())
-                                        if(pp != thisAttacker && thisAttacker.distanceTo(pp) < thisAttacker.distanceTo(closestOfOwnTeam) && positions.getClosestAllyTo(pp).distanceTo(pp) > 50 && thisAttacker.distanceTo(pp) < 200)
+                                        if(pp != thisAttacker && thisAttacker.distanceTo(pp) < thisAttacker.distanceTo(closestOfOwnTeam) && positions.getClosestAllyTo(pp).distanceTo(pp) > 50 && thisAttacker.distanceTo(pp) < 150)
                                             closestOfOwnTeam = pp;
                                 if(closestOfOwnTeam != null){
                                     BallAI.shootToTeammate(closestOfOwnTeam, isOnAllyTeam);
@@ -183,8 +183,9 @@ public class AttackerAI extends PlayerAI {
             }
         }
         
+        // TODO: Solve bugs when at same x as ball <><><><><><><><><><><><><><><><><><><><><><><><>
+        
         return defaultPreferredDirection(thisAttacker, playerID, isOnAllyTeam);
-        //return thisAttacker;
     }
     
     
@@ -194,9 +195,9 @@ public class AttackerAI extends PlayerAI {
             return getPosBySpeed(WALK_SPEED, thisAttacker, CurrentPositions.getAllyInfo(playerID).getFavoritePosition());
         else if(!BallAI.islastShotByAllyTeam() && !isOnAllyTeam)
              return getPosBySpeed(WALK_SPEED, thisAttacker, CurrentPositions.getEnemyInfo(playerID).getFavoritePosition());
-        // do stuff a defending attacker should do
+        
+        // TODO: Move toward middle line with y pos as favorite position <><><><><><><><><><><><><><><><><><><><><><><><>
 
         return defaultPreferredDirection(thisAttacker, playerID, isOnAllyTeam);
-        //return thisAttacker;
     }
 }

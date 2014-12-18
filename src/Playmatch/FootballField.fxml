@@ -1,12 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="765.0" prefWidth="1020.0" styleClass="fieldPicture" stylesheets="@BackgroundScene.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
-    
+<AnchorPane id="AnchorPane" maxHeight="820.0" maxWidth="1020.0" minHeight="820.0" minWidth="1020.0" prefHeight="820.0" prefWidth="1020.0" stylesheets="@StyleAnimation.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Playmatch.FootballFieldController">
+   <children>
+      <ImageView pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Pictures/Field.png" />
+         </image>
+      </ImageView>
+      <Region layoutY="760.0" prefHeight="60.0" prefWidth="1020.0" styleClass="animationBottomRegion" />
+      <TextField fx:id="timeField" editable="false" layoutX="754.0" layoutY="777.0" prefHeight="29.0" prefWidth="106.0" promptText="time">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+      <Slider fx:id="timeSlider" layoutX="61.0" layoutY="777.0" onMouseClicked="#mouseClickedOnSlider" onMousePressed="#startedDragging" onMouseReleased="#stoppedDragging" prefHeight="14.0" prefWidth="673.0" />
+      <ComboBox fx:id="speedBox" layoutX="888.0" layoutY="779.0" prefHeight="25.0" prefWidth="118.0" promptText="Select speed" />
+      <Region layoutX="750.0" prefHeight="53.0" prefWidth="270.0" styleClass="animationTopRegion" />
+      <Text fx:id="score" layoutX="771.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="animationTopRegion" text="Score: 0 - 0">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Text>
+   </children>
 </AnchorPane>

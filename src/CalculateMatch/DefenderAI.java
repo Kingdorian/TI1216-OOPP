@@ -11,4 +11,10 @@ package CalculateMatch;
  */
 public class DefenderAI {
     
+    // TODO: Ball far from middle line: defend (try to get ball) <><><><><><><><><><><><><><><><><><><><><><><><>
+    
+    // TODO: Ball far from middle line: stay back, close to opponent attackers (wait) <><><><><><><><><><><><><><><><><><><><><><><><>
+    
+    // TODO: Ball close to middle line: support midfield (try to get ball, or stay back) <><><><><><><><><><><><><><><><><><><><><><><><>
+    
 }
