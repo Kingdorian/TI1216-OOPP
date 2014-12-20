@@ -25,8 +25,10 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.transform.NonInvertibleTransformException;
 import javafx.scene.transform.Scale;
 import javafx.stage.Modality;
 
@@ -60,9 +62,9 @@ public class Main extends Application {
 
         // Add a scale handler to the scene
         scaleToScreenSize(rootLayout);
+        primaryStage.setMinHeight(640);
+        primaryStage.setMinWidth(1040);
 
-        // primaryStage.setIconified(true);
-        // primaryStage.setFullScreen(true);
         // load the competition
        try {
             competition = XMLHandler.readCompetition("XML/Teams.xml", "XML/Matches.xml");
@@ -70,7 +72,6 @@ public class Main extends Application {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("Couldn't open one of the following files: \"XML/Teams.xml\" or \"XML/Matches.xml\"");
         }
-        // FOR TESTING:
 
     }
 
@@ -125,8 +126,8 @@ public class Main extends Application {
         }
     }
 
-// This code to adjust the screen size is coppied from http://stackoverflow.com/a/16608161
-// A few minor adjustments have been made to improve it and comments have been added.
+// This code to adjust the screen size is based on the code from http://stackoverflow.com/a/16608161
+// Some adjustments have been made to improve it and comments have been added.
 //****************************************************************************************************
     /**
      * Scale the size of the given stage. coppied from: see header above
@@ -177,27 +178,34 @@ public class Main extends Application {
             final double newWidth = scene.getWidth();
             final double newHeight = scene.getHeight();
 
-            double scaleFactor
-                    = newWidth / newHeight > ratio
-                            ? newHeight / initHeight
-                            : newWidth / initWidth;
+            double scaleFactor = newWidth / newHeight > ratio
+                                ? newHeight / initHeight
+                                : newWidth / initWidth;
 
             if (scaleFactor >= 1) {
                 Scale scale = new Scale(scaleFactor, scaleFactor);
                 scale.setPivotX(0);
                 scale.setPivotY(0);
+                
+
                 scene.getRoot().getTransforms().setAll(scale);
 
                 contentPane.setPrefWidth(newWidth / scaleFactor);
                 contentPane.setPrefHeight(newHeight / scaleFactor);
+                
+                // Adjust the size of the background accordingly (otherwise the css and this changelistener would both scale the picture, scaling it twice too much)
+                double backgroundScale = newWidth/1024 > newHeight/600? newWidth/1024*600/newHeight : newHeight/600*1024/newWidth;
+                rootLayout.setStyle("-fx-background-size:" + 1024 * backgroundScale +","+ 600 * backgroundScale +";");
+
             } else {
                 contentPane.setPrefWidth(Math.max(initWidth, newWidth));
                 contentPane.setPrefHeight(Math.max(initHeight, newHeight));
+                rootLayout.setStyle("-fx-background-size: 1024, 600;");
             }
         }
     }
 //****************************************************************************************************
-// End of coppied code.
+// End of code to adjust screen size.
 
     /**
      * this method cleans all sections of the rootLayout's borderpane
