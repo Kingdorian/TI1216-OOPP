@@ -19,13 +19,26 @@ public final class PlayerInfo {
     private final int stamina;
     private final int defensePower;
     private final ExactPosition favoritePosition;
+    private final int penaltyStopPower;
+    private final int stopPower;
 
+    
+    public PlayerInfo(int stopPower, int penaltyStopPower, ExactPosition favoritePosition){
+        this.stopPower = stopPower;
+        this.penaltyStopPower = penaltyStopPower;
+        this.favoritePosition = favoritePosition;
+        this.attackPower = 0;
+        this.stamina = 0;
+        this.defensePower = 0;
+    }
 
     public PlayerInfo(int attackPower, int stamina, int defensePower, ExactPosition favoritePosition) {
         this.attackPower = attackPower;
         this.stamina = stamina;
         this.defensePower = defensePower;
         this.favoritePosition = favoritePosition;
+        this.stopPower = 0;
+        this.penaltyStopPower = 0;
     }
 
     public int getAttackPower() {
@@ -43,6 +56,13 @@ public final class PlayerInfo {
     public ExactPosition getFavoritePosition() {
         return favoritePosition;
     }
-    
-    
+
+    public int getPenaltyStopPower() {
+        return penaltyStopPower;
+    }
+
+    public int getStopPower() {
+        return stopPower;
+    }
+
 }

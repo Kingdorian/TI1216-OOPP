@@ -15,7 +15,6 @@ public class CurrentPositions {
     
     private ArrayList<ExactPosition> allyTeam = new ArrayList<>();
     private ArrayList<ExactPosition> enemyTeam = new ArrayList<>();
-    private ExactPosition ballPosition = new ExactPosition();
     
     // Specific player information
     private static ArrayList<PlayerInfo> allyInfo = new ArrayList<>();
@@ -70,8 +69,7 @@ public class CurrentPositions {
         enemyTeam.add(new ExactPosition(574.0, 473.0));
         
         // set ball position
-        ballPosition = new ExactPosition(510.0, 382.0);
-        BallAI.setCurrentBallPosition(ballPosition);
+        BallAI.setCurrentBallPosition(new ExactPosition(510.0, 382.0));
         BallAI.setOutsideOfField(false);
     }
     
@@ -97,7 +95,7 @@ public class CurrentPositions {
                 res.setPlayersAlly(allyTeam.get(i), i);
                 res.setPlayersAdversary(enemyTeam.get(i), i);
             }
-            res.setBallPosition(ballPosition);
+            res.setBallPosition(BallAI.getCurrentBallPosition());
             res.setScoreLeft(scoreLeft);
             res.setScoreRight(scoreRight);
             return res;
@@ -156,32 +154,15 @@ public class CurrentPositions {
     }
     
     
-    /**
-     * get the position of the ball
-     * @return      ExactPosition containing the position of the ball
-     */
-    public ExactPosition getBallPosition(){
-        return ballPosition;
-    }
-    
-    
     public boolean isClosestToBall(ExactPosition p){
         
-        double distance = p.distanceTo(ballPosition);
+        double distance = p.distanceTo(BallAI.getCurrentBallPosition());
         
         for(int i=0; i<11; i++){
-            if(allyTeam.get(i).distanceTo(ballPosition) < distance || enemyTeam.get(i).distanceTo(ballPosition) < distance)
+            if(allyTeam.get(i).distanceTo(BallAI.getCurrentBallPosition()) < distance || enemyTeam.get(i).distanceTo(BallAI.getCurrentBallPosition()) < distance)
                 return false;
         }
         return true;
-    }
-    
-    /**
-     * set the position of ball
-     * @param ballPosition  an ExactPosition containing the positions of the ball
-     */
-    public void setBallPosition(ExactPosition ballPosition) {
-        this.ballPosition = ballPosition;
     }
     
     

@@ -5,6 +5,7 @@
  */
 package Playmatch;
 
+import CalculateMatch.MainAIController;
 import java.util.ArrayList;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -26,8 +27,9 @@ import javafx.util.StringConverter;
  */
 public class FootballFieldController {
     
-    private static final int sliderPrecision = 9000;
+    private static final int SLIDER_PRECISION = 9000;
     private boolean isDragging = false;
+    private static final int AMOUNT_OF_SLICES = MainAIController.AMOUNT_OF_SLICES; // 21600
     
     @FXML
     private Text score;
@@ -54,7 +56,7 @@ public class FootballFieldController {
         @Override
         public void changed(ObservableValue<? extends Number> ov, Number oldValue, Number newValue){
             if(isDragging){
-                AnimateFootballMatch.setTime(newValue.intValue() * 21600/sliderPrecision);
+                AnimateFootballMatch.setTime(newValue.intValue() * 21600/SLIDER_PRECISION);
                 System.out.println("Slided: " + newValue);
             }
         }
@@ -79,13 +81,13 @@ public class FootballFieldController {
         
         // define time slider 
         timeSlider.setMin(0);
-        timeSlider.setMax(sliderPrecision);
+        timeSlider.setMax(SLIDER_PRECISION);
         timeSlider.setValue(0);
         timeSlider.setShowTickLabels(true);
         timeSlider.setShowTickMarks(true);
-        timeSlider.setMajorTickUnit(sliderPrecision/9);
+        timeSlider.setMajorTickUnit(SLIDER_PRECISION/9);
         timeSlider.setMinorTickCount(1);
-        timeSlider.setBlockIncrement(sliderPrecision/45);
+        timeSlider.setBlockIncrement(SLIDER_PRECISION/45);
         
         // add change listener to the slides
         timeSlider.valueProperty().addListener(sliderListener);
@@ -101,7 +103,7 @@ public class FootballFieldController {
 
         @Override
         public String toString(Double num) {
-            return num.intValue()/100 + ":00";
+            return num.intValue()*90/SLIDER_PRECISION + ":00";
         }
 
         @Override
@@ -133,7 +135,7 @@ public class FootballFieldController {
     public void setTime(int time){
         // if the user is not altering the slider, add time to slider
         if(!isDragging)
-            timeSlider.setValue(time*sliderPrecision/21600);
+            timeSlider.setValue(time*SLIDER_PRECISION/AMOUNT_OF_SLICES);
         
         time /= 4; // 0.25 seconds per time unit
         int minutes = time/60;
@@ -154,7 +156,7 @@ public class FootballFieldController {
     
     @FXML
     private void mouseClickedOnSlider(){
-        AnimateFootballMatch.setTime((int)timeSlider.getValue() * 21600/sliderPrecision);
+        AnimateFootballMatch.setTime((int)timeSlider.getValue() * AMOUNT_OF_SLICES/SLIDER_PRECISION);
         System.out.println("Clicked: " + (int)timeSlider.getValue());
     }
     
@@ -172,8 +174,8 @@ public class FootballFieldController {
         };
 
     private void keyLeftClickedOnSlider(){
-        if(timeSlider.getValue() > sliderPrecision/45)
-            AnimateFootballMatch.setTime((int)(timeSlider.getValue() - sliderPrecision/45) * 21600/sliderPrecision);
+        if(timeSlider.getValue() > SLIDER_PRECISION/45)
+            AnimateFootballMatch.setTime((int)(timeSlider.getValue() - SLIDER_PRECISION/45) * AMOUNT_OF_SLICES/SLIDER_PRECISION);
         else
             AnimateFootballMatch.setTime(0); // go to start
     }
@@ -181,10 +183,10 @@ public class FootballFieldController {
 
     private void keyRightClickedOnSlider(){
         System.out.println(timeSlider.getValue());
-        if(timeSlider.getValue() < sliderPrecision - sliderPrecision/45)
-            AnimateFootballMatch.setTime((int)(timeSlider.getValue() + sliderPrecision/45) * 21600/sliderPrecision); // go forward 3 minutes
+        if(timeSlider.getValue() < SLIDER_PRECISION - SLIDER_PRECISION/45)
+            AnimateFootballMatch.setTime((int)(timeSlider.getValue() + SLIDER_PRECISION/45) * AMOUNT_OF_SLICES/SLIDER_PRECISION); // go forward 3 minutes
         else
-            AnimateFootballMatch.setTime(21600); // go to end
+            AnimateFootballMatch.setTime(AMOUNT_OF_SLICES); // go to end
     }
     
 }

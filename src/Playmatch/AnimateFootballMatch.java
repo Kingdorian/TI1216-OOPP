@@ -145,7 +145,7 @@ public class AnimateFootballMatch {
         KeyValue kvX, kvY;
         KeyFrame kf;
         if(footballMatch.getPositions(time).isPause()){
-            kf = new KeyFrame(Duration.millis(speed * 4), onFinished);
+            kf = new KeyFrame(Duration.millis(1000/*speed * 4*/), onFinished);
             playerPause = 1;
         } else if(playerPause == 1){
             kf = new KeyFrame(Duration.millis(0), onFinished);

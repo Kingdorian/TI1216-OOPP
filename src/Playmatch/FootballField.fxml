@@ -10,7 +10,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="820.0" maxWidth="1020.0" minHeight="820.0" minWidth="1020.0" prefHeight="820.0" prefWidth="1020.0" stylesheets="@StyleAnimation.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Playmatch.FootballFieldController">
+<AnchorPane id="AnchorPane" minHeight="820.0" minWidth="1020.0" prefHeight="820.0" prefWidth="1020.0" stylesheets="@StyleAnimation.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Playmatch.FootballFieldController">
    <children>
       <ImageView pickOnBounds="true" preserveRatio="true">
          <image>

@@ -17,6 +17,7 @@ import ContainerPackage.PositionsTimeSlice;
 public class MainAIController {
     private static Match footballMatch = new Match();
     private static CurrentPositions currentPositions = new CurrentPositions();
+    public static final int AMOUNT_OF_SLICES = 21600;
    // public static Position ballPosition = new Position();
     
     
@@ -35,17 +36,17 @@ public class MainAIController {
         CurrentPositions.setAllyInfo(new PlayerInfo(95,95,95, new ExactPosition(785, 385)), 9);
         CurrentPositions.setAllyInfo(new PlayerInfo(95,95,95, new ExactPosition(719, 494)), 10);
 
-        CurrentPositions.setEnemyInfo(new PlayerInfo(90,90,80, new ExactPosition(963, 381)), 0);
-        CurrentPositions.setEnemyInfo(new PlayerInfo(90,90,80, new ExactPosition(700, 160)), 1);
-        CurrentPositions.setEnemyInfo(new PlayerInfo(90,90,80, new ExactPosition(730, 290)), 2);
-        CurrentPositions.setEnemyInfo(new PlayerInfo(90,90,80, new ExactPosition(730, 467)), 3);
-        CurrentPositions.setEnemyInfo(new PlayerInfo(90,90,80, new ExactPosition(700, 605)), 4);
-        CurrentPositions.setEnemyInfo(new PlayerInfo(90,90,80, new ExactPosition(461, 250)), 5);
-        CurrentPositions.setEnemyInfo(new PlayerInfo(90,90,80, new ExactPosition(562, 385)), 6);
-        CurrentPositions.setEnemyInfo(new PlayerInfo(90,90,80, new ExactPosition(461, 513)), 7);
-        CurrentPositions.setEnemyInfo(new PlayerInfo(90,90,80, new ExactPosition(306, 259)), 8);
-        CurrentPositions.setEnemyInfo(new PlayerInfo(90,90,80, new ExactPosition(233, 385)), 9);
-        CurrentPositions.setEnemyInfo(new PlayerInfo(90,90,80, new ExactPosition(306, 494)), 10);
+        CurrentPositions.setEnemyInfo(new PlayerInfo(95,95,95, new ExactPosition(963, 381)), 0);
+        CurrentPositions.setEnemyInfo(new PlayerInfo(95,95,95, new ExactPosition(700, 160)), 1);
+        CurrentPositions.setEnemyInfo(new PlayerInfo(95,95,95, new ExactPosition(730, 290)), 2);
+        CurrentPositions.setEnemyInfo(new PlayerInfo(95,95,95, new ExactPosition(730, 467)), 3);
+        CurrentPositions.setEnemyInfo(new PlayerInfo(95,95,95, new ExactPosition(700, 605)), 4);
+        CurrentPositions.setEnemyInfo(new PlayerInfo(95,95,95, new ExactPosition(461, 250)), 5);
+        CurrentPositions.setEnemyInfo(new PlayerInfo(95,95,95, new ExactPosition(562, 385)), 6);
+        CurrentPositions.setEnemyInfo(new PlayerInfo(95,95,95, new ExactPosition(461, 513)), 7);
+        CurrentPositions.setEnemyInfo(new PlayerInfo(95,95,95, new ExactPosition(306, 259)), 8);
+        CurrentPositions.setEnemyInfo(new PlayerInfo(95,95,95, new ExactPosition(233, 385)), 9);
+        CurrentPositions.setEnemyInfo(new PlayerInfo(95,95,95, new ExactPosition(306, 494)), 10);
         
         
         // set start of match
@@ -54,17 +55,42 @@ public class MainAIController {
         footballMatch.addPositionSlice(currentSlice);
         
         // set the rest of the match
-        for(int i=0; i<21600; i++){
+        for(int i=0; i<AMOUNT_OF_SLICES; i++){
             ExactPosition ppA;
             ExactPosition ppE;
             
             CurrentPositions nextPositions = new CurrentPositions();
-            for(int j=0; j<11; j++){
+            
+            // get defenders next actions
+            for(int j=0; j<5; j++){
+                ppA = (new DefenderAI(currentPositions.getAllyTeam().get(j), currentPositions, true)).getNextPosition();
+                ppE = (new DefenderAI(currentPositions.getEnemyTeam().get(j), currentPositions, false)).getNextPosition();
+
+                nextPositions.getAllyTeam().get(j).setxPos(ppA.getxPos());
+                nextPositions.getAllyTeam().get(j).setyPos(ppA.getyPos());
+                
+                nextPositions.getEnemyTeam().get(j).setxPos(ppE.getxPos());
+                nextPositions.getEnemyTeam().get(j).setyPos(ppE.getyPos());
+
+            }
+            
+            // get midfielders next actions
+            for(int j=5; j<8; j++){
+                ppA = (new MidfieldAI(currentPositions.getAllyTeam().get(j), currentPositions, true)).getNextPosition();
+                ppE = (new MidfieldAI(currentPositions.getEnemyTeam().get(j), currentPositions, false)).getNextPosition();
+
+                nextPositions.getAllyTeam().get(j).setxPos(ppA.getxPos());
+                nextPositions.getAllyTeam().get(j).setyPos(ppA.getyPos());
+                
+                nextPositions.getEnemyTeam().get(j).setxPos(ppE.getxPos());
+                nextPositions.getEnemyTeam().get(j).setyPos(ppE.getyPos());
+
+            }
+            
+            // get attackers next actions
+            for(int j=8; j<11; j++){
                 ppA = (new AttackerAI(currentPositions.getAllyTeam().get(j), currentPositions, true)).getNextPosition();
                 ppE = (new AttackerAI(currentPositions.getEnemyTeam().get(j), currentPositions, false)).getNextPosition();
-                
-                
-                //nextPositions.setStartOfMatchPositions();
 
                 nextPositions.getAllyTeam().get(j).setxPos(ppA.getxPos());
                 nextPositions.getAllyTeam().get(j).setyPos(ppA.getyPos());
@@ -75,7 +101,7 @@ public class MainAIController {
             }
 
             
-            nextPositions.setBallPosition(BallAI.getNextBallPosition());
+            BallAI.setCurrentBallPosition(BallAI.getNextBallPosition());
             
             footballMatch.addPositionSlice(nextPositions.convertToTimeSlice());
             currentPositions = nextPositions;

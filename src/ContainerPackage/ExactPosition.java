@@ -74,7 +74,7 @@ public class ExactPosition {
      */
     public double distanceTo(ExactPosition other){
         if(other == null)
-            return 100000;
+            return 5000;
         return Math.sqrt(Math.pow(this.getxPos() - other.getxPos(), 2) + Math.pow(this.getyPos() - other.getyPos(), 2)) ;
     }
     
@@ -102,5 +102,12 @@ public class ExactPosition {
      */
     public void setOnField(boolean onField) {
         this.onField = onField;
+    }
+    
+    public ExactPosition getTranslateX(double x){
+        ExactPosition result = new ExactPosition();
+        result.setyPos(yPos);
+        result.setxPos(xPos + x);
+        return result;
     }
 }
