@@ -1,4 +1,4 @@
-package ContainerPackage;
+package application.animation.ContainerPackage;
 
 /**
  * Container class containing 24 player positions (Player objects), creating the positions for all players of a football game at a point in time.

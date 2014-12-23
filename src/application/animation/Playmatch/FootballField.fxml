@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" minHeight="820.0" minWidth="1020.0" prefHeight="820.0" prefWidth="1020.0" stylesheets="@StyleAnimation.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.animation.Playmatch.FootballFieldController">
+   <children>
+      <ImageView fx:id="fieldPicture" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Pictures/Field.png" />
+         </image>
+      </ImageView>
+      <Region layoutY="760.0" prefHeight="60.0" prefWidth="1020.0" styleClass="animationBottomRegion" />
+      <HBox alignment="TOP_CENTER" layoutX="6.0" layoutY="775.0" spacing="10.0">
+         <children>
+            <Button fx:id="pauseButton" layoutX="14.0" layoutY="780.0" mnemonicParsing="false" onAction="#togglePauseButton" prefHeight="25.0" prefWidth="38.0" text="S" />
+            <Slider fx:id="timeSlider" layoutX="61.0" layoutY="778.0" onMouseClicked="#mouseClickedOnSlider" onMousePressed="#startedDragging" onMouseReleased="#stoppedDragging" prefHeight="14.0" prefWidth="601.0">
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin></Slider>
+            <TextField fx:id="timeField" editable="false" layoutX="662.0" layoutY="778.0" prefHeight="29.0" prefWidth="93.0" promptText="time" text="00:00 / 90:00">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <ComboBox fx:id="speedBox" layoutX="785.0" layoutY="780.0" prefHeight="25.0" prefWidth="118.0" promptText="Select speed" />
+         </children>
+      </HBox>
+      <Button layoutX="918.0" layoutY="770.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="98.0" text="CONTINUE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Region prefHeight="53.0" prefWidth="1020.0" styleClass="animationTopRegion" />
+      <Text fx:id="score" layoutX="768.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="animationTopRegion" text="Score: 00 - 00">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Text>
+      <HBox fx:id="teamsBox" alignment="TOP_CENTER" layoutX="401.0" layoutY="14.0" spacing="20.0">
+         <children>
+            <Text fx:id="team1" fill="#0027f5" layoutX="403.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="animationTopRegion" text="team 1">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Text>
+            <Text fx:id="vs" layoutX="497.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="animationTopRegion" text="vs.">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Text>
+            <Text fx:id="team2" fill="#dd0f0f" layoutX="540.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="animationTopRegion" text="team 2">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

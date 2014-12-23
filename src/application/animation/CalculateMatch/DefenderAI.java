@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package CalculateMatch;
+package application.animation.CalculateMatch;
 
-import static CalculateMatch.PlayerAI.MIDDLE_LINE_X;
-import ContainerPackage.ExactPosition;
+
+import application.animation.ContainerPackage.ExactPosition;
 import java.util.ArrayList;
 
 /**

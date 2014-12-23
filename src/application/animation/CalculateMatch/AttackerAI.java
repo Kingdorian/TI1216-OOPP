@@ -1,10 +1,7 @@
-package CalculateMatch;
+package application.animation.CalculateMatch;
 
-import static CalculateMatch.PlayerAI.LEFT_GOAL_POSITION;
-import static CalculateMatch.PlayerAI.MIDDLE_LINE_X;
-import static CalculateMatch.PlayerAI.WITH_BALL_SPEED;
-import static CalculateMatch.PlayerAI.getPosBySpeed;
-import ContainerPackage.ExactPosition;
+
+import application.animation.ContainerPackage.ExactPosition;
 import java.util.ArrayList;
 
 /**

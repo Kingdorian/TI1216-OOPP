@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package CalculateMatch;
+package application.animation.CalculateMatch;
 
-import ContainerPackage.ExactPosition;
+import application.animation.ContainerPackage.ExactPosition;
+
+
 
 /**
  *
@@ -77,12 +79,12 @@ public class KeeperAI extends PlayerAI {
         
         double yOffSet;
         ExactPosition ballPosition = BallAI.getCurrentBallPosition();
-        if(ballPosition.getyPos() < favoritePosition.getyPos() - 200)
+        if(ballPosition.getyPos() < favoritePosition.getyPos() - 40)
             yOffSet = -40;
-        else if(ballPosition.getyPos() > favoritePosition.getyPos() + 200)
+        else if(ballPosition.getyPos() > favoritePosition.getyPos() + 40)
             yOffSet = 40;
         else
-            yOffSet = (ballPosition.getyPos() - favoritePosition.getyPos()) / 5;
+            yOffSet = (ballPosition.getyPos() - favoritePosition.getyPos());
         ExactPosition direction = new ExactPosition(favoritePosition.getxPos(), favoritePosition.getyPos() + yOffSet);
         
         return getPosBySpeed(WALK_SPEED, thisPlayer, direction);

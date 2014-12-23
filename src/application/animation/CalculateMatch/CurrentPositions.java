@@ -1,8 +1,9 @@
-package CalculateMatch;
+package application.animation.CalculateMatch;
 
-import ContainerPackage.ExactPosition;
-import ContainerPackage.PlayerInfo;
-import ContainerPackage.PositionsTimeSlice;
+
+import application.animation.ContainerPackage.ExactPosition;
+import application.animation.ContainerPackage.PlayerInfo;
+import application.animation.ContainerPackage.PositionsTimeSlice;
 import java.util.ArrayList;
 
 /**

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Playmatch;
+package application.animation.Playmatch;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;

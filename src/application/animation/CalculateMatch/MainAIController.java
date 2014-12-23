@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package CalculateMatch;
+package application.animation.CalculateMatch;
 
-import ContainerPackage.ExactPosition;
-import ContainerPackage.Match;
-import ContainerPackage.PlayerInfo;
-import ContainerPackage.PositionsTimeSlice;
+import application.animation.ContainerPackage.ExactPosition;
+import application.animation.ContainerPackage.Match;
+import application.animation.ContainerPackage.PlayerInfo;
+import application.animation.ContainerPackage.PositionsTimeSlice;
 
 /**
  *
@@ -17,7 +17,7 @@ import ContainerPackage.PositionsTimeSlice;
 public class MainAIController {
     private static Match footballMatch = new Match();
     private static CurrentPositions currentPositions = new CurrentPositions();
-    public static final int AMOUNT_OF_SLICES = 21600; // should be 21600
+    public static final int AMOUNT_OF_SLICES = 2160; // should be 21600
     
     
     public static Match createMatch(){

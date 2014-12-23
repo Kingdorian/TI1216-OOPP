@@ -1,7 +1,9 @@
-package CalculateMatch;
+package application.animation.CalculateMatch;
 
-import ContainerPackage.ExactPosition;
-import ContainerPackage.Vector;
+import application.animation.ContainerPackage.ExactPosition;
+import application.animation.ContainerPackage.Vector;
+
+
 
 /**
  * This class decides the behaviour of the ball (so it can roll for more than

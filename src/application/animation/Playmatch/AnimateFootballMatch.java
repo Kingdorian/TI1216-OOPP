@@ -1,7 +1,8 @@
-package Playmatch;
+package application.animation.Playmatch;
 
-import ContainerPackage.Match;
-import ContainerPackage.PositionsTimeSlice;
+
+import application.animation.ContainerPackage.Match;
+import application.animation.ContainerPackage.PositionsTimeSlice;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,21 +32,34 @@ public class AnimateFootballMatch {
     private static int speed = 245; // speed to play at
         
     // Circles representing the players
-    private final Circle playerCircle[] = new Circle[11];
-    private final Circle adversaryCircle[] = new Circle[11];
-    private Circle ballCircle;
-    
-    // Event handler, being activated when a frame is done playing
-    private EventHandler onFinished;
-    
+    private static final Circle playerCircle[] = new Circle[11];
+    private static final Circle adversaryCircle[] = new Circle[11];
+    private static Circle ballCircle;
+    private static Timeline timeline;
+
     // Integer holding the elapsed time
     private static int time = 0;
     
     // The footballMatch which is being animated
-    private Match footballMatch;
+    private static Match footballMatch;
     
     private static int playerPause = 0; // if this is 1, there is a pause, if this is 2, there was a pause last slice, if it is 3, still setting up new positions, if this is 0, there is no pause
-    private FootballFieldController viewController;
+    private static FootballFieldController viewController;
+    
+    // stop playing if this is true
+    private static boolean pause;
+    
+    
+    // Event handler, will be activated when a frame is done playing
+    private static EventHandler onFinished = new EventHandler<ActionEvent>(){
+            @Override
+            public void handle(ActionEvent t){
+                if(time < footballMatch.amoutOfSlices() - 1 && !pause){
+                    time++;
+                    playTimeSlice();
+                }
+            }
+        };
     
     /**
      * play a match defined in the Match parameter
@@ -117,17 +131,6 @@ public class AnimateFootballMatch {
         // draw the scene
         rootLayout.setCenter(anchorPane);
         stage.sizeToScene(); // make sure there are no white borders
-
-        // create event handler
-        onFinished = new EventHandler<ActionEvent>(){
-            @Override
-            public void handle(ActionEvent t){
-                if(time < footballMatch.amoutOfSlices() - 1){
-                    time++;
-                    playTimeSlice();
-                }
-            }
-        };
         
         // Play the first TimeSlice, following time slices will be played by the event handler
         if(footballMatch.amoutOfSlices()>1)
@@ -138,10 +141,10 @@ public class AnimateFootballMatch {
     /**
      * play a TimeSlice from the footballMatch, based on the current time variable
      */
-    private void playTimeSlice(){
+    private static void playTimeSlice(){
 
         // declare a time line, key frames to later add to the time line and key values to put in the key frames
-        Timeline timeline = new Timeline();
+        timeline = new Timeline();
         KeyValue kvX, kvY;
         KeyFrame kf;
         if(footballMatch.getPositions(time).isPause()){
@@ -220,4 +223,21 @@ public class AnimateFootballMatch {
     public static void setTime(int time) {
         AnimateFootballMatch.time = time;
     }
+
+    public static void togglePause() {
+            pause = !pause;
+            if(!pause){
+                onFinished.handle(null);
+            } else{
+                timeline.stop();
+                time--;
+            }
+    }
+
+    public static boolean isPause() {
+        return pause;
+    }
+    
+    
+    
 }

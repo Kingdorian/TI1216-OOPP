@@ -1,7 +1,7 @@
-package Playmatch;
+package application.animation.Playmatch;
 
-import CalculateMatch.MainAIController;
-import ContainerPackage.Match;
+import application.animation.CalculateMatch.MainAIController;
+import application.animation.ContainerPackage.Match;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,6 +21,7 @@ public class TestFX extends Application {
 
     @Override
     public void start(Stage stage) {
+
         primaryStage = stage;
         stage.setResizable(false);
         initializeRootLayout();
@@ -50,7 +51,7 @@ public class TestFX extends Application {
         try {
             // Load root layout from fxml file
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(TestFX.class.getResource("RootLayout.fxml"));
+            loader.setLocation(getClass().getResource("RootLayout.fxml"));
             rootLayout = (BorderPane) loader.load();
             
             // Show the scene containing the root layout
@@ -63,7 +64,7 @@ public class TestFX extends Application {
             scaleToScreenSize(rootLayout);
             
         } catch (IOException ex) {
-            Logger.getLogger(TestFX.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, null, ex);
             System.out.println("Failed to load interface: BorderPane");
         }
     }
