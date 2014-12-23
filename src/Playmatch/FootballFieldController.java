@@ -56,8 +56,8 @@ public class FootballFieldController {
         @Override
         public void changed(ObservableValue<? extends Number> ov, Number oldValue, Number newValue){
             if(isDragging){
-                AnimateFootballMatch.setTime(newValue.intValue() * 21600/SLIDER_PRECISION);
-                System.out.println("Slided: " + newValue);
+                AnimateFootballMatch.setTime(newValue.intValue() * AMOUNT_OF_SLICES/SLIDER_PRECISION);
+//                System.out.println("Slided: " + newValue);
             }
         }
     };
@@ -157,7 +157,7 @@ public class FootballFieldController {
     @FXML
     private void mouseClickedOnSlider(){
         AnimateFootballMatch.setTime((int)timeSlider.getValue() * AMOUNT_OF_SLICES/SLIDER_PRECISION);
-        System.out.println("Clicked: " + (int)timeSlider.getValue());
+//        System.out.println("Clicked: " + (int)timeSlider.getValue());
     }
     
     
@@ -174,17 +174,17 @@ public class FootballFieldController {
         };
 
     private void keyLeftClickedOnSlider(){
-        if(timeSlider.getValue() > SLIDER_PRECISION/45)
-            AnimateFootballMatch.setTime((int)(timeSlider.getValue() - SLIDER_PRECISION/45) * AMOUNT_OF_SLICES/SLIDER_PRECISION);
+        if(timeSlider.getValue() > SLIDER_PRECISION/180)
+            AnimateFootballMatch.setTime((int)(timeSlider.getValue() - SLIDER_PRECISION/180) * AMOUNT_OF_SLICES/SLIDER_PRECISION);
         else
             AnimateFootballMatch.setTime(0); // go to start
     }
     
 
     private void keyRightClickedOnSlider(){
-        System.out.println(timeSlider.getValue());
-        if(timeSlider.getValue() < SLIDER_PRECISION - SLIDER_PRECISION/45)
-            AnimateFootballMatch.setTime((int)(timeSlider.getValue() + SLIDER_PRECISION/45) * AMOUNT_OF_SLICES/SLIDER_PRECISION); // go forward 3 minutes
+//        System.out.println("Arrow key: " + timeSlider.getValue());
+        if(timeSlider.getValue() < SLIDER_PRECISION - SLIDER_PRECISION/180)
+            AnimateFootballMatch.setTime((int)(timeSlider.getValue() + SLIDER_PRECISION/180) * AMOUNT_OF_SLICES/SLIDER_PRECISION); // go forward 3 minutes
         else
             AnimateFootballMatch.setTime(AMOUNT_OF_SLICES); // go to end
     }

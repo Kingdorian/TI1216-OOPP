@@ -140,6 +140,15 @@ public class CurrentPositions {
     }
     
     
+    public ExactPosition getClosestEnemyInFrontOf(ExactPosition pos){
+        ExactPosition res = enemyTeam.get(0);
+        for(int i = 1; i<11; i++)
+            if(enemyTeam.get(i).getxPos() + 10 > pos.getxPos() && enemyTeam.get(i).distanceTo(pos) < res.distanceTo(pos))
+                res = enemyTeam.get(i);
+        return res;
+    }
+    
+    
     /**
      * gives the position of the closest player from allyTeam to the given position
      * @param pos   the position to compare to
@@ -149,6 +158,14 @@ public class CurrentPositions {
         ExactPosition res = allyTeam.get(0);
         for(int i = 1; i<11; i++)
             if(allyTeam.get(i).distanceTo(pos) < res.distanceTo(pos))
+                res = allyTeam.get(i);
+        return res;
+    }
+    
+    public ExactPosition getClosestAllyInFrontOf(ExactPosition pos){
+        ExactPosition res = allyTeam.get(0);
+        for(int i = 1; i<11; i++)
+            if(enemyTeam.get(i).getxPos() - 10 < pos.getxPos() && allyTeam.get(i).distanceTo(pos) < res.distanceTo(pos))
                 res = allyTeam.get(i);
         return res;
     }
@@ -199,7 +216,8 @@ public class CurrentPositions {
         enemyInfo.add(i, enemyInf);
     }
     
-    public int getPlayerID(ExactPosition player){
+    // use this only when absolutely necesarry, can give wrong id if 2 players are standing on exactly the same position.
+    public int getIDByPosition(ExactPosition player){
         int i;
         for(i=0; i<11; i++)
             if(player.equals(allyTeam.get(i)) || player.equals(enemyTeam.get(i)))
@@ -214,4 +232,14 @@ public class CurrentPositions {
     public static void addPointRight(){
         scoreRight++;
     }
+
+    public static int getScoreLeft() {
+        return scoreLeft;
+    }
+
+    public static int getScoreRight() {
+        return scoreRight;
+    }
+    
+    
 }

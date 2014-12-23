@@ -27,13 +27,14 @@ public class AttackerAI extends PlayerAI {
      * @param thisPlayer the position of this attacker
      * @param positions the previous positions of all other players
      * @param isOnAllyTeam boolean conaining if this player is on the ally team
+     * @param playerID
      */
-    public AttackerAI(ExactPosition thisPlayer, CurrentPositions positions, boolean isOnAllyTeam) {
-        super(positions.getPlayerID(thisPlayer), isOnAllyTeam);
+    public AttackerAI(ExactPosition thisPlayer, CurrentPositions positions, boolean isOnAllyTeam, int playerID) {
+        super(playerID, isOnAllyTeam);
         this.thisPlayer = thisPlayer;
         this.positions = positions;
         this.isOnAllyTeam = isOnAllyTeam;
-        playerID = positions.getPlayerID(thisPlayer);
+        this.playerID = playerID;
     }
 
     /**
@@ -104,22 +105,22 @@ public class AttackerAI extends PlayerAI {
                             // based on how close the opponent is. (closer = higher chance to shoot to an ally)
                             double distanceToClosest;
                             if (isOnAllyTeam) {
-                                distanceToClosest = positions.getClosestEnemyTo(thisPlayer).distanceTo(thisPlayer);
+                                distanceToClosest = positions.getClosestEnemyInFrontOf(thisPlayer).distanceTo(thisPlayer);
                             } else {
-                                distanceToClosest = positions.getClosestAllyTo(thisPlayer).distanceTo(thisPlayer);
+                                distanceToClosest = positions.getClosestAllyInFrontOf(thisPlayer).distanceTo(thisPlayer);
                             }
 
-                            if (distanceToClosest < 100 && distanceToClosest * Math.random() < 33 * Math.random()) {
+                            if (distanceToClosest < 100 && distanceToClosest * Math.random() < 50 * Math.random()) {
                                 ExactPosition closestOfOwnTeam = null;
                                 if (isOnAllyTeam) {
                                     for (ExactPosition pp : positions.getAllyTeam()) {
-                                        if (pp != thisPlayer && thisPlayer.distanceTo(pp) < thisPlayer.distanceTo(closestOfOwnTeam) && positions.getClosestEnemyTo(pp).distanceTo(pp) > 100 && thisPlayer.distanceTo(pp) < 150) {
+                                        if (pp != thisPlayer && thisPlayer.distanceTo(pp) < thisPlayer.distanceTo(closestOfOwnTeam) && positions.getClosestEnemyInFrontOf(pp).distanceTo(pp) > 75 && thisPlayer.distanceTo(pp) < 150) {
                                             closestOfOwnTeam = pp;
                                         }
                                     }
                                 } else {
                                     for (ExactPosition pp : positions.getEnemyTeam()) {
-                                        if (pp != thisPlayer && thisPlayer.distanceTo(pp) < thisPlayer.distanceTo(closestOfOwnTeam) && positions.getClosestAllyTo(pp).distanceTo(pp) > 100 && thisPlayer.distanceTo(pp) < 150) {
+                                        if (pp != thisPlayer && thisPlayer.distanceTo(pp) < thisPlayer.distanceTo(closestOfOwnTeam) && positions.getClosestAllyInFrontOf(pp).distanceTo(pp) > 75 && thisPlayer.distanceTo(pp) < 150) {
                                             closestOfOwnTeam = pp;
                                         }
                                     }
@@ -203,13 +204,10 @@ public class AttackerAI extends PlayerAI {
      * middle line, to make it easier to counter
      */
     private ExactPosition defendingPlayer() {
-        if (/*BallAI.islastShotByAllyTeam() &&*/ isOnAllyTeam) {
-            return getPosBySpeed(WALK_SPEED, thisPlayer, CurrentPositions.getAllyInfo(playerID).getFavoritePosition().getTranslateX(-200));
-        } else if (/*!BallAI.islastShotByAllyTeam() &&*/ !isOnAllyTeam) {
-            return getPosBySpeed(WALK_SPEED, thisPlayer, CurrentPositions.getEnemyInfo(playerID).getFavoritePosition().getTranslateX(200));
-        }
-
-        return defaultPreferredDirection();
+        if (isOnAllyTeam) {
+            return getPosBySpeed(WALK_SPEED, thisPlayer, CurrentPositions.getAllyInfo(playerID).getFavoritePosition().getTranslateX(-100));
+        } else
+            return getPosBySpeed(WALK_SPEED, thisPlayer, CurrentPositions.getEnemyInfo(playerID).getFavoritePosition().getTranslateX(100));
     }
 
     /**

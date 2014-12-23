@@ -106,8 +106,20 @@ public class ExactPosition {
     
     public ExactPosition getTranslateX(double x){
         ExactPosition result = new ExactPosition();
-        result.setyPos(yPos);
         result.setxPos(xPos + x);
+        result.setyPos(yPos);
         return result;
+    }
+    
+    public ExactPosition getTranslateY(double x){
+        ExactPosition result = new ExactPosition();
+        result.setxPos(xPos);
+        result.setyPos(yPos + x);
+        return result;
+    }
+    
+    @Override
+    public String toString(){
+        return "position: x: " + xPos + ", y: " + yPos;
     }
 }

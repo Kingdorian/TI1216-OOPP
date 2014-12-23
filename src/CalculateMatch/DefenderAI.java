@@ -27,12 +27,12 @@ public class DefenderAI extends PlayerAI{
      * @param positions     the previous positions of all other players
      * @param isOnAllyTeam  boolean conaining if this player is on the ally team
      */
-    public DefenderAI(ExactPosition thisPlayer, CurrentPositions positions, boolean isOnAllyTeam){
-        super(positions.getPlayerID(thisPlayer), isOnAllyTeam);
+    public DefenderAI(ExactPosition thisPlayer, CurrentPositions positions, boolean isOnAllyTeam, int playerID){
+        super(playerID, isOnAllyTeam);
         this.thisPlayer = thisPlayer;
         this.positions = positions;
         this.isOnAllyTeam = isOnAllyTeam;
-        playerID = positions.getPlayerID(thisPlayer);
+        this.playerID = playerID;
     }
     
     @Override
@@ -184,16 +184,20 @@ public class DefenderAI extends PlayerAI{
         if(isOnAllyTeam){
             yPos = CurrentPositions.getAllyInfo(playerID).getFavoritePosition().getyPos();
             if(BallAI.getCurrentBallPosition().getxPos() > MIDDLE_LINE_X - 100)
-                xPos = BallAI.getCurrentBallPosition().getxPos() - 66;
+                xPos = BallAI.getCurrentBallPosition().getxPos() - 50;
+            else if(BallAI.getCurrentBallPosition().getxPos() > MIDDLE_LINE_X - 380)
+                xPos = BallAI.getCurrentBallPosition().getxPos() - 20;
             else
-                xPos = BallAI.getCurrentBallPosition().getxPos() - 33;
+                xPos = 110;
             return getPosBySpeed(RUNNING_SPEED, thisPlayer, new ExactPosition(xPos, yPos));
         } else{
             yPos = CurrentPositions.getEnemyInfo(playerID).getFavoritePosition().getyPos();
             if(BallAI.getCurrentBallPosition().getxPos() < MIDDLE_LINE_X + 100)
-                xPos = BallAI.getCurrentBallPosition().getxPos() + 66;
+                xPos = BallAI.getCurrentBallPosition().getxPos() + 50;
+            else if(BallAI.getCurrentBallPosition().getxPos() < MIDDLE_LINE_X + 380)
+                xPos = BallAI.getCurrentBallPosition().getxPos() + 20;
             else
-                xPos = BallAI.getCurrentBallPosition().getxPos() + 33;
+                xPos = 910;
         }
         return getPosBySpeed(RUNNING_SPEED, thisPlayer, new ExactPosition(xPos, yPos));
     }

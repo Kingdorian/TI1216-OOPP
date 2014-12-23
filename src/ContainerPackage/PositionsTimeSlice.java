@@ -8,8 +8,8 @@ package ContainerPackage;
 public class PositionsTimeSlice {
     
     // Players are sorted by their numbers, the player with the lowest number will be Player[0], the one after that Player[1], ...
-    private ExactPosition[] playersAlly = new ExactPosition[12];      // array of players played by the player
-    private ExactPosition[] playersAdversary = new ExactPosition[12];  // array of players played by the computer
+    private ExactPosition[] playersAlly = new ExactPosition[11];      // array of players played by the player
+    private ExactPosition[] playersAdversary = new ExactPosition[11];  // array of players played by the computer
     private ExactPosition ballPosition = new ExactPosition();
     
     private boolean isPause = false; // if the frame represents a pause, this value will be true
@@ -104,6 +104,5 @@ public class PositionsTimeSlice {
     public void setScoreLeft(int scoreLeft) {
         this.scoreLeft = scoreLeft;
     }
-    
     
 }

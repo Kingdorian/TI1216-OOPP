@@ -10,20 +10,20 @@ import ContainerPackage.Vector;
  */
 public class BallAI {
     
-    private static final ExactPosition LEFT_GOAL_POSITION = new ExactPosition(60,381);
-    private static final ExactPosition RIGHT_GOAL_POSITION = new ExactPosition(955,381);
+    private static final ExactPosition LEFT_GOAL_POSITION = PlayerAI.LEFT_GOAL_POSITION;
+    private static final ExactPosition RIGHT_GOAL_POSITION = PlayerAI.RIGHT_GOAL_POSITION;
+    private static final int GOAL_SIZE = PlayerAI.GOAL_SIZE;
     
-    private static final int GOAL_SIZE = 80;
     private static final double BALLSPEED = 20.0;
     
     private static ExactPosition currentBallPosition;
     private static Vector ballVector;
     private static int counter = 2;
-    private static boolean shootHard;
-    private static boolean shootToTeammate;
+    private static boolean shootHard = false;
+    private static boolean shootToTeammate = false;
     private static boolean lastShotByAllyTeam = false;
     private static boolean isOutsideOfField = false;
-    
+    private static boolean ballStopped = false;
     
     /**
      * set the direction for the ball to move to
@@ -53,6 +53,12 @@ public class BallAI {
         if(checkBallOutsideOfField()){
             isOutsideOfField = true;
             return currentBallPosition;
+        }
+        
+        // if ball was stopped by the keeper, move ball to keeper
+        if(ballStopped){
+            ballStopped = false;
+            return ballVector.getPointTo();
         }
         
         counter++;
@@ -89,13 +95,13 @@ public class BallAI {
         
         // check if the ball is outside the field
         if(xPos < 60)
-            if(yPos < LEFT_GOAL_POSITION.getyPos() + (GOAL_SIZE/2) && yPos > LEFT_GOAL_POSITION.getyPos() - (GOAL_SIZE/2)){
+            if(isMovingTowardLeftGoal(false)){
                 CurrentPositions.addPointRight(); // left team scored
                 return true;
             } else 
                 return true;
         else if(xPos > 995)
-            if(yPos < RIGHT_GOAL_POSITION.getyPos() + (GOAL_SIZE/2) && yPos > RIGHT_GOAL_POSITION.getyPos() - (GOAL_SIZE/2)){
+            if(isMovingTowardRightGoal(false)){
                 CurrentPositions.addPointLeft(); // right team scored
                 return true;
             } else 
@@ -176,4 +182,58 @@ public class BallAI {
         BallAI.isOutsideOfField = isOutsideOfField;
     }
 
+    public static double getBallSpeed(){
+        double speed = 3.75 + BALLSPEED;
+        
+        if(shootHard)
+            speed *= 5;
+        if(shootToTeammate && ballVector != null)
+            speed = ballVector.getLength()/3;
+        
+        if(counter < 15){
+            for(int i=1; i<counter; i++)
+                speed /= Math.sqrt(2);
+        } else
+            return 0;
+        
+        if(speed < 5)
+            return 0;
+        return speed;
+    }
+    
+    public static void stopBall(ExactPosition keeper, boolean isOnAllyTeam){
+        lastShotByAllyTeam = isOnAllyTeam;
+        ballStopped = true;
+        ballVector = new Vector(currentBallPosition, keeper);
+        counter = 50;
+    }
+    
+    /**
+     * check if the ball is moving toward the left goal
+     * @param checkDirection    if true, only return true if the ball hasn't passed the goal yet
+     * @return  if the ball will roll (or has already rolled, if the parameter is false,) into the goal
+     */
+    public static boolean isMovingTowardLeftGoal(boolean checkDirection){
+        ExactPosition goalUpperBound = LEFT_GOAL_POSITION.getTranslateY(GOAL_SIZE / 2);
+        ExactPosition goalLowerBound = LEFT_GOAL_POSITION.getTranslateY(-GOAL_SIZE / 2);
+        if(checkDirection)
+            return ballVector.intersectsWith(goalUpperBound, goalLowerBound, true, false);
+        else
+            return ballVector.intersectsWith(goalUpperBound, goalLowerBound);
+    }
+    
+    /**
+     * check if the ball is moving toward the right goal
+     * @param checkDirection    if true, only return true if the ball hasn't passed the goal yet
+     * @return  if the ball will roll (or has already rolled, if the parameter is false,) into the goal
+     */
+    public static boolean isMovingTowardRightGoal(boolean checkDirection){
+        ExactPosition goalUpperBound = RIGHT_GOAL_POSITION.getTranslateY(GOAL_SIZE / 2);
+        ExactPosition goalLowerBound = RIGHT_GOAL_POSITION.getTranslateY(-GOAL_SIZE / 2);
+        if(checkDirection)
+            return ballVector.intersectsWith(goalUpperBound, goalLowerBound, true, true);
+        else
+            return ballVector.intersectsWith(goalUpperBound, goalLowerBound);
+    }
+    
 }

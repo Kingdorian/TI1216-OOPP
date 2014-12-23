@@ -25,13 +25,14 @@ public class MidfieldAI extends PlayerAI {
      * @param thisPlayer the position of this attacker
      * @param positions the previous positions of all other players
      * @param isOnAllyTeam boolean conaining if this player is on the ally team
+     * @param playerID
      */
-    public MidfieldAI(ExactPosition thisPlayer, CurrentPositions positions, boolean isOnAllyTeam) {
-        super(positions.getPlayerID(thisPlayer), isOnAllyTeam);
+    public MidfieldAI(ExactPosition thisPlayer, CurrentPositions positions, boolean isOnAllyTeam, int playerID) {
+        super(playerID, isOnAllyTeam);
         this.thisPlayer = thisPlayer;
         this.positions = positions;
         this.isOnAllyTeam = isOnAllyTeam;
-        playerID = positions.getPlayerID(thisPlayer);
+        this.playerID = playerID;
         
     }
 
@@ -180,9 +181,9 @@ public class MidfieldAI extends PlayerAI {
     // Ball far from middle line: support attack (prevent counters)
     private ExactPosition supportAttack() {
         if(isOnAllyTeam)
-            return getPosBySpeed(WALK_SPEED, thisPlayer, CurrentPositions.getAllyInfo(playerID).getFavoritePosition().getTranslateX(200));
+            return getPosBySpeed(WALK_SPEED, thisPlayer, CurrentPositions.getAllyInfo(playerID).getFavoritePosition()/*.getTranslateX(50)*/);
         else
-            return getPosBySpeed(WALK_SPEED, thisPlayer, CurrentPositions.getEnemyInfo(playerID).getFavoritePosition().getTranslateX(-200));
+            return getPosBySpeed(WALK_SPEED, thisPlayer, CurrentPositions.getEnemyInfo(playerID).getFavoritePosition()/*.getTranslateX(-50)*/);
     }
 
     // Ball close to middle line: try to get ball (stay close to ball)

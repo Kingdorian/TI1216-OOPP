@@ -19,6 +19,7 @@ public abstract class PlayerAI {
     public static final double WALK_SPEED = 6;
     public static final ExactPosition LEFT_GOAL_POSITION = new ExactPosition(60,381);
     public static final ExactPosition RIGHT_GOAL_POSITION = new ExactPosition(955,381);
+    public static final int GOAL_SIZE = 80;
     public static final int MIDDLE_LINE_X = 510;
 
     
@@ -60,7 +61,7 @@ public abstract class PlayerAI {
                         closest = positions.getClosestEnemyTo(BallAI.getCurrentBallPosition());
         double opponentDistance = closest.distanceTo(BallAI.getCurrentBallPosition());
         double ownDistance = thisPlayer.distanceTo(BallAI.getCurrentBallPosition());
-        int opponentID = positions.getPlayerID(closest);
+        int opponentID = positions.getIDByPosition(closest);
         double opponentAttack;
         double thisDefensePower;
         if(isOnAllyTeam){
@@ -96,7 +97,7 @@ public abstract class PlayerAI {
                         closest = positions.getClosestEnemyTo(BallAI.getCurrentBallPosition());
         double opponentDistance = closest.distanceTo(BallAI.getCurrentBallPosition());
         double ownDistance = thisPlayer.distanceTo(BallAI.getCurrentBallPosition());
-        int opponentID = positions.getPlayerID(closest);
+        int opponentID = positions.getIDByPosition(closest);
         double opponentDefense;
         double thisAttackPower;
         if(isOnAllyTeam){
