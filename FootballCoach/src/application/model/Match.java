@@ -13,8 +13,8 @@ public class Match {
 	
 	private Team homeTeam;
     private Team visitorTeam;
-    private int pointsHomeTeam;
-    private int pointsVisitorTeam;
+    private int pointsHomeTeam = -1;
+    private int pointsVisitorTeam = -1;
 	
 	public boolean equals(Object obj) {
 		if(!(obj instanceof Match)){
@@ -63,6 +63,7 @@ public class Match {
     public Match(Team homeTeam, Team visitorTeam) {
         this.homeTeam = homeTeam;
         this.visitorTeam = visitorTeam;
+        
 	}
 
 	public Team getHomeTeam() {
