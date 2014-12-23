@@ -96,6 +96,7 @@ public class SaveGameHandler {
 			Competition returnComp = ldByCompByPath(teamsLoc, matchesLoc);
 			fetchImages(defaultloc + "/" + newId + "/images/", returnComp);
 			returnComp.setSaveGameId(newId);
+			returnComp.generateMatches(10100);
 			return returnComp;
 		} catch (Exception e) {
 			e.printStackTrace();

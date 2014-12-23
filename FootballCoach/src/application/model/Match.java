@@ -55,13 +55,17 @@ public class Match {
 	}
 
     public Match(Team homeTeam, Team visitorTeam, int pointsHomeTeam, int pointsVisitorTeam) {
-        this.homeTeam = homeTeam;
-        this.visitorTeam = visitorTeam;
+    	this(homeTeam, visitorTeam);
         this.pointsHomeTeam = pointsHomeTeam;
         this.pointsVisitorTeam = pointsVisitorTeam;
     }
 
-    public Team getHomeTeam() {
+    public Match(Team homeTeam, Team visitorTeam) {
+        this.homeTeam = homeTeam;
+        this.visitorTeam = visitorTeam;
+	}
+
+	public Team getHomeTeam() {
         return homeTeam;
     }
 

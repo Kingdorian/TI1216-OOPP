@@ -1,6 +1,8 @@
 package application.model;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 public class Competition {
 
@@ -229,4 +231,41 @@ public class Competition {
     		return team;
     	return null;
     }
+	public void generateMatches(int seed) {
+		//first getting an array of all the matches
+		ArrayList<String>  matches = new ArrayList<String>();
+		//ROUND ROBIN STYLE FOR THE FIRST 17 Matches
+		for(int i = 0; i < teams.length-1; i++){
+			System.out.println("ROUND: " + i);
+			for(int j = 0; j < teams.length/2; j++){
+				int hometeamIndex = j;
+				int awayTeamIndex = teams.length - 1 - j ;
+				competition[i][j] = new Match(teams[hometeamIndex],	teams[awayTeamIndex]);
+				System.out.println(competition[i][j].toString());
+			}
+			//Rotating the array
+			Team temp = teams[teams.length-1];
+			for(int j = teams.length-2; j>= 1; j--){
+				teams[j+1] = teams[j];
+			}
+			teams[1] = temp;
+		}
+		// Swap the teams from the first 17 matches around to create the "returns"
+		for(int i = 0; i<(teams.length-1); i++){
+			int offset = teams.length-1;
+			System.out.println("ROUND: " + (i+ offset));
+			for(int j = 0; j<teams.length/2; j++){
+				competition[i+offset][j] = new Match(competition[i][j].getVisitorTeam(),competition[i][j].getHomeTeam());
+				System.out.println(competition[i][j].toString());
+			}
+		}
+		// Shuffle the array Fisher-Yates style
+		Random rnd = new Random(seed);
+		for(int i = 33 ; i > 0; i--){
+			int index = rnd.nextInt(i+1);
+			Match[] temp = competition[index];
+			competition[index] = competition[i];
+			competition[i] = temp;
+		}
+	}
 }
