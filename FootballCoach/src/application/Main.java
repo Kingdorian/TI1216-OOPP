@@ -25,10 +25,8 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.transform.NonInvertibleTransformException;
 import javafx.scene.transform.Scale;
 import javafx.stage.Modality;
 
@@ -49,6 +47,9 @@ public class Main extends Application {
     private static Players selectedPlayer;
     private static GameScreenMenuController menuController;
     private static GameScreenTitleController titleController;
+    
+    private static String colorCssStyle = "";
+    private static String sizeCssStyle = "";
 
     @Override
     public void start(Stage primaryStage) {
@@ -195,12 +196,14 @@ public class Main extends Application {
                 
                 // Adjust the size of the background accordingly (otherwise the css and this changelistener would both scale the picture, scaling it twice too much)
                 double backgroundScale = newWidth/1024 > newHeight/600? newWidth/1024*600/newHeight : newHeight/600*1024/newWidth;
-                rootLayout.setStyle("-fx-background-size:" + 1024 * backgroundScale +","+ 600 * backgroundScale +";");
+                sizeCssStyle = "-fx-background-size:" + 1024 * backgroundScale +","+ 600 * backgroundScale +";";
+                rootLayout.setStyle(sizeCssStyle + colorCssStyle);
 
             } else {
                 contentPane.setPrefWidth(Math.max(initWidth, newWidth));
                 contentPane.setPrefHeight(Math.max(initHeight, newHeight));
-                rootLayout.setStyle("-fx-background-size: 1024, 600;");
+                sizeCssStyle = "-fx-background-size: 1024, 600;";
+                rootLayout.setStyle(sizeCssStyle + colorCssStyle);
             }
         }
     }
@@ -456,7 +459,18 @@ public class Main extends Application {
     public static void setTitleController(GameScreenTitleController titleController) {
         Main.titleController = titleController;
     }
-    
+
+    public static String getColorCssStyle() {
+        return colorCssStyle;
+    }
+
+    public static void setColorCssStyle(String colorCssStyle) {
+        Main.colorCssStyle = colorCssStyle;
+    }
+
+    public static String getSizeCssStyle() {
+        return sizeCssStyle;
+    }
 
     /**
      *
