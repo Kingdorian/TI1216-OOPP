@@ -5,8 +5,9 @@
  */
 package application.animation.CalculateMatch;
 
+import application.animation.ContainerPackage.CurrentPositions;
 import application.animation.ContainerPackage.ExactPosition;
-import application.animation.ContainerPackage.Match;
+import application.animation.ContainerPackage.AnimatedMatch;
 import application.animation.ContainerPackage.PlayerInfo;
 import application.animation.ContainerPackage.PositionsTimeSlice;
 
@@ -15,12 +16,12 @@ import application.animation.ContainerPackage.PositionsTimeSlice;
  * @author faris
  */
 public class MainAIController {
-    private static Match footballMatch = new Match();
+    private static AnimatedMatch footballMatch = new AnimatedMatch();
     private static CurrentPositions currentPositions = new CurrentPositions();
-    public static final int AMOUNT_OF_SLICES = 2160; // should be 21600
+    public static final int AMOUNT_OF_SLICES = 21600; // should be 21600
     
     
-    public static Match createMatch(){
+    public static AnimatedMatch createMatch(){
         
         // set player abilities and favorite positions
         CurrentPositions.setAllyInfo(new PlayerInfo(95,95, new ExactPosition(60 , 381)), 0);

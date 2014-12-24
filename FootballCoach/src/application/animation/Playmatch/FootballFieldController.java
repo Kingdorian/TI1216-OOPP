@@ -230,4 +230,9 @@ public class FootballFieldController {
         else
             pauseButton.setText("S"); // S for stop -- REPLACE WITH PUCTURE
     }
+    
+    @FXML
+    private void continueButton(){
+        AnimateFootballMatch.stopAnimation();
+    }
 }

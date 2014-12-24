@@ -6,7 +6,7 @@
 package application.view;
 
 import application.Main;
-import application.controller.GenerateMatch;
+import application.PlayAnimation;
 import application.model.Match;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -39,9 +39,12 @@ public class GameScreenPLAYMATCHController implements ViewControllerInterface {
     
     @FXML
     private void playMatchButton(){
-        Match result = GenerateMatch.generateMatch(Main.getCompetition().getTeamByName(Main.getChosenTeamName()), Main.getCompetition().getTeamByName("Feyenoord"));
-        score.setText(result.getPointsHomeTeam() + " - " + result.getPointsVisitorTeam());
-        System.out.println("Play match is not correctly implemented yet.");
+//        Match result = GenerateMatch.generateMatch(Main.getCompetition().getTeamByName(Main.getChosenTeamName()), Main.getCompetition().getTeamByName("Feyenoord"));
+//        score.setText(result.getPointsHomeTeam() + " - " + result.getPointsVisitorTeam());
+//        System.out.println("Play match is not correctly implemented yet.");
         playMatchButton.setDisable(true);
+        
+        Match result = PlayAnimation.playAnimation(null, null, null, null, null, null);
+        score.setText(result.getPointsHomeTeam() + " - " + result.getPointsVisitorTeam());
     }
 }

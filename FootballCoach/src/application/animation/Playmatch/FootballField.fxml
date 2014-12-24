@@ -15,7 +15,7 @@
    <children>
       <ImageView fx:id="fieldPicture" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Pictures/Field.png" />
+            <Image url="@../../img/Field.png" />
          </image>
       </ImageView>
       <Region layoutY="760.0" prefHeight="60.0" prefWidth="1020.0" styleClass="animationBottomRegion" />
@@ -34,7 +34,7 @@
             <ComboBox fx:id="speedBox" layoutX="785.0" layoutY="780.0" prefHeight="25.0" prefWidth="118.0" promptText="Select speed" />
          </children>
       </HBox>
-      <Button layoutX="918.0" layoutY="770.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="98.0" text="CONTINUE">
+      <Button layoutX="918.0" layoutY="770.0" mnemonicParsing="false" onAction="#continueButton" prefHeight="40.0" prefWidth="98.0" text="CONTINUE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

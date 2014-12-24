@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author faris
  */
-public class Match {
+public class AnimatedMatch {
 
     private ArrayList<PositionsTimeSlice> positionsList = new ArrayList<>();
 
