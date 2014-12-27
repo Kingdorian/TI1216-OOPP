@@ -19,16 +19,22 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Cursor;
+import javafx.scene.Node;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.scene.control.PopupControl;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.transform.Scale;
-import javafx.stage.Modality;
+import javafx.stage.PopupWindow.AnchorLocation;
+import javafx.stage.Window;
+import javafx.stage.WindowEvent;
 
 /**
  *
@@ -38,7 +44,7 @@ import javafx.stage.Modality;
 public class Main extends Application {
 
     private static String chosenName;
-    private static String chosenTeamName = "Ajax";
+    private static String chosenTeamName;
     private static Competition competition;
 
     private static Stage primaryStage;
@@ -47,9 +53,11 @@ public class Main extends Application {
     private static Players selectedPlayer;
     private static GameScreenMenuController menuController;
     private static GameScreenTitleController titleController;
-    
+
     private static String colorCssStyle = "";
     private static String sizeCssStyle = "";
+
+    private static PopupControl oldPopup;
 
     @Override
     public void start(Stage primaryStage) {
@@ -67,7 +75,7 @@ public class Main extends Application {
         primaryStage.setMinWidth(1040);
 
         // load the competition
-       try {
+        try {
             competition = XMLHandler.readCompetition("XML/Teams.xml", "XML/Matches.xml");
         } catch (Exception ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
@@ -109,21 +117,20 @@ public class Main extends Application {
     private static class ShortcutEventHandler implements EventHandler<javafx.scene.input.KeyEvent> {
 
         final KeyCombination ctrlF = new KeyCodeCombination(KeyCode.F, KeyCombination.CONTROL_DOWN);
-        final KeyCombination ctrlS = new KeyCodeCombination(KeyCode.S, KeyCombination.CONTROL_DOWN);
+//        final KeyCombination ctrlS = new KeyCodeCombination(KeyCode.S, KeyCombination.CONTROL_DOWN);
 
         @Override
         public void handle(javafx.scene.input.KeyEvent event) {
-            if (ctrlF.match(event)) {
+            if (ctrlF.match(event) || event.getCode() == KeyCode.F10 || event.getCode() == KeyCode.F11) {
                 if (primaryStage.isFullScreen()) {
                     primaryStage.setFullScreen(false);
                 } else {
                     primaryStage.setFullScreen(true);
                 }
-                System.out.println("Ctrl+F pressed: toggle full screen.");
             }
-            if (ctrlS.match(event)) {
-                System.out.println("Ctrl+S pressed: Save game.");
-            }
+//            if (ctrlS.match(event)) {
+//                System.out.println("Ctrl+S pressed: Save game.");
+//            }
         }
     }
 
@@ -180,23 +187,22 @@ public class Main extends Application {
             final double newHeight = scene.getHeight();
 
             double scaleFactor = newWidth / newHeight > ratio
-                                ? newHeight / initHeight
-                                : newWidth / initWidth;
+                    ? newHeight / initHeight
+                    : newWidth / initWidth;
 
             if (scaleFactor >= 1) {
                 Scale scale = new Scale(scaleFactor, scaleFactor);
                 scale.setPivotX(0);
                 scale.setPivotY(0);
-                
 
                 scene.getRoot().getTransforms().setAll(scale);
 
                 contentPane.setPrefWidth(newWidth / scaleFactor);
                 contentPane.setPrefHeight(newHeight / scaleFactor);
-                
+
                 // Adjust the size of the background accordingly (otherwise the css and this changelistener would both scale the picture, scaling it twice too much)
-                double backgroundScale = newWidth/1024 > newHeight/600? newWidth/1024*600/newHeight : newHeight/600*1024/newWidth;
-                sizeCssStyle = "-fx-background-size:" + 1024 * backgroundScale +","+ 600 * backgroundScale +";";
+                double backgroundScale = newWidth / 1024 > newHeight / 600 ? newWidth / 1024 * 600 / newHeight : newHeight / 600 * 1024 / newWidth;
+                sizeCssStyle = "-fx-background-size:" + 1024 * backgroundScale + "," + 600 * backgroundScale + ";";
                 rootLayout.setStyle(sizeCssStyle + colorCssStyle);
 
             } else {
@@ -352,10 +358,9 @@ public class Main extends Application {
      *
      * @param viewPath name of the .fxml file containing the pop-up window
      * @param popupTitle the title of the pop-up window
-     * @return true if the OK button has been clicked, else: false
      */
-    public boolean createPopup(String viewPath, String popupTitle) {
-        return createPopup(viewPath, popupTitle, null);
+    public void createPopup(String viewPath, String popupTitle) {
+        createPopup(viewPath, popupTitle, null);
     }
 
     /**
@@ -363,49 +368,137 @@ public class Main extends Application {
      *
      * @param viewPath name of the .fxml file containing the pop-up window
      * @param popupTitle the title of the pop-up window
-     * @param imagePath a path to the image to use for the pop-up window
-     * @return true if the OK button has been clicked, else: false
+     * @param event the event to execute when the 'ok' button get clicked
      */
-    public boolean createPopup(String viewPath, String popupTitle, String imagePath) {
+    public void createPopup(String viewPath, String popupTitle, EventHandler event) {
 
         // load the pane
         Object[] paneAndLoader = loadPane(changeNameToClassPath(viewPath));
         Pane pane = (Pane) paneAndLoader[0];
-        // Pane pane = loadPane(changeNameToClassPath(viewPath));
 
-        // create popup window
-        Stage popupStage = new Stage();
-        popupStage.setTitle(popupTitle);
-        popupStage.initModality(Modality.WINDOW_MODAL);
-        popupStage.initOwner(primaryStage);
-        if (imagePath != null) {
-            popupStage.getIcons().add(new Image(imagePath));
+        PopupControl popup;
+        AnchorLocation location = null;
+        if (oldPopup != null && oldPopup.isShowing()){
+//            // overwrite old popup window
+//            popup = oldPopup;
+//            popup.getScene().setRoot(pane);
+//            popup.sizeToScene();
+            location = oldPopup.getAnchorLocation();
+            oldPopup.hide();
+        } else{
+//            // create new popup window
+//            popup = new PopupControl();
+//            popup.getScene().setRoot(pane);
+//            popup.show(primaryStage);
+//            oldPopup = popup;
         }
-        Scene scene = new Scene(pane);
-        popupStage.setScene(scene);
-        popupStage.sizeToScene();
-        popupStage.setResizable(false);
-
+       // create new popup window
+            popup = new PopupControl();
+            popup.getScene().setRoot(pane);
+            popup.show(primaryStage);
+            oldPopup = popup;
+            if(location!=null)
+                popup.setAnchorLocation(location);
+        makeDragable(popup);
+        
         // get the pop-up's controller class
         PopupControllerInterface popupController = ((FXMLLoader) paneAndLoader[1]).getController();
-        popupController.setPopupStage(popupStage);
+        popupController.setPopupStage(popup);
 
-        // show the popup and wait until the user closes it
-        popupStage.showAndWait();
+        // if the EventHandler event (methods parameter) is not null, trigger it when the 'ok' button is clicked
+        if (event != null) {
+            popup.setOnHidden(new EventHandler<WindowEvent>() {
+                @Override
+                public void handle(WindowEvent e) {
+                    oldPopup = null;
+                    if (popupController.isOkClicked()) {
+                        event.handle(e);
+                        System.out.println("ok clicked");
+                    }
+                }
+            });
+        }
 
-        return popupController.isOkClicked();
+    }
+
+    /**
+     * This method makes the window root dragable.
+     * This method is based on the makeDragable 
+     * method from this project:
+     * https://gist.github.com/jewelsea/3388637
+     *
+     * @param window  the window to make dragable
+     */
+    public static void makeDragable(final Window window) {
+        
+        // class to store relative x and y coordinates
+        class Delta {
+            double x, y;
+        }
+        
+        final Delta dragDelta = new Delta();
+        Node node = window.getScene().getRoot();
+        
+        // when clickingset the position of the window relative to the mouse
+        // and change the mouse cursor to 'move'
+        node.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                // record a delta distance for the drag and drop operation.
+                dragDelta.x = window.getX() - mouseEvent.getScreenX();
+                dragDelta.y = window.getY() - mouseEvent.getScreenY();
+                node.setCursor(Cursor.MOVE);
+            }
+        });
+        
+        // when releasing the mouse button, change the cursor to a hand
+        node.setOnMouseReleased(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                node.setCursor(Cursor.HAND);
+            }
+        });
+        
+        // move the window when dragging with the mouse (relative to where the mouse is)
+        node.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                window.setX(mouseEvent.getScreenX() + dragDelta.x);
+                window.setY(mouseEvent.getScreenY() + dragDelta.y);
+            }
+        });
+        
+        // change cursor to a hand when entering the window
+        node.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                if (!mouseEvent.isPrimaryButtonDown()) {
+                    node.setCursor(Cursor.HAND);
+                }
+            }
+        });
+        
+        // change to default cursor when leaving the window
+        node.setOnMouseExited(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                if (!mouseEvent.isPrimaryButtonDown()) {
+                    node.setCursor(Cursor.DEFAULT);
+                }
+            }
+        });
     }
 
     public static ArrayList<Players> getPlayersData(String teamName) {
         return competition.getTeamByName(teamName)
-        		.getPlayers();
+                .getPlayers();
     }
 
     public static String getChosenTeamName() {
         return chosenTeamName;
     }
-    
-    public static void SetChosenTeamName(String name){
+
+    public static void SetChosenTeamName(String name) {
         chosenTeamName = name;
     }
 
@@ -420,13 +513,12 @@ public class Main extends Application {
     public static Competition getCompetition() {
         return competition;
     }
-    
+
     public static void setCompetition(Competition competition) {
-    	System.out.println("setting competition" + competition.toString());
-  
+//        System.out.println("setting competition" + competition.toString());
+
         Main.competition = competition;
     }
-
 
     public static Players getSelectedPlayer() {
         return selectedPlayer;
@@ -470,6 +562,10 @@ public class Main extends Application {
 
     public static String getSizeCssStyle() {
         return sizeCssStyle;
+    }
+
+    public static PopupControl getOldPopup() {
+        return oldPopup;
     }
 
     /**

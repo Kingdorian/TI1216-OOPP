@@ -6,18 +6,12 @@
 package application.view;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
-import org.controlsfx.dialog.Dialogs;
 
 import application.Main;
 import application.controller.SaveGameHandler;
-import application.model.Team;
-import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
+import javafx.scene.control.PopupControl;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 /**
  *
@@ -26,7 +20,7 @@ import javafx.stage.Stage;
 public class PopupSAVEGAMEController implements PopupControllerInterface {
 
     private boolean isOkClicked = false;
-    private static Stage popupStage;
+    private static PopupControl popupControl;
     @FXML
     private Text saveGameID;
 
@@ -36,8 +30,8 @@ public class PopupSAVEGAMEController implements PopupControllerInterface {
      * @param popupStage
      */
     @Override
-    public void setPopupStage(Stage popupStage) {
-        this.popupStage = popupStage;
+    public void setPopupStage(PopupControl popupControl) {
+        this.popupControl = popupControl;
     }
 
     @Override
@@ -56,7 +50,7 @@ public class PopupSAVEGAMEController implements PopupControllerInterface {
     	try {
             isOkClicked = true; 		
 			SaveGameHandler.saveGame(Main.getCompetition());
-	        popupStage.close();			
+	        popupControl.hide();			
 		} catch (IOException e) {
 			System.out.println("Game could not be saved");
 			e.printStackTrace();
@@ -66,7 +60,7 @@ public class PopupSAVEGAMEController implements PopupControllerInterface {
     @FXML
     private void buttonCancel() {
         isOkClicked = true;
-        popupStage.close();
+        popupControl.hide();
     }
 
 }

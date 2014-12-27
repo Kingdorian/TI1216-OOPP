@@ -14,7 +14,6 @@ import java.util.ArrayList;
 public class AttackerAI extends PlayerAI {
 
     private final ExactPosition thisPlayer;
-    private final CurrentPositions positions;
     private final boolean isOnAllyTeam;
     private final int playerID;
 
@@ -28,9 +27,8 @@ public class AttackerAI extends PlayerAI {
      * @param playerID
      */
     public AttackerAI(ExactPosition thisPlayer, CurrentPositions positions, boolean isOnAllyTeam, int playerID) {
-        super(playerID, isOnAllyTeam);
+        super(playerID, isOnAllyTeam, positions);
         this.thisPlayer = thisPlayer;
-        this.positions = positions;
         this.isOnAllyTeam = isOnAllyTeam;
         this.playerID = playerID;
     }
@@ -189,7 +187,7 @@ public class AttackerAI extends PlayerAI {
             } else {
                 ExactPosition destination = new ExactPosition();
                 destination.setxPos(BallAI.getCurrentBallPosition().getxPos());
-                destination.setyPos((CurrentPositions.getAllyInfo(playerID).getFavoritePosition().getyPos() * 2 + BallAI.getCurrentBallPosition().getyPos()) / 3);
+                destination.setyPos((positions.getAllyInfo(playerID).getFavoritePosition().getyPos() * 2 + BallAI.getCurrentBallPosition().getyPos()) / 3);
                 return getPosBySpeed(RUNNING_SPEED, thisPlayer, destination);
             }
         }
@@ -203,9 +201,9 @@ public class AttackerAI extends PlayerAI {
      */
     private ExactPosition defendingPlayer() {
         if (isOnAllyTeam) {
-            return getPosBySpeed(WALK_SPEED, thisPlayer, CurrentPositions.getAllyInfo(playerID).getFavoritePosition().getTranslateX(-100));
+            return getPosBySpeed(WALK_SPEED, thisPlayer, positions.getAllyInfo(playerID).getFavoritePosition().getTranslateX(-100));
         } else
-            return getPosBySpeed(WALK_SPEED, thisPlayer, CurrentPositions.getEnemyInfo(playerID).getFavoritePosition().getTranslateX(100));
+            return getPosBySpeed(WALK_SPEED, thisPlayer, positions.getEnemyInfo(playerID).getFavoritePosition().getTranslateX(100));
     }
 
     /**
@@ -226,12 +224,12 @@ public class AttackerAI extends PlayerAI {
             if (destination.getxPos() < MIDDLE_LINE_X) {
                 destination.setxPos(MIDDLE_LINE_X);
             }
-            destination.setyPos(CurrentPositions.getAllyInfo(playerID).getFavoritePosition().getyPos());
+            destination.setyPos(positions.getAllyInfo(playerID).getFavoritePosition().getyPos());
         } else {
             if (destination.getxPos() > MIDDLE_LINE_X) {
                 destination.setxPos(MIDDLE_LINE_X);
             }
-            destination.setyPos(CurrentPositions.getEnemyInfo(playerID).getFavoritePosition().getyPos());
+            destination.setyPos(positions.getEnemyInfo(playerID).getFavoritePosition().getyPos());
         }
         return getPosBySpeed(WALK_SPEED, thisPlayer, destination);
     }

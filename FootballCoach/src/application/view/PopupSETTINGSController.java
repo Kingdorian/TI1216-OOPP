@@ -14,10 +14,10 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ColorPicker;
+import javafx.scene.control.PopupControl;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
 /**
  *
@@ -26,7 +26,7 @@ import javafx.stage.WindowEvent;
 public class PopupSETTINGSController implements PopupControllerInterface {
 
     private boolean isOkClicked = false;
-    private static Stage popupStage;
+    private static PopupControl popupControl;
     private BorderPane rootLayout;
     private Stage primaryStage;
     private String colorBeforeChanges;
@@ -49,18 +49,8 @@ public class PopupSETTINGSController implements PopupControllerInterface {
      * @param popupStage
      */
     @Override
-    public void setPopupStage(Stage popupStage) {
-        this.popupStage = popupStage;
-
-        // reset colors if the stage is closed in any other way than by clicking one of the buttons
-        popupStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-            public void handle(WindowEvent we) {
-                if (isOkClicked == false) {
-                    rootLayout.setStyle(Main.getSizeCssStyle() + colorBeforeChanges);
-                    Main.setColorCssStyle(colorBeforeChanges);
-                }
-            }
-        });
+    public void setPopupStage(PopupControl popupControl) {
+        this.popupControl = popupControl;
     }
 
     @Override
@@ -186,7 +176,7 @@ public class PopupSETTINGSController implements PopupControllerInterface {
         }
 
         isOkClicked = true;
-        popupStage.close();
+        popupControl.hide();
     }
 
     private void setColor() {
@@ -219,7 +209,7 @@ public class PopupSETTINGSController implements PopupControllerInterface {
         // reset colors and close stage
         rootLayout.setStyle(Main.getSizeCssStyle() + colorBeforeChanges);
         Main.setColorCssStyle(colorBeforeChanges);
-        popupStage.close();
+        popupControl.hide();
     }
 
     @FXML

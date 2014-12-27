@@ -11,12 +11,10 @@ import org.controlsfx.dialog.Dialogs;
 
 import application.Main;
 import application.controller.SaveGameHandler;
-import application.model.Players;
-import application.model.Team;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
-import javafx.stage.Stage;
+import javafx.scene.control.PopupControl;
 
 /**
  *
@@ -25,7 +23,7 @@ import javafx.stage.Stage;
 public class PopupLOADGAMEController implements PopupControllerInterface {
 
     private boolean isOkClicked = false;
-    private static Stage popupStage;
+    private static PopupControl popupControl;
     @FXML
     private ComboBox selectSaveGameBox;
 
@@ -35,8 +33,8 @@ public class PopupLOADGAMEController implements PopupControllerInterface {
      * @param popupStage
      */
     @Override
-    public void setPopupStage(Stage popupStage) {
-        this.popupStage = popupStage;
+    public void setPopupStage(PopupControl popupControl) {
+        this.popupControl = popupControl;
     }
 
     @Override
@@ -47,7 +45,7 @@ public class PopupLOADGAMEController implements PopupControllerInterface {
     @FXML
     private void initialize() {
         isOkClicked = false;
-        
+
         //Add items to the dropdown list
         ArrayList<Integer> saveGames = SaveGameHandler.getSaveGames();
         selectSaveGameBox.setItems(FXCollections.observableArrayList(saveGames));
@@ -55,33 +53,34 @@ public class PopupLOADGAMEController implements PopupControllerInterface {
 
     @FXML
     private void buttonOK() {
-        if(selectSaveGameBox.getSelectionModel().getSelectedIndex() == -1)
+        if (selectSaveGameBox.getSelectionModel().getSelectedIndex() == -1) {
             Dialogs.create()
-                            .title("No Selection")
-                            .masthead("No savegame selected")
-                            .message("Please select a savegame in the dropdown list.")
-                            .showWarning(); 
-        else {
-        	int choice = Integer.parseInt(selectSaveGameBox.getItems().get(selectSaveGameBox.getSelectionModel().getSelectedIndex()).toString());
-			try {
-				Main.setCompetition(SaveGameHandler.loadCompetition(choice));
-	            Main.setChosenName(Main.getCompetition().getName());
-	            Main.SetChosenTeamName(Main.getCompetition().getChosenTeamName());
-	            
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-	        isOkClicked = true;
-            popupStage.close();	    
+                    .title("No Selection")
+                    .masthead("No savegame selected")
+                    .message("Please select a savegame in the dropdown list.")
+                    .owner(Main.getOldPopup())
+                    .showWarning();
+        } else {
+            int choice = Integer.parseInt(selectSaveGameBox.getItems().get(selectSaveGameBox.getSelectionModel().getSelectedIndex()).toString());
+            try {
+                Main.setCompetition(SaveGameHandler.loadCompetition(choice));
+                Main.setChosenName(Main.getCompetition().getName());
+                Main.SetChosenTeamName(Main.getCompetition().getChosenTeamName());
+
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+
+            isOkClicked = true;
+            popupControl.hide();
 
         }
     }
-    
+
     @FXML
     private void buttonCancel() {
-        popupStage.close();
+        popupControl.hide();
     }
 
 }

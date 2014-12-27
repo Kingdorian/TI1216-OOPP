@@ -5,7 +5,7 @@
  */
 package application.view;
 
-import javafx.stage.Stage;
+import javafx.scene.control.PopupControl;
 
 /**
  *
@@ -15,5 +15,5 @@ public interface PopupControllerInterface {
 
     public boolean isOkClicked();
 
-    public void setPopupStage(Stage popupStage);
+    public void setPopupStage(PopupControl popupControl);
 }

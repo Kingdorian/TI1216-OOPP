@@ -10,43 +10,52 @@ import application.animation.ContainerPackage.ExactPosition;
 import application.animation.ContainerPackage.AnimatedMatch;
 import application.animation.ContainerPackage.PlayerInfo;
 import application.animation.ContainerPackage.PositionsTimeSlice;
+import java.util.ArrayList;
 
 /**
  *
  * @author faris
  */
 public class MainAIController {
-    private static AnimatedMatch footballMatch = new AnimatedMatch();
-    private static CurrentPositions currentPositions = new CurrentPositions();
+    private final AnimatedMatch footballMatch = new AnimatedMatch();
+    private CurrentPositions currentPositions = new CurrentPositions();
     public static final int AMOUNT_OF_SLICES = 21600; // should be 21600
     
     
-    public static AnimatedMatch createMatch(){
+    public AnimatedMatch createMatch(PlayerInfo keeper1, ArrayList<PlayerInfo> defense1,
+            ArrayList<PlayerInfo> midfield1, ArrayList<PlayerInfo> attack1,
+            PlayerInfo keeper2, ArrayList<PlayerInfo> defense2,
+            ArrayList<PlayerInfo> midfield2, ArrayList<PlayerInfo> attack2){
         
-        // set player abilities and favorite positions
-        CurrentPositions.setAllyInfo(new PlayerInfo(95,95, new ExactPosition(60 , 381)), 0);
-        CurrentPositions.setAllyInfo(new PlayerInfo(95,95,95, new ExactPosition(330, 160)), 1);
-        CurrentPositions.setAllyInfo(new PlayerInfo(95,95,95, new ExactPosition(288, 290)), 2);
-        CurrentPositions.setAllyInfo(new PlayerInfo(95,95,95, new ExactPosition(288, 467)), 3);
-        CurrentPositions.setAllyInfo(new PlayerInfo(95,95,95, new ExactPosition(330, 605)), 4);
-        CurrentPositions.setAllyInfo(new PlayerInfo(95,95,95, new ExactPosition(550, 250)), 5);
-        CurrentPositions.setAllyInfo(new PlayerInfo(95,95,95, new ExactPosition(450, 385)), 6);
-        CurrentPositions.setAllyInfo(new PlayerInfo(95,95,95, new ExactPosition(550, 513)), 7);
-        CurrentPositions.setAllyInfo(new PlayerInfo(95,95,95, new ExactPosition(713, 259)), 8);
-        CurrentPositions.setAllyInfo(new PlayerInfo(95,95,95, new ExactPosition(785, 385)), 9);
-        CurrentPositions.setAllyInfo(new PlayerInfo(95,95,95, new ExactPosition(719, 494)), 10);
-
-        CurrentPositions.setEnemyInfo(new PlayerInfo(95,95, new ExactPosition(963, 381)), 0);
-        CurrentPositions.setEnemyInfo(new PlayerInfo(95,95,95, new ExactPosition(700, 160)), 1);
-        CurrentPositions.setEnemyInfo(new PlayerInfo(95,95,95, new ExactPosition(730, 290)), 2);
-        CurrentPositions.setEnemyInfo(new PlayerInfo(95,95,95, new ExactPosition(730, 467)), 3);
-        CurrentPositions.setEnemyInfo(new PlayerInfo(95,95,95, new ExactPosition(700, 605)), 4);
-        CurrentPositions.setEnemyInfo(new PlayerInfo(95,95,95, new ExactPosition(461, 250)), 5);
-        CurrentPositions.setEnemyInfo(new PlayerInfo(95,95,95, new ExactPosition(562, 385)), 6);
-        CurrentPositions.setEnemyInfo(new PlayerInfo(95,95,95, new ExactPosition(461, 513)), 7);
-        CurrentPositions.setEnemyInfo(new PlayerInfo(95,95,95, new ExactPosition(306, 259)), 8);
-        CurrentPositions.setEnemyInfo(new PlayerInfo(95,95,95, new ExactPosition(233, 385)), 9);
-        CurrentPositions.setEnemyInfo(new PlayerInfo(95,95,95, new ExactPosition(306, 494)), 10);
+        // count amout of defenders, midfielders and attackers of both teams 
+        // (and make it easier to apply in a loop)
+        final ArrayList<Integer> formationAlly = new ArrayList<>();
+        formationAlly.add(defense1.size());
+        formationAlly.add(defense1.size()+midfield1.size());
+        
+        final ArrayList<Integer> formationEnemy = new ArrayList<>();
+        formationEnemy.add(defense2.size());
+        formationEnemy.add(defense2.size()+midfield2.size());
+        
+        // set player abilities and favorite positions of ally team
+        currentPositions.setAllyInfo(keeper1, 0);
+        int counter = 1;
+        for(PlayerInfo pi : defense1)
+            currentPositions.setAllyInfo(pi, counter++);
+        for(PlayerInfo pi : midfield1)
+            currentPositions.setAllyInfo(pi, counter++);
+        for(PlayerInfo pi : attack1)
+            currentPositions.setAllyInfo(pi, counter++);
+        
+        // set player abilities and favorite positions of enemy team
+        currentPositions.setEnemyInfo(keeper2, 0);
+        counter = 1;
+        for(PlayerInfo pi : defense2)
+            currentPositions.setEnemyInfo(pi, counter++);
+        for(PlayerInfo pi : midfield2)
+            currentPositions.setEnemyInfo(pi, counter++);
+        for(PlayerInfo pi : attack2)
+            currentPositions.setEnemyInfo(pi, counter++);
         
         
         // set start of match
@@ -73,40 +82,51 @@ public class MainAIController {
             nextPositions.getEnemyTeam().get(0).setyPos(ppE.getyPos());
             
             
-            // get defenders next actions
-            for(int j=1; j<5; j++){
+            // get defenders of ally team next actions
+            for(int j=1; j<formationAlly.get(0); j++){
                 ppA = (new DefenderAI(currentPositions.getAllyTeam().get(j), currentPositions, true, j)).getNextPosition();
-                ppE = (new DefenderAI(currentPositions.getEnemyTeam().get(j), currentPositions, false, j)).getNextPosition();
-
+                
                 nextPositions.getAllyTeam().get(j).setxPos(ppA.getxPos());
                 nextPositions.getAllyTeam().get(j).setyPos(ppA.getyPos());
-                
+            }
+            
+            // get defenders of enemy team next actions
+            for(int j=1; j<formationEnemy.get(0); j++){
+                ppE = (new DefenderAI(currentPositions.getEnemyTeam().get(j), currentPositions, false, j)).getNextPosition();
+
                 nextPositions.getEnemyTeam().get(j).setxPos(ppE.getxPos());
                 nextPositions.getEnemyTeam().get(j).setyPos(ppE.getyPos());
             }
             
             
-            // get midfielders next actions
-            for(int j=5; j<8; j++){
+            // get midfielders of ally team next actions
+            for(int j=formationAlly.get(0); j<formationAlly.get(1); j++){
                 ppA = (new MidfieldAI(currentPositions.getAllyTeam().get(j), currentPositions, true, j)).getNextPosition();
-                ppE = (new MidfieldAI(currentPositions.getEnemyTeam().get(j), currentPositions, false, j)).getNextPosition();
-
+                
                 nextPositions.getAllyTeam().get(j).setxPos(ppA.getxPos());
                 nextPositions.getAllyTeam().get(j).setyPos(ppA.getyPos());
-                
+            }
+            
+            // get midfielders of enemy team next actions
+            for(int j=formationEnemy.get(0); j<formationEnemy.get(1); j++){
+                ppE = (new MidfieldAI(currentPositions.getEnemyTeam().get(j), currentPositions, false, j)).getNextPosition();
+
                 nextPositions.getEnemyTeam().get(j).setxPos(ppE.getxPos());
                 nextPositions.getEnemyTeam().get(j).setyPos(ppE.getyPos());
             }
             
             
             // get attackers next actions
-            for(int j=8; j<11; j++){
+            for(int j=formationAlly.get(1); j<11; j++){
                 ppA = (new AttackerAI(currentPositions.getAllyTeam().get(j), currentPositions, true, j)).getNextPosition();
-                ppE = (new AttackerAI(currentPositions.getEnemyTeam().get(j), currentPositions, false, j)).getNextPosition();
-
+                
                 nextPositions.getAllyTeam().get(j).setxPos(ppA.getxPos());
                 nextPositions.getAllyTeam().get(j).setyPos(ppA.getyPos());
-                
+            }
+            
+            for(int j=formationEnemy.get(1); j<11; j++){
+                ppE = (new AttackerAI(currentPositions.getEnemyTeam().get(j), currentPositions, false, j)).getNextPosition();
+
                 nextPositions.getEnemyTeam().get(j).setxPos(ppE.getxPos());
                 nextPositions.getEnemyTeam().get(j).setyPos(ppE.getyPos());
             }
@@ -121,7 +141,7 @@ public class MainAIController {
             
             //*************************************
             //generating match without saving it, only to get the score
-            nextPositions.convertToTimeSlice();
+//            nextPositions.convertToTimeSlice();
 //            if(i % ((AMOUNT_OF_SLICES-1)/10) == 0)
 //                System.out.println(CurrentPositions.getScoreLeft() + " - " + CurrentPositions.getScoreRight());
             //*************************************

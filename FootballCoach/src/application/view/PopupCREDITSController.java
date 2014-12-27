@@ -6,7 +6,7 @@
 package application.view;
 
 import javafx.fxml.FXML;
-import javafx.stage.Stage;
+import javafx.scene.control.PopupControl;
 
 /**
  *
@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 public class PopupCREDITSController implements PopupControllerInterface {
 
     private boolean isOkClicked = false;
-    private static Stage popupStage;
+    private static PopupControl popupControl;
 
     /**
      * Sets the stage of this dialog.
@@ -23,8 +23,8 @@ public class PopupCREDITSController implements PopupControllerInterface {
      * @param popupStage
      */
     @Override
-    public void setPopupStage(Stage popupStage) {
-        this.popupStage = popupStage;
+    public void setPopupStage(PopupControl popupControl) {
+        this.popupControl = popupControl;
     }
 
     @Override
@@ -40,12 +40,12 @@ public class PopupCREDITSController implements PopupControllerInterface {
     @FXML
     private void buttonOK() {
         isOkClicked = true;
-        popupStage.close();
+        popupControl.hide();
     }
 
     @FXML
     private void buttonCancel() {
-        popupStage.close();
+        popupControl.hide();
     }
 
 }

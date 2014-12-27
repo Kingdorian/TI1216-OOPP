@@ -24,14 +24,19 @@ public abstract class PlayerAI {
     public static final int GOAL_SIZE = 80;
     public static final int MIDDLE_LINE_X = 510;
 
+    public final CurrentPositions positions;
     
     public abstract ExactPosition getNextPosition();
     
-    public PlayerAI(int id, boolean isOnAllyTeam){
-        if(isOnAllyTeam)
-            RUNNING_SPEED = 7 + CurrentPositions.getAllyInfo(id).getStamina()/20;
+    public PlayerAI(int id, boolean isOnAllyTeam, CurrentPositions positions){
+        this.positions = positions;
+        if(id == 0){
+            //this player is the keeper
+            RUNNING_SPEED = 10;
+        } else if(isOnAllyTeam)
+            RUNNING_SPEED = 7 + positions.getAllyInfo(id).getStamina()/20;
         else
-            RUNNING_SPEED = 7 + CurrentPositions.getEnemyInfo(id).getStamina()/20;
+            RUNNING_SPEED = 7 + positions.getEnemyInfo(id).getStamina()/20;
     }
     /**
      * Decide the position to move to, based on a direction, a current position and a speed
@@ -67,11 +72,11 @@ public abstract class PlayerAI {
         double opponentAttack;
         double thisDefensePower;
         if(isOnAllyTeam){
-            opponentAttack = CurrentPositions.getEnemyInfo(opponentID).getAttackPower();
-            thisDefensePower =  CurrentPositions.getAllyInfo(playerID).getDefensePower();
+            opponentAttack = positions.getEnemyInfo(opponentID).getAttackPower();
+            thisDefensePower =  positions.getAllyInfo(playerID).getDefensePower();
         } else{
-            opponentAttack = CurrentPositions.getAllyInfo(opponentID).getAttackPower();
-            thisDefensePower =  CurrentPositions.getEnemyInfo(playerID).getDefensePower();
+            opponentAttack = positions.getAllyInfo(opponentID).getAttackPower();
+            thisDefensePower = positions.getEnemyInfo(playerID).getDefensePower();
         }
         double chance;
         //if(opponentDistance != 0 && ownDistance != 0)
@@ -103,11 +108,11 @@ public abstract class PlayerAI {
         double opponentDefense;
         double thisAttackPower;
         if(isOnAllyTeam){
-            opponentDefense = CurrentPositions.getEnemyInfo(opponentID).getDefensePower();
-            thisAttackPower =  CurrentPositions.getAllyInfo(playerID).getAttackPower();
+            opponentDefense = positions.getEnemyInfo(opponentID).getDefensePower();
+            thisAttackPower =  positions.getAllyInfo(playerID).getAttackPower();
         } else{
-            opponentDefense = CurrentPositions.getAllyInfo(opponentID).getDefensePower();
-            thisAttackPower =  CurrentPositions.getEnemyInfo(playerID).getAttackPower();
+            opponentDefense = positions.getAllyInfo(opponentID).getDefensePower();
+            thisAttackPower =  positions.getEnemyInfo(playerID).getAttackPower();
         }
         double chance;
 //        if(opponentDistance != 0 && ownDistance != 0)

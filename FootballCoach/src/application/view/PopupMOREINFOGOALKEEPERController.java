@@ -9,8 +9,8 @@ import application.Main;
 import application.model.Goalkeeper;
 import application.model.Team;
 import javafx.fxml.FXML;
+import javafx.scene.control.PopupControl;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -20,7 +20,7 @@ import javafx.stage.Stage;
 public class PopupMOREINFOGOALKEEPERController implements PopupControllerInterface {
 
     private boolean isOkClicked = false;
-    private static Stage popupStage;
+    private static PopupControl popupControl;
     
     @FXML
     Text firstName;
@@ -52,8 +52,8 @@ public class PopupMOREINFOGOALKEEPERController implements PopupControllerInterfa
     }
 
     @Override
-        public void setPopupStage(Stage popupStage) {
-        this.popupStage = popupStage;
+        public void setPopupStage(PopupControl popupControl) {
+        this.popupControl = popupControl;
     }
         
     @FXML
@@ -95,7 +95,7 @@ public class PopupMOREINFOGOALKEEPERController implements PopupControllerInterfa
     @FXML
     private void buttonOK() {
         isOkClicked = true;
-        popupStage.close();
+        popupControl.hide();
     }
     
 }

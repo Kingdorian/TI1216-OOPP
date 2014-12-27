@@ -9,14 +9,18 @@ import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.effect.Lighting;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.transform.Scale;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -73,7 +77,7 @@ public class AnimateFootballMatch {
      * @param footballMatch Match containing a full match to play
      */
     public static void playMatch(AnimatedMatch footballMatch) {
-
+        
         AnimateFootballMatch.footballMatch = footballMatch;
 
         // load the view
@@ -147,9 +151,9 @@ public class AnimateFootballMatch {
         
         // Uncomment the following 4 lines if the screen should be resizeable (also uncomment the class at the bottom of this class)
 //        // the scene size change listener only works if the stage is shown before it is applied and it isn't possible to do that when using showAndWait()
-//        stage.show();
-//        scaleToScreenSize(anchorPane); // make scene size adjustable and let content grow/shrink
-//        stage.close();
+        stage.show();
+        scaleToScreenSize(anchorPane); // make scene size adjustable and let content grow/shrink
+        stage.close();
         
         stage.showAndWait(); // show the stage and wait till it gets closed
 
@@ -268,72 +272,87 @@ public class AnimateFootballMatch {
         stage.close();
     }
     
+    public static void reset(){
+        for(Circle c : adversaryCircle)
+            c = null;
+        for(Circle c : playerCircle)
+            c = null;
+        ballCircle = null;
+        footballMatch = null;
+        stage = null;
+        time = 0;
+        timeline = null;
+        viewController = null;
+        pause = false;
+        playerPause = 0;
+    }
+    
 //// This code to adjust the screen size is based on the code from http://stackoverflow.com/a/16608161
 //// Some adjustments have been made to improve it and comments have been added.
 ////****************************************************************************************************
-//    /**
-//     * Scale the size of the given stage. coppied from: see header above
-//     *
-//     * @param contentPane the stage to resize
-//     */
-//    private static void scaleToScreenSize(final Pane contentPane) {
-//        Scene scene = contentPane.getScene();
-//        final double initWidth = scene.getWidth();
-//        final double initHeight = scene.getHeight();
-//        final double ratio = initWidth / initHeight;
-//
-//        SceneSizeChangeListener sizeListener = new SceneSizeChangeListener(scene, ratio, initHeight, initWidth, contentPane);
-//        scene.widthProperty().addListener(sizeListener);
-//        scene.heightProperty().addListener(sizeListener);
-//    }
-//
-//    /**
-//     * When the user resizes the screen the method changed() in this class will
-//     * be called coppied from: see header above
-//     */
-//    private static class SceneSizeChangeListener implements ChangeListener<Number> {
-//
-//        private final Scene scene;
-//        private final double ratio;
-//        private final double initHeight;
-//        private final double initWidth;
-//        private final Pane contentPane;
-//
-//        public SceneSizeChangeListener(Scene scene, double ratio, double initHeight, double initWidth, Pane contentPane) {
-//            this.scene = scene;
-//            this.ratio = ratio;
-//            this.initHeight = initHeight;
-//            this.initWidth = initWidth;
-//            this.contentPane = contentPane;
-//        }
-//
-//        /**
-//         * Listen for size changes and change the scene accordingly coppied
-//         * from: see header above
-//         *
-//         * @param observableValue the value being observed
-//         * @param oldValue old size
-//         * @param newValue new size
-//         */
-//        @Override
-//        public void changed(ObservableValue<? extends Number> observableValue, Number oldValue, Number newValue) {
-//            final double newWidth = scene.getWidth();
-//            final double newHeight = scene.getHeight();
-//
-//            double scaleFactor
-//                    = newWidth / newHeight > ratio
-//                            ? newHeight / initHeight
-//                            : newWidth / initWidth;
-//
-//            Scale scale = new Scale(scaleFactor, scaleFactor);
-//            scale.setPivotX(0);
-//            scale.setPivotY(0);
-//            scene.getRoot().getTransforms().setAll(scale);
-//
-//            contentPane.setPrefWidth(newWidth / scaleFactor);
-//            contentPane.setPrefHeight(newHeight / scaleFactor);
-//        }
-//    }
+    /**
+     * Scale the size of the given stage. coppied from: see header above
+     *
+     * @param contentPane the stage to resize
+     */
+    private static void scaleToScreenSize(final Pane contentPane) {
+        Scene scene = contentPane.getScene();
+        final double initWidth = scene.getWidth();
+        final double initHeight = scene.getHeight();
+        final double ratio = initWidth / initHeight;
+
+        SceneSizeChangeListener sizeListener = new SceneSizeChangeListener(scene, ratio, initHeight, initWidth, contentPane);
+        scene.widthProperty().addListener(sizeListener);
+        scene.heightProperty().addListener(sizeListener);
+    }
+
+    /**
+     * When the user resizes the screen the method changed() in this class will
+     * be called coppied from: see header above
+     */
+    private static class SceneSizeChangeListener implements ChangeListener<Number> {
+
+        private final Scene scene;
+        private final double ratio;
+        private final double initHeight;
+        private final double initWidth;
+        private final Pane contentPane;
+
+        public SceneSizeChangeListener(Scene scene, double ratio, double initHeight, double initWidth, Pane contentPane) {
+            this.scene = scene;
+            this.ratio = ratio;
+            this.initHeight = initHeight;
+            this.initWidth = initWidth;
+            this.contentPane = contentPane;
+        }
+
+        /**
+         * Listen for size changes and change the scene accordingly coppied
+         * from: see header above
+         *
+         * @param observableValue the value being observed
+         * @param oldValue old size
+         * @param newValue new size
+         */
+        @Override
+        public void changed(ObservableValue<? extends Number> observableValue, Number oldValue, Number newValue) {
+            final double newWidth = scene.getWidth();
+            final double newHeight = scene.getHeight();
+
+            double scaleFactor
+                    = newWidth / newHeight > ratio
+                            ? newHeight / initHeight
+                            : newWidth / initWidth;
+
+            Scale scale = new Scale(scaleFactor, scaleFactor);
+            scale.setPivotX(0);
+            scale.setPivotY(0);
+            scene.getRoot().getTransforms().setAll(scale);
+
+            contentPane.setPrefWidth(newWidth / scaleFactor);
+            contentPane.setPrefHeight(newHeight / scaleFactor);
+        }
+    }
 ////****************************************************************************************************
 //// End of code to adjust screen size.
     

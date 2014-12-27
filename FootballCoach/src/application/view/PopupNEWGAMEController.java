@@ -7,7 +7,6 @@ package application.view;
 
 import application.Main;
 import application.controller.SaveGameHandler;
-import application.model.Competition;
 import application.model.Team;
 
 import java.io.FileNotFoundException;
@@ -17,8 +16,8 @@ import java.util.ArrayList;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.PopupControl;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 import org.controlsfx.dialog.Dialogs;
 
@@ -29,7 +28,7 @@ import org.controlsfx.dialog.Dialogs;
 public class PopupNEWGAMEController implements PopupControllerInterface {
 
     private boolean isOkClicked = false;
-    private static Stage popupStage;
+    private static PopupControl popupControl;
     
     @FXML
     private ComboBox selectTeamBox;
@@ -45,8 +44,8 @@ public class PopupNEWGAMEController implements PopupControllerInterface {
      * @param popupStage
      */
     @Override
-    public void setPopupStage(Stage popupStage) {
-        this.popupStage = popupStage;
+    public void setPopupStage(PopupControl popupControl) {
+        this.popupControl = popupControl;
     }
 
     @Override
@@ -77,24 +76,28 @@ public class PopupNEWGAMEController implements PopupControllerInterface {
                             .title("No Name")
                             .masthead("The name field is empty")
                             .message("Please write down your name in the text field.")
+                            .owner(Main.getOldPopup())
                             .showWarning();
         else if(selectTeamBox.getSelectionModel().getSelectedIndex() == -1 && selectCompetitionBox.getSelectionModel().getSelectedIndex() == -1)
             Dialogs.create()
                             .title("No Selection")
                             .masthead("No team and competition selected")
                             .message("Please select a team and competition in the dropdown list.")
+                            .owner(Main.getOldPopup())
                             .showWarning();
         else if(selectTeamBox.getSelectionModel().getSelectedIndex() == -1)
             Dialogs.create()
                             .title("No Selection")
                             .masthead("No team selected")
                             .message("Please select a team in the dropdown list.")
+                            .owner(Main.getOldPopup())
                             .showWarning();
         else if(selectCompetitionBox.getSelectionModel().getSelectedIndex() == -1)
             Dialogs.create()
                             .title("No Selection")
                             .masthead("No competition selected")
                             .message("Please select a competition in the dropdown list.")
+                            .owner(Main.getOldPopup())
                             .showWarning();
         else{
             // Set the chosen name and team in the Main class
@@ -116,13 +119,13 @@ public class PopupNEWGAMEController implements PopupControllerInterface {
 				e.printStackTrace();
 			}
             isOkClicked = true;
-            popupStage.close();
+            popupControl.hide();
         }
     }
 
     @FXML
     private void buttonCancel() {
-        popupStage.close();
+        popupControl.hide();
     }
 
 }

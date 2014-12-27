@@ -26,4 +26,5 @@ public class AnimatedMatch {
     public int amoutOfSlices(){
         return positionsList.size();
     }
+    
 }

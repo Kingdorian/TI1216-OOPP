@@ -137,6 +137,7 @@ public class GameScreenMARKETController implements ViewControllerInterface {
                             .title("Player Market")
                             .masthead("Removed player.")
                             .message("Removed " + selectedPlayer.getName() + " " + selectedPlayer.getSurName() + " from the player market.")
+                            .owner(Main.getOldPopup())
                             .showInformation();
             
             // reload the table
@@ -153,6 +154,7 @@ public class GameScreenMARKETController implements ViewControllerInterface {
                             .title("Player Market")
                             .masthead("The player transferred to your team succesfully.")
                             .message("You have spend " + formatPrice(price) + " to buy player: " + selectedPlayer.getName() + " " + selectedPlayer.getSurName())
+                            .owner(Main.getOldPopup())
                             .showInformation();
             // reload table, clear selection and set buy and remove buttons to disabled
             reloadTable();
@@ -162,6 +164,7 @@ public class GameScreenMARKETController implements ViewControllerInterface {
                             .title("Transfer failed")
                             .masthead("Transfer couldn't be made.")
                             .message("You do not have enough money.")
+                            .owner(Main.getOldPopup())
                             .showWarning();
     }
     

@@ -26,16 +26,16 @@ public class Match {
                 return false;
             }
         } else if (!homeTeam.equals(other.getHomeTeam())) {
-            System.out.println(homeTeam.toString() + "\n" + other.getHomeTeam().toString());
-            System.out.println("Hometeams not equal");
+//            System.out.println(homeTeam.toString() + "\n" + other.getHomeTeam().toString());
+//            System.out.println("Hometeams not equal");
             return false;
         }
         if (pointsHomeTeam != other.pointsHomeTeam) {
-            System.out.println("Points Hometeam not equal");
+//            System.out.println("Points Hometeam not equal");
             return false;
         }
         if (pointsVisitorTeam != other.pointsVisitorTeam) {
-            System.out.println("Points visitor team not equal");
+//            System.out.println("Points visitor team not equal");
             return false;
         }
         if (visitorTeam == null) {
@@ -62,12 +62,14 @@ public class Match {
         this(homeTeam, visitorTeam);
         this.pointsHomeTeam = pointsHomeTeam;
         this.pointsVisitorTeam = pointsVisitorTeam;
+        
+//System.out.println("points constructor");
     }
 
     public Match(Team homeTeam, Team visitorTeam) {
         this.homeTeam = homeTeam;
         this.visitorTeam = visitorTeam;
-
+//System.out.println(pointsHomeTeam + pointsVisitorTeam);
     }
 
     public Team getHomeTeam() {

@@ -240,5 +240,9 @@ public class CurrentPositions {
         return scoreRight;
     }
     
+    public static void reset(){
+        scoreLeft = 0;
+        scoreRight = 0;
+    }
     
 }

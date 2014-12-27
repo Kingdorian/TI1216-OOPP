@@ -17,7 +17,6 @@ import java.util.ArrayList;
 public class DefenderAI extends PlayerAI{
     
     private final ExactPosition thisPlayer;
-    private final CurrentPositions positions;
     private final boolean isOnAllyTeam;
     private final int playerID;
     
@@ -29,9 +28,8 @@ public class DefenderAI extends PlayerAI{
      * @param isOnAllyTeam  boolean conaining if this player is on the ally team
      */
     public DefenderAI(ExactPosition thisPlayer, CurrentPositions positions, boolean isOnAllyTeam, int playerID){
-        super(playerID, isOnAllyTeam);
+        super(playerID, isOnAllyTeam, positions);
         this.thisPlayer = thisPlayer;
-        this.positions = positions;
         this.isOnAllyTeam = isOnAllyTeam;
         this.playerID = playerID;
     }
@@ -64,13 +62,13 @@ public class DefenderAI extends PlayerAI{
                     ExactPosition target = null;
                     if (isOnAllyTeam) {
                         for (ExactPosition player : positions.getAllyTeam()) {
-                            if (player.getxPos() > thisPlayer.getxPos() && positions.getClosestEnemyTo(player).distanceTo(player) > 100 && thisPlayer.distanceTo(player) < thisPlayer.distanceTo(target) && thisPlayer.distanceTo(player) < 150) {
+                            if (player.getxPos() > thisPlayer.getxPos() && positions.getClosestEnemyTo(player).distanceTo(player) > 60 && thisPlayer.distanceTo(player) < thisPlayer.distanceTo(target) && thisPlayer.distanceTo(player) < 150) {
                                 target = player;
                             }
                         }
                     } else {
                         for (ExactPosition player : positions.getEnemyTeam()) {
-                            if (player.getxPos() < thisPlayer.getxPos() && positions.getClosestAllyTo(player).distanceTo(player) > 100 && thisPlayer.distanceTo(player) < thisPlayer.distanceTo(target) && thisPlayer.distanceTo(player) < 150) {
+                            if (player.getxPos() < thisPlayer.getxPos() && positions.getClosestAllyTo(player).distanceTo(player) > 60 && thisPlayer.distanceTo(player) < thisPlayer.distanceTo(target) && thisPlayer.distanceTo(player) < 150) {
                                 target = player;
                             }
                         }
@@ -79,7 +77,7 @@ public class DefenderAI extends PlayerAI{
                     if (target != null) {
                         BallAI.shootToTeammate(target, isOnAllyTeam); // shoot ball to closest ally who's not being defended
                     } //2. else check if you can move forward yourself
-                    else if ((isOnAllyTeam && positions.getClosestEnemyTo(thisPlayer).distanceTo(thisPlayer) > 100) || (!isOnAllyTeam && positions.getClosestAllyTo(thisPlayer).distanceTo(thisPlayer) < 100)) {
+                    else if ((isOnAllyTeam && positions.getClosestEnemyTo(thisPlayer).distanceTo(thisPlayer) > 60) || (!isOnAllyTeam && positions.getClosestAllyTo(thisPlayer).distanceTo(thisPlayer) < 60)) {
                         ExactPosition closestArr[] = get2ClosestPlayers(thisPlayer, positions);
                         if (closestArr != null && closestArr.length > 1 && closestArr[1] != null) {
                             ExactPosition direction = getDirectionInBetween(thisPlayer, closestArr[0], closestArr[1]);
@@ -93,13 +91,13 @@ public class DefenderAI extends PlayerAI{
                     else {
                         if (isOnAllyTeam) {
                             for (ExactPosition player : positions.getAllyTeam()) {
-                                if (positions.getClosestEnemyTo(player).distanceTo(player) > 100 && thisPlayer.distanceTo(player) < thisPlayer.distanceTo(target)) {
+                                if (player.distanceTo(LEFT_GOAL_POSITION) > 100 && positions.getClosestEnemyTo(player).distanceTo(player) > 60 && thisPlayer.distanceTo(player) < thisPlayer.distanceTo(target)) {
                                     target = player;
                                 }
                             }
                         } else {
                             for (ExactPosition player : positions.getEnemyTeam()) {
-                                if (positions.getClosestAllyTo(player).distanceTo(player) > 100 && thisPlayer.distanceTo(player) < thisPlayer.distanceTo(target)) {
+                                if (player.distanceTo(RIGHT_GOAL_POSITION) > 100 && positions.getClosestAllyTo(player).distanceTo(player) > 60 && thisPlayer.distanceTo(player) < thisPlayer.distanceTo(target)) {
                                     target = player;
                                 }
                             }
@@ -183,7 +181,7 @@ public class DefenderAI extends PlayerAI{
         double xPos;
         double yPos;
         if(isOnAllyTeam){
-            yPos = CurrentPositions.getAllyInfo(playerID).getFavoritePosition().getyPos();
+            yPos = positions.getAllyInfo(playerID).getFavoritePosition().getyPos();
             if(BallAI.getCurrentBallPosition().getxPos() > MIDDLE_LINE_X - 100)
                 xPos = BallAI.getCurrentBallPosition().getxPos() - 50;
             else if(BallAI.getCurrentBallPosition().getxPos() > MIDDLE_LINE_X - 380)
@@ -192,7 +190,7 @@ public class DefenderAI extends PlayerAI{
                 xPos = 110;
             return getPosBySpeed(RUNNING_SPEED, thisPlayer, new ExactPosition(xPos, yPos));
         } else{
-            yPos = CurrentPositions.getEnemyInfo(playerID).getFavoritePosition().getyPos();
+            yPos = positions.getEnemyInfo(playerID).getFavoritePosition().getyPos();
             if(BallAI.getCurrentBallPosition().getxPos() < MIDDLE_LINE_X + 100)
                 xPos = BallAI.getCurrentBallPosition().getxPos() + 50;
             else if(BallAI.getCurrentBallPosition().getxPos() < MIDDLE_LINE_X + 380)
@@ -206,9 +204,9 @@ public class DefenderAI extends PlayerAI{
     // Ball far from middle line: stay back, close to opponent attackers (wait)
     private ExactPosition attack(){
         if(isOnAllyTeam)
-            return getPosBySpeed(RUNNING_SPEED, thisPlayer, CurrentPositions.getAllyInfo(playerID).getFavoritePosition().getTranslateX(50));
+            return getPosBySpeed(RUNNING_SPEED, thisPlayer, positions.getAllyInfo(playerID).getFavoritePosition().getTranslateX(50));
         else
-            return getPosBySpeed(RUNNING_SPEED, thisPlayer, CurrentPositions.getEnemyInfo(playerID).getFavoritePosition().getTranslateX(-50));
+            return getPosBySpeed(RUNNING_SPEED, thisPlayer, positions.getEnemyInfo(playerID).getFavoritePosition().getTranslateX(-50));
 
     }
 }

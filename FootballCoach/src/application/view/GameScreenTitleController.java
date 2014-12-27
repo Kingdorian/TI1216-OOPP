@@ -20,6 +20,8 @@ public class GameScreenTitleController implements ViewControllerInterface {
     private Text textBudget;
     @FXML
     private Text textWelcome;
+    @FXML
+    private Text textRound;
 
     private static Main mainController;
 
@@ -32,8 +34,8 @@ public class GameScreenTitleController implements ViewControllerInterface {
         Main.setTitleController(this);
         
         // add texts
-        textBudget.setText("€ "
-        		+ "" + Main.getCompetition().getTeamByName(Main.getChosenTeamName()).getBudget());
+        refreshMoney();
+        setRound();
         textWelcome.setText("Welcome, " + Main.getChosenName());
     }
 
@@ -57,7 +59,7 @@ public class GameScreenTitleController implements ViewControllerInterface {
      */
     @FXML
     private void buttonSettings() {
-        mainController.createPopup("PopupSETTINGS", "Settings", "/application/img/icon.png");
+        mainController.createPopup("PopupSETTINGS", "Settings");
     }
     
     /**
@@ -65,7 +67,7 @@ public class GameScreenTitleController implements ViewControllerInterface {
      */
     @FXML 
     private void buttonSaveGame() {
-        mainController.createPopup("PopupSAVEGAME", "Save Game", "/application/img/save.png");
+        mainController.createPopup("PopupSAVEGAME", "Save Game");
     }
     
     /**
@@ -80,6 +82,14 @@ public class GameScreenTitleController implements ViewControllerInterface {
     }
     
     public void refreshMoney(){
-        textBudget.setText("€ " + Main.getCompetition().getTeamByName(Main.getChosenTeamName()).getBudget());
+        textBudget.setText("$ " + Main.getCompetition().getTeamByName(Main.getChosenTeamName()).getBudget());
+    }
+    
+    public void setRound(){
+        int round = Main.getCompetition().getRound();
+        if(round != -1)
+            textRound.setText("ROUND " + round);
+        else
+            textRound.setText("COMPLETED");
     }
 }

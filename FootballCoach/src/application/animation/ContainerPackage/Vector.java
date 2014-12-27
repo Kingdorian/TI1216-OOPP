@@ -110,7 +110,7 @@ public class Vector {
      * @param p2    point 2
      * @return      the intersection point, or null if no intersection point
      */
-    private ExactPosition getIntersectionPoint(ExactPosition p1, ExactPosition p2){
+    public ExactPosition getIntersectionPoint(ExactPosition p1, ExactPosition p2){
         
         if(pointFrom.getxPos() - pointTo.getxPos() != 0 && p1.getxPos() - p2.getxPos() != 0){
             // both lines are not vertical, so apply basic high school math to get the intersection point:

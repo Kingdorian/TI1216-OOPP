@@ -10,8 +10,8 @@ import application.model.Players;
 import java.util.Scanner;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.PopupControl;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import org.controlsfx.dialog.Dialogs;
 
 /**
@@ -21,7 +21,7 @@ import org.controlsfx.dialog.Dialogs;
 public class PopupSELECTPRICEController implements PopupControllerInterface {
     
     private boolean isOkClicked = false;
-    private static Stage popupStage;
+    private static PopupControl popupControl;
     private int price;
 
     @FXML
@@ -38,8 +38,8 @@ public class PopupSELECTPRICEController implements PopupControllerInterface {
      * @param popupStage
      */
     @Override
-    public void setPopupStage(Stage popupStage) {
-        this.popupStage = popupStage;
+    public void setPopupStage(PopupControl popupControl) {
+        this.popupControl = popupControl;
     }
 
     @Override
@@ -82,19 +82,20 @@ public class PopupSELECTPRICEController implements PopupControllerInterface {
             // put player on the market
             Main.getCompetition().getMarket().addPlayer(Main.getSelectedPlayer(), price);
             
-            popupStage.close();
+            popupControl.hide();
         } else {
             Dialogs.create()
                             .title("Invalid Price!")
                             .masthead("The price is invalid.")
                             .message("Please insert a valid price in the price text field.")
+                            .owner(Main.getOldPopup())
                             .showWarning();
         }
     }
 
     @FXML
     private void buttonCancel() {
-        popupStage.close();
+        popupControl.hide();
     }
     
     public int getPrice(){

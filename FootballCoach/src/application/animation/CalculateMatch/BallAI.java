@@ -65,25 +65,13 @@ public class BallAI {
         }
         
         counter++;
-        double speed = Math.random() * 7.5 + BALLSPEED;
+        double speed = getBallSpeed();
         
-        if(shootHard)
-            speed *= 5;
-        if(shootToTeammate && ballVector != null)
-            speed = ballVector.getLength()/3;
-        
-        if(counter < 15){
-            for(int i=1; i<counter; i++)
-                speed /= Math.sqrt(2);
-        } else
-            return currentBallPosition;
         if(speed < 5)
             return currentBallPosition;
         
         if(ballVector != null)
             currentBallPosition = ballVector.translate(currentBallPosition, speed);
-
-        // TODO: Check for ball outside of field <><><><><><><><><><><><><><><><><><><><><><><><>
         
         return currentBallPosition;
     }
@@ -237,6 +225,27 @@ public class BallAI {
             return ballVector.intersectsWith(goalUpperBound, goalLowerBound, true, true);
         else
             return ballVector.intersectsWith(goalUpperBound, goalLowerBound);
+    }
+    
+    public static ExactPosition getGoalIntersection(boolean isOnAllyTeam){
+        if(isOnAllyTeam){
+            return ballVector.getIntersectionPoint(LEFT_GOAL_POSITION.getTranslateY(20), LEFT_GOAL_POSITION);
+        } else{
+            return ballVector.getIntersectionPoint(RIGHT_GOAL_POSITION.getTranslateY(20), RIGHT_GOAL_POSITION);
+        }
+    }
+    
+    public static boolean isNextFrameOutsideField(){
+        counter++;
+        double speed = getBallSpeed();
+        counter--;
+        
+        if(ballVector != null){
+            double nextX = ballVector.translate(currentBallPosition, speed).getxPos();
+            return nextX < 60 || nextX > 995;
+        }
+        else 
+            return false;
     }
     
 }

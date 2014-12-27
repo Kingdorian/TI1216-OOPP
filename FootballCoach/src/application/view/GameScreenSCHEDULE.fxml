@@ -11,15 +11,19 @@
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" styleClass="wrapMenu" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.GameScreenSCHEDULEController">
     <children>
         <Region prefHeight="50.0" prefWidth="684.0" styleClass="topMenu" />
-        <TableView fx:id="table" layoutY="50.0" prefHeight="400.0" prefWidth="684.0" styleClass="table">
+        <TableView fx:id="scheduleTable" layoutY="50.0" prefHeight="400.0" prefWidth="684.0" styleClass="table">
             <columns>
-                <TableColumn prefWidth="75.0" styleClass="tableColumn" text="Date." />
-                <TableColumn prefWidth="75.0" styleClass="tableColumn" text="Home Team" />
-                <TableColumn prefWidth="75.0" styleClass="tableColumn" text="Out Team" />
+                <TableColumn fx:id="columnHomeRank" maxWidth="80.0" minWidth="80.0" styleClass="tableColumn" text="Rank" />
+                <TableColumn fx:id="columnHomeName" prefWidth="75.0" styleClass="tableColumn" text="Home Team" />
+            <TableColumn fx:id="columnVS" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" styleClass="tableColumn" text="VS" />
+            <TableColumn fx:id="columnAwayRank" maxWidth="80.0" minWidth="80.0" styleClass="tableColumn" text="Rank" />
+                <TableColumn fx:id="columnAwayName" prefWidth="75.0" styleClass="tableColumn" text="Away Team" />
+            <TableColumn fx:id="columnResult" prefWidth="75.0" styleClass="tableColumn" text="Result" />
             </columns>
             <columnResizePolicy>
                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
             </columnResizePolicy>
         </TableView>
+      <ComboBox fx:id="selectRoundBox" layoutX="26.0" layoutY="11.0" prefHeight="29.0" prefWidth="273.0" promptText="Select a round" styleClass="choiceBox" />
     </children>
 </Pane>

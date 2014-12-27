@@ -9,6 +9,8 @@ import application.Main;
 import application.model.Players;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
@@ -33,6 +35,18 @@ public class MainMenuController implements ViewControllerInterface {
     @FXML
     private Button buttonContinue;
 
+    /**
+     * this event sets the continue button to active and triggers it
+     */
+    private final EventHandler triggerContinue = new EventHandler<Event>(){
+        @Override
+        public void handle(Event e){
+            buttonContinue.setDisable(false);
+            buttonContinue();
+        }
+    };
+    
+    
     /**
      * Code executed when the view is loaded.
      */
@@ -88,7 +102,9 @@ public class MainMenuController implements ViewControllerInterface {
                 .title("Quit")
                 .masthead("Are you sure you want to quit the application?")
                 .actions(Dialog.Actions.OK, Dialog.Actions.CANCEL)
+                .owner(Main.getOldPopup())
                 .showConfirm();
+
 
         if (response == Dialog.Actions.OK) {
             System.exit(0);
@@ -102,7 +118,7 @@ public class MainMenuController implements ViewControllerInterface {
      */
     @FXML
     private void buttonSettings() {
-        mainController.createPopup("PopupSETTINGS", "Settings", "/application/img/settings.png");
+        mainController.createPopup("PopupSETTINGS", "Settings");
     }
 
     /**
@@ -110,10 +126,8 @@ public class MainMenuController implements ViewControllerInterface {
      */
     @FXML
     private void buttonNewGame() {
-        if(mainController.createPopup("PopupNEWGAME", "New Game", "/application/img/icon.png")) {
-            buttonContinue.setDisable(false);
-        	buttonContinue();
-        }    
+        mainController.createPopup("PopupNEWGAME", "New Game", triggerContinue);
+        
     }
 
     /**
@@ -121,10 +135,7 @@ public class MainMenuController implements ViewControllerInterface {
      */
     @FXML
     private void buttonLoadGame() {
-        if(mainController.createPopup("PopupLOADGAME", "Load Game", "/application/img/icon.png")) {
-            buttonContinue.setDisable(false);
-        	buttonContinue();
-        }	
+        mainController.createPopup("PopupLOADGAME", "Load Game", triggerContinue);
     }
 
     /**
@@ -132,6 +143,8 @@ public class MainMenuController implements ViewControllerInterface {
      */
     @FXML
     private void buttonCredits() {
-        mainController.createPopup("PopupCREDITS", "Credits", "/application/img/icon.png");
+        mainController.createPopup("PopupCREDITS", "Credits");
     }
+    
+    
 }

@@ -16,7 +16,6 @@ import application.animation.ContainerPackage.ExactPosition;
 public class MidfieldAI extends PlayerAI {
 
     private final ExactPosition thisPlayer;
-    private final CurrentPositions positions;
     private final boolean isOnAllyTeam;
     private final int playerID;
 
@@ -30,9 +29,8 @@ public class MidfieldAI extends PlayerAI {
      * @param playerID
      */
     public MidfieldAI(ExactPosition thisPlayer, CurrentPositions positions, boolean isOnAllyTeam, int playerID) {
-        super(playerID, isOnAllyTeam);
+        super(playerID, isOnAllyTeam, positions);
         this.thisPlayer = thisPlayer;
-        this.positions = positions;
         this.isOnAllyTeam = isOnAllyTeam;
         this.playerID = playerID;
         
@@ -175,28 +173,28 @@ public class MidfieldAI extends PlayerAI {
     // Ball far from middle line: support defense (create counters)
     private ExactPosition supportDefense() {
         if(isOnAllyTeam)
-            return getPosBySpeed(WALK_SPEED, thisPlayer, CurrentPositions.getAllyInfo(playerID).getFavoritePosition().getTranslateX(-100));
+            return getPosBySpeed(WALK_SPEED, thisPlayer, positions.getAllyInfo(playerID).getFavoritePosition().getTranslateX(-100));
         else
-            return getPosBySpeed(WALK_SPEED, thisPlayer, CurrentPositions.getEnemyInfo(playerID).getFavoritePosition().getTranslateX(100));
+            return getPosBySpeed(WALK_SPEED, thisPlayer, positions.getEnemyInfo(playerID).getFavoritePosition().getTranslateX(100));
     }
 
     // Ball far from middle line: support attack (prevent counters)
     private ExactPosition supportAttack() {
         if(isOnAllyTeam)
-            return getPosBySpeed(WALK_SPEED, thisPlayer, CurrentPositions.getAllyInfo(playerID).getFavoritePosition()/*.getTranslateX(50)*/);
+            return getPosBySpeed(WALK_SPEED, thisPlayer, positions.getAllyInfo(playerID).getFavoritePosition()/*.getTranslateX(50)*/);
         else
-            return getPosBySpeed(WALK_SPEED, thisPlayer, CurrentPositions.getEnemyInfo(playerID).getFavoritePosition()/*.getTranslateX(-50)*/);
+            return getPosBySpeed(WALK_SPEED, thisPlayer, positions.getEnemyInfo(playerID).getFavoritePosition()/*.getTranslateX(-50)*/);
     }
 
     // Ball close to middle line: try to get ball (stay close to ball)
     private ExactPosition midfield() {
         if(isOnAllyTeam){
             double xPos = BallAI.getCurrentBallPosition().getxPos() - 15;
-            double yPos = CurrentPositions.getAllyInfo(playerID).getFavoritePosition().getyPos();
+            double yPos = positions.getAllyInfo(playerID).getFavoritePosition().getyPos();
             return getPosBySpeed(RUNNING_SPEED, thisPlayer, new ExactPosition(xPos, yPos));
         } else{
             double xPos = BallAI.getCurrentBallPosition().getxPos() + 15;
-            double yPos = CurrentPositions.getEnemyInfo(playerID).getFavoritePosition().getyPos();
+            double yPos = positions.getEnemyInfo(playerID).getFavoritePosition().getyPos();
             return getPosBySpeed(RUNNING_SPEED, thisPlayer, new ExactPosition(xPos, yPos));
         }
     }
