@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
@@ -13,11 +14,87 @@
    <children>
       <ImageView pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Pictures/Field.png" />
+            <Image url="@../../img/Field.png" />
          </image>
       </ImageView>
       <Region layoutY="760.0" prefHeight="60.0" prefWidth="1020.0" styleClass="animationBottomRegion" />
-      <Region layoutX="750.0" prefHeight="53.0" prefWidth="270.0" styleClass="animationTopRegion" />
-      <Circle fx:id="circle" fill="DODGERBLUE" layoutX="266.0" layoutY="380.0" radius="81.0" stroke="BLACK" strokeType="INSIDE" />
+      <Button layoutX="918.0" layoutY="770.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="98.0" text="DONE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <HBox alignment="CENTER" layoutX="14.0" layoutY="762.0" spacing="20.0">
+         <children>
+            <VBox alignment="CENTER" spacing="8.0">
+               <children>
+                  <Label layoutX="302.0" layoutY="762.0" text="Opponent Formation:">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="320.0" layoutY="784.0" text="4-3-3">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+            <Separator orientation="VERTICAL" prefHeight="60.0" prefWidth="8.0" />
+            <ComboBox layoutX="14.0" layoutY="778.0" prefHeight="25.0" prefWidth="112.0" promptText="Select player" />
+            <Separator orientation="VERTICAL" prefHeight="60.0" prefWidth="8.0" />
+            <HBox layoutX="161.0" layoutY="762.0" spacing="12.0">
+               <children>
+                  <VBox layoutX="161.0" layoutY="762.0" spacing="3.0">
+                     <children>
+                        <Label layoutX="161.0" layoutY="762.0" text="Defense" />
+                        <Label layoutX="161.0" layoutY="782.0" text="Stamina" />
+                        <Label layoutX="161.0" layoutY="802.0" text="Attack" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="224.0" layoutY="762.0" spacing="3.0">
+                     <children>
+                        <Text layoutX="225.0" layoutY="775.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number" />
+                        <Text layoutX="225.0" layoutY="795.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number" />
+                        <Text layoutX="224.0" layoutY="814.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Separator orientation="VERTICAL" prefHeight="60.0" prefWidth="8.0" />
+            <VBox alignment="CENTER" spacing="6.0">
+               <children>
+                  <Label text="Reset positions">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Button mnemonicParsing="false" text="Reset">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox layoutX="51.0" layoutY="57.0">
+         <children>
+            <Region layoutX="51.0" layoutY="57.0" prefHeight="651.0" prefWidth="306.0" styleClass="animationDefenseRegion" />
+            <Region layoutX="357.0" layoutY="57.0" prefHeight="651.0" prefWidth="306.0" styleClass="animationMidfieldRegion" />
+            <Region layoutX="663.0" layoutY="57.0" prefHeight="651.0" prefWidth="306.0" styleClass="animationAttackRegion" />
+         </children>
+      </HBox>
+      <HBox layoutX="138.0" layoutY="24.0" spacing="205.0">
+         <children>
+            <Text layoutX="192.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="animationDefenseText" text="Defense" />
+            <Text layoutX="489.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="animationMidfieldText" text="Midfield" />
+            <Text layoutX="794.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="animationAttackText" text="Forward" />
+         </children>
+      </HBox>
+      <Label styleClass="animationTopRegion" text="Drag the circles to set the positions of the players">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
