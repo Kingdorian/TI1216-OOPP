@@ -162,4 +162,37 @@ public abstract class PlayerAI {
         
         return direction;
     }
+    
+    public ExactPosition moveToLeftGoal(ExactPosition thisPlayer, double speed) {
+        return getPosBySpeed(speed, thisPlayer, LEFT_GOAL_POSITION);
+    }
+
+    public ExactPosition moveToRightGoal(ExactPosition thisPlayer, double speed) {
+        return getPosBySpeed(speed, thisPlayer, RIGHT_GOAL_POSITION);
+    }
+    
+    /**
+     * Check if this player should shoot the ball horizontally toward the opponents goal
+     * @param thisPlayer    this players position
+     * @param positions     the CurrentPositions instance describing where all the players are right now
+     * @param isOnAllyTeam  if this player is on the ally team
+     * @return true if the player should shoot horizontally
+     */
+    public boolean shootHorizontally(ExactPosition thisPlayer, CurrentPositions positions, boolean isOnAllyTeam){
+        
+        ExactPosition ballDirection;
+        ExactPosition closestOpponent;
+        
+        if(isOnAllyTeam){
+            ballDirection = thisPlayer.getTranslateX(40);
+            closestOpponent = positions.getClosestEnemyTo(ballDirection);
+        } else{
+            ballDirection = thisPlayer.getTranslateX(-40);
+            closestOpponent = positions.getClosestAllyTo(ballDirection);
+        }
+        
+        // apply some randomness
+        return closestOpponent.distanceTo(ballDirection) * Math.random() < 60 * Math.random();
+        
+    }
 }

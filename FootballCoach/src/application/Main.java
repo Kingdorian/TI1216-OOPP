@@ -411,10 +411,8 @@ public class Main extends Application {
                 @Override
                 public void handle(WindowEvent e) {
                     oldPopup = null;
-                    if (popupController.isOkClicked()) {
+                    if (popupController.isOkClicked())
                         event.handle(e);
-                        System.out.println("ok clicked");
-                    }
                 }
             });
         }

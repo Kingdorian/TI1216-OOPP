@@ -23,6 +23,7 @@ public class BallAI {
     private static Vector ballVector;
     private static int counter = 2;
     private static boolean shootHard = false;
+    private static double shootHardSpeedMultiplier;
     private static boolean shootToTeammate = false;
     private static boolean lastShotByAllyTeam = false;
     private static boolean isOutsideOfField = false;
@@ -120,7 +121,7 @@ public class BallAI {
     }
 
     
-    public static void shootLeftGoal(){
+    public static void shootLeftGoal(int playerID){
         if(counter > 1){
             // decide direction to shoot ball
             double xPos = LEFT_GOAL_POSITION.getxPos();
@@ -130,12 +131,23 @@ public class BallAI {
             // shoot ball
             shootBallTo(new ExactPosition(xPos, yPos), false);
             shootHard = true;
+            
+            //assume only players of enemy team will shoot the left goal
+            int attackPower = CurrentPositions.getEnemyInfo(playerID).getAttackPower();
+            shootHardSpeedMultiplier = Math.pow(10, attackPower / 100.0); // number between 0 and 10 
+                                                                        // for power = 60: 4
+                                                                        // for power = 80: 6.3
+                                                                        // for power = 100: 10
+            if(shootHardSpeedMultiplier < 4)
+                shootHardSpeedMultiplier = 4;
+            
+            
             shootToTeammate = false;
         }
     }
     
     
-    public static void shootRightGoal(){
+    public static void shootRightGoal(int playerID){
         if(counter > 1){
             // decide direction to shoot ball
             double xPos = RIGHT_GOAL_POSITION.getxPos();
@@ -145,6 +157,16 @@ public class BallAI {
             // shoot ball
             shootBallTo(new ExactPosition(xPos, yPos), true);
             shootHard = true;
+            
+            //assume only players of ally team will shoot the left goal
+            int attackPower = CurrentPositions.getAllyInfo(playerID).getAttackPower();
+            shootHardSpeedMultiplier = Math.pow(10, attackPower / 100.0); // number between 0 and 10 
+                                                                        // for power = 60: 4
+                                                                        // for power = 80: 6.3
+                                                                        // for power = 100: 10
+            if(shootHardSpeedMultiplier < 4)
+                shootHardSpeedMultiplier = 4;
+            
             shootToTeammate = false;
         }
     }
@@ -174,12 +196,26 @@ public class BallAI {
     }
 
     public static double getBallSpeed(){
-        double speed = 3.75 + BALLSPEED;
+        double speed = BALLSPEED;
         
         if(shootHard)
-            speed *= 5;
-        if(shootToTeammate && ballVector != null)
-            speed = ballVector.getLength()/3;
+            speed *= shootHardSpeedMultiplier;
+        if(shootToTeammate && ballVector != null){
+            // give approximation of speed the ball should be shoot at
+            double s = ballVector.getLength() + 10.0; //shoot so that ball can go 20 pixels further than the target (if not stopped)
+            double v = 5; // velocity
+            double d; // distance
+            do{
+                v += 5;
+                d=0;
+                double w = v;
+                while(w > 5){
+                    d += w;
+                    w /= Math.sqrt(2);
+                }
+            } while(s-d > 0);
+            speed = v;
+        }
         
         if(counter < 15){
             for(int i=1; i<counter; i++)
@@ -237,7 +273,7 @@ public class BallAI {
     
     public static boolean isNextFrameOutsideField(){
         counter++;
-        double speed = getBallSpeed();
+        double speed = getBallSpeed() + 3;
         counter--;
         
         if(ballVector != null){

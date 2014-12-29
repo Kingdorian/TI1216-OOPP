@@ -77,6 +77,17 @@ public class DefenderAI extends PlayerAI{
                     if (target != null) {
                         BallAI.shootToTeammate(target, isOnAllyTeam); // shoot ball to closest ally who's not being defended
                     } //2. else check if you can move forward yourself
+                    // check if you should shoot the ball horizontally
+                    else if (shootHorizontally(thisPlayer, positions, isOnAllyTeam)){
+                        if(isOnAllyTeam){
+                            BallAI.shootBallTo(thisPlayer.getTranslateX(40), isOnAllyTeam);
+                            return getPosBySpeed(WITH_BALL_SPEED, thisPlayer, thisPlayer.getTranslateX(40));
+                        } else{
+                            BallAI.shootBallTo(thisPlayer.getTranslateX(-40), isOnAllyTeam);
+                            return getPosBySpeed(WITH_BALL_SPEED, thisPlayer, thisPlayer.getTranslateX(-40));
+                        }
+                    }
+                    // else check if you should shoot through the center of the 2 closest opponents
                     else if ((isOnAllyTeam && positions.getClosestEnemyTo(thisPlayer).distanceTo(thisPlayer) > 60) || (!isOnAllyTeam && positions.getClosestAllyTo(thisPlayer).distanceTo(thisPlayer) < 60)) {
                         ExactPosition closestArr[] = get2ClosestPlayers(thisPlayer, positions);
                         if (closestArr != null && closestArr.length > 1 && closestArr[1] != null) {

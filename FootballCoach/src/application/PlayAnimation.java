@@ -38,46 +38,46 @@ public class PlayAnimation{
     public static Match playAnimation(Team team1, Goalkeeper keeperTeam1, ArrayList<Player> playersTeam1, 
             Team team2, Goalkeeper keeperTeam2, ArrayList<Player> playersTeam2){
         
-        // TODO: select team composition
+        // TODO: select team composition instead of the part for testing below this
         
         //ONLY FOR TESTING: *******************************
         //ally team:
-        PlayerInfo p1 = new PlayerInfo(95,95, new ExactPosition(60 , 381));
+        PlayerInfo p1 = new PlayerInfo(70,70, new ExactPosition(60 , 381));
         
         ArrayList<PlayerInfo> defense1 = new ArrayList<>();
-        defense1.add(new PlayerInfo(95,95,95, new ExactPosition(330, 160)));
-        defense1.add(new PlayerInfo(95,95,95, new ExactPosition(288, 290)));
-        defense1.add(new PlayerInfo(95,95,95, new ExactPosition(288, 467)));
-        defense1.add(new PlayerInfo(95,95,95, new ExactPosition(330, 605)));
+        defense1.add(new PlayerInfo(70,70,70, new ExactPosition(330, 160)));
+        defense1.add(new PlayerInfo(70,70,70, new ExactPosition(288, 290)));
+        defense1.add(new PlayerInfo(70,70,70, new ExactPosition(288, 467)));
+        defense1.add(new PlayerInfo(70,70,70, new ExactPosition(330, 605)));
         
         ArrayList<PlayerInfo> midfield1 = new ArrayList<>();
-        midfield1.add(new PlayerInfo(95,95,95, new ExactPosition(550, 250)));
-        midfield1.add(new PlayerInfo(95,95,95, new ExactPosition(450, 385)));
-        midfield1.add(new PlayerInfo(95,95,95, new ExactPosition(550, 513)));
+        midfield1.add(new PlayerInfo(70,70,70, new ExactPosition(550, 250)));
+        midfield1.add(new PlayerInfo(70,70,70, new ExactPosition(450, 385)));
+        midfield1.add(new PlayerInfo(70,70,70, new ExactPosition(550, 513)));
         
         ArrayList<PlayerInfo> attack1 = new ArrayList<>();
-        attack1.add(new PlayerInfo(95,95,95, new ExactPosition(713, 259)));
-        attack1.add(new PlayerInfo(95,95,95, new ExactPosition(785, 385)));
-        attack1.add(new PlayerInfo(95,95,95, new ExactPosition(719, 494)));
+        attack1.add(new PlayerInfo(70,70,70, new ExactPosition(713, 259)));
+        attack1.add(new PlayerInfo(70,70,70, new ExactPosition(785, 385)));
+        attack1.add(new PlayerInfo(70,70,70, new ExactPosition(719, 494)));
         
         //enemy team:
-        PlayerInfo p2 = new PlayerInfo(95,95, new ExactPosition(963, 381));
+        PlayerInfo p2 = new PlayerInfo(70,70, new ExactPosition(963, 381));
         
         ArrayList<PlayerInfo> defense2 = new ArrayList<>();
-        defense2.add(new PlayerInfo(95,95,95, new ExactPosition(700, 160)));
-        defense2.add(new PlayerInfo(95,95,95, new ExactPosition(730, 290)));
-        defense2.add(new PlayerInfo(95,95,95, new ExactPosition(730, 467)));
-        defense2.add(new PlayerInfo(95,95,95, new ExactPosition(700, 605)));
+        defense2.add(new PlayerInfo(70,70,70, new ExactPosition(700, 160)));
+        defense2.add(new PlayerInfo(70,70,70, new ExactPosition(730, 290)));
+        defense2.add(new PlayerInfo(70,70,70, new ExactPosition(730, 467)));
+        defense2.add(new PlayerInfo(70,70,70, new ExactPosition(700, 605)));
         
         ArrayList<PlayerInfo> midfield2 = new ArrayList<>();
-        midfield2.add(new PlayerInfo(95,95,95, new ExactPosition(461, 250)));
-        midfield2.add(new PlayerInfo(95,95,95, new ExactPosition(562, 385)));
-        midfield2.add(new PlayerInfo(95,95,95, new ExactPosition(461, 513)));
+        midfield2.add(new PlayerInfo(70,70,70, new ExactPosition(461, 250)));
+        midfield2.add(new PlayerInfo(70,70,70, new ExactPosition(562, 385)));
+        midfield2.add(new PlayerInfo(70,70,70, new ExactPosition(461, 513)));
         
         ArrayList<PlayerInfo> attack2 = new ArrayList<>();
-        attack2.add(new PlayerInfo(95,95,95, new ExactPosition(306, 259)));
-        attack2.add(new PlayerInfo(95,95,95, new ExactPosition(233, 385)));
-        attack2.add(new PlayerInfo(95,95,95, new ExactPosition(306, 494)));
+        attack2.add(new PlayerInfo(70,70,70, new ExactPosition(306, 259)));
+        attack2.add(new PlayerInfo(70,70,70, new ExactPosition(233, 385)));
+        attack2.add(new PlayerInfo(70,70,70, new ExactPosition(306, 494)));
         //************************************************* ^ ONLY FOR TESTING
         
         // generate the match
@@ -85,7 +85,7 @@ public class PlayAnimation{
                                                             attack1, p2, defense2, midfield2, attack2);
 
         // play the generated match's animation
-        AnimateFootballMatch.playMatch(testMatch);
+//        AnimateFootballMatch.playMatch(testMatch);
         
         // get the scores
         int scoreLeft = testMatch.getPositions(testMatch.amoutOfSlices()-1).getScoreLeft();

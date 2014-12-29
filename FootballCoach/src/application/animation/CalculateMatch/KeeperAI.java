@@ -18,7 +18,7 @@ public class KeeperAI extends PlayerAI {
     private final boolean isOnAllyTeam;
     private final int playerID;
 
-    private final int STOP_LUCK = 140; //make higher to stop ball more often
+    private final double STOP_LUCK = 1.4; //make higher to stop ball more often (between 1 and 2 should be fine)
 
     /**
      * constructor: needs the position of the attacker and the positions of
@@ -86,19 +86,25 @@ public class KeeperAI extends PlayerAI {
 
         return getPosBySpeed(WALK_SPEED, thisPlayer, direction);
     }
-
+private static int goalAllyGoal = 0;
+private static int goalEnemyGoal = 0;
     // Ball shot at goal: stop ball based on luck and skills
     private ExactPosition stopBall() {
 
-        double stopPower = positions.getAllyInfo(playerID).getStopPower();
-        double penaltyStopPower = positions.getAllyInfo(playerID).getPenaltyStopPower();
         double ballSpeed = BallAI.getBallSpeed();
 
         if (BallAI.isNextFrameOutsideField()) {
             // try to stop ball + 'jump' to it, if within distance of 30 pixels
             ExactPosition intersectionPoint = BallAI.getGoalIntersection(isOnAllyTeam);
             if (thisPlayer.distanceTo(intersectionPoint) < 70) {
-                BallAI.stopBall(intersectionPoint, isOnAllyTeam);
+                if(willStopBall(ballSpeed)){
+                    BallAI.stopBall(intersectionPoint, isOnAllyTeam);
+                }else{
+                    if(isOnAllyTeam)
+                        goalAllyGoal++;
+                    else
+                        goalEnemyGoal++;
+                }
                 return intersectionPoint;
             }
         } else if (ballSpeed < 5 && thisPlayer.distanceTo(BallAI.getCurrentBallPosition()) < 25) {
@@ -116,27 +122,48 @@ public class KeeperAI extends PlayerAI {
             // walk toward the side where the ball is
             return ballClose();
         }
-
-//            // if ball has been stopped, shoot it to an ally
-//            if(ballSpeed < 5 && thisPlayer.distanceTo(BallAI.getCurrentBallPosition()) < 25){
-//                ExactPosition target = getTarget();
-//                if(target != null)
-//                    BallAI.shootToTeammate(target, isOnAllyTeam); // get close ally who isn't close to an opponent
-//                else
-//                    BallAI.shootToTeammate(thisPlayer.getTranslateX(isOnAllyTeam?400:-400), isOnAllyTeam);
-//            }
-//            // if ball has not been stopped and will move into the goal if not stopped, try to stop it
-//            else if((isOnAllyTeam && BallAI.isMovingTowardLeftGoal(true)) || (!isOnAllyTeam && BallAI.isMovingTowardRightGoal(true))){
-//                double stopChance = STOP_LUCK;
-//                stopChance  /= ballSpeed/(stopPower);
-//                stopChance *= thisPlayer.distanceTo(BallAI.getCurrentBallPosition()) < 25 ? 3 : 1;
-//                if(Math.random() * stopChance > Math.random() * 30)
-//                    BallAI.stopBall(thisPlayer, isOnAllyTeam);
-//            } else
-//                return ballClose();
         return thisPlayer;
     }
+    
+    private boolean willStopBall(double ballSpeed){
+        
+        if(ballSpeed < 20) // always stop slow balls
+            return true;
+        
+        double stopPower = positions.getAllyInfo(playerID).getStopPower();
+        double penaltyStopPower = positions.getAllyInfo(playerID).getPenaltyStopPower();
+        
+        // first calculate the stop power, also use allies defending power 
+        // of the closest ally to the attacker (to make defending power more important)
+        ExactPosition attacker;
+        ExactPosition closestDefender;
+        if(isOnAllyTeam){
+            attacker = positions.getClosestEnemyTo(thisPlayer);
+            closestDefender = positions.getClosestAllyTo(attacker);
+            if(attacker.distanceTo(closestDefender) > 40)
+                closestDefender=null;
+        }else{
+            attacker = positions.getClosestAllyTo(thisPlayer);
+            closestDefender = positions.getClosestEnemyTo(attacker);
+            if(attacker.distanceTo(closestDefender) > 40)
+                closestDefender=null;
+        }
+        if(closestDefender != null){
+            if(isOnAllyTeam)
+                stopPower += CurrentPositions.getAllyInfo(positions.getIDByPosition(closestDefender)).getDefensePower() / 2.0;
+            else
+                stopPower += CurrentPositions.getEnemyInfo(positions.getIDByPosition(closestDefender)).getDefensePower() / 2.0;
+        }
+        stopPower += penaltyStopPower / 5.0;
+        // now the perfect stopPower is 170, 
+        // rescale it to 0-100 (with closer to perfect giving a value closer to 100
+        stopPower = Math.pow(stopPower, 0.896); // good keeper+good close defender (power ~80) = ~73
+                                                // good keeper (80), no defender = 50
+                                                // bad keeper (60), no defender = 40
+        return Math.pow(stopPower, STOP_LUCK) * Math.random() > (ballSpeed) * Math.random();
+    }
 
+    
     private ExactPosition getTarget() {
         ExactPosition target = null;
         if (isOnAllyTeam) {

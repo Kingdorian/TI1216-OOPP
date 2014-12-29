@@ -61,77 +61,90 @@ public class AttackerAI extends PlayerAI {
     }
 
     /**
-     * this player is the closest player of the enemy team to the ball, so move
+     * this player is the closest player to the ball, so move
      * toward it
      */
     private ExactPosition moveTowardBall() {
         // if closest to the ball and distance to ball is smaller than 25, close enough to shoot
         if (positions.isClosestToBall(thisPlayer) && thisPlayer.distanceTo(BallAI.getCurrentBallPosition()) < 25) {
+            // shoot the goal, if close enough
             if ((!isOnAllyTeam) && thisPlayer.distanceTo(LEFT_GOAL_POSITION) < 200) {
                 if (enoughLuckToShootBall(thisPlayer, playerID, positions, isOnAllyTeam)) {
-                    BallAI.shootLeftGoal();
+                    BallAI.shootLeftGoal(playerID);
                 }
             } else if (isOnAllyTeam && thisPlayer.distanceTo(RIGHT_GOAL_POSITION) < 200) {
                 if (enoughLuckToShootBall(thisPlayer, playerID, positions, isOnAllyTeam)) {
-                    BallAI.shootRightGoal();
+                    BallAI.shootRightGoal(playerID);
                 }
             } else {
                 // close enough to ball: decide direction to kick ball
                 ArrayList<ExactPosition> opponents = positions.getOpponentsInFrontOf(thisPlayer);
 
                 if (opponents.size() > 1) {
-                    // get the closest opponent to the player
-                    ExactPosition closestArr[] = get2ClosestPlayers(thisPlayer, positions);
-                    ExactPosition closest = null;
-                    ExactPosition secondClosest = null;
-                    if(closestArr != null){
-                        closest = closestArr[0];
-                        if(closestArr.length > 1)
-                            secondClosest = closestArr[1];
-                    }
-                    
-                    if (secondClosest != null) {
-                        // get direction to shoot ball to
-                        ExactPosition direction = getDirectionInBetween(thisPlayer, closest, secondClosest);
+                    // check if should shoot horitzontally
+                    if (shootHorizontally(thisPlayer, positions, isOnAllyTeam)){
+                        if(isOnAllyTeam){
+                            BallAI.shootBallTo(thisPlayer.getTranslateX(40), isOnAllyTeam);
+                            return getPosBySpeed(WITH_BALL_SPEED, thisPlayer, thisPlayer.getTranslateX(40));
+                        } else{
+                            BallAI.shootBallTo(thisPlayer.getTranslateX(-40), isOnAllyTeam);
+                            return getPosBySpeed(WITH_BALL_SPEED, thisPlayer, thisPlayer.getTranslateX(-40));
+                        }
+                    } else{
+                        // else check if should shoot through the center of the two closest opponents
+                        // get the closest opponent to the player
+                        ExactPosition closestArr[] = get2ClosestPlayers(thisPlayer, positions);
+                        ExactPosition closest = null;
+                        ExactPosition secondClosest = null;
+                        if(closestArr != null){
+                            closest = closestArr[0];
+                            if(closestArr.length > 1)
+                                secondClosest = closestArr[1];
+                        }
 
-                        // if player got enough luck
-                        if (enoughLuckToShootBall(thisPlayer, playerID, positions, isOnAllyTeam)) {
+                        if (secondClosest != null) {
+                            // get direction to shoot ball to
+                            ExactPosition direction = getDirectionInBetween(thisPlayer, closest, secondClosest);
 
-                            // if there is an opponent very close, decide to shoot the ball to an ally, 
-                            // based on how close the opponent is. (closer = higher chance to shoot to an ally)
-                            double distanceToClosest;
-                            if (isOnAllyTeam) {
-                                distanceToClosest = positions.getClosestEnemyInFrontOf(thisPlayer).distanceTo(thisPlayer);
-                            } else {
-                                distanceToClosest = positions.getClosestAllyInFrontOf(thisPlayer).distanceTo(thisPlayer);
-                            }
+                            // if player got enough luck
+                            if (enoughLuckToShootBall(thisPlayer, playerID, positions, isOnAllyTeam)) {
 
-                            if (distanceToClosest < 100 && distanceToClosest * Math.random() < 50 * Math.random()) {
-                                ExactPosition closestOfOwnTeam = null;
+                                // if there is an opponent very close, decide to shoot the ball to an ally, 
+                                // based on how close the opponent is. (closer = higher chance to shoot to an ally)
+                                double distanceToClosest;
                                 if (isOnAllyTeam) {
-                                    for (ExactPosition pp : positions.getAllyTeam()) {
-                                        if (pp != thisPlayer && thisPlayer.distanceTo(pp) < thisPlayer.distanceTo(closestOfOwnTeam) && positions.getClosestEnemyInFrontOf(pp).distanceTo(pp) > 75 && thisPlayer.distanceTo(pp) < 150) {
-                                            closestOfOwnTeam = pp;
-                                        }
-                                    }
+                                    distanceToClosest = positions.getClosestEnemyInFrontOf(thisPlayer).distanceTo(thisPlayer);
                                 } else {
-                                    for (ExactPosition pp : positions.getEnemyTeam()) {
-                                        if (pp != thisPlayer && thisPlayer.distanceTo(pp) < thisPlayer.distanceTo(closestOfOwnTeam) && positions.getClosestAllyInFrontOf(pp).distanceTo(pp) > 75 && thisPlayer.distanceTo(pp) < 150) {
-                                            closestOfOwnTeam = pp;
+                                    distanceToClosest = positions.getClosestAllyInFrontOf(thisPlayer).distanceTo(thisPlayer);
+                                }
+
+                                if (distanceToClosest < 100 && distanceToClosest * Math.random() < 70 * Math.random()) {
+                                    ExactPosition closestOfOwnTeam = null;
+                                    if (isOnAllyTeam) {
+                                        for (ExactPosition pp : positions.getAllyTeam()) {
+                                            if (pp != thisPlayer && thisPlayer.distanceTo(pp) < thisPlayer.distanceTo(closestOfOwnTeam) && positions.getClosestEnemyInFrontOf(pp).distanceTo(pp) > 50 && thisPlayer.distanceTo(pp) < 150) {
+                                                closestOfOwnTeam = pp;
+                                            }
+                                        }
+                                    } else {
+                                        for (ExactPosition pp : positions.getEnemyTeam()) {
+                                            if (pp != thisPlayer && thisPlayer.distanceTo(pp) < thisPlayer.distanceTo(closestOfOwnTeam) && positions.getClosestAllyInFrontOf(pp).distanceTo(pp) > 50 && thisPlayer.distanceTo(pp) < 150) {
+                                                closestOfOwnTeam = pp;
+                                            }
                                         }
                                     }
+                                    if (closestOfOwnTeam != null) {
+                                        BallAI.shootToTeammate(closestOfOwnTeam, isOnAllyTeam);
+                                        return getPosBySpeed(WITH_BALL_SPEED, thisPlayer, direction);
+                                    }
                                 }
-                                if (closestOfOwnTeam != null) {
-                                    BallAI.shootToTeammate(closestOfOwnTeam, isOnAllyTeam);
-                                    return getPosBySpeed(WITH_BALL_SPEED, thisPlayer, direction);
-                                }
+
+                                // shoot ball
+                                BallAI.shootBallTo(direction, isOnAllyTeam);
+
+                                // move toward where you shot the ball to
+                                return getPosBySpeed(WITH_BALL_SPEED, thisPlayer, direction);
                             }
-
-                            // shoot ball
-                            BallAI.shootBallTo(direction, isOnAllyTeam);
-
-                            // move toward where you shot the ball to
-                            return getPosBySpeed(WITH_BALL_SPEED, thisPlayer, direction);
                         }
                     }
                 } else {
@@ -140,11 +153,11 @@ public class AttackerAI extends PlayerAI {
                         if (isOnAllyTeam) {
                             // shoot ball and walk to right goal
                             BallAI.shootBallTo(RIGHT_GOAL_POSITION, isOnAllyTeam);
-                            return moveToRightGoal(WITH_BALL_SPEED);
+                            return moveToRightGoal(thisPlayer, WITH_BALL_SPEED);
                         } else {
                             // shoot ball and walk to left goal
                             BallAI.shootBallTo(LEFT_GOAL_POSITION, isOnAllyTeam);
-                            return moveToLeftGoal(WITH_BALL_SPEED);
+                            return moveToLeftGoal(thisPlayer, WITH_BALL_SPEED);
                         }
                     }
                 }
@@ -233,13 +246,5 @@ public class AttackerAI extends PlayerAI {
         }
         return getPosBySpeed(WALK_SPEED, thisPlayer, destination);
     }
-
-    public ExactPosition moveToLeftGoal(double speed) {
-        return getPosBySpeed(speed, thisPlayer, LEFT_GOAL_POSITION);
-    }
-
-    public ExactPosition moveToRightGoal(double speed) {
-        return getPosBySpeed(speed, thisPlayer, RIGHT_GOAL_POSITION);
-    }
-
+    
 }
