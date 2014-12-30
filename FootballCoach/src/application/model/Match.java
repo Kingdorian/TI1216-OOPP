@@ -62,7 +62,7 @@ public class Match {
         this(homeTeam, visitorTeam);
         this.pointsHomeTeam = pointsHomeTeam;
         this.pointsVisitorTeam = pointsVisitorTeam;
-        
+
 //System.out.println("points constructor");
     }
 

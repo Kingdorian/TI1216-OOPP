@@ -1,7 +1,5 @@
 package application.model;
 
-import java.text.DecimalFormat;
-
 public class Player extends Players {
 
     int attack;
@@ -71,22 +69,24 @@ public class Player extends Players {
         }
         return false;
     }
-    
+
     @Override
-    public double getAbility(){
-        return defence > attack ? ((int)(defence + stamina + 0.1*attack) * 5.0 / 2.1) / 100.0
-                                : ((int)(attack + stamina + 0.1*defence) * 5.0 / 2.1) / 100.0; // return a double with 2 numbers after the decimal point
+    public double getAbility() {
+        return defence > attack ? ((int) (defence + stamina + 0.1 * attack) * 5.0 / 2.1) / 100.0
+                : ((int) (attack + stamina + 0.1 * defence) * 5.0 / 2.1) / 100.0; // return a double with 2 numbers after the decimal point
     }
-    
+
     @Override
-    public String getKind(){
-        if(attack > 75 && defence > 75)
+    public String getKind() {
+        if (attack > 75 && defence > 75) {
             return "Allrounder";
-        if(attack > defence + 20)
+        }
+        if (attack > defence + 20) {
             return "Forward";
-        else if(defence > attack + 20)
+        } else if (defence > attack + 20) {
             return "Defender";
-        else
+        } else {
             return "Midfielder";
+        }
     }
 }

@@ -12,9 +12,9 @@
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="684.0" styleClass="wrapMenu" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.GameScreenTEAMController">
     <children>
         <Region prefHeight="50.0" prefWidth="684.0" styleClass="topMenu" />
-      <Region layoutY="400.0" prefHeight="50.0" prefWidth="684.0" styleClass="contentView" />
-      <Button layoutX="513.0" layoutY="400.0" mnemonicParsing="false" onAction="#moreInfoButton" prefHeight="50.0" prefWidth="171.0" styleClass="contentItemMenu" text="More info..." />
-      <Button layoutX="342.0" layoutY="400.0" mnemonicParsing="false" onAction="#sellPlayerButton" prefHeight="50.0" prefWidth="171.0" styleClass="contentItemMenu" text="Sell Player" />
+        <Region layoutY="400.0" prefHeight="50.0" prefWidth="684.0" styleClass="contentView" />
+        <Button layoutX="513.0" layoutY="400.0" mnemonicParsing="false" onAction="#moreInfoButton" prefHeight="50.0" prefWidth="171.0" styleClass="contentItemMenu" text="More info..." />
+        <Button layoutX="342.0" layoutY="400.0" mnemonicParsing="false" onAction="#sellPlayerButton" prefHeight="50.0" prefWidth="171.0" styleClass="contentItemMenu" text="Sell Player" />
         <TableView fx:id="playerTable" layoutY="50.0" prefHeight="350.0" prefWidth="684.0">
             <columns>
                 <TableColumn fx:id="columnNo" maxWidth="100.0" minWidth="50.0" prefWidth="50.0" text="No." />
@@ -26,9 +26,9 @@
             <columnResizePolicy>
                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
             </columnResizePolicy>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
         </TableView>
     </children>
 </Pane>

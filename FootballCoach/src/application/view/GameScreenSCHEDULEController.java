@@ -21,7 +21,10 @@ import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 
 /**
+ * This is the controller class of the SCHEDULE screen of the main view of the
+ * game screen.
  *
+ * @author Faris
  * @author Jochem
  */
 public class GameScreenSCHEDULEController implements ViewControllerInterface {
@@ -45,7 +48,10 @@ public class GameScreenSCHEDULEController implements ViewControllerInterface {
     @FXML
     private TableColumn<Match, String> columnResult;
 
-    // this event will be executed when an item in the dropdown list is selected:
+    /**
+     * This is an event handler class definition, which will be triggered when
+     * an items in the dropdown list is selected.
+     */
     private final EventHandler onSelected = new EventHandler<ActionEvent>() {
         @Override
         public void handle(ActionEvent t) {
@@ -55,7 +61,8 @@ public class GameScreenSCHEDULEController implements ViewControllerInterface {
     };
 
     /**
-     * Code executed when the view is loaded.
+     * This code is executed when the view is loaded. It sets the main texts of
+     * this view.
      */
     @FXML
     private void initialize() {
@@ -73,16 +80,18 @@ public class GameScreenSCHEDULEController implements ViewControllerInterface {
         columnHomeRank.setCellValueFactory(cellData -> new SimpleIntegerProperty(Main.getCompetition().getRank(cellData.getValue().getHomeTeam())));
         columnHomeName.setCellValueFactory(cellData -> {
             String teamname = cellData.getValue().getHomeTeam().getName();
-            if (teamname.equals(Main.getChosenTeamName()))
+            if (teamname.equals(Main.getChosenTeamName())) {
                 changeOwnTeamsBackground();
+            }
             return new SimpleStringProperty(teamname);
         });
         columnVS.setCellValueFactory(cellData -> new SimpleStringProperty(" - "));
         columnAwayRank.setCellValueFactory(cellData -> new SimpleIntegerProperty(Main.getCompetition().getRank(cellData.getValue().getVisitorTeam())));
         columnAwayName.setCellValueFactory(cellData -> {
             String teamname = cellData.getValue().getVisitorTeam().getName();
-            if (teamname.equals(Main.getChosenTeamName()))
+            if (teamname.equals(Main.getChosenTeamName())) {
                 changeOwnTeamsBackground();
+            }
             return new SimpleStringProperty(teamname);
         });
         columnResult.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getPointsHomeTeam() + " - " + cellData.getValue().getPointsVisitorTeam()));
@@ -93,6 +102,10 @@ public class GameScreenSCHEDULEController implements ViewControllerInterface {
         }
     }
 
+    /**
+     * This method applies a different background collor to your own team so you
+     * can easilly distinguish it from the other teams
+     */
     private void changeOwnTeamsBackground() {
         // Apply a different background color to your own team
         int i = 0;
@@ -112,6 +125,11 @@ public class GameScreenSCHEDULEController implements ViewControllerInterface {
         }
     }
 
+    /**
+     * This gives this class a reference to the main class
+     *
+     * @param mainController the main class
+     */
     @Override
     public void setMainController(Main mainController) {
         this.mainController = mainController;

@@ -9,35 +9,35 @@
 
 <AnchorPane id="AnchorPane" prefHeight="300.0" prefWidth="400.0" styleClass="contentView" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.PopupSETTINGSController">
     <children>
-      <GridPane AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="279.0" minWidth="10.0" prefWidth="243.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="175.0" minWidth="120.0" prefWidth="127.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="112.0" minWidth="10.0" prefWidth="72.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Full Screen:" />
-            <CheckBox fx:id="fullScreenCheckBox" mnemonicParsing="false" text="Enabled" GridPane.columnIndex="1" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="User Interface Color Settings" GridPane.rowIndex="2" />
-            <Label styleClass="text" text="Menu header color:" wrapText="true" GridPane.rowIndex="3" />
-            <Label styleClass="text" text="Menu background color:" wrapText="true" GridPane.rowIndex="4" />
-            <Label styleClass="text" text="Text color:" GridPane.rowIndex="5" />
-            <ColorPicker fx:id="headerColor" prefHeight="29.0" prefWidth="120.0" styleClass="choiceBox" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" onAction="#resetHeaderButton" styleClass="choiceBox" text="Default" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <ColorPicker fx:id="backgroundColor" prefHeight="29.0" prefWidth="120.0" styleClass="choiceBox" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Button mnemonicParsing="false" onAction="#resetBackgrounButton" styleClass="choiceBox" text="Default" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <ColorPicker fx:id="textColor" prefHeight="29.0" prefWidth="120.0" styleClass="choiceBox" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Button mnemonicParsing="false" onAction="#resetTextButton" styleClass="choiceBox" text="Default" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-         </children>
-      </GridPane>
+        <GridPane AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="279.0" minWidth="10.0" prefWidth="243.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="175.0" minWidth="120.0" prefWidth="127.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="112.0" minWidth="10.0" prefWidth="72.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Full Screen:" />
+                <CheckBox fx:id="fullScreenCheckBox" mnemonicParsing="false" text="Enabled" GridPane.columnIndex="1" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="User Interface Color Settings" GridPane.rowIndex="2" />
+                <Label styleClass="text" text="Menu header color:" wrapText="true" GridPane.rowIndex="3" />
+                <Label styleClass="text" text="Menu background color:" wrapText="true" GridPane.rowIndex="4" />
+                <Label styleClass="text" text="Text color:" GridPane.rowIndex="5" />
+                <ColorPicker fx:id="headerColor" prefHeight="29.0" prefWidth="120.0" styleClass="choiceBox" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <Button mnemonicParsing="false" onAction="#resetHeaderButton" styleClass="choiceBox" text="Default" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                <ColorPicker fx:id="backgroundColor" prefHeight="29.0" prefWidth="120.0" styleClass="choiceBox" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <Button mnemonicParsing="false" onAction="#resetBackgrounButton" styleClass="choiceBox" text="Default" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                <ColorPicker fx:id="textColor" prefHeight="29.0" prefWidth="120.0" styleClass="choiceBox" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                <Button mnemonicParsing="false" onAction="#resetTextButton" styleClass="choiceBox" text="Default" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            </children>
+        </GridPane>
         <HBox layoutY="270.0" prefHeight="30.0" prefWidth="500.0">
             <children>
                 <Button defaultButton="true" layoutX="200.0" layoutY="241.0" mnemonicParsing="false" onAction="#buttonOK" prefWidth="250.0" styleClass="itemMenu" text="OK" />

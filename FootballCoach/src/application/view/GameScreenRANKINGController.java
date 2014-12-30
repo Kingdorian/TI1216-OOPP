@@ -17,7 +17,10 @@ import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 
 /**
+ * This is the controller class of the RAKING screen of the main view of the
+ * game screen.
  *
+ * @author Faris
  * @author Jochem
  */
 public class GameScreenRANKINGController implements ViewControllerInterface {
@@ -42,7 +45,8 @@ public class GameScreenRANKINGController implements ViewControllerInterface {
     private TableColumn<Team, Number> columnGoalDiff;
 
     /**
-     * Code executed when the view is loaded.
+     * This code is executed when the view is loaded. It sets the main texts of
+     * this view.
      */
     @FXML
     private void initialize() {
@@ -63,11 +67,20 @@ public class GameScreenRANKINGController implements ViewControllerInterface {
         rankingTable.setItems(FXCollections.observableArrayList(Main.getCompetition().getAllRanks()));
     }
 
+    /**
+     * This gives this class a reference to the main class
+     *
+     * @param mainController the main class
+     */
     @Override
     public void setMainController(Main mainController) {
         this.mainController = mainController;
     }
 
+    /**
+     * This method applies a different background collor to your own team so you
+     * can easilly distinguish it from the other teams
+     */
     private void changeOwnTeamsBackground() {
         // Apply a different background color to your own team
         int i = 0;

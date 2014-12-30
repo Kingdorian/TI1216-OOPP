@@ -8,7 +8,6 @@ import application.view.GameScreenTitleController;
 import application.view.PopupControllerInterface;
 import application.view.ViewControllerInterface;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -37,6 +36,8 @@ import javafx.stage.Window;
 import javafx.stage.WindowEvent;
 
 /**
+ * This is the main class which controls the flow of this application and allows
+ * different parts of the program to communicate which each other.
  *
  * @author Jochem
  * @author Faris
@@ -59,6 +60,12 @@ public class Main extends Application {
 
     private static PopupControl oldPopup;
 
+    /**
+     * The actual main method of the project (which will be called by the super
+     * class after using launch() in the main method)
+     *
+     * @param primaryStage The stage which we will use to show our scene
+     */
     @Override
     public void start(Stage primaryStage) {
         // load and show the start screen
@@ -85,7 +92,8 @@ public class Main extends Application {
     }
 
     /**
-     * Method to initialize the starting point of the application.
+     * Method to initialize the starting border pane of the application, which
+     * we will load other screens into.
      */
     public void initializeRootLayout() {
         try {
@@ -217,7 +225,7 @@ public class Main extends Application {
 // End of code to adjust screen size.
 
     /**
-     * this method cleans all sections of the rootLayout's borderpane
+     * this method cleans all sections of the rootLayout (borderpane)
      */
     public void cleanRootLayout() {
         rootLayout.setTop(null);
@@ -378,29 +386,30 @@ public class Main extends Application {
 
         PopupControl popup;
         AnchorLocation location = null;
-        if (oldPopup != null && oldPopup.isShowing()){
-//            // overwrite old popup window
-//            popup = oldPopup;
-//            popup.getScene().setRoot(pane);
-//            popup.sizeToScene();
+        if (oldPopup != null && oldPopup.isShowing()) {
+            // overwrite old popup window
+            popup = oldPopup;
+            popup.getScene().setRoot(pane);
+            popup.sizeToScene();
             location = oldPopup.getAnchorLocation();
-            oldPopup.hide();
-        } else{
-//            // create new popup window
-//            popup = new PopupControl();
-//            popup.getScene().setRoot(pane);
-//            popup.show(primaryStage);
-//            oldPopup = popup;
-        }
-       // create new popup window
+//            oldPopup.hide();
+        } else {
+            // create new popup window
             popup = new PopupControl();
             popup.getScene().setRoot(pane);
             popup.show(primaryStage);
             oldPopup = popup;
-            if(location!=null)
-                popup.setAnchorLocation(location);
+        }
+        // create new popup window
+//            popup = new PopupControl();
+//            popup.getScene().setRoot(pane);
+//            popup.show(primaryStage);
+//            oldPopup = popup;
+        if (location != null) {
+            popup.setAnchorLocation(location);
+        }
         makeDragable(popup);
-        
+
         // get the pop-up's controller class
         PopupControllerInterface popupController = ((FXMLLoader) paneAndLoader[1]).getController();
         popupController.setPopupStage(popup);
@@ -411,8 +420,9 @@ public class Main extends Application {
                 @Override
                 public void handle(WindowEvent e) {
                     oldPopup = null;
-                    if (popupController.isOkClicked())
+                    if (popupController.isOkClicked()) {
                         event.handle(e);
+                    }
                 }
             });
         }
@@ -420,23 +430,23 @@ public class Main extends Application {
     }
 
     /**
-     * This method makes the window root dragable.
-     * This method is based on the makeDragable 
-     * method from this project:
+     * This method makes the window root dragable. This method is based on the
+     * makeDragable method from this project:
      * https://gist.github.com/jewelsea/3388637
      *
-     * @param window  the window to make dragable
+     * @param window the window to make dragable
      */
     public static void makeDragable(final Window window) {
-        
+
         // class to store relative x and y coordinates
         class Delta {
+
             double x, y;
         }
-        
+
         final Delta dragDelta = new Delta();
         Node node = window.getScene().getRoot();
-        
+
         // when clickingset the position of the window relative to the mouse
         // and change the mouse cursor to 'move'
         node.setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -448,7 +458,7 @@ public class Main extends Application {
                 node.setCursor(Cursor.MOVE);
             }
         });
-        
+
         // when releasing the mouse button, change the cursor to a hand
         node.setOnMouseReleased(new EventHandler<MouseEvent>() {
             @Override
@@ -456,7 +466,7 @@ public class Main extends Application {
                 node.setCursor(Cursor.HAND);
             }
         });
-        
+
         // move the window when dragging with the mouse (relative to where the mouse is)
         node.setOnMouseDragged(new EventHandler<MouseEvent>() {
             @Override
@@ -465,7 +475,7 @@ public class Main extends Application {
                 window.setY(mouseEvent.getScreenY() + dragDelta.y);
             }
         });
-        
+
         // change cursor to a hand when entering the window
         node.setOnMouseEntered(new EventHandler<MouseEvent>() {
             @Override
@@ -475,7 +485,7 @@ public class Main extends Application {
                 }
             }
         });
-        
+
         // change to default cursor when leaving the window
         node.setOnMouseExited(new EventHandler<MouseEvent>() {
             @Override
@@ -487,86 +497,171 @@ public class Main extends Application {
         });
     }
 
-    public static ArrayList<Players> getPlayersData(String teamName) {
-        return competition.getTeamByName(teamName)
-                .getPlayers();
-    }
-
+    /**
+     * Get the name of the chosen football club
+     *
+     * @return the name of the chosen team
+     */
     public static String getChosenTeamName() {
         return chosenTeamName;
     }
 
+    /**
+     * Set the name of the chosen football club
+     *
+     * @param name the name of the chosen team
+     */
     public static void SetChosenTeamName(String name) {
         chosenTeamName = name;
     }
 
+    /**
+     * Get the name of the player
+     *
+     * @return the players name
+     */
     public static String getChosenName() {
         return chosenName;
     }
 
+    /**
+     * Set the name of the player
+     *
+     * @param chosenName the players name
+     */
     public static void setChosenName(String chosenName) {
         Main.chosenName = chosenName;
     }
 
+    /**
+     * Get the current competition
+     *
+     * @return the current competition
+     */
     public static Competition getCompetition() {
         return competition;
     }
 
+    /**
+     * Set the current competition
+     *
+     * @param competition the current competition
+     */
     public static void setCompetition(Competition competition) {
-//        System.out.println("setting competition" + competition.toString());
-
         Main.competition = competition;
     }
 
+    /**
+     * Get the currently selected player (used by popup screens to communicate)
+     *
+     * @return the selected player
+     */
     public static Players getSelectedPlayer() {
         return selectedPlayer;
     }
 
+    /**
+     * Set the currently selected player (used by popup screens to communicate)
+     *
+     * @param selectedPlayer the selected player
+     */
     public static void setSelectedPlayer(Players selectedPlayer) {
         Main.selectedPlayer = selectedPlayer;
     }
 
+    /**
+     * Get the main border pane which contains all of the scenes (except for
+     * popups)
+     *
+     * @return the main border pane
+     */
     public static BorderPane getRootLayout() {
         return rootLayout;
     }
 
+    /**
+     * Get the main stage (which contains the main border pane)
+     *
+     * @return the main stage
+     */
     public static Stage getPrimaryStage() {
         return primaryStage;
     }
 
+    /**
+     * Get the main menu's controller (to check which tab is being showed)
+     *
+     * @return the main menu's controller
+     */
     public static GameScreenMenuController getMenuController() {
         return menuController;
     }
 
+    /**
+     * Set the main menu's controller (to check which tab is being showed)
+     *
+     * @param menuController the main menu's controller
+     */
     public static void setMenuController(GameScreenMenuController menuController) {
         Main.menuController = menuController;
     }
 
+    /**
+     * Get the title bar's controller (to check which tab is being showed)
+     *
+     * @return the title bar's controller
+     */
     public static GameScreenTitleController getTitleController() {
         return titleController;
     }
 
+    /**
+     * Set the title bar's controller (to check which tab is being showed)
+     *
+     * @param titleController the title bar's controller
+     */
     public static void setTitleController(GameScreenTitleController titleController) {
         Main.titleController = titleController;
     }
 
+    /**
+     * Get the current color settings
+     *
+     * @return string of the css which defines the current colors
+     */
     public static String getColorCssStyle() {
         return colorCssStyle;
     }
 
+    /**
+     * Set the current color settings
+     *
+     * @param colorCssStyle string of the css which defines the current colors
+     */
     public static void setColorCssStyle(String colorCssStyle) {
         Main.colorCssStyle = colorCssStyle;
     }
 
+    /**
+     * Get the current size settings
+     *
+     * @return string of the css which defines the current background image size
+     */
     public static String getSizeCssStyle() {
         return sizeCssStyle;
     }
 
+    /**
+     * Get the instance of the previous popup's controller
+     *
+     * @return the previous popup's controller
+     */
     public static PopupControl getOldPopup() {
         return oldPopup;
     }
 
     /**
+     * The main method which launches our application
      *
      * @param args Command Line arguments.
      */

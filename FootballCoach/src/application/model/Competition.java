@@ -3,7 +3,6 @@ package application.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Random;
 
 public class Competition {
@@ -61,7 +60,6 @@ public class Competition {
      *
      * @param the id of the savegame this compettition belongs to
      */
-
     public void setSaveGameId(int id) {
         this.saveGameId = id;
     }
@@ -320,30 +318,33 @@ public class Competition {
      * @return the rank (int)
      */
     public int getRank(Team team) {
-        
+
         ArrayList<Team> sortedTeams = getAllRanks();
-        
+
         //set rank to the index of the team in the sorted list
         int rank = sortedTeams.indexOf(team);
-        
+
         //give teams with exactly the same amount of points and goals the same rank
-        while(rank > 0 && sortedTeams.get(rank).getPoints() == sortedTeams.get(rank - 1).getPoints() && 
-                sortedTeams.get(rank).getGoals()-sortedTeams.get(rank).getGoalsAgainst() - sortedTeams.get(rank - 1).getGoals() + sortedTeams.get(rank - 1).getGoalsAgainst() == 0)
+        while (rank > 0 && sortedTeams.get(rank).getPoints() == sortedTeams.get(rank - 1).getPoints()
+                && sortedTeams.get(rank).getGoals() - sortedTeams.get(rank).getGoalsAgainst() - sortedTeams.get(rank - 1).getGoals() + sortedTeams.get(rank - 1).getGoalsAgainst() == 0) {
             rank--;
+        }
         return rank + 1;
     }
-    
-    public ArrayList<Team> getAllRanks(){
+
+    public ArrayList<Team> getAllRanks() {
         ArrayList<Team> sortedTeams = new ArrayList<>();
-        for(Team t : teams)
+        for (Team t : teams) {
             sortedTeams.add(t);
-        
+        }
+
         //sort the list of teams based on points (if draw, based on goals)
         Collections.sort(sortedTeams, (Team t1, Team t2) -> {
-            if(t1.getPoints() == t2.getPoints())
-                return t1.getGoals()-t1.getGoalsAgainst() - t2.getGoals() + t2.getGoalsAgainst();
-            else
+            if (t1.getPoints() == t2.getPoints()) {
+                return t1.getGoals() - t1.getGoalsAgainst() - t2.getGoals() + t2.getGoalsAgainst();
+            } else {
                 return t1.getPoints() - t2.getPoints();
+            }
         });
         return sortedTeams;
     }

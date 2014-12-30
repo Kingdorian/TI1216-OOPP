@@ -86,9 +86,11 @@ public class KeeperAI extends PlayerAI {
 
         return getPosBySpeed(WALK_SPEED, thisPlayer, direction);
     }
-private static int goalAllyGoal = 0;
-private static int goalEnemyGoal = 0;
+    private static int goalAllyGoal = 0;
+    private static int goalEnemyGoal = 0;
+
     // Ball shot at goal: stop ball based on luck and skills
+
     private ExactPosition stopBall() {
 
         double ballSpeed = BallAI.getBallSpeed();
@@ -97,13 +99,14 @@ private static int goalEnemyGoal = 0;
             // try to stop ball + 'jump' to it, if within distance of 30 pixels
             ExactPosition intersectionPoint = BallAI.getGoalIntersection(isOnAllyTeam);
             if (thisPlayer.distanceTo(intersectionPoint) < 70) {
-                if(willStopBall(ballSpeed)){
+                if (willStopBall(ballSpeed)) {
                     BallAI.stopBall(intersectionPoint, isOnAllyTeam);
-                }else{
-                    if(isOnAllyTeam)
+                } else {
+                    if (isOnAllyTeam) {
                         goalAllyGoal++;
-                    else
+                    } else {
                         goalEnemyGoal++;
+                    }
                 }
                 return intersectionPoint;
             }
@@ -124,46 +127,50 @@ private static int goalEnemyGoal = 0;
         }
         return thisPlayer;
     }
-    
-    private boolean willStopBall(double ballSpeed){
-        
-        if(ballSpeed < 20) // always stop slow balls
+
+    private boolean willStopBall(double ballSpeed) {
+
+        if (ballSpeed < 20) // always stop slow balls
+        {
             return true;
-        
+        }
+
         double stopPower = positions.getAllyInfo(playerID).getStopPower();
         double penaltyStopPower = positions.getAllyInfo(playerID).getPenaltyStopPower();
-        
+
         // first calculate the stop power, also use allies defending power 
         // of the closest ally to the attacker (to make defending power more important)
         ExactPosition attacker;
         ExactPosition closestDefender;
-        if(isOnAllyTeam){
+        if (isOnAllyTeam) {
             attacker = positions.getClosestEnemyTo(thisPlayer);
             closestDefender = positions.getClosestAllyTo(attacker);
-            if(attacker.distanceTo(closestDefender) > 40)
-                closestDefender=null;
-        }else{
+            if (attacker.distanceTo(closestDefender) > 40) {
+                closestDefender = null;
+            }
+        } else {
             attacker = positions.getClosestAllyTo(thisPlayer);
             closestDefender = positions.getClosestEnemyTo(attacker);
-            if(attacker.distanceTo(closestDefender) > 40)
-                closestDefender=null;
+            if (attacker.distanceTo(closestDefender) > 40) {
+                closestDefender = null;
+            }
         }
-        if(closestDefender != null){
-            if(isOnAllyTeam)
+        if (closestDefender != null) {
+            if (isOnAllyTeam) {
                 stopPower += CurrentPositions.getAllyInfo(positions.getIDByPosition(closestDefender)).getDefensePower() / 2.0;
-            else
+            } else {
                 stopPower += CurrentPositions.getEnemyInfo(positions.getIDByPosition(closestDefender)).getDefensePower() / 2.0;
+            }
         }
         stopPower += penaltyStopPower / 5.0;
         // now the perfect stopPower is 170, 
         // rescale it to 0-100 (with closer to perfect giving a value closer to 100
         stopPower = Math.pow(stopPower, 0.896); // good keeper+good close defender (power ~80) = ~73
-                                                // good keeper (80), no defender = 50
-                                                // bad keeper (60), no defender = 40
+        // good keeper (80), no defender = 50
+        // bad keeper (60), no defender = 40
         return Math.pow(stopPower, STOP_LUCK) * Math.random() > (ballSpeed) * Math.random();
     }
 
-    
     private ExactPosition getTarget() {
         ExactPosition target = null;
         if (isOnAllyTeam) {

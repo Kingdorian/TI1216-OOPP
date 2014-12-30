@@ -68,16 +68,13 @@ public class AnimateFootballMatch {
         }
     };
 
-
-    
-
     /**
      * play a match defined in the Match parameter
      *
      * @param footballMatch Match containing a full match to play
      */
     public static void playMatch(AnimatedMatch footballMatch) {
-        
+
         AnimateFootballMatch.footballMatch = footballMatch;
 
         // load the view
@@ -148,13 +145,12 @@ public class AnimateFootballMatch {
         stage.setScene(scene);
         stage.sizeToScene(); // make sure there are no white borders
 
-        
         // Uncomment the following 4 lines if the screen should be resizeable (also uncomment the class at the bottom of this class)
 //        // the scene size change listener only works if the stage is shown before it is applied and it isn't possible to do that when using showAndWait()
         stage.show();
         scaleToScreenSize(anchorPane); // make scene size adjustable and let content grow/shrink
         stage.close();
-        
+
         stage.showAndWait(); // show the stage and wait till it gets closed
 
         // stop animation when stage is closed
@@ -267,16 +263,18 @@ public class AnimateFootballMatch {
     public static boolean isPause() {
         return pause;
     }
-    
-    public static void stopAnimation(){
+
+    public static void stopAnimation() {
         stage.close();
     }
-    
-    public static void reset(){
-        for(Circle c : adversaryCircle)
+
+    public static void reset() {
+        for (Circle c : adversaryCircle) {
             c = null;
-        for(Circle c : playerCircle)
+        }
+        for (Circle c : playerCircle) {
             c = null;
+        }
         ballCircle = null;
         footballMatch = null;
         stage = null;
@@ -286,7 +284,7 @@ public class AnimateFootballMatch {
         pause = false;
         playerPause = 0;
     }
-    
+
 //// This code to adjust the screen size is based on the code from http://stackoverflow.com/a/16608161
 //// Some adjustments have been made to improve it and comments have been added.
 ////****************************************************************************************************
@@ -355,6 +353,5 @@ public class AnimateFootballMatch {
     }
 ////****************************************************************************************************
 //// End of code to adjust screen size.
-    
 
 }

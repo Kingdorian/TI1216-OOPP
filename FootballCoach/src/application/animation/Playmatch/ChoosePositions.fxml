@@ -10,14 +10,14 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane id="AnchorPane" maxHeight="820.0" maxWidth="1020.0" minHeight="820.0" minWidth="1020.0" prefHeight="820.0" prefWidth="1020.0" stylesheets="@StyleAnimation.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.animation.Playmatch.ChoosePositionsController">
-   <children>
-      <ImageView pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Pictures/Field.png" />
-         </image>
-      </ImageView>
-      <Region layoutY="760.0" prefHeight="60.0" prefWidth="1020.0" styleClass="animationBottomRegion" />
-      <Region layoutX="750.0" prefHeight="53.0" prefWidth="270.0" styleClass="animationTopRegion" />
-      <Circle fx:id="circle" fill="DODGERBLUE" layoutX="266.0" layoutY="380.0" radius="81.0" stroke="BLACK" strokeType="INSIDE" />
-   </children>
+    <children>
+        <ImageView pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../Pictures/Field.png" />
+            </image>
+        </ImageView>
+        <Region layoutY="760.0" prefHeight="60.0" prefWidth="1020.0" styleClass="animationBottomRegion" />
+        <Region layoutX="750.0" prefHeight="53.0" prefWidth="270.0" styleClass="animationTopRegion" />
+        <Circle fx:id="circle" fill="DODGERBLUE" layoutX="266.0" layoutY="380.0" radius="81.0" stroke="BLACK" strokeType="INSIDE" />
+    </children>
 </AnchorPane>

@@ -10,11 +10,10 @@ package application.animation.ContainerPackage;
  * @author faris
  */
 public final class PlayerInfo {
-    
+
 //    public int MAX_SPEED = 150;
 //    public int WALK_SPEED = 50;
 //    public int SHOOT_SPEED = 800;
-    
     private final int attackPower;
     private final int stamina;
     private final int defensePower;
@@ -22,8 +21,7 @@ public final class PlayerInfo {
     private final int penaltyStopPower;
     private final int stopPower;
 
-    
-    public PlayerInfo(int stopPower, int penaltyStopPower, ExactPosition favoritePosition){
+    public PlayerInfo(int stopPower, int penaltyStopPower, ExactPosition favoritePosition) {
         this.stopPower = stopPower;
         this.penaltyStopPower = penaltyStopPower;
         this.favoritePosition = favoritePosition;
@@ -48,7 +46,7 @@ public final class PlayerInfo {
     public int getStamina() {
         return stamina;
     }
-    
+
     public int getDefensePower() {
         return defensePower;
     }

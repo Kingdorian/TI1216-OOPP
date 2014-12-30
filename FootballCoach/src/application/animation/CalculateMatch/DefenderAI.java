@@ -5,7 +5,6 @@
  */
 package application.animation.CalculateMatch;
 
-
 import application.animation.ContainerPackage.CurrentPositions;
 import application.animation.ContainerPackage.ExactPosition;
 import java.util.ArrayList;
@@ -14,45 +13,50 @@ import java.util.ArrayList;
  *
  * @author faris
  */
-public class DefenderAI extends PlayerAI{
-    
+public class DefenderAI extends PlayerAI {
+
     private final ExactPosition thisPlayer;
     private final boolean isOnAllyTeam;
     private final int playerID;
-    
-    
+
     /**
-     * constructor: needs the position of the attacker and the positions of other players
-     * @param thisPlayer  the position of this attacker
-     * @param positions     the previous positions of all other players
-     * @param isOnAllyTeam  boolean conaining if this player is on the ally team
+     * constructor: needs the position of the attacker and the positions of
+     * other players
+     *
+     * @param thisPlayer the position of this attacker
+     * @param positions the previous positions of all other players
+     * @param isOnAllyTeam boolean conaining if this player is on the ally team
      */
-    public DefenderAI(ExactPosition thisPlayer, CurrentPositions positions, boolean isOnAllyTeam, int playerID){
+    public DefenderAI(ExactPosition thisPlayer, CurrentPositions positions, boolean isOnAllyTeam, int playerID) {
         super(playerID, isOnAllyTeam, positions);
         this.thisPlayer = thisPlayer;
         this.isOnAllyTeam = isOnAllyTeam;
         this.playerID = playerID;
     }
-    
+
     @Override
-    public ExactPosition getNextPosition(){
-        if(isOnAllyTeam){
-            if(thisPlayer.equals(positions.getClosestAllyTo(BallAI.getCurrentBallPosition()))) // if closest player of own team to the ball
+    public ExactPosition getNextPosition() {
+        if (isOnAllyTeam) {
+            if (thisPlayer.equals(positions.getClosestAllyTo(BallAI.getCurrentBallPosition()))) // if closest player of own team to the ball
+            {
                 return moveTowardBall(); // closest to ball
-            else if(BallAI.getCurrentBallPosition().getxPos() < MIDDLE_LINE_X)
+            } else if (BallAI.getCurrentBallPosition().getxPos() < MIDDLE_LINE_X) {
                 return defend();// defend
-            else 
+            } else {
                 return attack(); // ball on other side
-        } else if(thisPlayer.equals(positions.getClosestEnemyTo(BallAI.getCurrentBallPosition()))) // if closest player of own team to the ball
-                return moveTowardBall(); // closest to ball
-            else if(BallAI.getCurrentBallPosition().getxPos() > MIDDLE_LINE_X)
-                return defend(); // defend
-            else
-                return attack(); // ball on other side
+            }
+        } else if (thisPlayer.equals(positions.getClosestEnemyTo(BallAI.getCurrentBallPosition()))) // if closest player of own team to the ball
+        {
+            return moveTowardBall(); // closest to ball
+        } else if (BallAI.getCurrentBallPosition().getxPos() > MIDDLE_LINE_X) {
+            return defend(); // defend
+        } else {
+            return attack(); // ball on other side
+        }
     }
-    
+
     // Defender is the closest on to the ball
-    private ExactPosition moveTowardBall(){
+    private ExactPosition moveTowardBall() {
         if (positions.isClosestToBall(thisPlayer) && thisPlayer.distanceTo(BallAI.getCurrentBallPosition()) < 25) {
             if ((isOnAllyTeam && thisPlayer.getxPos() < MIDDLE_LINE_X) || (!isOnAllyTeam && thisPlayer.getxPos() > MIDDLE_LINE_X)) {
                 if (enoughLuckToDefendBall(thisPlayer, playerID, positions, isOnAllyTeam)) {
@@ -78,16 +82,15 @@ public class DefenderAI extends PlayerAI{
                         BallAI.shootToTeammate(target, isOnAllyTeam); // shoot ball to closest ally who's not being defended
                     } //2. else check if you can move forward yourself
                     // check if you should shoot the ball horizontally
-                    else if (shootHorizontally(thisPlayer, positions, isOnAllyTeam)){
-                        if(isOnAllyTeam){
+                    else if (shootHorizontally(thisPlayer, positions, isOnAllyTeam)) {
+                        if (isOnAllyTeam) {
                             BallAI.shootBallTo(thisPlayer.getTranslateX(40), isOnAllyTeam);
                             return getPosBySpeed(WITH_BALL_SPEED, thisPlayer, thisPlayer.getTranslateX(40));
-                        } else{
+                        } else {
                             BallAI.shootBallTo(thisPlayer.getTranslateX(-40), isOnAllyTeam);
                             return getPosBySpeed(WITH_BALL_SPEED, thisPlayer, thisPlayer.getTranslateX(-40));
                         }
-                    }
-                    // else check if you should shoot through the center of the 2 closest opponents
+                    } // else check if you should shoot through the center of the 2 closest opponents
                     else if ((isOnAllyTeam && positions.getClosestEnemyTo(thisPlayer).distanceTo(thisPlayer) > 60) || (!isOnAllyTeam && positions.getClosestAllyTo(thisPlayer).distanceTo(thisPlayer) < 60)) {
                         ExactPosition closestArr[] = get2ClosestPlayers(thisPlayer, positions);
                         if (closestArr != null && closestArr.length > 1 && closestArr[1] != null) {
@@ -132,7 +135,7 @@ public class DefenderAI extends PlayerAI{
             } else {
                 if (enoughLuckToShootBall(thisPlayer, playerID, positions, isOnAllyTeam)) {
                     //attack ball
-                    
+
                     //1. check if any player in front of the midfielder is reachable and not being defended
                     ExactPosition target = null;
                     if (isOnAllyTeam) {
@@ -151,9 +154,8 @@ public class DefenderAI extends PlayerAI{
 
                     if (target != null) {
                         BallAI.shootToTeammate(target, isOnAllyTeam); // shoot ball to closest ally who's not being defended
-                    } 
-                    //2. else move forward yourself
-                    else{
+                    } //2. else move forward yourself
+                    else {
                         ExactPosition closestArr[] = get2ClosestPlayers(thisPlayer, positions);
                         if (closestArr != null && closestArr.length > 1 && closestArr[1] != null) {
                             ExactPosition direction = getDirectionInBetween(thisPlayer, closestArr[0], closestArr[1]);
@@ -170,54 +172,62 @@ public class DefenderAI extends PlayerAI{
         // move toward ball
         return getPosBySpeed(RUNNING_SPEED, thisPlayer, BallAI.getCurrentBallPosition());
     }
-    
+
     // Ball far from middle line: defend (try to get ball)
-    private ExactPosition defend(){
+    private ExactPosition defend() {
         // if you are the second or third closest player to the ball, move toward it. (if you are the closest you won't be in this method)
         // else go to same x-pos as the ball.
         ArrayList<ExactPosition> closest = new ArrayList<>();
-        if(isOnAllyTeam){
-            for(ExactPosition p : positions.getAllyTeam())
-                if(p.distanceTo(BallAI.getCurrentBallPosition()) < thisPlayer.distanceTo(BallAI.getCurrentBallPosition()))
+        if (isOnAllyTeam) {
+            for (ExactPosition p : positions.getAllyTeam()) {
+                if (p.distanceTo(BallAI.getCurrentBallPosition()) < thisPlayer.distanceTo(BallAI.getCurrentBallPosition())) {
                     closest.add(p);
-        } else
-            for(ExactPosition p : positions.getEnemyTeam())
-                if(p.distanceTo(BallAI.getCurrentBallPosition()) < thisPlayer.distanceTo(BallAI.getCurrentBallPosition()))
+                }
+            }
+        } else {
+            for (ExactPosition p : positions.getEnemyTeam()) {
+                if (p.distanceTo(BallAI.getCurrentBallPosition()) < thisPlayer.distanceTo(BallAI.getCurrentBallPosition())) {
                     closest.add(p);
+                }
+            }
+        }
         // if less than 3 other players are closer to the ball than you, go toward the ball.
-        if(closest.size() < 3){
+        if (closest.size() < 3) {
             return getPosBySpeed(RUNNING_SPEED, thisPlayer, BallAI.getCurrentBallPosition());
         }
         // else move toward the same x-pos as the ball, but use your favorite y-pos as y-pos.
         double xPos;
         double yPos;
-        if(isOnAllyTeam){
+        if (isOnAllyTeam) {
             yPos = positions.getAllyInfo(playerID).getFavoritePosition().getyPos();
-            if(BallAI.getCurrentBallPosition().getxPos() > MIDDLE_LINE_X - 100)
+            if (BallAI.getCurrentBallPosition().getxPos() > MIDDLE_LINE_X - 100) {
                 xPos = BallAI.getCurrentBallPosition().getxPos() - 50;
-            else if(BallAI.getCurrentBallPosition().getxPos() > MIDDLE_LINE_X - 380)
+            } else if (BallAI.getCurrentBallPosition().getxPos() > MIDDLE_LINE_X - 380) {
                 xPos = BallAI.getCurrentBallPosition().getxPos() - 20;
-            else
+            } else {
                 xPos = 110;
+            }
             return getPosBySpeed(RUNNING_SPEED, thisPlayer, new ExactPosition(xPos, yPos));
-        } else{
+        } else {
             yPos = positions.getEnemyInfo(playerID).getFavoritePosition().getyPos();
-            if(BallAI.getCurrentBallPosition().getxPos() < MIDDLE_LINE_X + 100)
+            if (BallAI.getCurrentBallPosition().getxPos() < MIDDLE_LINE_X + 100) {
                 xPos = BallAI.getCurrentBallPosition().getxPos() + 50;
-            else if(BallAI.getCurrentBallPosition().getxPos() < MIDDLE_LINE_X + 380)
+            } else if (BallAI.getCurrentBallPosition().getxPos() < MIDDLE_LINE_X + 380) {
                 xPos = BallAI.getCurrentBallPosition().getxPos() + 20;
-            else
+            } else {
                 xPos = 910;
+            }
         }
         return getPosBySpeed(RUNNING_SPEED, thisPlayer, new ExactPosition(xPos, yPos));
     }
-    
+
     // Ball far from middle line: stay back, close to opponent attackers (wait)
-    private ExactPosition attack(){
-        if(isOnAllyTeam)
+    private ExactPosition attack() {
+        if (isOnAllyTeam) {
             return getPosBySpeed(RUNNING_SPEED, thisPlayer, positions.getAllyInfo(playerID).getFavoritePosition().getTranslateX(50));
-        else
+        } else {
             return getPosBySpeed(RUNNING_SPEED, thisPlayer, positions.getEnemyInfo(playerID).getFavoritePosition().getTranslateX(-50));
+        }
 
     }
 }

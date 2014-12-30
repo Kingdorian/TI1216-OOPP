@@ -20,15 +20,15 @@
                 </Text>
             </children>
         </Group>
-      <VBox layoutY="50.0" prefHeight="300.0" prefWidth="220.0" styleClass="menuContainer">
-         <children>
-              <Button fx:id="buttonHome" mnemonicParsing="false" onAction="#buttonHome" prefHeight="50.0" prefWidth="220.0" styleClass="itemMenu" text="[TEAMNAME]" />
-              <Button mnemonicParsing="false" onAction="#buttonTeam" prefHeight="50.0" prefWidth="220.0" styleClass="itemMenu" text="My Team" />
-              <Button mnemonicParsing="false" onAction="#buttonSchedule" prefHeight="50.0" prefWidth="220.0" styleClass="itemMenu" text="Schedule" />
-              <Button mnemonicParsing="false" onAction="#buttonRanking" prefHeight="50.0" prefWidth="220.0" styleClass="itemMenu" text="Ranking" />
-              <Button mnemonicParsing="false" onAction="#buttonMarket" prefHeight="50.0" prefWidth="220.0" styleClass="itemMenu" text="Market" />
-              <Button mnemonicParsing="false" onAction="#buttonOtherTeams" prefHeight="50.0" prefWidth="220.0" styleClass="itemMenu" text="Other Teams" />
-         </children>
-      </VBox>
+        <VBox layoutY="50.0" prefHeight="300.0" prefWidth="220.0" styleClass="menuContainer">
+            <children>
+                <Button fx:id="buttonHome" mnemonicParsing="false" onAction="#buttonHome" prefHeight="50.0" prefWidth="220.0" styleClass="itemMenu" text="[TEAMNAME]" />
+                <Button mnemonicParsing="false" onAction="#buttonTeam" prefHeight="50.0" prefWidth="220.0" styleClass="itemMenu" text="My Team" />
+                <Button mnemonicParsing="false" onAction="#buttonSchedule" prefHeight="50.0" prefWidth="220.0" styleClass="itemMenu" text="Schedule" />
+                <Button mnemonicParsing="false" onAction="#buttonRanking" prefHeight="50.0" prefWidth="220.0" styleClass="itemMenu" text="Ranking" />
+                <Button mnemonicParsing="false" onAction="#buttonMarket" prefHeight="50.0" prefWidth="220.0" styleClass="itemMenu" text="Market" />
+                <Button mnemonicParsing="false" onAction="#buttonOtherTeams" prefHeight="50.0" prefWidth="220.0" styleClass="itemMenu" text="Other Teams" />
+            </children>
+        </VBox>
     </children>
 </Pane>

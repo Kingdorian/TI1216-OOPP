@@ -17,8 +17,8 @@
                 <TableColumn fx:id="columnName" maxWidth="140.0" minWidth="140.0" prefWidth="140.0" styleClass="tableColumn" text="Team Name" />
                 <TableColumn fx:id="columnPoints" prefWidth="75.0" styleClass="tableColumn" text="Points" />
                 <TableColumn fx:id="columnWins" prefWidth="75.0" styleClass="tableColumn" text="Wins" />
-            <TableColumn fx:id="columnDraws" prefWidth="75.0" styleClass="tableColumn" text="Draws" />
-            <TableColumn fx:id="columnLosses" prefWidth="75.0" styleClass="tableColumn" text="Losses" />
+                <TableColumn fx:id="columnDraws" prefWidth="75.0" styleClass="tableColumn" text="Draws" />
+                <TableColumn fx:id="columnLosses" prefWidth="75.0" styleClass="tableColumn" text="Losses" />
                 <TableColumn fx:id="columnGoalDiff" prefWidth="75.0" styleClass="tableColumn" text="Goal diff" />
             </columns>
             <columnResizePolicy>

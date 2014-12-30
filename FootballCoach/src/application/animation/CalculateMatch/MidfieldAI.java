@@ -96,16 +96,15 @@ public class MidfieldAI extends PlayerAI {
                         BallAI.shootToTeammate(target, isOnAllyTeam); // shoot ball to closest ally who's not being defended
                     } //2. else check if you can move forward yourself
                     // check if you should shoot the ball horizontally
-                    else if (shootHorizontally(thisPlayer, positions, isOnAllyTeam)){
-                        if(isOnAllyTeam){
+                    else if (shootHorizontally(thisPlayer, positions, isOnAllyTeam)) {
+                        if (isOnAllyTeam) {
                             BallAI.shootBallTo(thisPlayer.getTranslateX(40), isOnAllyTeam);
                             return getPosBySpeed(WITH_BALL_SPEED, thisPlayer, thisPlayer.getTranslateX(40));
-                        } else{
+                        } else {
                             BallAI.shootBallTo(thisPlayer.getTranslateX(-40), isOnAllyTeam);
                             return getPosBySpeed(WITH_BALL_SPEED, thisPlayer, thisPlayer.getTranslateX(-40));
                         }
-                    }
-                    // else check if you should shoot through the center of the closest 2 opponents
+                    } // else check if you should shoot through the center of the closest 2 opponents
                     else if ((isOnAllyTeam && positions.getClosestEnemyTo(thisPlayer).distanceTo(thisPlayer) > 100) || (!isOnAllyTeam && positions.getClosestAllyTo(thisPlayer).distanceTo(thisPlayer) < 100)) {
                         ExactPosition closestArr[] = get2ClosestPlayers(thisPlayer, positions);
                         if (closestArr != null && closestArr.length > 1 && closestArr[1] != null) {
@@ -182,14 +181,14 @@ public class MidfieldAI extends PlayerAI {
                             BallAI.shootBallTo(direction, isOnAllyTeam);
                         } // if no opponents in front of you, shoot toward goal
                         else if (isOnAllyTeam) {
-                                // shoot ball and walk to right goal
-                                BallAI.shootBallTo(RIGHT_GOAL_POSITION, isOnAllyTeam);
-                                return moveToRightGoal(thisPlayer, WITH_BALL_SPEED);
-                            } else {
-                                // shoot ball and walk to left goal
-                                BallAI.shootBallTo(LEFT_GOAL_POSITION, isOnAllyTeam);
-                                return moveToLeftGoal(thisPlayer, WITH_BALL_SPEED);
-                            }
+                            // shoot ball and walk to right goal
+                            BallAI.shootBallTo(RIGHT_GOAL_POSITION, isOnAllyTeam);
+                            return moveToRightGoal(thisPlayer, WITH_BALL_SPEED);
+                        } else {
+                            // shoot ball and walk to left goal
+                            BallAI.shootBallTo(LEFT_GOAL_POSITION, isOnAllyTeam);
+                            return moveToLeftGoal(thisPlayer, WITH_BALL_SPEED);
+                        }
                     }
                 }
             }

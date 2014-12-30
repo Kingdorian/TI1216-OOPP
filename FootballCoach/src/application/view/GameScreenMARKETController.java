@@ -23,7 +23,10 @@ import javafx.scene.control.TableView;
 import org.controlsfx.dialog.Dialogs;
 
 /**
+ * This is the controller class of the MARKET screen of the main view of the
+ * game screen.
  *
+ * @author Faris
  * @author Jochem
  */
 public class GameScreenMARKETController implements ViewControllerInterface {
@@ -54,11 +57,12 @@ public class GameScreenMARKETController implements ViewControllerInterface {
     private Button removeButton;
 
     /**
-     * Code executed when the view is loaded.
+     * This code is executed when the view is loaded. It sets the main texts of
+     * this view.
      */
     @FXML
     private void initialize() {
-    	
+
         playerTable.setPlaceholder(new Label("There are no players for sale at the moment"));
 
         // Initialize the Players table with the 5 columns
@@ -74,7 +78,7 @@ public class GameScreenMARKETController implements ViewControllerInterface {
         playerTable.getSelectionModel().getSelectedIndices().addListener(new ListChangeListener<Integer>() {
             @Override
             public void onChanged(Change<? extends Integer> change) {
-                if(playerTable.getSelectionModel().selectedItemProperty().get() != null){
+                if (playerTable.getSelectionModel().selectedItemProperty().get() != null) {
                     selectedPlayer = playerTable.getSelectionModel().selectedItemProperty().get();
                     if (Main.getCompetition().getTeamByName(Main.getChosenTeamName()).getPlayers().contains(selectedPlayer)) {
                         buyButton.setDisable(true);
@@ -107,6 +111,11 @@ public class GameScreenMARKETController implements ViewControllerInterface {
         return "$ " + formattedEstimatedPrice;
     }
 
+    /**
+     * This gives this class a reference to the main class
+     *
+     * @param mainController the main class
+     */
     @Override
     public void setMainController(Main mainController) {
         GameScreenMARKETController.mainController = mainController;
@@ -114,6 +123,11 @@ public class GameScreenMARKETController implements ViewControllerInterface {
         reloadTable();
     }
 
+    /**
+     * This method is triggered when the more info button is clicked (event
+     * handler assigned in the .fxml) and it creates a popup containing more
+     * info about the selected player.
+     */
     @FXML
     private void moreInfoButton() {
         if (selectedPlayer != null && selectedPlayer instanceof Player) {
@@ -125,6 +139,11 @@ public class GameScreenMARKETController implements ViewControllerInterface {
         }
     }
 
+    /**
+     * This method is triggered when the remove button is clicked (event handler
+     * assigned in the .fxml) and it removes the selected player from the market
+     * (can only be triggered if the selected player is from the player's team)
+     */
     @FXML
     private void removePlayerButton() {
         Team myTeam = Main.getCompetition().getTeamByName(Main.getChosenTeamName());
@@ -132,51 +151,59 @@ public class GameScreenMARKETController implements ViewControllerInterface {
 
             // remove player from market
             Main.getCompetition().getMarket().removePlayer(selectedPlayer);
-            
+
             Dialogs.create()
-                            .title("Player Market")
-                            .masthead("Removed player.")
-                            .message("Removed " + selectedPlayer.getName() + " " + selectedPlayer.getSurName() + " from the player market.")
-                            .owner(Main.getOldPopup())
-                            .showInformation();
-            
+                    .title("Player Market")
+                    .masthead("Removed player.")
+                    .message("Removed " + selectedPlayer.getName() + " " + selectedPlayer.getSurName() + " from the player market.")
+                    .owner(Main.getOldPopup())
+                    .showInformation();
+
             // reload the table
             reloadTable();
         }
     }
-    
+
+    /**
+     * This method is triggered when the buy button is clicked (event handler
+     * assigned in the .fxml) and it can be used to buy the selected player from
+     * the market (can only be triggered if the selected player is not from the
+     * player's team)
+     */
     @FXML
-    private void buyPlayerButton(){
+    private void buyPlayerButton() {
         int price = Main.getCompetition().getMarket().getPlayersPrice(selectedPlayer);
-        if(Main.getCompetition().getPlayersTeam(selectedPlayer).transferTo(selectedPlayer, Main.getCompetition().getTeamByName(Main.getChosenTeamName()), price)){
+        if (Main.getCompetition().getPlayersTeam(selectedPlayer).transferTo(selectedPlayer, Main.getCompetition().getTeamByName(Main.getChosenTeamName()), price)) {
             // transfer succesful
             Dialogs.create()
-                            .title("Player Market")
-                            .masthead("The player transferred to your team succesfully.")
-                            .message("You have spend " + formatPrice(price) + " to buy player: " + selectedPlayer.getName() + " " + selectedPlayer.getSurName())
-                            .owner(Main.getOldPopup())
-                            .showInformation();
+                    .title("Player Market")
+                    .masthead("The player transferred to your team succesfully.")
+                    .message("You have spend " + formatPrice(price) + " to buy player: " + selectedPlayer.getName() + " " + selectedPlayer.getSurName())
+                    .owner(Main.getOldPopup())
+                    .showInformation();
             // reload table, clear selection and set buy and remove buttons to disabled
             reloadTable();
-        } else
-            // transfer not succesful
+        } else // transfer not succesful
+        {
             Dialogs.create()
-                            .title("Transfer failed")
-                            .masthead("Transfer couldn't be made.")
-                            .message("You do not have enough money.")
-                            .owner(Main.getOldPopup())
-                            .showWarning();
+                    .title("Transfer failed")
+                    .masthead("Transfer couldn't be made.")
+                    .message("You do not have enough money.")
+                    .owner(Main.getOldPopup())
+                    .showWarning();
+        }
     }
-    
-    private void reloadTable(){
-            playerTable.setItems(FXCollections.observableArrayList(Main.getCompetition().getMarket().getPlayersForSale()));
-            columnNo.setSortType(TableColumn.SortType.ASCENDING);
-//            playerTable.getSortOrder().clear();
-//            playerTable.getSortOrder().add(columnNo);
-            
-            playerTable.getSelectionModel().clearSelection();
-            buyButton.setDisable(true);
-            removeButton.setDisable(true);
-            selectedPlayer = null;
+
+    /**
+     * This method will reload the table of players on the market
+     */
+    private void reloadTable() {
+        playerTable.setItems(FXCollections.observableArrayList(Main.getCompetition().getMarket().getPlayersForSale()));
+        columnNo.setSortType(TableColumn.SortType.ASCENDING);
+
+        playerTable.getSelectionModel().clearSelection();
+        buyButton.setDisable(true);
+        removeButton.setDisable(true);
+        selectedPlayer = null;
     }
 }

@@ -20,6 +20,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 /**
+ * This is the controller class of the SETTINGS popup
  *
  * @author Faris
  */
@@ -44,20 +45,30 @@ public class PopupSETTINGSController implements PopupControllerInterface {
     CheckBox fullScreenCheckBox;
 
     /**
-     * Sets the stage of this dialog.
+     * Sets the stage (PopupControl) of this popup.
      *
-     * @param popupStage
+     * @param popupControl the popups stage (PopupControl)
      */
     @Override
     public void setPopupStage(PopupControl popupControl) {
         this.popupControl = popupControl;
     }
 
+    /**
+     * Will return true if the OK button has been clicked, otherwise will return
+     * false
+     *
+     * @return boolean: if the ok button has been clicked
+     */
     @Override
     public boolean isOkClicked() {
         return isOkClicked;
     }
 
+    /**
+     * This code is executed when the view is loaded. It sets the main texts of
+     * this popup.
+     */
     @FXML
     private void initialize() {
         // get the stage and border pane
@@ -73,7 +84,7 @@ public class PopupSETTINGSController implements PopupControllerInterface {
         } else {
             fullScreenCheckBox.setSelected(false);
         }
-        
+
         getColorsFromCSS();
 
         // set default colors
@@ -106,67 +117,72 @@ public class PopupSETTINGSController implements PopupControllerInterface {
         setColor();
         isOkClicked = false;
     }
-    
-    
+
     /**
-     * get the colors from the line of css in the Main and convert them to 
-     * color values
+     * get the colors from the line of css in the Main and convert them to color
+     * values
      */
-    private void getColorsFromCSS(){
+    private void getColorsFromCSS() {
         String colorCSS = Main.getColorCssStyle();
-        if(!(colorCSS.contains("-fx-backgroundcolor:") && colorCSS.contains("-fx-textcolor:") && colorCSS.contains("-fx-basecolor:")))
+        if (!(colorCSS.contains("-fx-backgroundcolor:") && colorCSS.contains("-fx-textcolor:") && colorCSS.contains("-fx-basecolor:"))) {
             return;
-        
+        }
+
         ArrayList<Double> backgroundColor = null;
         ArrayList<Double> textColor = null;
         ArrayList<Double> baseColor = null;
-        
+
         Scanner sc = new Scanner(colorCSS);
         sc.useDelimiter("\n");
-        while(sc.hasNext()){
+        while (sc.hasNext()) {
             String line = sc.next();
-            if(line.contains("-fx-backgroundcolor:")){
+            if (line.contains("-fx-backgroundcolor:")) {
                 backgroundColor = getColorValues(line);
-            } else if(line.contains("-fx-textcolor:")){
+            } else if (line.contains("-fx-textcolor:")) {
                 textColor = getColorValues(line);
-            } else if(line.contains("-fx-basecolor:")){
+            } else if (line.contains("-fx-basecolor:")) {
                 baseColor = getColorValues(line);
             }
         }
-        
-        if(backgroundColor != null && textColor != null && baseColor != null && backgroundColor.size() == 4 && textColor.size() == 3 && baseColor.size() == 4){
-            oldBGColor = new Color(backgroundColor.get(0)/256, backgroundColor.get(1)/256, backgroundColor.get(2)/256, backgroundColor.get(3));
-            oldHeaderColor = new Color(baseColor.get(0)/256, baseColor.get(1)/256, baseColor.get(2)/256, baseColor.get(3));
-            oldTextColor = new Color(textColor.get(0)/256, textColor.get(1)/256, textColor.get(2)/256, 1.0);
+
+        if (backgroundColor != null && textColor != null && baseColor != null && backgroundColor.size() == 4 && textColor.size() == 3 && baseColor.size() == 4) {
+            oldBGColor = new Color(backgroundColor.get(0) / 256, backgroundColor.get(1) / 256, backgroundColor.get(2) / 256, backgroundColor.get(3));
+            oldHeaderColor = new Color(baseColor.get(0) / 256, baseColor.get(1) / 256, baseColor.get(2) / 256, baseColor.get(3));
+            oldTextColor = new Color(textColor.get(0) / 256, textColor.get(1) / 256, textColor.get(2) / 256, 1.0);
         }
     }
-    
-    
+
     /**
-     * Convert a string with some double values split by commas to an arraylist of those doubles
-     * @param cssLine   the line of css code containing the doubles
-     * @return          the doubles from the css line
+     * Convert a string with some double values split by commas to an arraylist
+     * of those doubles
+     *
+     * @param cssLine the line of css code containing the doubles
+     * @return the doubles from the css line
      */
-    private ArrayList<Double> getColorValues(String cssLine){
+    private ArrayList<Double> getColorValues(String cssLine) {
         // replace all non-numeric characters
         cssLine = cssLine.replaceAll("[^0-9,.]", "");
         Scanner sc = new Scanner(cssLine);
-        
+
         // use comma as delimiter
         sc.useDelimiter(",");
-        
+
         //set locale to US to recognize double values with a "."
         sc.useLocale(Locale.US);
-        
+
         ArrayList<Double> result = new ArrayList<>();
-        
-        while(sc.hasNextDouble())
+
+        while (sc.hasNextDouble()) {
             result.add(sc.nextDouble());
+        }
 
         return result;
     }
 
-    
+    /**
+     * This method is triggered when the OK button is clicked (event handler
+     * assigned in the .fxml) and it will close the popup
+     */
     @FXML
     private void buttonOK() {
         if (primaryStage.isFullScreen() && !fullScreenCheckBox.isSelected()) {
@@ -179,6 +195,10 @@ public class PopupSETTINGSController implements PopupControllerInterface {
         popupControl.hide();
     }
 
+    /**
+     * Set the colors of all view elements to the selected colors in the color
+     * pickers
+     */
     private void setColor() {
         // get selected background colors (r, b, g, a)
         String background = Double.toString(backgroundColor.getValue().getRed() * 256.0);
@@ -204,6 +224,10 @@ public class PopupSETTINGSController implements PopupControllerInterface {
         rootLayout.setStyle(Main.getSizeCssStyle() + Main.getColorCssStyle());
     }
 
+    /**
+     * This method is triggered when the OK button is clicked (event handler
+     * assigned in the .fxml) and it will close the popup
+     */
     @FXML
     private void buttonCancel() {
         // reset colors and close stage
@@ -212,18 +236,33 @@ public class PopupSETTINGSController implements PopupControllerInterface {
         popupControl.hide();
     }
 
+    /**
+     * This method is triggered when the reset background button is clicked
+     * (event handler assigned in the .fxml) and it will reset the background
+     * color to the default value
+     */
     @FXML
     private void resetBackgrounButton() {
         backgroundColor.setValue(new Color(147.0 / 256.0, 147.0 / 256.0, 147.0 / 256.0, .8));
         setColor();
     }
 
+    /**
+     * This method is triggered when the reset text button is clicked (event
+     * handler assigned in the .fxml) and it will reset the text color to the
+     * default value
+     */
     @FXML
     private void resetTextButton() {
         textColor.setValue(new Color(247.0 / 256.0, 247.0 / 256.0, 247.0 / 256.0, 1.0));
         setColor();
     }
 
+    /**
+     * This method is triggered when the reset header button is clicked (event
+     * handler assigned in the .fxml) and it will reset the header color to the
+     * default value
+     */
     @FXML
     private void resetHeaderButton() {
         headerColor.setValue(new Color(16.0 / 256.0, 16.0 / 256.0, 16.0 / 256.0, .7));

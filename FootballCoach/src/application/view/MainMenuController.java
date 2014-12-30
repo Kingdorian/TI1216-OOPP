@@ -21,6 +21,7 @@ import org.controlsfx.dialog.Dialog;
 import org.controlsfx.dialog.Dialogs;
 
 /**
+ * This is the controller class of the main menu screen of the startup screen.
  *
  * @author Faris
  * @author Jochem
@@ -29,26 +30,25 @@ public class MainMenuController implements ViewControllerInterface {
 
     private static Main mainController;
 
-    //Load FXML elements to edit in code.
     @FXML
     private ImageView logo;
     @FXML
     private Button buttonContinue;
 
     /**
-     * this event sets the continue button to active and triggers it
+     * This event sets the continue button to active and triggers it
      */
-    private final EventHandler triggerContinue = new EventHandler<Event>(){
+    private final EventHandler triggerContinue = new EventHandler<Event>() {
         @Override
-        public void handle(Event e){
+        public void handle(Event e) {
             buttonContinue.setDisable(false);
             buttonContinue();
         }
     };
-    
-    
+
     /**
-     * Code executed when the view is loaded.
+     * This code is executed when the view is loaded. It sets the main texts of
+     * this view.
      */
     @FXML
     private void initialize() {
@@ -70,6 +70,11 @@ public class MainMenuController implements ViewControllerInterface {
         }
     }
 
+    /**
+     * This gives this class a reference to the main class
+     *
+     * @param mainController the main class
+     */
     @Override
     public void setMainController(Main mainController) {
         MainMenuController.mainController = mainController;
@@ -80,13 +85,14 @@ public class MainMenuController implements ViewControllerInterface {
      */
     @FXML
     private void buttonContinue() {
-    	// Market test
-		for(Players pl : Main.getCompetition().getTeamByName("Feyenoord").getPlayers())
-			Main.getCompetition().getMarket().addPlayer(pl, 5);
-		
-		//Testing budget.
-		Main.getCompetition().getTeamByName(Main.getChosenTeamName()).setBudget(5000000);
-		
+        // Market test
+        for (Players pl : Main.getCompetition().getTeamByName("Feyenoord").getPlayers()) {
+            Main.getCompetition().getMarket().addPlayer(pl, 5);
+        }
+
+        //Testing budget.
+        Main.getCompetition().getTeamByName(Main.getChosenTeamName()).setBudget(5000000);
+
         mainController.setCenterView("GameScreenHOME");
         mainController.setLeftView("GameScreenMenu");
         mainController.setTopView("GameScreenTitle");
@@ -104,7 +110,6 @@ public class MainMenuController implements ViewControllerInterface {
                 .actions(Dialog.Actions.OK, Dialog.Actions.CANCEL)
                 .owner(Main.getOldPopup())
                 .showConfirm();
-
 
         if (response == Dialog.Actions.OK) {
             System.exit(0);
@@ -127,7 +132,7 @@ public class MainMenuController implements ViewControllerInterface {
     @FXML
     private void buttonNewGame() {
         mainController.createPopup("PopupNEWGAME", "New Game", triggerContinue);
-        
+
     }
 
     /**
@@ -145,6 +150,5 @@ public class MainMenuController implements ViewControllerInterface {
     private void buttonCredits() {
         mainController.createPopup("PopupCREDITS", "Credits");
     }
-    
-    
+
 }

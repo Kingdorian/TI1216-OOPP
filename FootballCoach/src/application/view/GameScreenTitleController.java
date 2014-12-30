@@ -10,6 +10,8 @@ import javafx.fxml.FXML;
 import javafx.scene.text.Text;
 
 /**
+ * This is the controller class of the Title screen of the upper bar of the game
+ * screen.
  *
  * @author Faris
  * @author Jochem
@@ -26,19 +28,25 @@ public class GameScreenTitleController implements ViewControllerInterface {
     private static Main mainController;
 
     /**
-     * Code executed when the view is loaded.
+     * This code is executed when the view is loaded. It sets the main texts of
+     * this view.
      */
     @FXML
     private void initialize() {
         // set this as the title controller class in the Main class
         Main.setTitleController(this);
-        
+
         // add texts
         refreshMoney();
-        setRound();
+        refreshRound();
         textWelcome.setText("Welcome, " + Main.getChosenName());
     }
 
+    /**
+     * This gives this class a reference to the main class
+     *
+     * @param mainController the main class
+     */
     @Override
     public void setMainController(Main mainController) {
         GameScreenTitleController.mainController = mainController;
@@ -61,35 +69,42 @@ public class GameScreenTitleController implements ViewControllerInterface {
     private void buttonSettings() {
         mainController.createPopup("PopupSETTINGS", "Settings");
     }
-    
+
     /**
      * Method that opens the save game popup.
      */
-    @FXML 
+    @FXML
     private void buttonSaveGame() {
         mainController.createPopup("PopupSAVEGAME", "Save Game");
     }
-    
+
     /**
      * Method that opens the play match screen.
      */
     @FXML
     private void buttonNextMatch() {
-        if(!Main.getMenuController().getCurrentMenuField().getText().equals("Play Match")){
+        if (!Main.getMenuController().getCurrentMenuField().getText().equals("Play Match")) {
             Main.getMenuController().getCurrentMenuField().setText("Play Match");
             mainController.setCenterView("GameScreenPLAYMATCH");
         }
     }
-    
-    public void refreshMoney(){
+
+    /**
+     * Method that refreshes the amount of money being displayed
+     */
+    public void refreshMoney() {
         textBudget.setText("$ " + Main.getCompetition().getTeamByName(Main.getChosenTeamName()).getBudget());
     }
-    
-    public void setRound(){
+
+    /**
+     * Method that refreshes the current round number being displayed
+     */
+    public void refreshRound() {
         int round = Main.getCompetition().getRound();
-        if(round != -1)
+        if (round != -1) {
             textRound.setText("ROUND " + round);
-        else
+        } else {
             textRound.setText("COMPLETED");
+        }
     }
 }

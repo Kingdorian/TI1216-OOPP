@@ -22,9 +22,9 @@ public class AnimatedMatch {
     public void addPositionSlice(PositionsTimeSlice positions) {
         this.positionsList.add(positions);
     }
-    
-    public int amoutOfSlices(){
+
+    public int amoutOfSlices() {
         return positionsList.size();
     }
-    
+
 }

@@ -1,6 +1,5 @@
 package application.animation.CalculateMatch;
 
-
 import application.animation.ContainerPackage.CurrentPositions;
 import application.animation.ContainerPackage.ExactPosition;
 import java.util.ArrayList;
@@ -40,7 +39,7 @@ public class AttackerAI extends PlayerAI {
      */
     @Override
     public ExactPosition getNextPosition() {
-        
+
         if (isOnAllyTeam) {
             if (thisPlayer.equals(positions.getClosestAllyTo(BallAI.getCurrentBallPosition()))) // if closest player of own team to the ball
             {
@@ -61,8 +60,7 @@ public class AttackerAI extends PlayerAI {
     }
 
     /**
-     * this player is the closest player to the ball, so move
-     * toward it
+     * this player is the closest player to the ball, so move toward it
      */
     private ExactPosition moveTowardBall() {
         // if closest to the ball and distance to ball is smaller than 25, close enough to shoot
@@ -82,24 +80,25 @@ public class AttackerAI extends PlayerAI {
 
                 if (opponents.size() > 1) {
                     // check if should shoot horitzontally
-                    if (shootHorizontally(thisPlayer, positions, isOnAllyTeam)){
-                        if(isOnAllyTeam){
+                    if (shootHorizontally(thisPlayer, positions, isOnAllyTeam)) {
+                        if (isOnAllyTeam) {
                             BallAI.shootBallTo(thisPlayer.getTranslateX(40), isOnAllyTeam);
                             return getPosBySpeed(WITH_BALL_SPEED, thisPlayer, thisPlayer.getTranslateX(40));
-                        } else{
+                        } else {
                             BallAI.shootBallTo(thisPlayer.getTranslateX(-40), isOnAllyTeam);
                             return getPosBySpeed(WITH_BALL_SPEED, thisPlayer, thisPlayer.getTranslateX(-40));
                         }
-                    } else{
+                    } else {
                         // else check if should shoot through the center of the two closest opponents
                         // get the closest opponent to the player
                         ExactPosition closestArr[] = get2ClosestPlayers(thisPlayer, positions);
                         ExactPosition closest = null;
                         ExactPosition secondClosest = null;
-                        if(closestArr != null){
+                        if (closestArr != null) {
                             closest = closestArr[0];
-                            if(closestArr.length > 1)
+                            if (closestArr.length > 1) {
                                 secondClosest = closestArr[1];
+                            }
                         }
 
                         if (secondClosest != null) {
@@ -215,8 +214,9 @@ public class AttackerAI extends PlayerAI {
     private ExactPosition defendingPlayer() {
         if (isOnAllyTeam) {
             return getPosBySpeed(WALK_SPEED, thisPlayer, positions.getAllyInfo(playerID).getFavoritePosition().getTranslateX(-100));
-        } else
+        } else {
             return getPosBySpeed(WALK_SPEED, thisPlayer, positions.getEnemyInfo(playerID).getFavoritePosition().getTranslateX(100));
+        }
     }
 
     /**
@@ -246,5 +246,5 @@ public class AttackerAI extends PlayerAI {
         }
         return getPosBySpeed(WALK_SPEED, thisPlayer, destination);
     }
-    
+
 }

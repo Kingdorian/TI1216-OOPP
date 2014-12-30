@@ -19,26 +19,26 @@ public class ChoosePositionsController {
 
     @FXML
     private Circle circle;
-    
+
     /**
      * Initializes the controller class.
      */
     @FXML
     private void initialize() {
-        
+
         circle.setOnMouseDragged(new EventHandler<MouseEvent>() {
-        @Override 
-        public void handle(MouseEvent event) {
-            circle.setCenterX(event.getX());
-            circle.setCenterY(event.getY());
-        }
-      });
-    }    
-    
-    @FXML
-    private void draggingCircle(){
-        //circle.setCenterX(Cursor.);
-        
+            @Override
+            public void handle(MouseEvent event) {
+                circle.setCenterX(event.getX());
+                circle.setCenterY(event.getY());
+            }
+        });
     }
-    
+
+    @FXML
+    private void draggingCircle() {
+        //circle.setCenterX(Cursor.);
+
+    }
+
 }
