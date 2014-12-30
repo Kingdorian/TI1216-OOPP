@@ -7,6 +7,8 @@ package application.view;
 
 import java.util.ArrayList;
 
+import org.controlsfx.control.action.Action;
+import org.controlsfx.dialog.Dialog;
 import org.controlsfx.dialog.Dialogs;
 
 import application.Main;
@@ -99,6 +101,47 @@ public class PopupLOADGAMEController implements PopupControllerInterface {
     @FXML
     private void buttonCancel() {
         popupControl.hide();
+    }
+    
+    /**
+     * This method is triggered when the delete button is clicked. 
+     * It will delete the selected savegame permanently after asking the user for confirmation.
+     */
+    @FXML 
+    private void buttonDelete() {
+    	  if (selectSaveGameBox.getSelectionModel().getSelectedIndex() == -1) {
+              Dialogs.create()
+                      .title("No Selection")
+                      .masthead("No savegame selected")
+                      .message("Please select a savegame in the dropdown list.")
+                      .owner(Main.getOldPopup())
+                      .showWarning();
+          } else {
+              int choice = Integer.parseInt(selectSaveGameBox.getItems().get(selectSaveGameBox.getSelectionModel().getSelectedIndex()).toString());
+              try { 
+            	  // Ask the user is they want to delete the savegame.
+                  Action response = Dialogs.create()
+                          .title("Quit")
+                          .masthead("Are you sure you want to permanently delete the selected savegame?")
+                          .actions(Dialog.Actions.OK, Dialog.Actions.CANCEL)
+                          .owner(Main.getOldPopup())
+                          .showConfirm();
+
+                  if (response == Dialog.Actions.OK) {
+                	  // Delete the savegame if OK is pressed.
+                	  System.out.println(choice);
+                	  SaveGameHandler.deleteSaveGame(choice);
+                      // Reload the dropdown list
+                      initialize();  
+                  } else {
+                      // User cancels and returns to the load game screen.
+                  }
+
+              } catch (Exception e) {
+                  // TODO Auto-generated catch block
+                  e.printStackTrace();
+              }
+          }
     }
 
 }
