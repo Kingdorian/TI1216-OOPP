@@ -10,6 +10,7 @@ import application.view.ViewControllerInterface;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.animation.FadeTransition;
 
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
@@ -34,6 +35,7 @@ import javafx.scene.transform.Scale;
 import javafx.stage.PopupWindow.AnchorLocation;
 import javafx.stage.Window;
 import javafx.stage.WindowEvent;
+import javafx.util.Duration;
 
 /**
  * This is the main class which controls the flow of this application and allows
@@ -247,8 +249,15 @@ public class Main extends Application {
      * "test")
      */
     public void setCenterView(String viewPath) {
+        
         viewPath = changeNameToClassPath(viewPath);
 
+        // get the previous margins of the center view
+        Pane oldPane = (Pane) rootLayout.getCenter();
+        Insets oldInsets = null;
+        if(oldPane != null)
+            oldInsets = BorderPane.getMargin(oldPane);
+        
         // Set the center screen
         Object[] paneAndLoader = loadPane(viewPath);
         Pane pane = (Pane) paneAndLoader[0];
@@ -256,13 +265,37 @@ public class Main extends Application {
             BorderPane.setAlignment(pane, Pos.TOP_LEFT);
             BorderPane.setMargin(pane, new Insets(40, 40, 0, 0));
         }
-        rootLayout.setCenter(pane);
 
-        //ViewControllerInterface viewController = getViewController(viewPath.split("/")[1]);
-        ViewControllerInterface viewController = ((FXMLLoader) paneAndLoader[1]).getController();
+        // if old center panes position is the same as the new one, set a transition
+        FadeTransition fadeout = new FadeTransition(Duration.millis(0));
+        if(oldPane != null && oldInsets != null && BorderPane.getMargin(pane).equals(oldInsets)){
+            fadeout = new FadeTransition(Duration.millis(300), oldPane);
+            fadeout.setFromValue(1);
+            fadeout.setToValue(0);
+            fadeout.play();
+        }
 
-        // Give the view controller a reference to this main controller class
-        viewController.setMainController(this);
+        // when the fade out is finished, load the new center and fade it in
+        fadeout.setOnFinished(e -> {
+            // draw the new window
+            pane.setOpacity(0);
+            rootLayout.setCenter(pane);
+            
+            // let the new view fade in
+            FadeTransition fadein = new FadeTransition(Duration.millis(1000), pane);
+            fadein.setFromValue(0);
+            fadein.setToValue(1);
+            fadein.play();
+            // ViewControllerInterface viewController = getViewController(viewPath.split("/")[1]);
+            ViewControllerInterface viewController = ((FXMLLoader) paneAndLoader[1]).getController();
+
+            // Give the view controller a reference to this main controller class
+            viewController.setMainController(this);
+        });
+        System.out.println(fadeout.getDuration());
+        // if there is no fade in transition, handle onfinished
+        if(fadeout.getDuration() == Duration.ZERO)
+            fadeout.getOnFinished().handle(null);
     }
 
     /**
@@ -281,7 +314,15 @@ public class Main extends Application {
 
         // Set the top screen
         Object[] paneAndLoader = loadPane(viewPath);
-        rootLayout.setTop((Pane) paneAndLoader[0]);
+        Pane pane = (Pane) paneAndLoader[0];
+         rootLayout.setTop(pane);
+        
+        // let the new view fade in
+        pane.setOpacity(0);
+        FadeTransition fadein = new FadeTransition(Duration.millis(1000), pane);
+        fadein.setFromValue(0);
+        fadein.setToValue(1);
+        fadein.play();
 
         //ViewControllerInterface viewController = getViewController(viewPath.split("/")[1]);
         ViewControllerInterface viewController = ((FXMLLoader) paneAndLoader[1]).getController();
@@ -310,6 +351,13 @@ public class Main extends Application {
         BorderPane.setAlignment(pane, Pos.TOP_LEFT);
         BorderPane.setMargin(pane, new Insets(40, 40, 0, 40));
         rootLayout.setLeft(pane);
+        
+        // let the new view fade in
+        pane.setOpacity(0);
+        FadeTransition fadein = new FadeTransition(Duration.millis(1000), pane);
+        fadein.setFromValue(0);
+        fadein.setToValue(1);
+        fadein.play();
 
         //ViewControllerInterface viewController = getViewController(viewPath.split("/")[1]);
         ViewControllerInterface viewController = ((FXMLLoader) paneAndLoader[1]).getController();

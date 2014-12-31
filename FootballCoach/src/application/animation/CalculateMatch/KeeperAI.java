@@ -164,10 +164,14 @@ public class KeeperAI extends PlayerAI {
         }
         stopPower += penaltyStopPower / 5.0;
         // now the perfect stopPower is 170, 
+        
         // rescale it to 0-100 (with closer to perfect giving a value closer to 100
-        stopPower = Math.pow(stopPower, 0.896); // good keeper+good close defender (power ~80) = ~73
+        stopPower = Math.pow(stopPower, 0.896); 
+        
+        // good keeper+good close defender (power ~80) = ~73
         // good keeper (80), no defender = 50
         // bad keeper (60), no defender = 40
+        
         return Math.pow(stopPower, STOP_LUCK) * Math.random() > (ballSpeed) * Math.random();
     }
 
