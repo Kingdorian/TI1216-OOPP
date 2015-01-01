@@ -1,24 +1,24 @@
 package application.animation.CalculateMatch;
 
-import application.animation.ContainerPackage.CurrentPositions;
-import application.animation.ContainerPackage.ExactPosition;
-import application.animation.ContainerPackage.Vector;
+import application.animation.Container.CurrentPositions;
+import application.animation.Container.Position;
+import application.animation.Container.Vector;
 
 /**
  * This class decides the behaviour of the ball (so it can roll for more than 1
  * frame and slows down over time)
  *
- * @author faris
+ * @author Faris
  */
 public class BallAI {
 
-    private static final ExactPosition LEFT_GOAL_POSITION = PlayerAI.LEFT_GOAL_POSITION;
-    private static final ExactPosition RIGHT_GOAL_POSITION = PlayerAI.RIGHT_GOAL_POSITION;
+    private static final Position LEFT_GOAL_POSITION = PlayerAI.LEFT_GOAL_POSITION;
+    private static final Position RIGHT_GOAL_POSITION = PlayerAI.RIGHT_GOAL_POSITION;
     private static final int GOAL_SIZE = PlayerAI.GOAL_SIZE;
 
     private static final double BALLSPEED = 20.0;
 
-    private static ExactPosition currentBallPosition;
+    private static Position currentBallPosition;
     private static Vector ballVector;
     private static int counter = 2;
     private static boolean shootHard = false;
@@ -29,13 +29,19 @@ public class BallAI {
     private static boolean ballStopped = false;
 
     /**
+     * Let only instances of this package make instances of this class
+     */
+    protected BallAI() {
+    }
+
+    /**
      * set the direction for the ball to move to
      *
      * @param destination an ExactPosition containing the direction of the ball
      * @param ShotByAllyTeam true if the ball was shot by a palyer of the ally
      * team
      */
-    public static void shootBallTo(ExactPosition destination, boolean ShotByAllyTeam) {
+    protected static void shootBallTo(Position destination, boolean ShotByAllyTeam) {
         // if ball has not just been shot
         if (counter > 1) {
             lastShotByAllyTeam = ShotByAllyTeam;
@@ -51,7 +57,7 @@ public class BallAI {
      *
      * @return ExactPosition containing the position the ball will move to next
      */
-    public static ExactPosition getNextBallPosition() {
+    public static Position getNextBallPosition() {
 
         //if ball is outside of field, return ball position and set outside of field variable to true
         isOutsideOfField = false;
@@ -83,7 +89,7 @@ public class BallAI {
     /**
      * Checks if the ball is currently outside of the field
      *
-     * @return
+     * @return if the ball is outside of the field
      */
     private static boolean checkBallOutsideOfField() {
         double xPos = currentBallPosition.getxPos();
@@ -114,7 +120,7 @@ public class BallAI {
      *
      * @return an ExactPosition containing the current ball position
      */
-    public static ExactPosition getCurrentBallPosition() {
+    public static Position getCurrentBallPosition() {
         return currentBallPosition;
     }
 
@@ -124,11 +130,17 @@ public class BallAI {
      * @param BallPosition an ExactPosition containing the currect location of
      * the ball
      */
-    public static void setCurrentBallPosition(ExactPosition BallPosition) {
+    public static void setCurrentBallPosition(Position BallPosition) {
         currentBallPosition = BallPosition;
     }
 
-    public static void shootLeftGoal(int playerID) {
+    /**
+     * Shoot the ball at the left goal with the speed based on the attack power
+     * of the player
+     *
+     * @param playerID the players ID
+     */
+    protected static void shootLeftGoal(int playerID) {
         if (counter > 1) {
             // decide direction to shoot ball
             double xPos = LEFT_GOAL_POSITION.getxPos();
@@ -136,7 +148,7 @@ public class BallAI {
             yPos += (Math.random() * GOAL_SIZE) - (Math.random() * GOAL_SIZE);
 
             // shoot ball
-            shootBallTo(new ExactPosition(xPos, yPos), false);
+            shootBallTo(new Position(xPos, yPos), false);
             shootHard = true;
 
             //assume only players of enemy team will shoot the left goal
@@ -153,7 +165,13 @@ public class BallAI {
         }
     }
 
-    public static void shootRightGoal(int playerID) {
+    /**
+     * Shoot the ball at the right goal with the speed based on the attack power
+     * of the player
+     *
+     * @param playerID the players ID
+     */
+    protected static void shootRightGoal(int playerID) {
         if (counter > 1) {
             // decide direction to shoot ball
             double xPos = RIGHT_GOAL_POSITION.getxPos();
@@ -161,7 +179,7 @@ public class BallAI {
             yPos += (Math.random() * GOAL_SIZE) - (Math.random() * GOAL_SIZE);
 
             // shoot ball
-            shootBallTo(new ExactPosition(xPos, yPos), true);
+            shootBallTo(new Position(xPos, yPos), true);
             shootHard = true;
 
             //assume only players of ally team will shoot the left goal
@@ -179,30 +197,52 @@ public class BallAI {
     }
 
     /**
-     * return if the ball is moving to the right
+     * If the ball is moving to the right
      *
-     * @return boolean
+     * @return boolean if the ball is moving to the right
      */
-    public static boolean islastShotByAllyTeam() {
+    protected static boolean isLastShotByAllyTeam() {
         return lastShotByAllyTeam;
     }
 
-    public static void shootToTeammate(ExactPosition to, boolean ShotByAllyTeam) {
+    /**
+     * Shoot the ball to a teammate (will make sure the speed is adjusted to
+     * match the distance to the teamate)
+     *
+     * @param to position of the teammate you will shoot to
+     * @param ShotByAllyTeam if the ball is shot by the ally team
+     */
+    protected static void shootToTeammate(Position to, boolean ShotByAllyTeam) {
         if (counter > 1) {
             shootBallTo(to, ShotByAllyTeam);
             shootToTeammate = true;
         }
     }
 
+    /**
+     * If the ball is outside of the field
+     *
+     * @return boolean: if the ball is outside of the field
+     */
     public static boolean isOutsideOfField() {
         return isOutsideOfField;
     }
 
+    /**
+     * Set if the ball is outside of the field
+     *
+     * @param isOutsideOfField if the ball should be outside of the field
+     */
     public static void setOutsideOfField(boolean isOutsideOfField) {
         BallAI.isOutsideOfField = isOutsideOfField;
     }
 
-    public static double getBallSpeed() {
+    /**
+     * Calculate the speed of the ball
+     *
+     * @return the speed of the ball
+     */
+    protected static double getBallSpeed() {
         double speed = BALLSPEED;
 
         if (shootHard) {
@@ -239,7 +279,13 @@ public class BallAI {
         return speed;
     }
 
-    public static void stopBall(ExactPosition keeper, boolean isOnAllyTeam) {
+    /**
+     * Let the keeper stop the ball
+     *
+     * @param keeper the position of the keeper
+     * @param isOnAllyTeam if the keeper is on the ally team
+     */
+    protected static void stopBall(Position keeper, boolean isOnAllyTeam) {
         lastShotByAllyTeam = isOnAllyTeam;
         ballStopped = true;
         ballVector = new Vector(currentBallPosition, keeper);
@@ -254,9 +300,9 @@ public class BallAI {
      * @return if the ball will roll (or has already rolled, if the parameter is
      * false,) into the goal
      */
-    public static boolean isMovingTowardLeftGoal(boolean checkDirection) {
-        ExactPosition goalUpperBound = LEFT_GOAL_POSITION.getTranslateY(GOAL_SIZE / 2);
-        ExactPosition goalLowerBound = LEFT_GOAL_POSITION.getTranslateY(-GOAL_SIZE / 2);
+    protected static boolean isMovingTowardLeftGoal(boolean checkDirection) {
+        Position goalUpperBound = LEFT_GOAL_POSITION.getTranslateY(GOAL_SIZE / 2);
+        Position goalLowerBound = LEFT_GOAL_POSITION.getTranslateY(-GOAL_SIZE / 2);
         if (checkDirection) {
             return ballVector.intersectsWith(goalUpperBound, goalLowerBound, true, false);
         } else {
@@ -272,9 +318,9 @@ public class BallAI {
      * @return if the ball will roll (or has already rolled, if the parameter is
      * false,) into the goal
      */
-    public static boolean isMovingTowardRightGoal(boolean checkDirection) {
-        ExactPosition goalUpperBound = RIGHT_GOAL_POSITION.getTranslateY(GOAL_SIZE / 2);
-        ExactPosition goalLowerBound = RIGHT_GOAL_POSITION.getTranslateY(-GOAL_SIZE / 2);
+    protected static boolean isMovingTowardRightGoal(boolean checkDirection) {
+        Position goalUpperBound = RIGHT_GOAL_POSITION.getTranslateY(GOAL_SIZE / 2);
+        Position goalLowerBound = RIGHT_GOAL_POSITION.getTranslateY(-GOAL_SIZE / 2);
         if (checkDirection) {
             return ballVector.intersectsWith(goalUpperBound, goalLowerBound, true, true);
         } else {
@@ -282,7 +328,13 @@ public class BallAI {
         }
     }
 
-    public static ExactPosition getGoalIntersection(boolean isOnAllyTeam) {
+    /**
+     * Get the position where the ball will intersect with the goal
+     *
+     * @param isOnAllyTeam if this should check for the ally team goal
+     * @return the position where the ball will intersect with the goal
+     */
+    protected static Position getGoalIntersection(boolean isOnAllyTeam) {
         if (isOnAllyTeam) {
             return ballVector.getIntersectionPoint(LEFT_GOAL_POSITION.getTranslateY(20), LEFT_GOAL_POSITION);
         } else {
@@ -290,7 +342,12 @@ public class BallAI {
         }
     }
 
-    public static boolean isNextFrameOutsideField() {
+    /**
+     * Check if the ball will be in the goal after the next frame
+     *
+     * @return if the ball will be in the goal after the next frame
+     */
+    protected static boolean isNextFrameOutsideField() {
         counter++;
         double speed = getBallSpeed() + 3;
         counter--;

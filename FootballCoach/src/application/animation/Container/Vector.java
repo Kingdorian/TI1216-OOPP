@@ -3,62 +3,57 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package application.animation.ContainerPackage;
+package application.animation.Container;
 
 /**
+ * This is a vector container class. It contains 2 points, defining the position
+ * and the direction. This class also contains a lot of methods to do
+ * calculations with this vector
  *
- * @author faris
+ * @author Faris
  */
 public class Vector {
 
-    private final ExactPosition pointFrom;
-    private final ExactPosition pointTo;
+    private final Position pointFrom;
+    private final Position pointTo;
 
     /**
      * Constructor with two point parameters
      *
-     * @param point1 ExactPosition of the position
-     * @param point2 ExactPosition of the direction
+     * @param pointFrom ExactPosition of the position
+     * @param pointTo ExactPosition of the direction
      */
-    public Vector(ExactPosition point1, ExactPosition point2) {
-        this.pointFrom = point1;
-        this.pointTo = point2;
-    }
-
-    /**
-     * Constructor with four coordinates as parameters
-     *
-     * @param x1 x coordinate of point 1 (double)
-     * @param y1 y coordinate of point 1 (double)
-     * @param x2 x coordinate of point 2 (double)
-     * @param y2 y coordinate of point 2 (double)
-     */
-    public Vector(double x1, double y1, double x2, double y2) {
-        pointFrom = new ExactPosition(x1, y1);
-        pointTo = new ExactPosition(x2, y2);
+    public Vector(Position pointFrom, Position pointTo) {
+        this.pointFrom = pointFrom;
+        this.pointTo = pointTo;
     }
 
     /**
      * translates the point into the direction this vector points at, over the
-     * distance specified
+     * specified distance.
      *
      * @param from the position to translate from
      * @param distance the distance to translate over
      * @return the resulting position
      */
-    public ExactPosition translate(ExactPosition from, double distance) {
+    public Position translate(Position from, double distance) {
         double factor = distance / this.pointFrom.distanceTo(this.pointTo);
         double xCoordinate = (this.pointTo.getxPos() - this.pointFrom.getxPos()) * factor + from.getxPos();
         double yCoordinate = (this.pointTo.getyPos() - this.pointFrom.getyPos()) * factor + from.getyPos();
-        return new ExactPosition(xCoordinate, yCoordinate);
+        return new Position(xCoordinate, yCoordinate);
     }
 
+    /**
+     * Get the length of the vector
+     *
+     * @return the length of the vector
+     */
     public double getLength() {
         return Math.sqrt(Math.pow(pointFrom.getxPos() - pointTo.getxPos(), 2) + Math.pow(pointFrom.getyPos() - pointTo.getyPos(), 2));
     }
 
     /**
-     * check if this vector can intersect with the line between points p1 and p2
+     * Check if this vector can intersect with the line between points p1 and p2
      * (the parameters)
      *
      * @param p1 point 1
@@ -69,7 +64,7 @@ public class Vector {
      * else check if the ball is moving left
      * @return if the vector will intersect with the line between p1 and p2
      */
-    public boolean intersectsWith(ExactPosition p1, ExactPosition p2, boolean checkDirection, boolean shouldBeMovingRight) {
+    public boolean intersectsWith(Position p1, Position p2, boolean checkDirection, boolean shouldBeMovingRight) {
 
         // if also checking for direction and the specified  direction is not 
         // the same as the direction from pointFrom to pointTo, return false
@@ -83,12 +78,12 @@ public class Vector {
             }
         }
 
-        ExactPosition intersectionPoint = getIntersectionPoint(p1, p2);
+        Position intersectionPoint = getIntersectionPoint(p1, p2);
 
         if (intersectionPoint == null) {
             return false; // parallel lines
         }
-        ExactPosition highest, lowest;
+        Position highest, lowest;
         if (p1.getyPos() > p2.getyPos()) {
             highest = p1;
             lowest = p2;
@@ -101,26 +96,26 @@ public class Vector {
     }
 
     /**
-     * check if this vector intersects with the line between points p1 and p2
+     * Check if this vector intersects with the line between points p1 and p2
      * (the parameters)
      *
      * @param p1 point 1
      * @param p2 point 2
      * @return if the vector intersects with the line between p1 and p2
      */
-    public boolean intersectsWith(ExactPosition p1, ExactPosition p2) {
+    public boolean intersectsWith(Position p1, Position p2) {
         return intersectsWith(p1, p2, false, false);
     }
 
     /**
-     * get the intersection point of the line through p1 and p2 and the vector
+     * Get the intersection point of the line through p1 and p2 and the vector
      * line
      *
      * @param p1 point 1
      * @param p2 point 2
      * @return the intersection point, or null if no intersection point
      */
-    public ExactPosition getIntersectionPoint(ExactPosition p1, ExactPosition p2) {
+    public Position getIntersectionPoint(Position p1, Position p2) {
 
         if (pointFrom.getxPos() - pointTo.getxPos() != 0 && p1.getxPos() - p2.getxPos() != 0) {
             // both lines are not vertical, so apply basic high school math to get the intersection point:
@@ -147,7 +142,7 @@ public class Vector {
             double x = (b - d) / (a - c);
             double y = a * x + b;
 
-            return new ExactPosition(x, y);
+            return new Position(x, y);
         } else if (pointFrom.getxPos() - pointTo.getxPos() == 0 && p1.getxPos() - p2.getxPos() == 0) {
             // both lines are vertical, so both lines are parallel, so return null
             return null;
@@ -163,7 +158,7 @@ public class Vector {
 
             double x = pointFrom.getxPos();
             double y = a * x + b;
-            return new ExactPosition(x, y);
+            return new Position(x, y);
         } else {
             // only the line through p1 and p2 is vertical
             // line through p1 and p2:
@@ -175,15 +170,25 @@ public class Vector {
 
             double x = p1.getxPos();
             double y = a * x + b;
-            return new ExactPosition(x, y);
+            return new Position(x, y);
         }
     }
 
-    public ExactPosition getPointFrom() {
+    /**
+     * Get the position of the vector
+     *
+     * @return the position of the vector
+     */
+    public Position getPointFrom() {
         return pointFrom;
     }
 
-    public ExactPosition getPointTo() {
+    /**
+     * Get the direction position of the vector
+     *
+     * @return the direction position of the vector
+     */
+    public Position getPointTo() {
         return pointTo;
     }
 

@@ -5,30 +5,37 @@
  */
 package application.animation.CalculateMatch;
 
-import application.animation.ContainerPackage.CurrentPositions;
-import application.animation.ContainerPackage.ExactPosition;
+import application.animation.Container.CurrentPositions;
+import application.animation.Container.Position;
 import java.util.ArrayList;
 
 /**
  * This class contains functions which each kind of player regularly uses
  *
- * @author faris
+ * @author Faris
  */
 public abstract class PlayerAI {
 
-    public final double RUNNING_SPEED; // ~10
-    public static final double WITH_BALL_SPEED = 4;
-    public static final double WALK_SPEED = 6;
-    public static final ExactPosition LEFT_GOAL_POSITION = new ExactPosition(60, 381);
-    public static final ExactPosition RIGHT_GOAL_POSITION = new ExactPosition(955, 381);
-    public static final int GOAL_SIZE = 80;
-    public static final int MIDDLE_LINE_X = 510;
+    protected final double RUNNING_SPEED; // ~10
+    protected static final double WITH_BALL_SPEED = 4;
+    protected static final double WALK_SPEED = 6;
+    protected static final Position LEFT_GOAL_POSITION = new Position(60, 381);
+    protected static final Position RIGHT_GOAL_POSITION = new Position(955, 381);
+    protected static final int GOAL_SIZE = 80;
+    protected static final int MIDDLE_LINE_X = 510;
 
-    public final CurrentPositions positions;
+    protected final CurrentPositions positions;
 
-    public abstract ExactPosition getNextPosition();
+    protected abstract Position getNextPosition();
 
-    public PlayerAI(int id, boolean isOnAllyTeam, CurrentPositions positions) {
+    /**
+     * Constructor
+     *
+     * @param id players id
+     * @param isOnAllyTeam if the player is on the ally team
+     * @param positions the current positions of all players
+     */
+    protected PlayerAI(int id, boolean isOnAllyTeam, CurrentPositions positions) {
         this.positions = positions;
         if (id == 0) {
             //this player is the keeper
@@ -49,24 +56,33 @@ public abstract class PlayerAI {
      * @param direction ExactPosition: the location to move toward
      * @return the position to move to in 1 time slice
      */
-    public static ExactPosition getPosBySpeed(double speed, ExactPosition currentLocation, ExactPosition direction) {
+    protected static Position getPosBySpeed(double speed, Position currentLocation, Position direction) {
         if (currentLocation.distanceTo(direction) > 10) {
             double factor = speed / currentLocation.distanceTo(direction);
 
             double xPos = (direction.getxPos() - currentLocation.getxPos()) * factor + currentLocation.getxPos();
             double yPos = (direction.getyPos() - currentLocation.getyPos()) * factor + currentLocation.getyPos();
-            return new ExactPosition((int) xPos, (int) yPos);
+            return new Position((int) xPos, (int) yPos);
         } else {
             return direction;
         }
     }
 
-    public static boolean enoughLuckToDefendBall(ExactPosition thisPlayer, int playerID, CurrentPositions positions, boolean isOnAllyTeam) {
+    /**
+     * Calculate if the player has enough luck to defend the ball.
+     *
+     * @param thisPlayer the position of this player
+     * @param playerID the id of this player
+     * @param positions the positions of the other players
+     * @param isOnAllyTeam if the player is on the ally team
+     * @return if the player got enough luck
+     */
+    protected static boolean enoughLuckToDefendBall(Position thisPlayer, int playerID, CurrentPositions positions, boolean isOnAllyTeam) {
         // if very close, return true, to avoid bugs
         if (thisPlayer.distanceTo(BallAI.getCurrentBallPosition()) < 10) {
             return true;
         }
-        ExactPosition closest;
+        Position closest;
         if (isOnAllyTeam) {
             closest = positions.getClosestAllyTo(BallAI.getCurrentBallPosition());
         } else {
@@ -97,14 +113,23 @@ public abstract class PlayerAI {
 
     }
 
-    public static boolean enoughLuckToShootBall(ExactPosition thisPlayer, int playerID, CurrentPositions positions, boolean isOnAllyTeam) {
+    /**
+     * Calculate if the player has enough luck to shoot the ball.
+     *
+     * @param thisPlayer the position of this player
+     * @param playerID the id of this player
+     * @param positions the positions of the other players
+     * @param isOnAllyTeam if the player is on the ally team
+     * @return if the player got enough luck
+     */
+    protected static boolean enoughLuckToShootBall(Position thisPlayer, int playerID, CurrentPositions positions, boolean isOnAllyTeam) {
 
         // if very close, return true, to avoid bugs
         if (thisPlayer.distanceTo(BallAI.getCurrentBallPosition()) < 10) {
             return true;
         }
 
-        ExactPosition closest;
+        Position closest;
         if (isOnAllyTeam) {
             closest = positions.getClosestAllyTo(BallAI.getCurrentBallPosition());
         } else {
@@ -134,12 +159,20 @@ public abstract class PlayerAI {
         return chance * Math.random() < Math.random() / chance;
     }
 
-    public static ExactPosition[] get2ClosestPlayers(ExactPosition thisPlayer, CurrentPositions positions) {
+    /**
+     * Get the 2 closest opponents
+     *
+     * @param thisPlayer this player
+     * @param positions the positions of the other players
+     * @param isOnAllyTeam if the player is on the ally team
+     * @return array containing the two closest players
+     */
+    protected static Position[] get2ClosestOpponents(Position thisPlayer, CurrentPositions positions, boolean isOnAllyTeam) {
 
-        ArrayList<ExactPosition> opponents = positions.getOpponentsInFrontOf(thisPlayer);
+        ArrayList<Position> opponents = positions.getOpponentsInFrontOf(thisPlayer, isOnAllyTeam);
         if (opponents.size() > 0) {
             // get the closest opponent to the player
-            ExactPosition closest = opponents.get(0);
+            Position closest = opponents.get(0);
             for (int i = 1; i < opponents.size(); i++) {
                 if (thisPlayer.distanceTo(opponents.get(i)) < thisPlayer.distanceTo(closest)) {
                     closest = opponents.get(i);
@@ -147,33 +180,56 @@ public abstract class PlayerAI {
             }
 
             // get the second closest opponent to the player
-            ExactPosition secondClosest = null;
-            for (ExactPosition p : opponents) {
+            Position secondClosest = null;
+            for (Position p : opponents) {
                 if (thisPlayer.distanceTo(p) > thisPlayer.distanceTo(closest) && thisPlayer.distanceTo(p) < thisPlayer.distanceTo(secondClosest) && Math.abs(p.getyPos() - closest.getyPos()) > 60) {
                     secondClosest = p;
                 }
             }
-            ExactPosition result[] = {closest, secondClosest};
+            Position result[] = {closest, secondClosest};
             return result;
         } else {
             return null;
         }
     }
 
-    public static ExactPosition getDirectionInBetween(ExactPosition thisPlayer, ExactPosition opponent1, ExactPosition opponent2) {
+    /**
+     * Get the position through the middle of opponent1 and 2 from thisPlayer
+     *
+     * @param thisPlayer this player
+     * @param opponent1 first opponent
+     * @param opponent2 second opponent
+     * @return the position through the middle of opponent1 and 2 from
+     * thisPlayer
+     */
+    protected static Position getDirectionInBetween(Position thisPlayer, Position opponent1, Position opponent2) {
 
         double xDirection = opponent1.getxPos() - thisPlayer.getxPos() + opponent2.getxPos();
         double yDirection = opponent1.getyPos() - thisPlayer.getyPos() + opponent2.getyPos();
-        ExactPosition direction = new ExactPosition(xDirection, yDirection);
+        Position direction = new Position(xDirection, yDirection);
 
         return direction;
     }
 
-    public ExactPosition moveToLeftGoal(ExactPosition thisPlayer, double speed) {
+    /**
+     * Get the position to move to if the player want to move to the left goal
+     *
+     * @param thisPlayer this player
+     * @param speed the speed to move at
+     * @return the position to move to
+     */
+    protected static Position moveToLeftGoal(Position thisPlayer, double speed) {
         return getPosBySpeed(speed, thisPlayer, LEFT_GOAL_POSITION);
     }
 
-    public ExactPosition moveToRightGoal(ExactPosition thisPlayer, double speed) {
+    /**
+     * Get the position to move to if the player want to move to the left goal
+     *
+     * @param thisPlayer this player
+     * @param speed the speed to move at
+     * @return the position to move to
+     */
+    protected static Position moveToRightGoal(Position thisPlayer, double speed) {
         return getPosBySpeed(speed, thisPlayer, RIGHT_GOAL_POSITION);
     }
 
@@ -187,10 +243,10 @@ public abstract class PlayerAI {
      * @param isOnAllyTeam if this player is on the ally team
      * @return true if the player should shoot horizontally
      */
-    public boolean shootHorizontally(ExactPosition thisPlayer, CurrentPositions positions, boolean isOnAllyTeam) {
+    protected static boolean shootHorizontally(Position thisPlayer, CurrentPositions positions, boolean isOnAllyTeam) {
 
-        ExactPosition ballDirection;
-        ExactPosition closestOpponent;
+        Position ballDirection;
+        Position closestOpponent;
 
         if (isOnAllyTeam) {
             ballDirection = thisPlayer.getTranslateX(40);

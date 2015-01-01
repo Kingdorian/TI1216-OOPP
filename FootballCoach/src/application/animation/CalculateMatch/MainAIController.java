@@ -5,27 +5,43 @@
  */
 package application.animation.CalculateMatch;
 
-import application.animation.ContainerPackage.CurrentPositions;
-import application.animation.ContainerPackage.ExactPosition;
-import application.animation.ContainerPackage.AnimatedMatch;
-import application.animation.ContainerPackage.PlayerInfo;
-import application.animation.ContainerPackage.PositionsTimeSlice;
+import application.animation.Container.CurrentPositions;
+import application.animation.Container.Position;
+import application.animation.Container.CalculatedMatch;
+import application.animation.Container.PlayerInfo;
+import application.animation.Container.PositionFrame;
 import java.util.ArrayList;
 
 /**
+ * The method createMatch in this class can be used to calculate a match, based
+ * on the players abilities in the parameters
  *
- * @author faris
+ * @author Faris
  */
 public class MainAIController {
 
-    private final AnimatedMatch footballMatch = new AnimatedMatch();
-    private CurrentPositions currentPositions = new CurrentPositions();
-    public static final int AMOUNT_OF_SLICES = 21600; // should be 21600
+    public static final int AMOUNT_OF_FRAMES = 21600; // should be 21600
 
-    public AnimatedMatch createMatch(PlayerInfo keeper1, ArrayList<PlayerInfo> defense1,
+    /**
+     * Calculate a match based on the players abilities in the parameters
+     *
+     * @param keeper1 the keeper of the ally (home) team
+     * @param defense1 the defenders of the ally (home) team
+     * @param midfield1 the midfielders of the ally (home) team
+     * @param attack1 the attackers of the ally (home) team
+     * @param keeper2 the keeper of the enemy (visitor) team
+     * @param defense2 the defenders of the enemy (visitor) team
+     * @param midfield2 the midfielders of the enemy (visitor) team
+     * @param attack2 the attackers of the enemy (visitor) team
+     * @return the calculated match
+     */
+    public CalculatedMatch createMatch(PlayerInfo keeper1, ArrayList<PlayerInfo> defense1,
             ArrayList<PlayerInfo> midfield1, ArrayList<PlayerInfo> attack1,
             PlayerInfo keeper2, ArrayList<PlayerInfo> defense2,
             ArrayList<PlayerInfo> midfield2, ArrayList<PlayerInfo> attack2) {
+
+        final CalculatedMatch footballMatch = new CalculatedMatch();
+        CurrentPositions currentPositions = new CurrentPositions();
 
         // count amout of defenders, midfielders and attackers of both teams 
         // (and make it easier to apply in a loop)
@@ -65,13 +81,13 @@ public class MainAIController {
 
         // set start of match
         currentPositions.setStartOfMatchPositions();
-        PositionsTimeSlice currentSlice = currentPositions.convertToTimeSlice();
-        footballMatch.addPositionSlice(currentSlice);
+        PositionFrame currentSlice = currentPositions.convertToFrame();
+        footballMatch.addPositionFrame(currentSlice);
 
         // set the rest of the match
-        for (int i = 0; i < AMOUNT_OF_SLICES; i++) {
-            ExactPosition ppA;
-            ExactPosition ppE;
+        for (int i = 0; i < AMOUNT_OF_FRAMES; i++) {
+            Position ppA;
+            Position ppE;
 
             CurrentPositions nextPositions = new CurrentPositions();
 
@@ -136,13 +152,13 @@ public class MainAIController {
 
             //*************************************
             //generate match and safe it
-            footballMatch.addPositionSlice(nextPositions.convertToTimeSlice());
+            footballMatch.addPositionFrame(nextPositions.convertToFrame());
             //*************************************
 
             //*************************************
             //generating match without saving it, only to get the score
 //            nextPositions.convertToTimeSlice();
-//            if(i % ((AMOUNT_OF_SLICES-1)/10) == 0)
+//            if(i % ((AMOUNT_OF_FRAMES-1)/10) == 0)
 //                System.out.println(CurrentPositions.getScoreLeft() + " - " + CurrentPositions.getScoreRight());
             //*************************************
             currentPositions = nextPositions;

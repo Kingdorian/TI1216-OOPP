@@ -3,25 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package application.animation.ContainerPackage;
+package application.animation.Container;
 
 /**
+ * This class stores a position as two doubles (and it makes sure no position
+ * outside of the field can be declared)
  *
- * @author faris
+ * @author Faris
  */
-public class ExactPosition {
+public class Position {
 
     private double xPos; // stores x position
     private double yPos; // stores y position
     private boolean onField = true;
 
     /**
-     * constructor with player positions
+     * Constructor with x and y positions
      *
      * @param xPos
      * @param yPos
      */
-    public ExactPosition(double xPos, double yPos) {
+    public Position(double xPos, double yPos) {
         this.yPos = yPos;
         this.xPos = xPos;
 
@@ -41,15 +43,25 @@ public class ExactPosition {
     }
 
     /**
-     * basic constructor without parameters
+     * Basic constructor without parameters
      */
-    public ExactPosition() {
+    public Position() {
     }
 
+    /**
+     * Get the x-coordinate
+     *
+     * @return x-coordinate
+     */
     public double getxPos() {
         return xPos;
     }
 
+    /**
+     * Set the x-coordinate
+     *
+     * @param xPos x-coordinate
+     */
     public void setxPos(double xPos) {
         this.xPos = xPos;
 
@@ -61,10 +73,20 @@ public class ExactPosition {
         }
     }
 
+    /**
+     * Get the y-coordinate
+     *
+     * @return y-coordinate
+     */
     public double getyPos() {
         return yPos;
     }
 
+    /**
+     * Set the y-coordinate
+     *
+     * @param yPos y-coordinate
+     */
     public void setyPos(double yPos) {
         this.yPos = yPos;
 
@@ -77,30 +99,36 @@ public class ExactPosition {
     }
 
     /**
-     * gives the distance between this player and other player
+     * Gives the distance between this position and a different position
      *
      * @param other player to get disntance to
      * @return double: the distance
      */
-    public double distanceTo(ExactPosition other) {
+    public double distanceTo(Position other) {
         if (other == null) {
             return 5000;
         }
         return Math.sqrt(Math.pow(this.getxPos() - other.getxPos(), 2) + Math.pow(this.getyPos() - other.getyPos(), 2));
     }
 
+    /**
+     * Compares this position to an object
+     *
+     * @param o Object to compare to
+     * @return if this is equal to Object o
+     */
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof ExactPosition)) {
+        if (!(o instanceof Position)) {
             return false;
         }
 
-        ExactPosition other = (ExactPosition) o;
+        Position other = (Position) o;
         return other.getxPos() == this.getxPos() && other.getyPos() == this.getyPos();
     }
 
     /**
-     * gives if this player is on the field
+     * Returns if this player is on the field
      *
      * @return a boolean: is the player currently on the field?
      */
@@ -117,20 +145,37 @@ public class ExactPosition {
         this.onField = onField;
     }
 
-    public ExactPosition getTranslateX(double x) {
-        ExactPosition result = new ExactPosition();
+    /**
+     * Get a new instance of this position, but with a translated x-coordinate
+     *
+     * @param x delta-x
+     * @return new position with translated x-coordinate
+     */
+    public Position getTranslateX(double x) {
+        Position result = new Position();
         result.setxPos(xPos + x);
         result.setyPos(yPos);
         return result;
     }
 
-    public ExactPosition getTranslateY(double x) {
-        ExactPosition result = new ExactPosition();
+    /**
+     * Get a new instance of this position, but with a translated y-coordinate
+     *
+     * @param y delta-y
+     * @return new position with translated y-coordinate
+     */
+    public Position getTranslateY(double y) {
+        Position result = new Position();
         result.setxPos(xPos);
-        result.setyPos(yPos + x);
+        result.setyPos(yPos + y);
         return result;
     }
 
+    /**
+     * Get a string representation of this instance
+     *
+     * @return a string representation of this instance
+     */
     @Override
     public String toString() {
         return "position: x: " + xPos + ", y: " + yPos;

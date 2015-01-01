@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package application.animation.Playmatch;
+package application.animation.PlayMatch;
 
 import application.animation.CalculateMatch.MainAIController;
 import java.util.ArrayList;
@@ -26,14 +26,16 @@ import javafx.scene.text.Text;
 import javafx.util.StringConverter;
 
 /**
+ * The controller class of the FootballField.fxml view
  *
- * @author faris
+ * @author Faris
  */
 public class FootballFieldController {
 
     private static final int SLIDER_PRECISION = 9000;
     private boolean isDragging = false;
-    private static final int AMOUNT_OF_SLICES = MainAIController.AMOUNT_OF_SLICES; // 21600
+    private static final int AMOUNT_OF_SLICES = MainAIController.AMOUNT_OF_FRAMES; // 21600
+    private final ArrayList<String> speedList = new ArrayList<>();
 
     @FXML
     private Text score;
@@ -56,19 +58,38 @@ public class FootballFieldController {
     @FXML
     private Button pauseButton;
 
-    private final ArrayList<String> speedList = new ArrayList<>();
-
-    // this event will be executed when a speed in the dropdown list is selected:
+    /**
+     * this event will be executed when a speed in the dropdown list is selected
+     */
     private final EventHandler onSelected = new EventHandler<ActionEvent>() {
+
+        /**
+         * Handle the event: change speed to selected speed
+         *
+         * @param t the event to handle
+         */
         @Override
         public void handle(ActionEvent t) {
             int id = speedBox.getSelectionModel().getSelectedIndex();
             String speed = speedList.get(id);
-            AnimateFootballMatch.setSpeed(Double.parseDouble(speed.replace('x', '0')));//do stuff
+            AnimateFootballMatch.setSpeed(Double.parseDouble(speed.replace('x', '0')));
         }
     };
 
+    /**
+     * this event will be executed when the slider is dragged by the user
+     */
     private final ChangeListener<Number> sliderListener = new ChangeListener<Number>() {
+
+        /**
+         * Handle event: observed value changes. When it changes and isDragging
+         * is true (the slider is being dragged), then change the time in the
+         * AnimateFootballMatch class to the selected time.
+         *
+         * @param ov observable value which changed
+         * @param oldValue the old value
+         * @param newValue the new value
+         */
         @Override
         public void changed(ObservableValue<? extends Number> ov, Number oldValue, Number newValue) {
             if (isDragging) {
@@ -78,8 +99,18 @@ public class FootballFieldController {
         }
     };
 
+    /**
+     * this event will be executed when the arrow keys are used when the slider
+     * is selected
+     */
     private final EventHandler<KeyEvent> keyEventHandler
             = new EventHandler<KeyEvent>() {
+                /**
+                 * Handle the event: when arrow key is clicked while the slider
+                 * is selected, change the value of the slider
+                 *
+                 * @param keyEvent arrow clicked event (other keys are ignored)
+                 */
                 @Override
                 public void handle(final KeyEvent keyEvent) {
                     if (keyEvent.getCode() == KeyCode.LEFT) {
@@ -92,16 +123,29 @@ public class FootballFieldController {
             };
 
     /**
-     * Class to convert a slider value to the corresponding time
+     * Class to convert a slider value to the corresponding time in string
+     * format
      */
     private class LabelFormatter extends StringConverter<Double> {
 
+        /**
+         * Convert slider value to string representation of the time
+         *
+         * @param num slider value
+         * @return string representation of the time
+         */
         @Override
         public String toString(Double num) {
             int minutes = num.intValue() * 90 / SLIDER_PRECISION;
             return minutes + ":" + "00";
         }
 
+        /**
+         * Convert string representation of the time to slider value
+         *
+         * @param string string representation of the time
+         * @return slider value
+         */
         @Override
         public Double fromString(String string) {
             return Double.parseDouble(string.split(":")[0]) * 100;
@@ -109,6 +153,10 @@ public class FootballFieldController {
 
     }
 
+    /**
+     * This code is executed when the view is loaded. It sets the main texts and
+     * variables of this view.
+     */
     @FXML
     private void initialize() {
         // add speed options to dropdown list.
@@ -133,7 +181,7 @@ public class FootballFieldController {
         timeSlider.setShowTickMarks(true);
         timeSlider.setMajorTickUnit(SLIDER_PRECISION / 9);
         timeSlider.setMinorTickCount(1);
-        timeSlider.setBlockIncrement(SLIDER_PRECISION / 45);
+        timeSlider.setBlockIncrement(SLIDER_PRECISION / 180);
 
         // add change listener to the slides
         timeSlider.valueProperty().addListener(sliderListener);
@@ -154,11 +202,19 @@ public class FootballFieldController {
                 + vs.getLayoutBounds().getWidth() / 2)); //set the box halfway past the field, and then move it, the size of the first teams name + the spacing + half of the size of the "vs." text, to the left
     }
 
+    /**
+     * Method that sets the variable isDragging to true when the slider is
+     * dragged.
+     */
     @FXML
     private void startedDragging() {
         isDragging = true;
     }
 
+    /**
+     * Method that sets the variable isDragging to false when the slider is not
+     * dragged anymore.
+     */
     @FXML
     private void stoppedDragging() {
         isDragging = false;
@@ -175,6 +231,11 @@ public class FootballFieldController {
         }
     }
 
+    /**
+     * Set the time the slider is currently pointing at
+     *
+     * @param time the time to set the slider to
+     */
     public void setTime(int time) {
         // if the user is not altering the slider, add time to slider
         if (!isDragging) {
@@ -201,12 +262,20 @@ public class FootballFieldController {
         timeField.setText(minutesStr + ":" + secondsStr + " / 90:00");
     }
 
+    /**
+     * This method is executed when the slider is clicked: it changes the time
+     * of the animation
+     */
     @FXML
     private void mouseClickedOnSlider() {
         AnimateFootballMatch.setTime((int) timeSlider.getValue() * AMOUNT_OF_SLICES / SLIDER_PRECISION);
 //        System.out.println("Clicked: " + (int)timeSlider.getValue());
     }
 
+    /**
+     * This method is executed when the left arrow key is clicked while the
+     * slider is selected: it changes the time of the animation
+     */
     private void keyLeftClickedOnSlider() {
         if (timeSlider.getValue() > SLIDER_PRECISION / 180) {
             AnimateFootballMatch.setTime((int) (timeSlider.getValue() - SLIDER_PRECISION / 180) * AMOUNT_OF_SLICES / SLIDER_PRECISION);
@@ -215,6 +284,10 @@ public class FootballFieldController {
         }
     }
 
+    /**
+     * This method is executed when the right arrow key is clicked while the
+     * slider is selected: it changes the time of the animation
+     */
     private void keyRightClickedOnSlider() {
 //        System.out.println("Arrow key: " + timeSlider.getValue());
         if (timeSlider.getValue() < SLIDER_PRECISION - SLIDER_PRECISION / 180) {
@@ -224,6 +297,10 @@ public class FootballFieldController {
         }
     }
 
+    /**
+     * This method is executed when the pause utton is clicked: it toggles the
+     * pause event of the animation
+     */
     @FXML
     private void togglePauseButton() {
         AnimateFootballMatch.togglePause();
@@ -234,6 +311,10 @@ public class FootballFieldController {
         }
     }
 
+    /**
+     * This method is executed when the Continue button is clicked: it closes
+     * the animation window and continues the main application
+     */
     @FXML
     private void continueButton() {
         AnimateFootballMatch.stopAnimation();
