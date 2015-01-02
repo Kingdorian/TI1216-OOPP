@@ -83,10 +83,10 @@ public class GameScreenTitleController implements ViewControllerInterface {
      */
     @FXML
     private void buttonNextMatch() {
-        if (!Main.getMenuController().getCurrentMenuField().getText().equals("Play Match")) {
+//        if (!Main.getMenuController().getCurrentMenuField().getText().equals("Play Match")) {
             Main.getMenuController().getCurrentMenuField().setText("Play Match");
             mainController.setCenterView("GameScreenPLAYMATCH");
-        }
+//        }
     }
 
     /**

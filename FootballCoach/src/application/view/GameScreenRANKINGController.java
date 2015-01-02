@@ -58,11 +58,11 @@ public class GameScreenRANKINGController implements ViewControllerInterface {
             }
             return new SimpleStringProperty(cellData.getValue().getName());
         });
-        columnPoints.setCellValueFactory(cellData -> new SimpleIntegerProperty(Main.getCompetition().getPoints(cellData.getValue())[4]));
-        columnWins.setCellValueFactory(cellData -> new SimpleIntegerProperty(Main.getCompetition().getPoints(cellData.getValue())[0]));
-        columnDraws.setCellValueFactory(cellData -> new SimpleIntegerProperty(Main.getCompetition().getPoints(cellData.getValue())[1]));
-        columnLosses.setCellValueFactory(cellData -> new SimpleIntegerProperty(Main.getCompetition().getPoints(cellData.getValue())[2]));
-        columnGoalDiff.setCellValueFactory(cellData -> new SimpleIntegerProperty(Main.getCompetition().getPoints(cellData.getValue())[3]));
+        columnPoints.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getPoints()));
+        columnWins.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getWins()));
+        columnDraws.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getDraws()));
+        columnLosses.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getLosses()));
+        columnGoalDiff.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getGoalDiff()));
 
         rankingTable.setItems(FXCollections.observableArrayList(Main.getCompetition().getAllRanks()));
     }

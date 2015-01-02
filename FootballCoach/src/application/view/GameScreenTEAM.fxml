@@ -20,7 +20,7 @@
                 <TableColumn fx:id="columnNo" maxWidth="100.0" minWidth="50.0" prefWidth="50.0" text="No." />
                 <TableColumn fx:id="columnName" prefWidth="75.0" text="Player Name" />
                 <TableColumn fx:id="columnType" maxWidth="3000.0" prefWidth="75.0" text="Type" />
-                <TableColumn fx:id="columnAbility" maxWidth="2000.0" prefWidth="75.0" text="Ability" />
+                <TableColumn fx:id="columnAbility" maxWidth="2000.0" prefWidth="75.0" text="Score" />
                 <TableColumn fx:id="columnAvailable" maxWidth="2000.0" prefWidth="75.0" text="Available" />
             </columns>
             <columnResizePolicy>

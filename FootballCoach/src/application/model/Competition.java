@@ -162,8 +162,20 @@ public class Competition {
     }
 
     public void updateResults() {
+        
+        int rounds = getRound();
+        
+        // clear all results
+        for (int i = 0; i < results.length; i++) {
+            for (int j = 0; j < results[i].length; j++) {
+                results[i][j] = 0;
+                
+            }
+        }
+        
+        // recalculate the results
         int HomeTeamId = 0, VisitorTeamId = 0;
-        for (int i = 0; i < competition.length; i++) {
+        for (int i = 0; i < rounds; i++) {
             for (int j = 0; j < competition[i].length; j++) {
                 Match match = competition[i][j];
                 //Determine the id of the Teams in the teams array
@@ -198,14 +210,25 @@ public class Competition {
                 }
             }
         }
+        
+        // update the points of all teams
+        for(Team t : teams){
+            int[] result = getPoints(t);
+            t.setPoints(result[3]);
+            t.setGoalDiff(result[4]);
+            t.setWins(result[0]);
+            t.setDraws(result[1]);
+            t.setLosses(result[2]);
+        }
+        
     }
 
     /**
      * Returns the points of a team
      *
      * @param The team to determine points of
-     * @return int[] with: [0]-wins,[1]-draws,[2]-losses,[3]-goal difference,
-     * [4]-total points
+     * @return int[] with: [0]-wins,[1]-draws,[2]-losses,[3]-total points,
+     * [4]-goal difference
      */
     public int[] getPoints(Team team) {
         int teamId;
@@ -216,6 +239,7 @@ public class Competition {
                 points[k] = results[teamId][k];
             }
             points[3] = results[teamId][0] * 3 + results[teamId][1];
+            points[4] = results[teamId][3];
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -326,7 +350,7 @@ public class Competition {
 
         //give teams with exactly the same amount of points and goals the same rank
         while (rank > 0 && sortedTeams.get(rank).getPoints() == sortedTeams.get(rank - 1).getPoints()
-                && sortedTeams.get(rank).getGoals() - sortedTeams.get(rank).getGoalsAgainst() - sortedTeams.get(rank - 1).getGoals() + sortedTeams.get(rank - 1).getGoalsAgainst() == 0) {
+                && sortedTeams.get(rank).getGoalDiff() - sortedTeams.get(rank - 1).getGoalDiff() == 0) {
             rank--;
         }
         return rank + 1;
@@ -340,10 +364,10 @@ public class Competition {
 
         //sort the list of teams based on points (if draw, based on goals)
         Collections.sort(sortedTeams, (Team t1, Team t2) -> {
-            if (t1.getPoints() == t2.getPoints()) {
-                return t1.getGoals() - t1.getGoalsAgainst() - t2.getGoals() + t2.getGoalsAgainst();
+            if (t2.getPoints() == t1.getPoints()) {
+                return t2.getGoalDiff() - t1.getGoalDiff();
             } else {
-                return t1.getPoints() - t2.getPoints();
+                return t2.getPoints() - t1.getPoints();
             }
         });
         return sortedTeams;

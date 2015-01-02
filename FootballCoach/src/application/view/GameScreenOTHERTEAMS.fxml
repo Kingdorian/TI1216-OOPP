@@ -18,7 +18,7 @@
                 <TableColumn fx:id="columnNo" prefWidth="75.0" styleClass="tableColumn" text="No." />
                 <TableColumn fx:id="columnName" prefWidth="75.0" styleClass="tableColumn" text="Player Name" />
                 <TableColumn fx:id="columnType" prefWidth="75.0" styleClass="tableColumn" text="Type" />
-                <TableColumn fx:id="columnAbility" prefWidth="75.0" styleClass="tableColumn" text="Ability" />
+                <TableColumn fx:id="columnAbility" prefWidth="75.0" styleClass="tableColumn" text="Score" />
                 <TableColumn fx:id="columnAvailable" prefWidth="75.0" styleClass="tableColumn" text="Available" />
             </columns>
             <columnResizePolicy>

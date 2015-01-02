@@ -33,12 +33,15 @@ public class MainAIController {
      * @param defense2 the defenders of the enemy (visitor) team
      * @param midfield2 the midfielders of the enemy (visitor) team
      * @param attack2 the attackers of the enemy (visitor) team
+     * @param shouldAnimate if this match should be stored for animation or if only
+     * the last frame for the results is important
      * @return the calculated match
      */
     public CalculatedMatch createMatch(PlayerInfo keeper1, ArrayList<PlayerInfo> defense1,
             ArrayList<PlayerInfo> midfield1, ArrayList<PlayerInfo> attack1,
             PlayerInfo keeper2, ArrayList<PlayerInfo> defense2,
-            ArrayList<PlayerInfo> midfield2, ArrayList<PlayerInfo> attack2) {
+            ArrayList<PlayerInfo> midfield2, ArrayList<PlayerInfo> attack2,
+            boolean shouldAnimate) {
 
         final CalculatedMatch footballMatch = new CalculatedMatch();
         CurrentPositions currentPositions = new CurrentPositions();
@@ -150,21 +153,16 @@ public class MainAIController {
 
             BallAI.setCurrentBallPosition(BallAI.getNextBallPosition());
 
-            //*************************************
-            //generate match and safe it
-            footballMatch.addPositionFrame(nextPositions.convertToFrame());
-            //*************************************
+            
+            //generate match and save it
+            if(shouldAnimate || i == AMOUNT_OF_FRAMES - 1)
+                footballMatch.addPositionFrame(nextPositions.convertToFrame());
+            else
+                nextPositions.convertToFrame(); // do not save the frame (so only the last frame will be saved
 
-            //*************************************
-            //generating match without saving it, only to get the score
-//            nextPositions.convertToTimeSlice();
-//            if(i % ((AMOUNT_OF_FRAMES-1)/10) == 0)
-//                System.out.println(CurrentPositions.getScoreLeft() + " - " + CurrentPositions.getScoreRight());
-            //*************************************
             currentPositions = nextPositions;
         }
-
-        // getEnemiesInFrontOf(currentSlice.getPlayersAdversary(index));
+        
         return footballMatch;
     }
 }

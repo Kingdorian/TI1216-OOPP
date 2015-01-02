@@ -250,6 +250,9 @@ public class Main extends Application {
      */
     public void setCenterView(String viewPath) {
         
+        if(titleController != null)
+                titleController.refreshRound();
+        
         viewPath = changeNameToClassPath(viewPath);
 
         // get the previous margins of the center view
@@ -292,7 +295,6 @@ public class Main extends Application {
             // Give the view controller a reference to this main controller class
             viewController.setMainController(this);
         });
-        System.out.println(fadeout.getDuration());
         // if there is no fade in transition, handle onfinished
         if(fadeout.getDuration() == Duration.ZERO)
             fadeout.getOnFinished().handle(null);

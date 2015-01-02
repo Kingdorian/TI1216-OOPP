@@ -6,12 +6,13 @@ import application.animation.Container.CurrentPositions;
 import application.animation.Container.Position;
 import application.animation.Container.PlayerInfo;
 import application.animation.PlayMatch.AnimateFootballMatch;
+import application.model.Competition;
 import application.model.Match;
 import application.model.Team;
 import java.util.ArrayList;
 
 /**
- * This class' playAnimation method can be used to handle everything which has
+ * This class' playMatch method can be used to handle everything which has
  * something to do with generating a football match, animating a football match
  * and choosing the players positions on the football field. The only thing it
  * needs are 2 teams with at least 11 players each.
@@ -35,6 +36,66 @@ import java.util.ArrayList;
  */
 public class PlayAnimation {
 
+    private final static Object lockGeneration = new Object();
+    private final static Object lockAnimation = new Object();
+    private final static Object lockUpdateResults = new Object();
+    private static int count;
+
+    /**
+     * Plays all matches of the current round and adjusts them in the
+     * competition
+     *
+     * @return the match of the player
+     */
+    public static Match playMatches() {
+        Competition competition = Main.getCompetition();
+        String playerTeam = competition.getChosenTeamName();
+        int round = competition.getRound();
+        Match[] matches = competition.getRound(round - 1);
+
+        count = 0;
+
+        // start a thread which will calculate the results of the other teams, while
+        // the player is playing his own match
+        Thread matchThread = new Thread() {
+            @Override
+            public void run() {
+                // for all matches: if it is NOT the players match, generate it without animation and store it.
+                for (int i = 0; i < matches.length; i++) {
+                    if (!matches[i].getHomeTeam().getName().equals(playerTeam) && !matches[i].getVisitorTeam().getName().equals(playerTeam)) {
+                        matches[i] = playMatch(matches[i].getHomeTeam(), matches[i].getVisitorTeam(), false);
+                    }
+                }
+                synchronized (lockUpdateResults) {
+                    if (count > 0) {
+                        competition.updateResults();
+                    } else {
+                        count++;
+                    }
+                }
+            }
+        };
+
+        matchThread.start();
+
+        // for all matches: if it IS the players match, generate, animation and return it.
+        for (int i = 0; i < matches.length; i++) {
+            if (matches[i].getHomeTeam().getName().equals(playerTeam) || matches[i].getVisitorTeam().getName().equals(playerTeam)) {
+                matches[i] = playMatch(matches[i].getHomeTeam(), matches[i].getVisitorTeam(), true);
+                synchronized (lockUpdateResults) {
+                    if (count > 0) {
+                        competition.updateResults();
+                    } else {
+                        count++;
+                    }
+                }
+                return matches[i];
+            }
+        }
+
+        return null; //return null if the play had no match (which shouldn't be possible)
+    }
+
     /**
      * This method will make sure a football match will get generated and
      * animated, based on the 2 teams which are supplied by the parameters. It
@@ -44,66 +105,51 @@ public class PlayAnimation {
      *
      * @param homeTeam The home team
      * @param visitorTeam The visitor team
+     * @param shouldAnimate If the match should be stored and animated, or only
+     * generated
      * @return A Match object containing the generated match
      */
-    public static Match playAnimation(Team homeTeam, Team visitorTeam) {
+    private static Match playMatch(Team homeTeam, Team visitorTeam, boolean shouldAnimate) {
 
         // TODO: select team composition instead of the part for testing below this
         //ONLY FOR TESTING: *******************************
         //ally team:
-        PlayerInfo p1 = new PlayerInfo(70, 70, new Position(60, 381));
-
-        ArrayList<PlayerInfo> defense1 = new ArrayList<>();
-        defense1.add(new PlayerInfo(70, 70, 70, new Position(330, 160)));
-        defense1.add(new PlayerInfo(70, 70, 70, new Position(288, 290)));
-        defense1.add(new PlayerInfo(70, 70, 70, new Position(288, 467)));
-        defense1.add(new PlayerInfo(70, 70, 70, new Position(330, 605)));
-
-        ArrayList<PlayerInfo> midfield1 = new ArrayList<>();
-        midfield1.add(new PlayerInfo(70, 70, 70, new Position(550, 250)));
-        midfield1.add(new PlayerInfo(70, 70, 70, new Position(450, 385)));
-        midfield1.add(new PlayerInfo(70, 70, 70, new Position(550, 513)));
-
-        ArrayList<PlayerInfo> attack1 = new ArrayList<>();
-        attack1.add(new PlayerInfo(70, 70, 70, new Position(713, 259)));
-        attack1.add(new PlayerInfo(70, 70, 70, new Position(785, 385)));
-        attack1.add(new PlayerInfo(70, 70, 70, new Position(719, 494)));
-
         //enemy team:
-        PlayerInfo p2 = new PlayerInfo(70, 70, new Position(963, 381));
-
-        ArrayList<PlayerInfo> defense2 = new ArrayList<>();
-        defense2.add(new PlayerInfo(70, 70, 70, new Position(700, 160)));
-        defense2.add(new PlayerInfo(70, 70, 70, new Position(730, 290)));
-        defense2.add(new PlayerInfo(70, 70, 70, new Position(730, 467)));
-        defense2.add(new PlayerInfo(70, 70, 70, new Position(700, 605)));
-
-        ArrayList<PlayerInfo> midfield2 = new ArrayList<>();
-        midfield2.add(new PlayerInfo(70, 70, 70, new Position(461, 250)));
-        midfield2.add(new PlayerInfo(70, 70, 70, new Position(562, 385)));
-        midfield2.add(new PlayerInfo(70, 70, 70, new Position(461, 513)));
-
-        ArrayList<PlayerInfo> attack2 = new ArrayList<>();
-        attack2.add(new PlayerInfo(70, 70, 70, new Position(306, 259)));
-        attack2.add(new PlayerInfo(70, 70, 70, new Position(233, 385)));
-        attack2.add(new PlayerInfo(70, 70, 70, new Position(306, 494)));
+        Object[] leftTeam = getDefaultLeftPositions(homeTeam);
+        Object[] rightTeam = getDefaultRightPositions(visitorTeam);
         //************************************************* ^ ONLY FOR TESTING
 
-        // generate the match
-        CalculatedMatch testMatch = (new MainAIController()).createMatch(p1, defense1, midfield1,
-                attack1, p2, defense2, midfield2, attack2);
+        CalculatedMatch testMatch;
+        // Make sure at most 1 thread can generate a match at a time (because a lot
+        // of variables are static
+        synchronized (lockGeneration) {
+            System.out.println(!shouldAnimate ? "Thread generating" : "Main generating");
+            // generate the match
+            testMatch = (new MainAIController()).createMatch((PlayerInfo) leftTeam[0], (ArrayList) leftTeam[1], (ArrayList) leftTeam[2],
+                    (ArrayList) leftTeam[3], (PlayerInfo) rightTeam[0], (ArrayList) rightTeam[1], (ArrayList) rightTeam[2], (ArrayList) rightTeam[3],
+                    shouldAnimate);
+
+            // reset generation variables
+            CurrentPositions.reset();
+        }
+        System.out.println(!shouldAnimate ? "Thread done generating" : "Main done generating");
 
         // play the generated match's animation
-        AnimateFootballMatch.playMatch(testMatch);
+        if (shouldAnimate) //only the players match should be animated, but to be safe, also synchroniza this
+        {
+            synchronized (lockAnimation) {
+                System.out.println(!shouldAnimate ? "Thread animating" : "Main animating");
+                AnimateFootballMatch.playMatch(testMatch);
+
+                // reset animation variables
+                AnimateFootballMatch.reset();
+                System.out.println(!shouldAnimate ? "Thread done animating" : "Main done animating");
+            }
+        }
+
         // get the scores
         int scoreLeft = testMatch.getPosition(testMatch.amoutOfFrames() - 1).getScoreLeft();
         int scoreRight = testMatch.getPosition(testMatch.amoutOfFrames() - 1).getScoreRight();
-
-        // reset score
-        CurrentPositions.reset();
-
-        // reset animation variables
-        AnimateFootballMatch.reset();
 
         // Clear the memory used to store the match.
         // This does make a huge difference (see tests information in the comments above)
@@ -113,4 +159,69 @@ public class PlayAnimation {
         return new Match(homeTeam, visitorTeam, scoreLeft, scoreRight);
     }
 
+    /**
+     * Get the default positions of the left team based on a team parameter
+     *
+     * @param t1 the team playing at the left side
+     * @return Object[]: [0] = keeper, [1] = ArrayList defenders, [2] =
+     * ArrayList midfielders, [3] = ArrayList defenders
+     */
+    private static Object[] getDefaultLeftPositions(Team t1) {
+        Object[] result = new Object[4];
+        result[0] = new PlayerInfo(70, 70, new Position(60, 381));
+
+        // add default defender positions
+        result[1] = new ArrayList<>();
+        ((ArrayList) result[1]).add(new PlayerInfo(70, 70, 70, new Position(330, 160)));
+        ((ArrayList) result[1]).add(new PlayerInfo(70, 70, 70, new Position(288, 290)));
+        ((ArrayList) result[1]).add(new PlayerInfo(70, 70, 70, new Position(288, 467)));
+        ((ArrayList) result[1]).add(new PlayerInfo(70, 70, 70, new Position(330, 605)));
+
+        // add default midfielder positions
+        result[2] = new ArrayList<>();
+        ((ArrayList) result[2]).add(new PlayerInfo(70, 70, 70, new Position(550, 250)));
+        ((ArrayList) result[2]).add(new PlayerInfo(70, 70, 70, new Position(450, 385)));
+        ((ArrayList) result[2]).add(new PlayerInfo(70, 70, 70, new Position(550, 513)));
+
+        // add default midfielder positions
+        result[3] = new ArrayList<>();
+        ((ArrayList) result[3]).add(new PlayerInfo(70, 70, 70, new Position(713, 259)));
+        ((ArrayList) result[3]).add(new PlayerInfo(70, 70, 70, new Position(785, 385)));
+        ((ArrayList) result[3]).add(new PlayerInfo(70, 70, 70, new Position(719, 494)));
+
+        return result;
+    }
+
+    /**
+     * Get the default positions of the right team based on a team parameter
+     *
+     * @param t1 the team playing at the right side
+     * @return Object[]: [0] = keeper, [1] = ArrayList defenders, [2] =
+     * ArrayList midfielders, [3] = ArrayList defenders
+     */
+    private static Object[] getDefaultRightPositions(Team t1) {
+        Object[] result = new Object[4];
+        result[0] = new PlayerInfo(70, 70, new Position(963, 381));
+
+        // add default defender positions
+        result[1] = new ArrayList<>();
+        ((ArrayList) result[1]).add(new PlayerInfo(70, 70, 70, new Position(700, 160)));
+        ((ArrayList) result[1]).add(new PlayerInfo(70, 70, 70, new Position(730, 290)));
+        ((ArrayList) result[1]).add(new PlayerInfo(70, 70, 70, new Position(730, 467)));
+        ((ArrayList) result[1]).add(new PlayerInfo(70, 70, 70, new Position(700, 605)));
+
+        // add default midfielder positions
+        result[2] = new ArrayList<>();
+        ((ArrayList) result[2]).add(new PlayerInfo(70, 70, 70, new Position(461, 250)));
+        ((ArrayList) result[2]).add(new PlayerInfo(70, 70, 70, new Position(562, 385)));
+        ((ArrayList) result[2]).add(new PlayerInfo(70, 70, 70, new Position(461, 513)));
+
+        // add default midfielder positions
+        result[3] = new ArrayList<>();
+        ((ArrayList) result[3]).add(new PlayerInfo(70, 70, 70, new Position(306, 259)));
+        ((ArrayList) result[3]).add(new PlayerInfo(70, 70, 70, new Position(233, 385)));
+        ((ArrayList) result[3]).add(new PlayerInfo(70, 70, 70, new Position(306, 494)));
+
+        return result;
+    }
 }

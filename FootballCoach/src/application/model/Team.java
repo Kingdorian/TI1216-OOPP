@@ -8,7 +8,7 @@ public class Team {
     private String name;
     private String imgUrl;
     private ArrayList<Players> players = new ArrayList<>();
-    private int budget, points, goals, goalsAgainst;
+    private int budget, points, goals, goalsAgainst, goalDiff, wins, draws, losses;
     boolean artificialGrass;
 
     /**
@@ -173,4 +173,39 @@ public class Team {
             players.get(i).setId(i);
         }
     }
+
+    public int getGoalDiff() {
+        return goalDiff;
+    }
+
+    public void setGoalDiff(int goalDiff) {
+        this.goalDiff = goalDiff;
+    }
+
+    public int getWins() {
+        return wins;
+    }
+
+    public void setWins(int wins) {
+        this.wins = wins;
+    }
+
+    public int getDraws() {
+        return draws;
+    }
+
+    public void setDraws(int draws) {
+        this.draws = draws;
+    }
+
+    public int getLosses() {
+        return losses;
+    }
+
+    public void setLosses(int losses) {
+        this.losses = losses;
+    }
+    
+    
+    
 }

@@ -9,6 +9,11 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 import application.Main;
+import application.model.Competition;
+import application.model.Team;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -46,23 +51,29 @@ public class GameScreenHOMEController implements ViewControllerInterface {
      */
     @FXML
     private void initialize() {
-        textClub.setText(Main.getChosenTeamName());
-        textRanking.setText(Integer.toString(Main.getCompetition().getRank(Main.getCompetition().getTeamByName(Main.getCompetition().getChosenTeamName()))));
-        textNumberPlayers.setText(Integer.toString(Main.getCompetition().getTeamByName(Main.getCompetition().getChosenTeamName()).getPlayers().size()));
+        String clubName = Main.getChosenTeamName(); 
+        Competition competition = Main.getCompetition();
+        Team team = competition.getTeamByName(clubName);
+                
+        textClub.setText(clubName);
+        textRanking.setText(Integer.toString(competition.getRank(team)));
+        textNumberPlayers.setText(Integer.toString(team.getPlayers().size()));
 
         // Get an array with the matches won, drawn, lost and the amout of goals
-        int[] teamPoints = Main.getCompetition().getPoints(Main.getCompetition().getTeamByName(Main.getCompetition().getChosenTeamName()));
-        textMatchesWon.setText(Integer.toString(teamPoints[0]));
-        textMatchesDrawn.setText(Integer.toString(teamPoints[1]));
-        textMatchesLost.setText(Integer.toString(teamPoints[2]));
+        textMatchesWon.setText(Integer.toString(team.getWins()));
+        textMatchesDrawn.setText(Integer.toString(team.getDraws()));
+        textMatchesLost.setText(Integer.toString(team.getLosses()));
 
         try {
             java.io.FileInputStream imageLoader = new FileInputStream("XML/Savegames/" + Main.getCompetition().getSaveGameId() + "/images/" + Main.getChosenTeamName() + ".png");
             Image image = new Image(imageLoader, 200, 200, true, false);
             teamLogo.setImage(image);
+            imageLoader.close();
         } catch (FileNotFoundException e) {
             System.out.println("Image could not be found");
             e.printStackTrace();
+        } catch (IOException ex) {
+            Logger.getLogger(GameScreenHOMEController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
