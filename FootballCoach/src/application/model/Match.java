@@ -7,7 +7,7 @@ package application.model;
 
 /**
  *
- * @author faris
+ * @author faris, Dorian
  */
 public class Match {
 	

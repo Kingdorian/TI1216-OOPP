@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
+import application.controller.GenerateMatch;
+
 public class Competition {
 
 	private Match competition[][] = new Match[34][9]; 
@@ -13,6 +15,7 @@ public class Competition {
     private Market market = new Market();
     private String chosenTeamName;
     private String name;
+    private int roundCounter;
     
 	/*
 	 * Results: 2d array with 18 teams (corresponding id to teams[]) and:
@@ -259,13 +262,34 @@ public class Competition {
 				System.out.println(competition[i][j].toString());
 			}
 		}
-		// Shuffle the array Fisher-Yates style
+		/*Shuffle the array Fisher-Yates style
 		Random rnd = new Random(seed);
-		for(int i = 33 ; i > 0; i--){
+		for(int i = 17 ; i > 0; i--){
 			int index = rnd.nextInt(i+1);
 			Match[] temp = competition[index];
 			competition[index] = competition[i];
 			competition[i] = temp;
 		}
+		// Shuffle the array Fisher-Yates style
+		rnd = new Random(seed);
+		for(int i = 33 ; i > 18; i--){
+			int index = rnd.nextInt(i+1);
+			Match[] temp = competition[index];
+			competition[index] = competition[i];
+			competition[i] = temp;
+		}*/
+	}
+	private void playRound(int roundNum){
+		for(int i = 0; i<competition[roundNum].length;i++){
+			System.out.println("Roundnum: " + competition[roundNum][2].toString());
+			competition[roundNum][i] = GenerateMatch.generateMatch(competition[roundNum][i]
+					.getHomeTeam(),
+					competition[roundNum]
+							[i].getVisitorTeam());;
+		}
+	}
+	public void playNextRound(){
+		playRound(roundCounter);
+		roundCounter++;
 	}
 }

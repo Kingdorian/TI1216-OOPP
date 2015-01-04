@@ -74,6 +74,7 @@ public class GameScreenTitleController implements ViewControllerInterface {
     @FXML
     private void buttonNextMatch() {
         if(!Main.getMenuController().getCurrentMenuField().getText().equals("Play Match")){
+        	Main.getCompetition().playNextRound();
             Main.getMenuController().getCurrentMenuField().setText("Play Match");
             mainController.setCenterView("GameScreenPLAYMATCH");
         }
