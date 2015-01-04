@@ -9,14 +9,22 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 import application.Main;
+import application.model.Competition;
+import application.model.Team;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
 /**
+ * This is the controller class of the HOME screen of the main view of the game
+ * screen.
  *
  * @author Faris
+ * @author Jochem
  */
 public class GameScreenHOMEController implements ViewControllerInterface {
 
@@ -38,27 +46,42 @@ public class GameScreenHOMEController implements ViewControllerInterface {
     private static Main mainController;
 
     /**
-     * Code executed when the view is loaded.
+     * This code is executed when the view is loaded. It sets the main texts of
+     * this view.
      */
     @FXML
     private void initialize() {
-        textClub.setText(Main.getChosenTeamName());
-        textRanking.setText("Not implemented yet");
-        textNumberPlayers.setText(Integer.toString(Main.getCompetition().getTeamByName(Main.getCompetition().getChosenTeamName()).getPlayers().size()));
-        textMatchesWon.setText("Not implemented yet");
-        textMatchesDrawn.setText("Not implemented yet");
-        textMatchesLost.setText("Not implemented yet");
-        
+        String clubName = Main.getChosenTeamName(); 
+        Competition competition = Main.getCompetition();
+        Team team = competition.getTeamByName(clubName);
+                
+        textClub.setText(clubName);
+        textRanking.setText(Integer.toString(competition.getRank(team)));
+        textNumberPlayers.setText(Integer.toString(team.getPlayers().size()));
+
+        // Get an array with the matches won, drawn, lost and the amout of goals
+        textMatchesWon.setText(Integer.toString(team.getWins()));
+        textMatchesDrawn.setText(Integer.toString(team.getDraws()));
+        textMatchesLost.setText(Integer.toString(team.getLosses()));
+
         try {
-			java.io.FileInputStream imageLoader = new FileInputStream("XML/Savegames/" + Main.getCompetition().getSaveGameId() + "/images/" + Main.getChosenTeamName() + ".png");
-	        Image image = new Image(imageLoader, 200, 200, true, false);
-	        teamLogo.setImage(image);	
-		} catch (FileNotFoundException e) {
-			System.out.println("Image could not be found");
-			e.printStackTrace();
-		}
+            java.io.FileInputStream imageLoader = new FileInputStream("XML/Savegames/" + Main.getCompetition().getSaveGameId() + "/images/" + Main.getChosenTeamName() + ".png");
+            Image image = new Image(imageLoader, 200, 200, true, false);
+            teamLogo.setImage(image);
+            imageLoader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Image could not be found");
+            e.printStackTrace();
+        } catch (IOException ex) {
+            Logger.getLogger(GameScreenHOMEController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
+    /**
+     * This gives this class a reference to the main class
+     *
+     * @param mainController the main class
+     */
     @Override
     public void setMainController(Main mainController) {
         this.mainController = mainController;

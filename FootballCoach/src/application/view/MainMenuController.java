@@ -9,6 +9,8 @@ import application.Main;
 import application.model.Players;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
@@ -19,6 +21,7 @@ import org.controlsfx.dialog.Dialog;
 import org.controlsfx.dialog.Dialogs;
 
 /**
+ * This is the controller class of the main menu screen of the startup screen.
  *
  * @author Faris
  * @author Jochem
@@ -27,14 +30,25 @@ public class MainMenuController implements ViewControllerInterface {
 
     private static Main mainController;
 
-    //Load FXML elements to edit in code.
     @FXML
     private ImageView logo;
     @FXML
     private Button buttonContinue;
 
     /**
-     * Code executed when the view is loaded.
+     * This event sets the continue button to active and triggers it
+     */
+    private final EventHandler triggerContinue = new EventHandler<Event>() {
+        @Override
+        public void handle(Event e) {
+            buttonContinue.setDisable(false);
+            buttonContinue();
+        }
+    };
+
+    /**
+     * This code is executed when the view is loaded. It sets the main texts of
+     * this view.
      */
     @FXML
     private void initialize() {
@@ -56,6 +70,11 @@ public class MainMenuController implements ViewControllerInterface {
         }
     }
 
+    /**
+     * This gives this class a reference to the main class
+     *
+     * @param mainController the main class
+     */
     @Override
     public void setMainController(Main mainController) {
         MainMenuController.mainController = mainController;
@@ -66,13 +85,14 @@ public class MainMenuController implements ViewControllerInterface {
      */
     @FXML
     private void buttonContinue() {
-    	// Market test
-		for(Players pl : Main.getCompetition().getTeamByName("Feyenoord").getPlayers())
-			Main.getCompetition().getMarket().addPlayer(pl, 5);
-		
-		//Testing budget.
-		Main.getCompetition().getTeamByName(Main.getChosenTeamName()).setBudget(5000000);
-		
+        // Market test
+        for (Players pl : Main.getCompetition().getTeamByName("Feyenoord").getPlayers()) {
+            Main.getCompetition().getMarket().addPlayer(pl, 5);
+        }
+
+        //Testing budget.
+        Main.getCompetition().getTeamByName(Main.getChosenTeamName()).setBudget(5000000);
+
         mainController.setCenterView("GameScreenHOME");
         mainController.setLeftView("GameScreenMenu");
         mainController.setTopView("GameScreenTitle");
@@ -88,6 +108,7 @@ public class MainMenuController implements ViewControllerInterface {
                 .title("Quit")
                 .masthead("Are you sure you want to quit the application?")
                 .actions(Dialog.Actions.OK, Dialog.Actions.CANCEL)
+                .owner(Main.getOldPopup())
                 .showConfirm();
 
         if (response == Dialog.Actions.OK) {
@@ -102,7 +123,7 @@ public class MainMenuController implements ViewControllerInterface {
      */
     @FXML
     private void buttonSettings() {
-        mainController.createPopup("PopupSETTINGS", "Settings", "/application/img/settings.png");
+        mainController.createPopup("PopupSETTINGS", "Settings");
     }
 
     /**
@@ -110,10 +131,8 @@ public class MainMenuController implements ViewControllerInterface {
      */
     @FXML
     private void buttonNewGame() {
-        if(mainController.createPopup("PopupNEWGAME", "New Game", "/application/img/icon.png")) {
-            buttonContinue.setDisable(false);
-        	buttonContinue();
-        }    
+        mainController.createPopup("PopupNEWGAME", "New Game", triggerContinue);
+
     }
 
     /**
@@ -121,10 +140,7 @@ public class MainMenuController implements ViewControllerInterface {
      */
     @FXML
     private void buttonLoadGame() {
-        if(mainController.createPopup("PopupLOADGAME", "Load Game", "/application/img/icon.png")) {
-            buttonContinue.setDisable(false);
-        	buttonContinue();
-        }	
+        mainController.createPopup("PopupLOADGAME", "Load Game", triggerContinue);
     }
 
     /**
@@ -132,6 +148,7 @@ public class MainMenuController implements ViewControllerInterface {
      */
     @FXML
     private void buttonCredits() {
-        mainController.createPopup("PopupCREDITS", "Credits", "/application/img/icon.png");
+        mainController.createPopup("PopupCREDITS", "Credits");
     }
+
 }
