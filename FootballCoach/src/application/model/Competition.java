@@ -330,10 +330,10 @@ public class Competition {
 	private Match playRound(int roundNum, String playerTeamName){
 		Match resultMatch = null;
 		for(int i = 0; i<competition[roundNum].length;i++){
-			System.out.println(competition[roundNum][i].toString());
+
 			competition[roundNum][i] = GenerateMatch.generateMatch(competition[roundNum][i].getHomeTeam(),competition[roundNum][i].getVisitorTeam());
-			if(competition[roundNum][i].getHomeTeam().equals(this.getTeamByName(playerTeamName))
-					||competition[roundNum][i].getVisitorTeam().equals(this.getTeamByName(playerTeamName))){
+			System.out.println(competition[roundNum][i].toString());
+			if(competition[roundNum][i].getHomeTeam().equals(this.getTeamByName(playerTeamName))||competition[roundNum][i].getVisitorTeam().equals(this.getTeamByName(playerTeamName))){
 				resultMatch = competition[roundNum][i];
 			}
 		}

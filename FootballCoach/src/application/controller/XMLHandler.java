@@ -242,6 +242,7 @@ public class XMLHandler {
     }
 
     private static void writeMatches(String location, Competition comp) throws Exception {
+    	System.out.println("hey");
         System.out.println(location + "   loc");
         // Setting up doc builder
         DocumentBuilderFactory dF = DocumentBuilderFactory.newInstance();
@@ -263,10 +264,11 @@ public class XMLHandler {
                     Element homeTeam = doc.createElement("hometeam");
                     matchElement.appendChild(homeTeam);
                     homeTeam.setAttribute("name", match.getHomeTeam().getName());
-                    homeTeam.setAttribute("points", match.getHomeTeam().getPoints() + "");
+                    homeTeam.setAttribute("points", match.getPointsHomeTeam() + "");
                     Element visTeam = doc.createElement("visitorteam");
                     matchElement.appendChild(visTeam);
                     visTeam.setAttribute("name", match.getVisitorTeam().getName());
+                    if(i==0){System.out.println(match.getPointsVisitorTeam());}
                     visTeam.setAttribute("points", match.getVisitorTeam().getPoints() + "");
                 }
             }
