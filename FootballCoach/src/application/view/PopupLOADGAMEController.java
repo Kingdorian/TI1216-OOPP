@@ -5,6 +5,7 @@
  */
 package application.view;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 import org.controlsfx.control.action.Action;
@@ -59,8 +60,21 @@ public class PopupLOADGAMEController implements PopupControllerInterface {
     @FXML
     private void initialize() {
         //Add items to the dropdown list
-        ArrayList<Integer> saveGames = SaveGameHandler.getSaveGames();
-        selectSaveGameBox.setItems(FXCollections.observableArrayList(saveGames));
+    	ArrayList<String> saveGames = new ArrayList<String>();
+    	for(int i = 0; i<SaveGameHandler.getSaveGames().size(); i++){
+    		String[] dateParts;
+			try {
+				dateParts = SaveGameHandler.getDateById(SaveGameHandler.getSaveGames().get(i)).toString().split(" ");
+				String team = SaveGameHandler.getTeamNameById(SaveGameHandler.getSaveGames().get(i));
+				String name = SaveGameHandler.getNameById(SaveGameHandler.getSaveGames().get(i));
+				saveGames.add(dateParts[0] +  " " + dateParts[1] + " " + dateParts[2] + " Team: " + team  + " By:" + name);
+				System.out.println(saveGames.get(i));
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    	}
+    	selectSaveGameBox.setItems(FXCollections.observableArrayList(saveGames));
     }
 
     /**

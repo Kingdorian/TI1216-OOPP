@@ -7,6 +7,7 @@ import application.model.*;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -374,5 +375,37 @@ public class XMLHandler {
         DOMSource source = new DOMSource(doc);
         StreamResult result = new StreamResult(new File(location));
         t.transform(source, result);
+    }
+    
+    public static String getSaveGameName(String location){
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        DocumentBuilder db;
+		try {
+			db = dbf.newDocumentBuilder();
+			Document doc = db.parse(new File(location));
+			return ((Element)doc.getElementsByTagName("rounds").item(0)).getAttribute("name");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+
+		}
+		return null;
+    	
+    }   
+    
+    public static String getTeamName(String location){
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        DocumentBuilder db;
+		try {
+			db = dbf.newDocumentBuilder();
+			Document doc = db.parse(new File(location));
+			return ((Element)doc.getElementsByTagName("rounds").item(0)).getAttribute("chosenTeam");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+
+		}
+		return null;
+    	
     }
 }

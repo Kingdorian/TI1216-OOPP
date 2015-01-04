@@ -179,4 +179,16 @@ public class SaveGameHandler {
             dir.delete();
         }
     }
+    /**
+     * Returns the name the user assigned to the savegame
+     * @param integer id of the savegame
+     * @return The name
+     */
+	public static String getNameById(int id) {
+		return XMLHandler.getSaveGameName(defaultloc + id + "/Matches.xml");
+	}
+
+	public static String getTeamNameById(int id) {
+		return XMLHandler.getTeamName(defaultloc + id + "/Matches.xml");
+	}
 }
