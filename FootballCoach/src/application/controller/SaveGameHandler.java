@@ -18,15 +18,35 @@ public class SaveGameHandler {
 
     //The standardlocation of the savegames
     private static String defaultloc = "XML/Savegames/";
+    //The standardlocation of the competitions 
+    private static String defaultcomploc = "XML/Competitions/";
 
     /**
-     * Changes the default location for savegames, usefull for for example
+     * Changes the default location for savegames, useful for for example
      * testing purposes
      *
      * @param String newLoc with the new path to the savegame
      */
     public static void changeDefaultLoc(String newLoc) {
         defaultloc = newLoc;
+    }
+    
+    /**
+     * Changes the default location for competitions
+     *
+     * @param String newLoc with the new path to the competitions
+     */
+    public static void changeDefaultCompLoc(String newLoc) {
+    	defaultcomploc = newLoc;
+    }
+    
+    /**
+     * Returns the default competition location
+     * 
+     * @return The location of the competitions as a String.
+     */
+    public static String getDefaultCompLoc() {
+    	return defaultcomploc;
     }
 
     /**
@@ -49,10 +69,28 @@ public class SaveGameHandler {
      * @throws Exception if one of both files does not exist
      *
      */
-    private static Competition ldByCompByPath(String compPath, String matchPath) throws Exception {
+    public static Competition ldByCompByPath(String compPath, String matchPath) throws Exception {
         return XMLHandler.readCompetition(compPath, matchPath);
     }
 
+    /**
+     * Returns an arraylist with all competitions that can be played in game.
+     * 
+     * @return An ArrayList with String (names of competitions)
+     */
+    public static ArrayList<String> getCompetitions() {
+    	ArrayList<String> competitions = new ArrayList<String>();
+    	File compFolder = new File(defaultcomploc);
+    	File[] listOfFiles = compFolder.listFiles();
+        for (int i = 0; i < listOfFiles.length; i++) {
+            //Check if the file is a directory
+            if (listOfFiles[i].isDirectory()) {
+                competitions.add(listOfFiles[i].getName());
+            }
+        }
+        return competitions;
+    }
+    
     /**
      * Gives a ArrayList with all the ids of savegames at the savegame location
      *
