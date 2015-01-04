@@ -162,7 +162,9 @@ public class SaveGameHandler {
         File dir = new File(defaultloc);
         File[] savegames = dir.listFiles();
         for (int i = 0; i < savegames.length; i++) {
-            removeDirectory(savegames[i]);
+        	if(Integer.parseInt(savegames[i].getName())==id){
+        		removeDirectory(savegames[i]);
+        	}
         }
     }
 

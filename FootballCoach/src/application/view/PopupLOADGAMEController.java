@@ -67,7 +67,7 @@ public class PopupLOADGAMEController implements PopupControllerInterface {
 				dateParts = SaveGameHandler.getDateById(SaveGameHandler.getSaveGames().get(i)).toString().split(" ");
 				String team = SaveGameHandler.getTeamNameById(SaveGameHandler.getSaveGames().get(i));
 				String name = SaveGameHandler.getNameById(SaveGameHandler.getSaveGames().get(i));
-				saveGames.add(dateParts[0] +  " " + dateParts[1] + " " + dateParts[2] + " Team: " + team  + " By:" + name);
+				saveGames.add(SaveGameHandler.getSaveGames().get(i) + ". " + dateParts[0] +  " " + dateParts[1] + " " + dateParts[2] + " Team: " + team  + " By:" + name);
 				System.out.println(saveGames.get(i));
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
@@ -91,7 +91,8 @@ public class PopupLOADGAMEController implements PopupControllerInterface {
                     .owner(Main.getOldPopup())
                     .showWarning();
         } else {
-            int choice = Integer.parseInt(selectSaveGameBox.getItems().get(selectSaveGameBox.getSelectionModel().getSelectedIndex()).toString());
+        	System.out.println(selectSaveGameBox.getItems().get(selectSaveGameBox.getSelectionModel().getSelectedIndex()).toString().split("\\.")[0]);
+            int choice = Integer.parseInt(selectSaveGameBox.getItems().get(selectSaveGameBox.getSelectionModel().getSelectedIndex()).toString().split("\\.")[0]);
             try {
                 Main.setCompetition(SaveGameHandler.loadCompetition(choice));
                 Main.setChosenName(Main.getCompetition().getName());
@@ -131,7 +132,7 @@ public class PopupLOADGAMEController implements PopupControllerInterface {
                       .owner(Main.getOldPopup())
                       .showWarning();
           } else {
-              int choice = Integer.parseInt(selectSaveGameBox.getItems().get(selectSaveGameBox.getSelectionModel().getSelectedIndex()).toString());
+              String choice = selectSaveGameBox.getItems().get(selectSaveGameBox.getSelectionModel().getSelectedIndex()).toString();
               try { 
             	  // Ask the user is they want to delete the savegame.
                   Action response = Dialogs.create()
@@ -143,8 +144,8 @@ public class PopupLOADGAMEController implements PopupControllerInterface {
 
                   if (response == Dialog.Actions.OK) {
                 	  // Delete the savegame if OK is pressed.
-                	  System.out.println(choice);
-                	  SaveGameHandler.deleteSaveGame(choice);
+                	  System.out.println(choice.split("\\.")[0]);
+                	  SaveGameHandler.deleteSaveGame(Integer.parseInt(choice.split("\\.")[0]));
                       // Reload the dropdown list
                       initialize();  
                   } else {
