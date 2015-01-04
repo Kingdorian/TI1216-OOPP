@@ -327,18 +327,21 @@ public class Competition {
             competition[i] = temp;
 		}*/
 	}
-	private void playRound(int roundNum){
+	private Match playRound(int roundNum, String playerTeamName){
+		Match resultMatch = null;
 		for(int i = 0; i<competition[roundNum].length;i++){
-			System.out.println("Roundnum: " + competition[roundNum][2].toString());
-			competition[roundNum][i] = GenerateMatch.generateMatch(competition[roundNum][i]
-					.getHomeTeam(),
-					competition[roundNum]
-							[i].getVisitorTeam());;
+			System.out.println(competition[roundNum][i].toString());
+			competition[roundNum][i] = GenerateMatch.generateMatch(competition[roundNum][i].getHomeTeam(),competition[roundNum][i].getVisitorTeam());
+			if(competition[roundNum][i].getHomeTeam().equals(this.getTeamByName(playerTeamName))
+					||competition[roundNum][i].getVisitorTeam().equals(this.getTeamByName(playerTeamName))){
+				resultMatch = competition[roundNum][i];
+			}
 		}
+		return resultMatch;
 	}
-	public void playNextRound(){
-		playRound(roundCounter);
+	public Match playNextRound(String playerTeamName){
 		roundCounter++;
+		return playRound(roundCounter-1, playerTeamName);
     }
 
     /**
