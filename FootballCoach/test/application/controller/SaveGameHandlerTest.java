@@ -18,7 +18,9 @@ import application.model.*;
 public class SaveGameHandlerTest {
 	@Before public void initialize(){
 		SaveGameHandler.changeDefaultLoc("XML/TestSaveGames/");
+		SaveGameHandler.changeDefaultCompLoc("XML/TestCompetitions/");
 	}
+	
 	
 	@Test
 	public void testloadCompetition(){
@@ -40,6 +42,21 @@ public class SaveGameHandlerTest {
 	public void testloadCompetitionInv() throws Exception{
 		SaveGameHandler.loadCompetition(-30);
 	}
+	
+	@Test
+	public void testGetCompetitions(){
+		try{
+			ArrayList<String> list = SaveGameHandler.getCompetitions();
+			ArrayList<String> reflist = new ArrayList<String>();
+			reflist.add("Testdivisie");
+			assertEquals(reflist, list);
+		}catch (Exception e) {
+			e.printStackTrace();
+			fail("Unexpected exception");
+		}
+
+	}	
+	
 	/**
 	 * Test if the ArrayList of savegame ids is correctly loaded
 	 */

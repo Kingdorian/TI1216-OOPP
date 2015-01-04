@@ -66,23 +66,33 @@ public class PopupNEWGAMEController implements PopupControllerInterface {
     @FXML
     private void initialize() {
         isOkClicked = false;
-
-        // add items to the dropdown list
-        ArrayList<String> teamNames = new ArrayList<>();
-        Team[] teams = Main.getCompetition().getTeams();
-        for (Team t : teams) {
-            teamNames.add(t.getName());
-        }
-
-        selectTeamBox.setItems(FXCollections.observableArrayList(teamNames));
-
-        // WIP :: Add competition types.
-        selectCompetitionBox.setItems(FXCollections.observableArrayList(new ArrayList<String>() {
-            {
-                add("Not implemented yet");
-                add("Not implemented yet");
-            }
-        }));
+        
+        // add all competitions that are available to the dropdown list.
+        ArrayList<String> competitionNames = SaveGameHandler.getCompetitions();
+        selectCompetitionBox.setItems(FXCollections.observableArrayList(competitionNames));        
+    }
+    
+    /**
+     * Executed when a new competition is selected, it updates the teamBox with the teams in the newly selected competition.
+     */
+    @FXML 
+    private void changeTeamBox() {
+		try {
+	        ArrayList<String> teamNames = new ArrayList<>();
+	        
+			String compChoice = SaveGameHandler.getDefaultCompLoc() + selectCompetitionBox.getItems().get(selectCompetitionBox.getSelectionModel().getSelectedIndex()).toString();
+			Team[] teams = SaveGameHandler.ldByCompByPath(compChoice + "/Teams.xml", compChoice + "/Matches.xml").getTeams();
+	        for (Team t : teams) {
+	            teamNames.add(t.getName());
+	        }
+	        
+	        selectTeamBox.setItems(FXCollections.observableArrayList(teamNames));
+	        selectTeamBox.setValue(teamNames.get(0)); 
+	        
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
     /**
@@ -124,8 +134,10 @@ public class PopupNEWGAMEController implements PopupControllerInterface {
             // Set the chosen name and team in the Main class
 
             try {
+    			String compChoice = SaveGameHandler.getDefaultCompLoc() + selectCompetitionBox.getItems().get(selectCompetitionBox.getSelectionModel().getSelectedIndex()).toString(); 	
+            	
                 // Creating a new save and returning the competition to main.
-                Main.setCompetition(SaveGameHandler.createNewSave("XML/Teams.xml", "XML/Matches.xml"));
+                Main.setCompetition(SaveGameHandler.createNewSave(compChoice + "/Teams.xml", compChoice + "/Matches.xml"));
                 Main.setChosenName(nameField.getText());
                 Main.SetChosenTeamName(selectTeamBox.getItems().get(selectTeamBox.getSelectionModel().getSelectedIndex()).toString());
                 Main.getCompetition().setChosenTeamName(Main.getChosenTeamName());
