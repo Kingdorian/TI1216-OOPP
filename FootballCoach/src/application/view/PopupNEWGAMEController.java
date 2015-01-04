@@ -69,7 +69,8 @@ public class PopupNEWGAMEController implements PopupControllerInterface {
         
         // add all competitions that are available to the dropdown list.
         ArrayList<String> competitionNames = SaveGameHandler.getCompetitions();
-        selectCompetitionBox.setItems(FXCollections.observableArrayList(competitionNames));        
+        selectCompetitionBox.setItems(FXCollections.observableArrayList(competitionNames));
+        selectTeamBox.setDisable(true);
     }
     
     /**
@@ -87,7 +88,10 @@ public class PopupNEWGAMEController implements PopupControllerInterface {
 	        }
 	        
 	        selectTeamBox.setItems(FXCollections.observableArrayList(teamNames));
+	        if (! teamNames.isEmpty()) {
+	        selectTeamBox.setDisable(false);
 	        selectTeamBox.setValue(teamNames.get(0)); 
+	        }
 	        
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

@@ -67,7 +67,7 @@ public class PopupLOADGAMEController implements PopupControllerInterface {
 				dateParts = SaveGameHandler.getDateById(SaveGameHandler.getSaveGames().get(i)).toString().split(" ");
 				String team = SaveGameHandler.getTeamNameById(SaveGameHandler.getSaveGames().get(i));
 				String name = SaveGameHandler.getNameById(SaveGameHandler.getSaveGames().get(i));
-				saveGames.add(SaveGameHandler.getSaveGames().get(i) + ". " + dateParts[0] +  " " + dateParts[1] + " " + dateParts[2] + " Team: " + team  + " By:" + name);
+				saveGames.add(SaveGameHandler.getSaveGames().get(i) + ". " + dateParts[0] +  " " + dateParts[1] + " " + dateParts[2] + " " + team  + " By: " + name);
 				System.out.println(saveGames.get(i));
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
@@ -75,6 +75,9 @@ public class PopupLOADGAMEController implements PopupControllerInterface {
 			}
     	}
     	selectSaveGameBox.setItems(FXCollections.observableArrayList(saveGames));
+    	if (! saveGames.isEmpty()) {
+    	selectSaveGameBox.setValue(saveGames.get(0));
+    	}
     }
 
     /**
