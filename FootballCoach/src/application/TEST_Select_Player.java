@@ -2,6 +2,9 @@ package application;
 
 
 import application.animation.Playmatch.ChoosePositionsController;
+import application.controller.XMLHandler;
+import application.model.Competition;
+import application.model.Team;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,7 +32,9 @@ public class TEST_Select_Player extends Application {
     
     private Stage primaryStage;
     private AnchorPane rootLayout;
-
+    private Team team;
+    Competition competition;
+    
     @Override
     public void start(Stage stage) {
         primaryStage = stage;
@@ -45,13 +50,22 @@ public class TEST_Select_Player extends Application {
             loader.setLocation(TEST_Select_Player.class.getResource("animation/Playmatch/ChoosePositions.fxml"));
             rootLayout = (AnchorPane) loader.load();
             
-            //set pane to controller
-            ChoosePositionsController.drawCircles(rootLayout);
+            //read a competition
+            
+            try {
+                competition = XMLHandler.readCompetition("XML/Teams.xml", "XML/Matches.xml");
+            } catch (Exception ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("Couldn't open one of the following files: \"XML/Teams.xml\" or \"XML/Matches.xml\"");
+            }
             
             // Show the scene containing the root layout
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
             primaryStage.setResizable(true);
+            
+            //set pane to controller
+            ((ChoosePositionsController)loader.getController()).drawCircles(primaryStage, rootLayout, competition.getTeams()[0]);
 
             primaryStage.show();
             

@@ -30,7 +30,7 @@ public class PopupLOADGAMEController implements PopupControllerInterface {
     /**
      * Sets the stage of this dialog.
      *
-     * @param popupStage
+     * @param popupControl
      */
     @Override
     public void setPopupStage(PopupControl popupControl) {
