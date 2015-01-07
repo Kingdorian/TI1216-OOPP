@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="510.0" prefWidth="355.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.PopupMOREINFOGOALKEEPERController">
+<AnchorPane id="AnchorPane" prefHeight="510.0" prefWidth="355.0" styleClass="contentView" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.PopupMOREINFOGOALKEEPERController">
     <children>
         <GridPane layoutX="218.0" layoutY="120.0" prefHeight="414.0" prefWidth="315.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0">
             <children>
