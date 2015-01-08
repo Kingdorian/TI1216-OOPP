@@ -54,8 +54,8 @@ public class GameScreenOTHERTEAMSController implements ViewControllerInterface {
      */
     private final EventHandler onSelected = new EventHandler<ActionEvent>() {
         @Override
-        public void handle(ActionEvent t) {
-            String selectedTeamName = selectTeamBox.getItems().get(selectTeamBox.getSelectionModel().getSelectedIndex()).toString();
+        public void handle(ActionEvent t){
+            String selectedTeamName = selectTeamBox.getSelectionModel().getSelectedItem().toString();
             // Add data to the table and sort number column
             playerTable.setItems(FXCollections.observableArrayList(Main.getCompetition().getTeamByName(selectedTeamName).getPlayers()));
             columnNo.setSortType(TableColumn.SortType.ASCENDING);

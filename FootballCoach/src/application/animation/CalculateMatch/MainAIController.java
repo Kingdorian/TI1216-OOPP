@@ -10,6 +10,7 @@ import application.animation.Container.Position;
 import application.animation.Container.CalculatedMatch;
 import application.animation.Container.PlayerInfo;
 import application.animation.Container.PositionFrame;
+import application.animation.Container.TeamPositions;
 import java.util.ArrayList;
 
 /**
@@ -37,12 +38,19 @@ public class MainAIController {
      * the last frame for the results is important
      * @return the calculated match
      */
-    public CalculatedMatch createMatch(PlayerInfo keeper1, ArrayList<PlayerInfo> defense1,
-            ArrayList<PlayerInfo> midfield1, ArrayList<PlayerInfo> attack1,
-            PlayerInfo keeper2, ArrayList<PlayerInfo> defense2,
-            ArrayList<PlayerInfo> midfield2, ArrayList<PlayerInfo> attack2,
-            boolean shouldAnimate) {
+    public CalculatedMatch createMatch(TeamPositions homeTeam, TeamPositions visitorTeam, boolean shouldAnimate) {
 
+        PlayerInfo keeper1 = homeTeam.getKeeper();
+        ArrayList<PlayerInfo> defense1 = homeTeam.getDefenders();
+        ArrayList<PlayerInfo> midfield1 = homeTeam.getMidfielders();
+        ArrayList<PlayerInfo> attack1 = homeTeam.getAttackers();
+        System.out.println("keeper1.toString() = " + keeper1.getFavoritePosition().getxPos() + " " +  keeper1.getFavoritePosition().getyPos());
+        
+        PlayerInfo keeper2 = visitorTeam.getKeeper();
+        ArrayList<PlayerInfo> defense2 = visitorTeam.getDefenders();
+        ArrayList<PlayerInfo> midfield2 = visitorTeam.getMidfielders();
+        ArrayList<PlayerInfo> attack2 = visitorTeam.getAttackers();
+        System.out.println("keeper2.toString() = " + keeper2.getFavoritePosition().getxPos() + " " +  keeper2.getFavoritePosition().getyPos());
         final CalculatedMatch footballMatch = new CalculatedMatch();
         CurrentPositions currentPositions = new CurrentPositions();
 

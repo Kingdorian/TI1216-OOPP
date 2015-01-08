@@ -34,7 +34,7 @@ public class PopupLOADGAMEController implements PopupControllerInterface {
 
     /**
      * Sets the stage (PopupControl) of this popup.
-     *
+     *HEAD
      * @param popupControl the popups stage (PopupControl)
      */
     @Override

@@ -20,7 +20,7 @@ public class KeeperAI extends PlayerAI {
     private final boolean isOnAllyTeam;
     private final int playerID;
 
-    private final double STOP_LUCK = 1.4; //Change to higher value to stop ball more often (between 1 and 2 should be fine)
+    private final double STOP_LUCK = 1.8; //Change to higher value to stop ball more often (between 1 and 2 should be fine)
 
     /**
      * constructor: needs the position of the attacker and the positions of

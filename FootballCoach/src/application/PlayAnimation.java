@@ -3,13 +3,19 @@ package application;
 import application.animation.CalculateMatch.MainAIController;
 import application.animation.Container.CalculatedMatch;
 import application.animation.Container.CurrentPositions;
-import application.animation.Container.Position;
-import application.animation.Container.PlayerInfo;
+import application.animation.Container.TeamPositions;
 import application.animation.PlayMatch.AnimateFootballMatch;
+import application.animation.PlayMatch.ChoosePositionsController;
 import application.model.Competition;
 import application.model.Match;
 import application.model.Team;
-import java.util.ArrayList;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 /**
  * This class' playMatch method can be used to handle everything which has
@@ -115,8 +121,24 @@ public class PlayAnimation {
         //ONLY FOR TESTING: *******************************
         //ally team:
         //enemy team:
-        Object[] leftTeam = getDefaultLeftPositions(homeTeam);
-        Object[] rightTeam = getDefaultRightPositions(visitorTeam);
+        TeamPositions leftTeam;
+        TeamPositions rightTeam;
+
+        //set the positions of the players
+        if (shouldAnimate) {
+            synchronized (lockAnimation) {
+                if (homeTeam.getName().equals(Main.getChosenTeamName())) {
+                    leftTeam = choosePositions(homeTeam, true, true);
+                    rightTeam = choosePositions(visitorTeam, false, false);
+                } else {
+                    leftTeam = choosePositions(visitorTeam, true, true);
+                    rightTeam = choosePositions(homeTeam, false, false);
+                }
+            }
+        } else {
+            leftTeam = choosePositions(homeTeam, false, true);
+            rightTeam = choosePositions(visitorTeam, false, false);
+        }
         //************************************************* ^ ONLY FOR TESTING
 
         CalculatedMatch testMatch;
@@ -125,9 +147,7 @@ public class PlayAnimation {
         synchronized (lockGeneration) {
             System.out.println(!shouldAnimate ? "Thread generating" : "Main generating");
             // generate the match
-            testMatch = (new MainAIController()).createMatch((PlayerInfo) leftTeam[0], (ArrayList) leftTeam[1], (ArrayList) leftTeam[2],
-                    (ArrayList) leftTeam[3], (PlayerInfo) rightTeam[0], (ArrayList) rightTeam[1], (ArrayList) rightTeam[2], (ArrayList) rightTeam[3],
-                    shouldAnimate);
+            testMatch = (new MainAIController()).createMatch(leftTeam, rightTeam, shouldAnimate);
 
             // reset generation variables
             CurrentPositions.reset();
@@ -166,31 +186,31 @@ public class PlayAnimation {
      * @return Object[]: [0] = keeper, [1] = ArrayList defenders, [2] =
      * ArrayList midfielders, [3] = ArrayList defenders
      */
-    private static Object[] getDefaultLeftPositions(Team t1) {
-        Object[] result = new Object[4];
-        result[0] = new PlayerInfo(70, 70, new Position(60, 381));
-
-        // add default defender positions
-        result[1] = new ArrayList<>();
-        ((ArrayList) result[1]).add(new PlayerInfo(70, 70, 70, new Position(330, 160)));
-        ((ArrayList) result[1]).add(new PlayerInfo(70, 70, 70, new Position(288, 290)));
-        ((ArrayList) result[1]).add(new PlayerInfo(70, 70, 70, new Position(288, 467)));
-        ((ArrayList) result[1]).add(new PlayerInfo(70, 70, 70, new Position(330, 605)));
-
-        // add default midfielder positions
-        result[2] = new ArrayList<>();
-        ((ArrayList) result[2]).add(new PlayerInfo(70, 70, 70, new Position(550, 250)));
-        ((ArrayList) result[2]).add(new PlayerInfo(70, 70, 70, new Position(450, 385)));
-        ((ArrayList) result[2]).add(new PlayerInfo(70, 70, 70, new Position(550, 513)));
-
-        // add default midfielder positions
-        result[3] = new ArrayList<>();
-        ((ArrayList) result[3]).add(new PlayerInfo(70, 70, 70, new Position(713, 259)));
-        ((ArrayList) result[3]).add(new PlayerInfo(70, 70, 70, new Position(785, 385)));
-        ((ArrayList) result[3]).add(new PlayerInfo(70, 70, 70, new Position(719, 494)));
-
-        return result;
-    }
+//    private static Object[] getDefaultLeftPositions(Team t1) {
+//        Object[] result = new Object[4];
+//        result[0] = new PlayerInfo(70, 70, new Position(60, 381));
+//
+//        // add default defender positions
+//        result[1] = new ArrayList<>();
+//        ((ArrayList) result[1]).add(new PlayerInfo(70, 70, 70, new Position(330, 160)));
+//        ((ArrayList) result[1]).add(new PlayerInfo(70, 70, 70, new Position(288, 290)));
+//        ((ArrayList) result[1]).add(new PlayerInfo(70, 70, 70, new Position(288, 467)));
+//        ((ArrayList) result[1]).add(new PlayerInfo(70, 70, 70, new Position(330, 605)));
+//
+//        // add default midfielder positions
+//        result[2] = new ArrayList<>();
+//        ((ArrayList) result[2]).add(new PlayerInfo(70, 70, 70, new Position(550, 250)));
+//        ((ArrayList) result[2]).add(new PlayerInfo(70, 70, 70, new Position(450, 385)));
+//        ((ArrayList) result[2]).add(new PlayerInfo(70, 70, 70, new Position(550, 513)));
+//
+//        // add default midfielder positions
+//        result[3] = new ArrayList<>();
+//        ((ArrayList) result[3]).add(new PlayerInfo(70, 70, 70, new Position(713, 259)));
+//        ((ArrayList) result[3]).add(new PlayerInfo(70, 70, 70, new Position(785, 385)));
+//        ((ArrayList) result[3]).add(new PlayerInfo(70, 70, 70, new Position(719, 494)));
+//
+//        return result;
+//    }
 
     /**
      * Get the default positions of the right team based on a team parameter
@@ -199,29 +219,70 @@ public class PlayAnimation {
      * @return Object[]: [0] = keeper, [1] = ArrayList defenders, [2] =
      * ArrayList midfielders, [3] = ArrayList defenders
      */
-    private static Object[] getDefaultRightPositions(Team t1) {
-        Object[] result = new Object[4];
-        result[0] = new PlayerInfo(70, 70, new Position(963, 381));
+//    private static Object[] getDefaultRightPositions(Team t1) {
+//        Object[] result = new Object[4];
+//        result[0] = new PlayerInfo(70, 70, new Position(963, 381));
+//
+//        // add default defender positions
+//        result[1] = new ArrayList<>();
+//        ((ArrayList) result[1]).add(new PlayerInfo(70, 70, 70, new Position(700, 160)));
+//        ((ArrayList) result[1]).add(new PlayerInfo(70, 70, 70, new Position(730, 290)));
+//        ((ArrayList) result[1]).add(new PlayerInfo(70, 70, 70, new Position(730, 467)));
+//        ((ArrayList) result[1]).add(new PlayerInfo(70, 70, 70, new Position(700, 605)));
+//
+//        // add default midfielder positions
+//        result[2] = new ArrayList<>();
+//        ((ArrayList) result[2]).add(new PlayerInfo(70, 70, 70, new Position(461, 250)));
+//        ((ArrayList) result[2]).add(new PlayerInfo(70, 70, 70, new Position(562, 385)));
+//        ((ArrayList) result[2]).add(new PlayerInfo(70, 70, 70, new Position(461, 513)));
+//
+//        // add default midfielder positions
+//        result[3] = new ArrayList<>();
+//        ((ArrayList) result[3]).add(new PlayerInfo(70, 70, 70, new Position(306, 259)));
+//        ((ArrayList) result[3]).add(new PlayerInfo(70, 70, 70, new Position(233, 385)));
+//        ((ArrayList) result[3]).add(new PlayerInfo(70, 70, 70, new Position(306, 494)));
+//
+//        return result;
+//    }
 
-        // add default defender positions
-        result[1] = new ArrayList<>();
-        ((ArrayList) result[1]).add(new PlayerInfo(70, 70, 70, new Position(700, 160)));
-        ((ArrayList) result[1]).add(new PlayerInfo(70, 70, 70, new Position(730, 290)));
-        ((ArrayList) result[1]).add(new PlayerInfo(70, 70, 70, new Position(730, 467)));
-        ((ArrayList) result[1]).add(new PlayerInfo(70, 70, 70, new Position(700, 605)));
+    private static TeamPositions choosePositions(Team team, boolean isPlayer, boolean isHomeTeam) {
+        if (isPlayer) {
+            Stage stage = new Stage();
+            AnchorPane rootLayout;
+            try {
+                // Load root layout from fxml file
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(Main.class.getResource("animation/PlayMatch/ChoosePositions.fxml"));
+                rootLayout = (AnchorPane) loader.load();
 
-        // add default midfielder positions
-        result[2] = new ArrayList<>();
-        ((ArrayList) result[2]).add(new PlayerInfo(70, 70, 70, new Position(461, 250)));
-        ((ArrayList) result[2]).add(new PlayerInfo(70, 70, 70, new Position(562, 385)));
-        ((ArrayList) result[2]).add(new PlayerInfo(70, 70, 70, new Position(461, 513)));
+                //read a competition
+                // Show the scene containing the root layout
+                Scene scene = new Scene(rootLayout);
+                stage.setScene(scene);
+                stage.setResizable(true);
 
-        // add default midfielder positions
-        result[3] = new ArrayList<>();
-        ((ArrayList) result[3]).add(new PlayerInfo(70, 70, 70, new Position(306, 259)));
-        ((ArrayList) result[3]).add(new PlayerInfo(70, 70, 70, new Position(233, 385)));
-        ((ArrayList) result[3]).add(new PlayerInfo(70, 70, 70, new Position(306, 494)));
+                //set pane to controller
+                ChoosePositionsController controller = ((ChoosePositionsController) loader.getController());
+                controller.drawCircles(stage, rootLayout, team);
 
-        return result;
+                stage.showAndWait();
+                return ChoosePositionsController.getTeamPositions();
+//            
+//            scaleToScreenSize(rootLayout);
+//            
+            } catch (IOException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("Failed to load interface: AnchorPane");
+                return null;
+            }
+        } else{
+            TeamPositions result = new TeamPositions(team);
+            if(isHomeTeam)
+                result.setDefaultLeftPlayers();
+            else
+                result.setDefaultRightPlayers();
+            
+            return result;
+        }
     }
 }

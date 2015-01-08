@@ -1,11 +1,10 @@
 package application.model;
 
+import application.controller.GenerateMatch;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Random;
 
-import application.controller.GenerateMatch;
 
 public class Competition {
 

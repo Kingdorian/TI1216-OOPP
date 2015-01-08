@@ -138,14 +138,15 @@ public class GameScreenPLAYMATCHController implements ViewControllerInterface {
      */
     @FXML
     private void playMatchButton() {
-        playMatchButton.setDisable(true);
+//        playMatchButton.setDisable(true);
+        
         //TEMPORARY TO SIMULATE THE MATCH ANIMATOR RESULT
-       	Match result =  Main.getCompetition().playNextRound(nameLeft.getText());
-       	score.setText(result.getPointsHomeTeam() + " - " + result.getPointsVisitorTeam());
-       /* Match result = PlayAnimation.playMatches();
+//       	Match result =  Main.getCompetition().playNextRound(nameLeft.getText());
+//       	score.setText(result.getPointsHomeTeam() + " - " + result.getPointsVisitorTeam());
+        Match result = PlayAnimation.playMatches();
         
         int pointsLeft = result.getHomeTeam().getName().equals(nameLeft.getText()) ? result.getPointsHomeTeam() : result.getPointsVisitorTeam();
         int pointsRight = result.getHomeTeam().getName().equals(nameLeft.getText()) ? result.getPointsVisitorTeam() : result.getPointsHomeTeam();
-        score.setText(pointsLeft + " - " + pointsRight);*/
+        score.setText(pointsLeft + " - " + pointsRight);
     }
 }

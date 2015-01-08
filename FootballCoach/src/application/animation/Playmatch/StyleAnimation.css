@@ -1,9 +1,34 @@
-.animationBottomRegion
-{
+.animationBottomRegion{
     -fx-background-color: whitesmoke;
 }
 
-.animationTopRegion
-{
+.animationTopRegion{
     -fx-background-color: rgba(255, 255, 255, 0.25);
+}
+
+.animationDefenseRegion{
+    -fx-background-color: rgba(255, 255, 0, 0.25);
+}
+
+.animationMidfieldRegion{
+    -fx-background-color: rgba(255, 126, 0, 0.25);
+}
+
+.animationAttackRegion{
+    -fx-background-color: rgba(255, 0, 0, 0.25);
+}
+
+.animationDefenseText{
+    -fx-font: 18pt 'Verdana bold';
+    -fx-fill: rgba(255, 255, 0, 0.8);
+}
+
+.animationMidfieldText{
+    -fx-font: 18pt 'Verdana bold';
+    -fx-fill: rgba(255, 126, 0, 0.8);
+}
+
+.animationAttackText{
+    -fx-font: 18pt 'Verdana bold';
+    -fx-fill: rgba(255, 0, 0, 0.8);
 }

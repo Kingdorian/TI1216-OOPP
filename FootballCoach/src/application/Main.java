@@ -1,6 +1,5 @@
 package application;
 
-import application.controller.XMLHandler;
 import application.model.Competition;
 import application.model.Players;
 import application.view.GameScreenMenuController;
