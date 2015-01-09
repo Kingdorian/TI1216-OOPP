@@ -375,10 +375,6 @@ public class Competition {
         int rank = sortedTeams.indexOf(team);
 
         //give teams with exactly the same amount of points and goals the same rank
-        while (rank > 0 && sortedTeams.get(rank).getPoints() == sortedTeams.get(rank - 1).getPoints()
-                && sortedTeams.get(rank).getGoalDiff() - sortedTeams.get(rank - 1).getGoalDiff() == 0) {
-            rank--;
-        }
         return rank + 1;
     }
 
@@ -391,7 +387,10 @@ public class Competition {
         //sort the list of teams based on points (if draw, based on goals)
         Collections.sort(sortedTeams, (Team t1, Team t2) -> {
             if (t2.getPoints() == t1.getPoints()) {
-                return t2.getGoalDiff() - t1.getGoalDiff();
+                if(t2.getGoalDiff() - t1.getGoalDiff() == 0)
+                    return t1.getName().compareTo(t2.getName());
+                else
+                    return t2.getGoalDiff() - t1.getGoalDiff();
             } else {
                 return t2.getPoints() - t1.getPoints();
             }
