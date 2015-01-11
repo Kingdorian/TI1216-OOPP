@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <teams>
-    <team name="ADO Den Haag" art_grass="true" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/701/150x150.png">
+    <team budget="500000" name="ADO Den Haag" art_grass="true" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/701/150x150.png">
         <goalkeeper>
             <name>Robert</name>
             <surname>Zwinkels</surname>
@@ -262,7 +262,7 @@
             <stamina>61</stamina>
         </player>
     </team>
-    <team name="Ajax" art_grass="false" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/215/150x150.png">
+    <team budget="500000" name="Ajax" art_grass="false" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/215/150x150.png">
         <goalkeeper>
             <name>Jasper</name>
             <surname>Cillessen</surname>
@@ -536,7 +536,7 @@
             <penaltystoppower>71</penaltystoppower>
         </goalkeeper>
     </team>
-    <team name="AZ" art_grass="false" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/313/150x150.png">
+    <team budget="500000" name="AZ" art_grass="false" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/313/150x150.png">
         <player>
             <name>Muamer</name>
             <surname>Tankovic</surname>
@@ -808,7 +808,7 @@
             <stamina>65</stamina>
         </player>
     </team>
-    <team name="SC Cambuur" art_grass="true" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/314/150x150.png">
+    <team budget="500000" name="SC Cambuur" art_grass="true" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/314/150x150.png">
         <goalkeeper>
             <name>Leonard</name>
             <surname>Nienhuis</surname>
@@ -1082,7 +1082,7 @@
             <stamina>59</stamina>
         </player>
     </team>
-    <team name="FC Dordrecht" art_grass="true" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/697/150x150.png">
+    <team budget="500000" name="FC Dordrecht" art_grass="true" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/697/150x150.png">
         <player>
             <name>Jordy</name>
             <surname>Van Deelen</surname>
@@ -1320,7 +1320,7 @@
             <stamina>43</stamina>
         </player>
     </team>
-    <team name="Excelsior" art_grass="true" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/539/150x150.png">
+    <team budget="500000" name="Excelsior" art_grass="true" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/539/150x150.png">
         <player>
             <name>Luigi</name>
             <surname>Bruins</surname>
@@ -1592,7 +1592,7 @@
             <stamina>42</stamina>
         </player>
     </team>
-    <team name="Feyenoord" art_grass="false" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/198/150x150.png">
+    <team budget="500000" name="Feyenoord" art_grass="false" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/198/150x150.png">
         <player>
             <name>Karim</name>
             <surname>El Ahmadi</surname>
@@ -1864,7 +1864,7 @@
             <stamina>49</stamina>
         </player>
     </team>
-    <team name="Go Ahead Eagles" art_grass="false" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/734/150x150.png">
+    <team budget="500000" name="Go Ahead Eagles" art_grass="false" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/734/150x150.png">
         <player>
             <name>Lesley</name>
             <surname>de Sa</surname>
@@ -2148,7 +2148,7 @@
             <stamina>52</stamina>
         </player>
     </team>
-    <team name="FC Groningen" art_grass="false" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/425/150x150.png">
+    <team budget="500000" name="FC Groningen" art_grass="false" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/425/150x150.png">
         <player>
             <name>Danny</name>
             <surname>Hoesen</surname>
@@ -2434,7 +2434,7 @@
             <stamina>56</stamina>
         </player>
     </team>
-    <team name="SC Heerenveen" art_grass="false" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/318/150x150.png">
+    <team budget="500000" name="SC Heerenveen" art_grass="false" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/318/150x150.png">
         <goalkeeper>
             <name>Kristoffer</name>
             <surname>Nordfeldt</surname>
@@ -2696,7 +2696,7 @@
             <stamina>53</stamina>
         </player>
     </team>
-    <team name="Heracles Almelo" art_grass="true" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/2038/150x150.png">
+    <team budget="500000" name="Heracles Almelo" art_grass="true" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/2038/150x150.png">
         <player>
             <name>Joel</name>
             <surname>Pelupessy</surname>
@@ -2978,7 +2978,7 @@
             <stamina>78</stamina>
         </player>
     </team>
-    <team name="NAC Breda" art_grass="false" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/423/150x150.png">
+    <team budget="500000" name="NAC Breda" art_grass="false" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/423/150x150.png">
         <player>
             <name>Kingsley</name>
             <surname>Boateng</surname>
@@ -3250,7 +3250,7 @@
             <stamina>64</stamina>
         </player>
     </team>
-    <team name="PEC Zwolle" art_grass="true" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/424/150x150.png">
+    <team budget="500000" name="PEC Zwolle" art_grass="true" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/424/150x150.png">
         <player>
             <name>Wout</name>
             <surname>Brama</surname>
@@ -3522,7 +3522,7 @@
             <stamina>56</stamina>
         </player>
     </team>
-    <team name="PSV" art_grass="false" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/204/150x150.png">
+    <team budget="500000" name="PSV" art_grass="false" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/204/150x150.png">
         <player>
             <name>Nicholas</name>
             <surname>Isimat-Mirin</surname>
@@ -3796,7 +3796,7 @@
             <stamina>77</stamina>
         </player>
     </team> 
-    <team name="FC Twente" art_grass="false" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/324/150x150.png">
+    <team budget="500000" name="FC Twente" art_grass="false" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/324/150x150.png">
         <goalkeeper>
             <name>Sonny</name>
             <surname>Stevens</surname>
@@ -4068,7 +4068,7 @@
             <stamina>67</stamina>
         </player>
     </team>
-    <team name="FC Utrecht" art_grass="false" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/325/150x150.png">		
+    <team budget="500000" name="FC Utrecht" art_grass="false" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/325/150x150.png">		
         <player>
             <name>Christian</name>
             <surname>Kum</surname>
@@ -4366,7 +4366,7 @@
             <stamina>65</stamina>
         </player>
     </team>
-    <team name="Vitesse" art_grass="false" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/232/150x150.png">
+    <team budget="500000" name="Vitesse" art_grass="false" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/232/150x150.png">
         <player>
             <name>Wallace</name>
             <surname>Oliveira dos Santos</surname>
@@ -4592,7 +4592,7 @@
             <stamina>64</stamina>
         </player>
     </team>
-    <team name="Willem II" art_grass="false" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/207/150x150.png">
+    <team budget="500000" name="Willem II" art_grass="false" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/207/150x150.png">
         <player>
             <name>Ben</name>
             <surname>Sahar</surname>

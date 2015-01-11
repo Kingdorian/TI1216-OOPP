@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <teams>
-	<team name="ADO Den Haag" art_grass="true" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/701/150x150.png">
+	<team budget="50000" name="ADO Den Haag" art_grass="true" logo="http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/701/150x150.png">
 			<goalkeeper>
 				<name>Robert</name>
 				<surname>Zwinkels</surname>
