@@ -17,25 +17,22 @@ public class Match {
     private int pointsVisitorTeam = -1;
 
     public boolean equals(Object obj) {
+    	System.out.println(obj.toString());
         if (!(obj instanceof Match)) {
             return false;
         }
         Match other = (Match) obj;
         if (homeTeam == null) {
-            if (other.homeTeam != null) {
+            if (other.getHomeTeam() != null) {
                 return false;
             }
         } else if (!homeTeam.equals(other.getHomeTeam())) {
-//            System.out.println(homeTeam.toString() + "\n" + other.getHomeTeam().toString());
-//            System.out.println("Hometeams not equal");
             return false;
         }
         if (pointsHomeTeam != other.pointsHomeTeam) {
-//            System.out.println("Points Hometeam not equal");
             return false;
         }
         if (pointsVisitorTeam != other.pointsVisitorTeam) {
-//            System.out.println("Points visitor team not equal");
             return false;
         }
         if (visitorTeam == null) {

@@ -174,6 +174,10 @@ public class GameScreenMARKETController implements ViewControllerInterface {
     private void buyPlayerButton() {
         int price = Main.getCompetition().getMarket().getPlayersPrice(selectedPlayer);
         if (Main.getCompetition().getPlayersTeam(selectedPlayer).transferTo(selectedPlayer, Main.getCompetition().getTeamByName(Main.getChosenTeamName()), price)) {
+            // remove player from market
+            Main.getCompetition().getMarket().removePlayer(selectedPlayer);
+            // refresh budget in title bar
+            Main.getTitleController().refreshMoney();
             // transfer succesful
             Dialogs.create()
                     .title("Player Market")

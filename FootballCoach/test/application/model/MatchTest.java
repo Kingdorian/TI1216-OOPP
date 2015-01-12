@@ -16,7 +16,7 @@ import org.junit.Before;
  */
 public class MatchTest {
 
-    Match match;
+    Match match, otherMatch;
     Team homeTeam;
     Team outTeam;
     ArrayList<Players> homeList;
@@ -24,8 +24,8 @@ public class MatchTest {
 
     @Before
     public void intialize() {
-        homeTeam = new Team("home", 100000, 0, 0, 0, false);
-        outTeam = new Team("out", 100000, 0, 0, 0, false);
+        homeTeam = new Team("home", false);
+        outTeam = new Team("out", false);
 
         homeList = new ArrayList<>();
         homeList.add(new Goalkeeper("name", "sname", 0, Status.DEFAULT, 0, Reason.DEFAULT, 100, 100));
@@ -42,6 +42,7 @@ public class MatchTest {
         outTeam.setPlayers(visitorList);
 
         match = new Match(homeTeam, outTeam, 2, 3);
+        otherMatch = new Match(homeTeam, outTeam, 2, 3);
     }
 
     public MatchTest() {
@@ -116,5 +117,104 @@ public class MatchTest {
         match.setPointsVisitorTeam(5);
         assertTrue(match.getPointsVisitorTeam() == 5);
     }
-
+    
+    /**
+     * Test equals in when the two objects are equal
+     */
+    @Test
+    public void testEqual(){
+    	Match othMatch = new Match(homeTeam, outTeam, 2, 3);
+    	assertEquals(match, othMatch);
+    }
+    /**
+     * Test equals when the other object is not an instance of match
+     */
+    @Test
+    public void testEqualsOthObj(){
+    	assertNotEquals(match, new ArrayList<Players>());
+    }
+    /**
+     * Test equals when the other object is null
+     */
+    @Test
+    public void testEqualsNull(){
+    	assertNotEquals(null, match);
+    }
+    /**
+     * Test equals when both Hometeams are null
+     */
+    @Test
+    public void testEqualsBothHomeNull(){
+    	otherMatch.setHomeTeam(null);
+    	match.setHomeTeam(null);
+    	assertEquals(otherMatch, match);
+    	match.setHomeTeam(homeTeam);
+    	otherMatch.setHomeTeam(homeTeam);
+    }
+    /**
+     * Test equals when the other object is null
+     */
+    @Test
+    public void testEqualsHomeTeam(){
+    	otherMatch.setHomeTeam(null);
+    	assertNotEquals(otherMatch, match);
+    	otherMatch.setHomeTeam(homeTeam);
+    }
+    /**
+     * Test equals when both Hometeams are null
+     */
+    @Test
+    public void testEqualsBothVisNull(){
+    	otherMatch.setVisitorTeam(null);
+    	match.setVisitorTeam(null);
+    	assertEquals(otherMatch, match);
+    	match.setVisitorTeam(outTeam);
+    	otherMatch.setVisitorTeam(outTeam);
+    }
+    /**
+     * Test equals when both Hometeams are null
+     */
+    @Test
+    public void testEqualsVisTeamNull(){
+    	otherMatch.setVisitorTeam(null);
+    	assertNotEquals(otherMatch, match);
+    	otherMatch.setVisitorTeam(null);
+    }
+    /**
+     * Test equals when the other object is null
+     */
+    @Test
+    public void testEqualsDiffHomeTeam(){
+    	otherMatch.setHomeTeam(outTeam);
+    	assertNotEquals(otherMatch, match);
+    	otherMatch.setHomeTeam(outTeam);
+    }
+    /**
+     * Test equals when the other object is null
+     */
+    @Test
+    public void testEqualsDiffVistTeaam(){
+    	otherMatch.setVisitorTeam(homeTeam);
+    	assertNotEquals(otherMatch, match);
+    	otherMatch.setHomeTeam(outTeam);
+    }
+    /**
+     * Test equals when the homeTeam Points are not equal
+     */
+    @Test
+    public void testEqualsNotHomePoints(){
+    	otherMatch.setPointsHomeTeam(7);
+    	assertNotEquals(otherMatch, match);
+    	otherMatch.setPointsHomeTeam(2);
+    }
+    /**
+     * Test equals when the visitorTeam points are not equal
+     */
+    @Test
+    public void testEqualNotVisPoints(){
+    	otherMatch.setPointsVisitorTeam(7);
+    	assertNotEquals(otherMatch, match);
+    	otherMatch.setPointsVisitorTeam(3);
+    }
+    
 }

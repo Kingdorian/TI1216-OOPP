@@ -1,6 +1,7 @@
 package application.model;
 
 import application.Main;
+
 import java.util.ArrayList;
 
 public class Team {
@@ -9,7 +10,7 @@ public class Team {
     private String imgUrl;
     private ArrayList<Players> players = new ArrayList<>();
     private int budget, points, goals, goalsAgainst, goalDiff, wins, draws, losses;
-    boolean artificialGrass;
+    private boolean artificialGrass;
 
     /**
      * Constructor
@@ -47,24 +48,10 @@ public class Team {
         this.artificialGrass = artificialGrass;
     }
 
-    public boolean equals(Object other) {
-
-        if (other instanceof Team) {
-            Team team = (Team) other;
-            if (this.name.equals(team.getName())
-                    && this.budget == team.getBudget()
-                    && this.points == team.getPoints()
-                    && this.goals == team.getGoals()
-                    && this.goalsAgainst == team.getGoalsAgainst()
-                    && this.artificialGrass == team.hasArtificialGrass()) {
-                return true;
-            }
-
-        }
 //		System.out.println("Not an instance of team");
-        return false;
 
-    }
+
+    
 
     public ArrayList<Players> getPlayers() {
         return players;
@@ -74,7 +61,48 @@ public class Team {
         this.players = players;
     }
 
-    public String getName() {
+	public boolean equals(Object obj) {
+		if(obj==null)
+			return false;
+		if(!(obj instanceof Team))
+			return false;
+		Team other = (Team) obj;
+		if (artificialGrass != other.hasArtificialGrass())
+			return false;
+		System.out.println(budget + " " + other.getBudget());
+		if (budget != other.getBudget())
+			return false;
+		if (draws != other.getDraws())
+			return false;
+		if (goalDiff != other.getGoalDiff())
+			return false;
+		if (goals != other.getGoals())
+			return false;
+		if (goalsAgainst != other.getGoalsAgainst())
+			return false;
+		if (other.getImgUrl() == null) {
+			if (imgUrl != null)
+				return false;
+		} else if (!imgUrl.equals(other.getImgUrl()))
+			return false;
+
+		if (losses != other.getLosses())
+			return false;
+		if (name == null) {
+			if (other.getName() != null)
+				return false;
+		} else if (!name.equals(other.getName()))
+			return false;
+		if (!players.equals(other.getPlayers()))
+			return false;
+		if (points != other.getPoints())
+			return false;
+		if (wins != other.getWins())
+			return false;
+		return true;
+	}
+
+	public String getName() {
         return this.name;
     }
 
@@ -87,6 +115,7 @@ public class Team {
     }
 
     public void setBudget(int budget) {
+    	System.out.println(budget);
         this.budget = budget;
     }
 
@@ -157,11 +186,6 @@ public class Team {
             this.setBudget(this.getBudget() + money);
             team.setBudget(team.getBudget() - money);
 
-            // remove player from market
-            Main.getCompetition().getMarket().removePlayer(player);
-
-            // refresh budget in title bar
-            Main.getTitleController().refreshMoney();
 
             return true;
         }

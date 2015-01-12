@@ -1,4 +1,4 @@
-package application.modelTest;
+package application.model;
 
 import application.model.*;
 import static org.junit.Assert.*;
@@ -65,7 +65,7 @@ public class PlayerTest {
 	//TESTS: toString()
 	@Test
 	public void testToString(){
-		assertEquals("Player [attack=90, defence=60, stamina=80Players [id =" + player1.getId() + "name=Bob, surname=De Bouwer, number=9, status=DEFAULT, timeNotAvailable=5, reason=DEFAULT]]", player1.toString());
+		assertEquals("Player [attack=90, defence=60, stamina=80Players [id="+player1.getId() +", name=Bob, surname=De Bouwer, number=9, status=DEFAULT, timeNotAvailable=5, reason=DEFAULT]]", player1.toString());
 	}
 	//TESTS: equals() other object
 	@Test 
@@ -109,4 +109,46 @@ public class PlayerTest {
 	public void testEquals(){
 		assertEquals(player1, player2);
 	}
+	//TESTS: getAbility() if attack is higher then defence
+	@Test
+	public void testAbilityAt(){
+		assertEquals(player1.getAbility(), 4.1904761904, 1e-7 );
+	}
+	//TESTS: getAbility() if defence is higer then attack
+	@Test
+	public void testAbilityDef(){
+		player1.setAttack(20);
+		player1.setDefence(40);
+		assertEquals(player1.getAbility(), 2.904761904, 1e-7);
+	}
+	//TESTS: getKind() if player is allround
+	@Test
+	public void testGetKindAllr(){
+		player1.setAttack(80);
+		player1.setDefence(80);
+		assertEquals(player1.getKind(), "Allrounder");
+	}
+	//TESTS: getKind() if player is a forward playing player
+	@Test
+	public void testGetKindFor(){
+		player1.setAttack(80);
+		player1.setDefence(50);
+		assertEquals(player1.getKind(), "Forward");
+	}
+	//TESTS: getKind() if player is a backwards playing player
+	@Test
+	public void testGetKindDef(){
+		player1.setAttack(50);
+		player1.setDefence(80);
+		assertEquals(player1.getKind(), "Defender");
+	}
+	//TESTS: getKind() if player is a midfield playing player
+	@Test
+	public void testGetKindMid(){
+		player1.setAttack(50);
+		player1.setDefence(50);
+		assertEquals(player1.getKind(), "Midfielder");
+	}
+	
+	
 }
