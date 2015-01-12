@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -28,7 +29,14 @@
             <children>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Select a savegame:" />
                 <ComboBox fx:id="selectSaveGameBox" prefHeight="29.0" prefWidth="289.0" styleClass="choiceBox" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" onAction="#buttonDelete" prefHeight="29.0" prefWidth="57.0" styleClass="choiceBox" text="X" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button maxHeight="29.0" minHeight="29.0" mnemonicParsing="false" onAction="#buttonDelete" prefHeight="29.0" prefWidth="57.0" styleClass="choiceBox" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <graphic>
+                  <ImageView fitHeight="21.0" fitWidth="18.0">
+                     <image>
+                        <Image url="@../img/trash.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
             </children>
         </GridPane>
     </children>
