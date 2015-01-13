@@ -106,7 +106,7 @@ public class Competition {
      */
     public Team getTeamByName(String name) {
         for (int i = 0; i < teams.length; i++) {
-            if (teams[i] != null && teams[i].getName().equals(name)) {
+            if (teams[i].getName().equals(name)) {
                 return teams[i];
             }
         }
@@ -331,7 +331,6 @@ public class Competition {
 		for(int i = 0; i<competition[roundNum].length;i++){
 
 			competition[roundNum][i] = GenerateMatch.generateMatch(competition[roundNum][i].getHomeTeam(),competition[roundNum][i].getVisitorTeam());
-			System.out.println(competition[roundNum][i].toString());
 			if(competition[roundNum][i].getHomeTeam().equals(this.getTeamByName(playerTeamName))||competition[roundNum][i].getVisitorTeam().equals(this.getTeamByName(playerTeamName))){
 				resultMatch = competition[roundNum][i];
 			}
@@ -350,15 +349,12 @@ public class Competition {
      * has ended
      */
     public int getRound() {
-        // there seems to be no nice way to get the current round,
-        // so getting the round based on the number of wins/draws/losses
-        // from the first team
-        int round = results[0][0] + results[0][1] + results[0][2] + 1;
-        if (round > 34) {
-            return -1;
-        } else {
-            return round;
+        for(int i = 0; i<34; i++){
+        	if(this.competition[i][1].getPointsHomeTeam()==-1){
+        		return i;
+        	}
         }
+        return -1;
     }
 
     /**
