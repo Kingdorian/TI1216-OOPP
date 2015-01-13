@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package application.animation.PlayMatch;
+package application.animation.Playmatch;
 
 import application.animation.CalculateMatch.MainAIController;
 import java.util.ArrayList;

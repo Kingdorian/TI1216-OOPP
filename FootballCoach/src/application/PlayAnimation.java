@@ -4,14 +4,16 @@ import application.animation.CalculateMatch.MainAIController;
 import application.animation.Container.CalculatedMatch;
 import application.animation.Container.CurrentPositions;
 import application.animation.Container.TeamPositions;
-import application.animation.PlayMatch.AnimateFootballMatch;
-import application.animation.PlayMatch.ChoosePositionsController;
+import application.animation.Playmatch.AnimateFootballMatch;
+import application.animation.Playmatch.ChoosePositionsController;
 import application.model.Competition;
 import application.model.Match;
 import application.model.Team;
+
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -252,7 +254,7 @@ public class PlayAnimation {
             try {
                 // Load root layout from fxml file
                 FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(Main.class.getResource("animation/PlayMatch/ChoosePositions.fxml"));
+                loader.setLocation(Main.class.getResource("animation/Playmatch/ChoosePositions.fxml"));
                 rootLayout = (AnchorPane) loader.load();
 
                 //read a competition
@@ -262,11 +264,11 @@ public class PlayAnimation {
                 stage.setResizable(true);
 
                 //set pane to controller
-                ChoosePositionsController controller = ((ChoosePositionsController) loader.getController());
+                GameScreenChoosePositionsController controller = ((GameScreenChoosePositionsController) loader.getController());
                 controller.drawCircles(stage, rootLayout, team);
 
                 stage.showAndWait();
-                return ChoosePositionsController.getTeamPositions();
+                return GameScreenChoosePositionsController.getTeamPositions();
 //            
 //            scaleToScreenSize(rootLayout);
 //            

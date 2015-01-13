@@ -34,7 +34,7 @@ public class GameScreenPLAYMATCHController implements ViewControllerInterface {
     @FXML
     private Text score;
     @FXML
-    private Button playMatchButton;
+    private Button positionsButton;
     @FXML
     private Label nameLeft;
     @FXML
@@ -131,6 +131,16 @@ public class GameScreenPLAYMATCHController implements ViewControllerInterface {
         this.mainController = mainController;
     }
 
+    /** This method is called when the change positions button is clicked.
+     *  It changes the view to the change positions screen.
+     */
+    @FXML 
+    private void positionsButton() {
+        Main.getMenuController().getCurrentMenuField().setText("Select positions");
+        mainController.setCenterView("GameScreenChoosePositions");
+    }
+    
+    
     /**
      * This method is triggered when the play match button is clicked (event
      * handler assigned in the .fxml) and it triggers the match position

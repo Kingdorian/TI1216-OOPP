@@ -1,4 +1,4 @@
-package application.animation.PlayMatch;
+package application.animation.Playmatch;
 
 import application.animation.Container.CalculatedMatch;
 import application.animation.Container.PositionFrame;

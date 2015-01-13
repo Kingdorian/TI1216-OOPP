@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package application.animation.PlayMatch;
+package application.view;
 
+import application.Main;
 import application.animation.Container.DefaultPos;
 import application.animation.Container.TeamPositions;
 import application.model.Goalkeeper;
@@ -33,6 +34,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+
 import org.controlsfx.dialog.Dialogs;
 
 /**
@@ -40,7 +42,7 @@ import org.controlsfx.dialog.Dialogs;
  *
  * @author Faris
  */
-public class ChoosePositionsController {
+public class GameScreenChoosePositionsController implements ViewControllerInterface {
 
     private static final Circle playerCircle[] = new Circle[11];
     private static final Text playerText[] = new Text[11]; // texts above the circles
@@ -50,7 +52,9 @@ public class ChoosePositionsController {
 //    private static ArrayList<Goalkeeper> keeperList;
     private static TeamPositions teamPositions;
     private static int selectedCircleID;
-    private static ChoosePositionsController thisController;
+    private static GameScreenChoosePositionsController thisController;
+    
+    private static Main mainController;
 
     @FXML
     private ComboBox<Players> selectPlayerBox;
@@ -508,7 +512,8 @@ public class ChoosePositionsController {
 
     @FXML
     private void cancelButton() {
-        this.stage.close();
+        Main.getMenuController().getCurrentMenuField().setText("Play Match");
+        mainController.setCenterView("GameScreenPLAYMATCH");
     }
 
     /**
@@ -556,6 +561,16 @@ public class ChoosePositionsController {
     public static TeamPositions getTeamPositions() {
         return teamPositions;
     }
+    
+    /**
+     * This gives this class a reference to the main class
+     *
+     * @param mainController the main class
+     */
+    @Override
+    public void setMainController(Main mainController) {
+        this.mainController = mainController;
+    }    
 
     
 }

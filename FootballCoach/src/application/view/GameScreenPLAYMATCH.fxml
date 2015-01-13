@@ -14,7 +14,7 @@
     <children>
         <Region prefHeight="50.0" prefWidth="684.0" styleClass="topMenu" />
         <Region layoutY="50.0" prefHeight="400.0" prefWidth="684.0" styleClass="contentView" />
-        <Button fx:id="playMatchButton" layoutX="513.0" layoutY="400.0" mnemonicParsing="false" onAction="#playMatchButton" prefHeight="50.0" prefWidth="171.0" styleClass="contentItemMenu" text="Play Match" />
+        <Button fx:id="positionsButton" layoutX="513.0" layoutY="400.0" mnemonicParsing="false" onAction="#positionsButton" prefHeight="50.0" prefWidth="171.0" styleClass="contentItemMenu" text="Change Positions" />
         <HBox layoutY="51.0" prefHeight="349.0" prefWidth="684.0">
             <children>
                 <AnchorPane prefHeight="160.0" prefWidth="500.0">
