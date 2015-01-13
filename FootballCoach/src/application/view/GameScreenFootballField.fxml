@@ -11,15 +11,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" minHeight="820.0" minWidth="1020.0" prefHeight="820.0" prefWidth="1020.0" stylesheets="@StyleAnimation.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.FootballFieldController">
+<Pane id="AnchorPane" maxHeight="450.0" maxWidth="685.0" minHeight="450.0" minWidth="685.0" prefHeight="450.0" prefWidth="685.0" stylesheets="@StyleAnimation.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.GameScreenFootballFieldController">
     <children>
-        <ImageView fx:id="fieldPicture" pickOnBounds="true" preserveRatio="true">
+      <Region layoutY="50.0" prefHeight="400.0" prefWidth="684.0" styleClass="contentView" />
+      <Region prefHeight="50.0" prefWidth="685.0" styleClass="topMenu" />
+        <ImageView fx:id="fieldPicture" fitHeight="350.0" fitWidth="481.0" layoutX="108.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../img/Field.png" />
             </image>
         </ImageView>
-        <Region layoutY="760.0" prefHeight="60.0" prefWidth="1020.0" styleClass="animationBottomRegion" />
-        <HBox alignment="TOP_CENTER" layoutX="6.0" layoutY="775.0" spacing="10.0">
+        <HBox alignment="TOP_CENTER" layoutY="400.0" prefHeight="50.0" prefWidth="529.0" spacing="10.0">
             <children>
                 <Button fx:id="pauseButton" layoutX="14.0" layoutY="780.0" mnemonicParsing="false" onAction="#togglePauseButton" prefHeight="25.0" prefWidth="38.0" text="S" />
                 <Slider fx:id="timeSlider" layoutX="61.0" layoutY="778.0" onMouseClicked="#mouseClickedOnSlider" onMousePressed="#startedDragging" onMouseReleased="#stoppedDragging" prefHeight="14.0" prefWidth="601.0">
@@ -34,36 +35,39 @@
                 </TextField>
                 <ComboBox fx:id="speedBox" layoutX="785.0" layoutY="780.0" prefHeight="25.0" prefWidth="118.0" promptText="Select speed" />
             </children>
+         <padding>
+            <Insets left="10.0" right="10.0" top="10.0" />
+         </padding>
         </HBox>
-        <Button layoutX="918.0" layoutY="770.0" mnemonicParsing="false" onAction="#continueButton" prefHeight="40.0" prefWidth="98.0" text="CONTINUE">
+        <Button layoutX="551.0" layoutY="405.0" mnemonicParsing="false" onAction="#continueButton" prefHeight="40.0" prefWidth="98.0" text="CONTINUE">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
         </Button>
-        <Region prefHeight="53.0" prefWidth="1020.0" styleClass="animationTopRegion" />
-        <Text fx:id="score" layoutX="768.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="animationTopRegion" text="Score: 00 - 00">
+        <Text fx:id="score" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="animationTopRegion" text="Score: 00 - 00">
             <font>
-                <Font size="40.0" />
+                <Font size="24.0" />
             </font>
         </Text>
-        <HBox fx:id="teamsBox" alignment="TOP_CENTER" layoutX="401.0" layoutY="14.0" spacing="20.0">
+        <HBox fx:id="teamsBox" alignment="CENTER" layoutY="15.0" prefHeight="25.0" prefWidth="685.0" spacing="20.0">
             <children>
-                <Text fx:id="team1" fill="#0027f5" layoutX="403.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="animationTopRegion" text="team 1">
+                <Text fx:id="team1" fill="#0027f5" layoutX="403.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="team 1">
                     <font>
                         <Font name="System Bold" size="24.0" />
                     </font>
                 </Text>
-                <Text fx:id="vs" layoutX="497.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="animationTopRegion" text="vs.">
+                <Text fx:id="vs" layoutX="497.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="vs.">
                     <font>
                         <Font name="System Bold" size="24.0" />
                     </font>
                 </Text>
-                <Text fx:id="team2" fill="#dd0f0f" layoutX="540.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="animationTopRegion" text="team 2">
+                <Text fx:id="team2" fill="#dd0f0f" layoutX="540.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="team 2">
                     <font>
                         <Font name="System Bold" size="24.0" />
                     </font>
                 </Text>
             </children>
         </HBox>
+      <Line endX="684.0" layoutY="400.0" styleClass="contentView" />
     </children>
-</AnchorPane>
+</Pane>

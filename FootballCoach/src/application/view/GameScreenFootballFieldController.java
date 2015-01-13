@@ -5,9 +5,12 @@
  */
 package application.view;
 
+import application.Main;
 import application.animation.CalculateMatch.MainAIController;
 import application.animation.Playmatch.AnimateFootballMatch;
+
 import java.util.ArrayList;
+
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -31,7 +34,7 @@ import javafx.util.StringConverter;
  *
  * @author Faris
  */
-public class FootballFieldController {
+public class GameScreenFootballFieldController implements ViewControllerInterface {
 
     private static final int SLIDER_PRECISION = 9000;
     private boolean isDragging = false;
@@ -58,6 +61,8 @@ public class FootballFieldController {
     private ImageView fieldPicture;
     @FXML
     private Button pauseButton;
+    
+    private static Main mainController;
 
     /**
      * this event will be executed when a speed in the dropdown list is selected
@@ -320,4 +325,14 @@ public class FootballFieldController {
     private void continueButton() {
         AnimateFootballMatch.stopAnimation();
     }
+    
+    /**
+     * This gives this class a reference to the main class
+     *
+     * @param mainController the main class
+     */
+    @Override
+    public void setMainController(Main mainController) {
+        this.mainController = mainController;
+    }     
 }

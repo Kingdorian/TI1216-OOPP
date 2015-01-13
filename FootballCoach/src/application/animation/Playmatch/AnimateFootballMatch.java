@@ -2,7 +2,7 @@ package application.animation.Playmatch;
 
 import application.animation.Container.CalculatedMatch;
 import application.animation.Container.PositionFrame;
-import application.view.FootballFieldController;
+import application.view.GameScreenFootballFieldController;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -48,7 +48,7 @@ public class AnimateFootballMatch {
     private static CalculatedMatch footballMatch;
 
     private static int playerPause = 0; // if this is 1, there is a pause, if this is 2, there was a pause last slice, if it is 3, still setting up new positions, if this is 0, there is no pause
-    private static FootballFieldController viewController;
+    private static GameScreenFootballFieldController viewController;
 
     // stop playing if this is true
     private static boolean pause = false;
@@ -70,7 +70,7 @@ public class AnimateFootballMatch {
      * @param footballMatch Match containing a full match to play
      * @param pane The pane of the animation
      */
-    public static void playMatch(CalculatedMatch footballMatch, FootballFieldController viewController, Pane pane) {
+    public static void playMatch(CalculatedMatch footballMatch, GameScreenFootballFieldController viewController, Pane pane) {
         AnimateFootballMatch.viewController = viewController;
         AnimateFootballMatch.footballMatch = footballMatch;
 
