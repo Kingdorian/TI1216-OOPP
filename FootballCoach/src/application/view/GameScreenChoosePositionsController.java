@@ -6,9 +6,11 @@
 package application.view;
 
 import application.Main;
+import application.PlayAnimation;
 import application.animation.Container.DefaultPos;
 import application.animation.Container.TeamPositions;
 import application.model.Goalkeeper;
+import application.model.Match;
 import application.model.Player;
 import application.model.Players;
 import application.model.Team;
@@ -24,10 +26,11 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.effect.Lighting;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
@@ -68,6 +71,8 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
     private Text stopPower;
     @FXML
     private Text penaltyStopPower;
+    @FXML
+    private ImageView fieldImage;
 
     /**
      * this class implements EventHandler and can be added to a circle to make
@@ -321,7 +326,7 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
      * @param anchorPane the anchor pane containing the scene
      * @param team the players team
      */
-    public void drawCircles(Stage stage, AnchorPane anchorPane, Team team) {
+    public void drawCircles(Stage stage, Pane anchorPane, Team team) {
         this.stage = stage;
 //        this.team = team;
 
@@ -499,7 +504,10 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
     @FXML
     private void startMatchButton() {
         if (teamPositions.checkValid()) {
-            this.stage.close();
+            PlayAnimation.playMatches(teamPositions, mainController);
+//            int pointsLeft = result.getHomeTeam().getName().equals(nameLeft.getText()) ? result.getPointsHomeTeam() : result.getPointsVisitorTeam();
+//            int pointsRight = result.getHomeTeam().getName().equals(nameLeft.getText()) ? result.getPointsVisitorTeam() : result.getPointsHomeTeam();
+//            score.setText(pointsLeft + " - " + pointsRight);
         } else {
             Dialogs.create()
                     .title("Invalid selection")

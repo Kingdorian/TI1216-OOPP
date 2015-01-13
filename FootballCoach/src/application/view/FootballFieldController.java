@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package application.animation.Playmatch;
+package application.view;
 
 import application.animation.CalculateMatch.MainAIController;
+import application.animation.Playmatch.AnimateFootballMatch;
 import java.util.ArrayList;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;

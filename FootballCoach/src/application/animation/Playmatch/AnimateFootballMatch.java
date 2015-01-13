@@ -2,9 +2,7 @@ package application.animation.Playmatch;
 
 import application.animation.Container.CalculatedMatch;
 import application.animation.Container.PositionFrame;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import application.view.FootballFieldController;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -13,10 +11,8 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.effect.Lighting;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -33,7 +29,7 @@ import javafx.util.Duration;
 public class AnimateFootballMatch {
 
     // The stage of the animation
-    private static Stage stage;
+//    private static Stage stage;
 
     // The amount of slides to play per second. Change this to change the playing speed.
     private static final int MILLISECONDS_PER_FRAME = 245; // base speed (at x1 speed)
@@ -72,23 +68,24 @@ public class AnimateFootballMatch {
      * Play the match defined in the Match parameter
      *
      * @param footballMatch Match containing a full match to play
+     * @param pane The pane of the animation
      */
-    public static void playMatch(CalculatedMatch footballMatch) {
-
+    public static void playMatch(CalculatedMatch footballMatch, FootballFieldController viewController, Pane pane) {
+        AnimateFootballMatch.viewController = viewController;
         AnimateFootballMatch.footballMatch = footballMatch;
 
         // load the view
-        AnchorPane anchorPane;
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(AnimateFootballMatch.class.getResource("FootballField.fxml"));
-            anchorPane = (AnchorPane) loader.load();
-            viewController = (FootballFieldController) loader.getController();
-        } catch (IOException ex) {
-            Logger.getLogger(AnimateFootballMatch.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Failed to read FootballField.fxml file");
-            return;
-        }
+//        Pane pane;
+//        try {
+//            FXMLLoader loader = new FXMLLoader();
+//            loader.setLocation(Main.class.getResource("FootballField.fxml"));
+//            pane = (Pane) loader.load();
+//            viewController = (FootballFieldController) loader.getController();
+//        } catch (IOException ex) {
+//            Logger.getLogger(AnimateFootballMatch.class.getName()).log(Level.SEVERE, null, ex);
+//            System.out.println("Failed to read FootballField.fxml file");
+//            return;
+//        }
 
         // get starting positions and increase time variable
         PositionFrame startPositions = footballMatch.getPosition(time++);
@@ -118,7 +115,7 @@ public class AnimateFootballMatch {
             }
 
             // add circles to the scene and show the scene
-            anchorPane.getChildren().addAll(playerCircle[i], adversaryCircle[i]);
+            pane.getChildren().addAll(playerCircle[i], adversaryCircle[i]);
         }
 
         // draw the ball
@@ -132,26 +129,26 @@ public class AnimateFootballMatch {
             ballCircle.setVisible(false);
         }
         // add the ball to the scene
-        anchorPane.getChildren().add(ballCircle);
+        pane.getChildren().add(ballCircle);
 
         // Play the first TimeSlice, following time slices will be played by the event handler
         if (footballMatch.amoutOfFrames() > 1) {
             playTimeSlice();
         }
 
-        // set the scene and show it
-        stage = new Stage();
-        Scene scene = new Scene(anchorPane);
-        stage.setScene(scene);
-        stage.sizeToScene(); // make sure there are no white borders
-
-        // Uncomment the following 4 lines if the screen should be resizeable (also uncomment the class at the bottom of this class)
-        // the scene size change listener only works if the stage is shown before it is applied and it isn't possible to do that when using showAndWait()
-        stage.show();
-        scaleToScreenSize(anchorPane); // make scene size adjustable and let content grow/shrink
-        stage.close();
-
-        stage.showAndWait(); // show the stage and wait till it gets closed
+//        // set the scene and show it
+//        stage = new Stage();
+//        Scene scene = new Scene(pane);
+//        stage.setScene(scene);
+//        stage.sizeToScene(); // make sure there are no white borders
+//
+//        // Uncomment the following 4 lines if the screen should be resizeable (also uncomment the class at the bottom of this class)
+//        // the scene size change listener only works if the stage is shown before it is applied and it isn't possible to do that when using showAndWait()
+//        stage.show();
+//        scaleToScreenSize(pane); // make scene size adjustable and let content grow/shrink
+//        stage.close();
+//
+//        stage.showAndWait(); // show the stage and wait till it gets closed
 
         // stop animation when stage is closed
         timeline.stop();
@@ -281,7 +278,7 @@ public class AnimateFootballMatch {
      * Stop the animation (close the stage)
      */
     public static void stopAnimation() {
-        stage.close();
+//        stage.close();
     }
 
     /**
@@ -296,7 +293,7 @@ public class AnimateFootballMatch {
         }
         ballCircle = null;
         footballMatch = null;
-        stage = null;
+//        stage = null;
         time = 0;
         timeline = null;
         viewController = null;
@@ -304,73 +301,73 @@ public class AnimateFootballMatch {
         playerPause = 0;
     }
 
-//// This code to adjust the screen size is based on the code from http://stackoverflow.com/a/16608161
-//// Some adjustments have been made to improve it and comments have been added.
-////****************************************************************************************************
-    /**
-     * Scale the size of the given stage. coppied from: see header above
-     *
-     * @param contentPane the stage to resize
-     */
-    private static void scaleToScreenSize(final Pane contentPane) {
-        Scene scene = contentPane.getScene();
-        final double initWidth = scene.getWidth();
-        final double initHeight = scene.getHeight();
-        final double ratio = initWidth / initHeight;
-
-        SceneSizeChangeListener sizeListener = new SceneSizeChangeListener(scene, ratio, initHeight, initWidth, contentPane);
-        scene.widthProperty().addListener(sizeListener);
-        scene.heightProperty().addListener(sizeListener);
-    }
-
-    /**
-     * When the user resizes the screen the method changed() in this class will
-     * be called coppied from: see header above
-     */
-    private static class SceneSizeChangeListener implements ChangeListener<Number> {
-
-        private final Scene scene;
-        private final double ratio;
-        private final double initHeight;
-        private final double initWidth;
-        private final Pane contentPane;
-
-        public SceneSizeChangeListener(Scene scene, double ratio, double initHeight, double initWidth, Pane contentPane) {
-            this.scene = scene;
-            this.ratio = ratio;
-            this.initHeight = initHeight;
-            this.initWidth = initWidth;
-            this.contentPane = contentPane;
-        }
-
-        /**
-         * Listen for size changes and change the scene accordingly coppied
-         * from: see header above
-         *
-         * @param observableValue the value being observed
-         * @param oldValue old size
-         * @param newValue new size
-         */
-        @Override
-        public void changed(ObservableValue<? extends Number> observableValue, Number oldValue, Number newValue) {
-            final double newWidth = scene.getWidth();
-            final double newHeight = scene.getHeight();
-
-            double scaleFactor
-                    = newWidth / newHeight > ratio
-                            ? newHeight / initHeight
-                            : newWidth / initWidth;
-
-            Scale scale = new Scale(scaleFactor, scaleFactor);
-            scale.setPivotX(0);
-            scale.setPivotY(0);
-            scene.getRoot().getTransforms().setAll(scale);
-
-            contentPane.setPrefWidth(newWidth / scaleFactor);
-            contentPane.setPrefHeight(newHeight / scaleFactor);
-        }
-    }
-////****************************************************************************************************
-//// End of code to adjust screen size.
+////// This code to adjust the screen size is based on the code from http://stackoverflow.com/a/16608161
+////// Some adjustments have been made to improve it and comments have been added.
+//////****************************************************************************************************
+//    /**
+//     * Scale the size of the given stage. coppied from: see header above
+//     *
+//     * @param contentPane the stage to resize
+//     */
+//    private static void scaleToScreenSize(final Pane contentPane) {
+//        Scene scene = contentPane.getScene();
+//        final double initWidth = scene.getWidth();
+//        final double initHeight = scene.getHeight();
+//        final double ratio = initWidth / initHeight;
+//
+//        SceneSizeChangeListener sizeListener = new SceneSizeChangeListener(scene, ratio, initHeight, initWidth, contentPane);
+//        scene.widthProperty().addListener(sizeListener);
+//        scene.heightProperty().addListener(sizeListener);
+//    }
+//
+//    /**
+//     * When the user resizes the screen the method changed() in this class will
+//     * be called coppied from: see header above
+//     */
+//    private static class SceneSizeChangeListener implements ChangeListener<Number> {
+//
+//        private final Scene scene;
+//        private final double ratio;
+//        private final double initHeight;
+//        private final double initWidth;
+//        private final Pane contentPane;
+//
+//        public SceneSizeChangeListener(Scene scene, double ratio, double initHeight, double initWidth, Pane contentPane) {
+//            this.scene = scene;
+//            this.ratio = ratio;
+//            this.initHeight = initHeight;
+//            this.initWidth = initWidth;
+//            this.contentPane = contentPane;
+//        }
+//
+//        /**
+//         * Listen for size changes and change the scene accordingly coppied
+//         * from: see header above
+//         *
+//         * @param observableValue the value being observed
+//         * @param oldValue old size
+//         * @param newValue new size
+//         */
+//        @Override
+//        public void changed(ObservableValue<? extends Number> observableValue, Number oldValue, Number newValue) {
+//            final double newWidth = scene.getWidth();
+//            final double newHeight = scene.getHeight();
+//
+//            double scaleFactor
+//                    = newWidth / newHeight > ratio
+//                            ? newHeight / initHeight
+//                            : newWidth / initWidth;
+//
+//            Scale scale = new Scale(scaleFactor, scaleFactor);
+//            scale.setPivotX(0);
+//            scale.setPivotY(0);
+//            scene.getRoot().getTransforms().setAll(scale);
+//
+//            contentPane.setPrefWidth(newWidth / scaleFactor);
+//            contentPane.setPrefHeight(newHeight / scaleFactor);
+//        }
+//    }
+//////****************************************************************************************************
+////// End of code to adjust screen size.
 
 }

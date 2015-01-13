@@ -13,7 +13,7 @@
 <Pane id="AnchorPane" maxHeight="450.0" maxWidth="685.0" minHeight="450.0" minWidth="685.0" prefHeight="820.0" prefWidth="1020.0" stylesheets="@StyleAnimation.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.GameScreenChoosePositionsController">
    <children>
       <Region layoutY="50.0" prefHeight="400.0" prefWidth="684.0" styleClass="contentView" />
-      <ImageView fitHeight="350.0" fitWidth="481.0" layoutX="108.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="fieldImage" fitHeight="350.0" fitWidth="481.0" layoutX="108.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/Field.png" />
          </image>

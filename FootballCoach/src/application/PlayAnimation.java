@@ -5,10 +5,10 @@ import application.animation.Container.CalculatedMatch;
 import application.animation.Container.CurrentPositions;
 import application.animation.Container.TeamPositions;
 import application.animation.Playmatch.AnimateFootballMatch;
-import application.animation.Playmatch.ChoosePositionsController;
 import application.model.Competition;
 import application.model.Match;
 import application.model.Team;
+import application.view.GameScreenChoosePositionsController;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -48,14 +48,18 @@ public class PlayAnimation {
     private final static Object lockAnimation = new Object();
     private final static Object lockUpdateResults = new Object();
     private static int count;
+    private static TeamPositions teamPositions;
 
     /**
      * Plays all matches of the current round and adjusts them in the
      * competition
      *
+     * @param teamPositions positions of the team played by the player
      * @return the match of the player
      */
-    public static Match playMatches() {
+    public static Match playMatches(TeamPositions teamPositions, Main main) {
+        PlayAnimation.teamPositions = teamPositions;
+        
         Competition competition = Main.getCompetition();
         String playerTeam = competition.getChosenTeamName();
         int round = competition.getRound();
@@ -71,7 +75,7 @@ public class PlayAnimation {
                 // for all matches: if it is NOT the players match, generate it without animation and store it.
                 for (int i = 0; i < matches.length; i++) {
                     if (!matches[i].getHomeTeam().getName().equals(playerTeam) && !matches[i].getVisitorTeam().getName().equals(playerTeam)) {
-                        matches[i] = playMatch(matches[i].getHomeTeam(), matches[i].getVisitorTeam(), false);
+                        matches[i] = playMatch(matches[i].getHomeTeam(), matches[i].getVisitorTeam(), false, main);
                     }
                 }
                 synchronized (lockUpdateResults) {
@@ -89,7 +93,7 @@ public class PlayAnimation {
         // for all matches: if it IS the players match, generate, animation and return it.
         for (int i = 0; i < matches.length; i++) {
             if (matches[i].getHomeTeam().getName().equals(playerTeam) || matches[i].getVisitorTeam().getName().equals(playerTeam)) {
-                matches[i] = playMatch(matches[i].getHomeTeam(), matches[i].getVisitorTeam(), true);
+                matches[i] = playMatch(matches[i].getHomeTeam(), matches[i].getVisitorTeam(), true, main);
                 synchronized (lockUpdateResults) {
                     if (count > 0) {
                         competition.updateResults();
@@ -117,10 +121,8 @@ public class PlayAnimation {
      * generated
      * @return A Match object containing the generated match
      */
-    private static Match playMatch(Team homeTeam, Team visitorTeam, boolean shouldAnimate) {
+    private static Match playMatch(Team homeTeam, Team visitorTeam, boolean shouldAnimate, Main main) {
 
-        // TODO: select team composition instead of the part for testing below this
-        //ONLY FOR TESTING: *******************************
         //ally team:
         //enemy team:
         TeamPositions leftTeam;
@@ -130,10 +132,10 @@ public class PlayAnimation {
         if (shouldAnimate) {
             synchronized (lockAnimation) {
                 if (homeTeam.getName().equals(Main.getChosenTeamName())) {
-                    leftTeam = choosePositions(homeTeam, true, true);
+                    leftTeam = teamPositions;
                     rightTeam = choosePositions(visitorTeam, false, false);
                 } else {
-                    leftTeam = choosePositions(visitorTeam, true, true);
+                    leftTeam = teamPositions;
                     rightTeam = choosePositions(homeTeam, false, false);
                 }
             }
@@ -141,15 +143,14 @@ public class PlayAnimation {
             leftTeam = choosePositions(homeTeam, false, true);
             rightTeam = choosePositions(visitorTeam, false, false);
         }
-        //************************************************* ^ ONLY FOR TESTING
 
-        CalculatedMatch testMatch;
+        CalculatedMatch match;
         // Make sure at most 1 thread can generate a match at a time (because a lot
         // of variables are static
         synchronized (lockGeneration) {
             System.out.println(!shouldAnimate ? "Thread generating" : "Main generating");
             // generate the match
-            testMatch = (new MainAIController()).createMatch(leftTeam, rightTeam, shouldAnimate);
+            match = (new MainAIController()).createMatch(leftTeam, rightTeam, shouldAnimate);
 
             // reset generation variables
             CurrentPositions.reset();
@@ -161,21 +162,21 @@ public class PlayAnimation {
         {
             synchronized (lockAnimation) {
                 System.out.println(!shouldAnimate ? "Thread animating" : "Main animating");
-                AnimateFootballMatch.playMatch(testMatch);
+                main.playMatch(match);
+//                AnimateFootballMatch.playMatch(testMatch);
 
-                // reset animation variables
-                AnimateFootballMatch.reset();
+                
                 System.out.println(!shouldAnimate ? "Thread done animating" : "Main done animating");
             }
         }
 
         // get the scores
-        int scoreLeft = testMatch.getPosition(testMatch.amoutOfFrames() - 1).getScoreLeft();
-        int scoreRight = testMatch.getPosition(testMatch.amoutOfFrames() - 1).getScoreRight();
+        int scoreLeft = match.getPosition(match.amoutOfFrames() - 1).getScoreLeft();
+        int scoreRight = match.getPosition(match.amoutOfFrames() - 1).getScoreRight();
 
         // Clear the memory used to store the match.
         // This does make a huge difference (see tests information in the comments above)
-        testMatch = null;
+        match = null;
         System.gc();
 
         return new Match(homeTeam, visitorTeam, scoreLeft, scoreRight);
@@ -249,6 +250,7 @@ public class PlayAnimation {
 
     private static TeamPositions choosePositions(Team team, boolean isPlayer, boolean isHomeTeam) {
         if (isPlayer) {
+            System.out.println("ERROR: STILL SELECTING POSITIONS HERE");
             Stage stage = new Stage();
             AnchorPane rootLayout;
             try {

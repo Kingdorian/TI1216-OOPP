@@ -1,7 +1,11 @@
 package application;
 
+import application.animation.Container.CalculatedMatch;
+import application.animation.Playmatch.AnimateFootballMatch;
 import application.model.Competition;
 import application.model.Players;
+import application.view.FootballFieldController;
+import application.view.GameScreenChoosePositionsController;
 import application.view.GameScreenMenuController;
 import application.view.GameScreenTitleController;
 import application.view.PopupControllerInterface;
@@ -267,6 +271,8 @@ public class Main extends Application {
             fadeout.setToValue(0);
             fadeout.play();
         }
+        
+        final ViewControllerInterface viewController = ((FXMLLoader) paneAndLoader[1]).getController();
 
         // when the fade out is finished, load the new center and fade it in
         fadeout.setOnFinished(e -> {
@@ -279,8 +285,8 @@ public class Main extends Application {
             fadein.setFromValue(0);
             fadein.setToValue(1);
             fadein.play();
-            // ViewControllerInterface viewController = getViewController(viewPath.split("/")[1]);
-            ViewControllerInterface viewController = ((FXMLLoader) paneAndLoader[1]).getController();
+//            // ViewControllerInterface viewController = getViewController(viewPath.split("/")[1]);
+//            viewController = ((FXMLLoader) paneAndLoader[1]).getController();
 
             // Give the view controller a reference to this main controller class
             viewController.setMainController(this);
@@ -288,6 +294,15 @@ public class Main extends Application {
         // if there is no fade in transition, handle onfinished
         if(fadeout.getDuration() == Duration.ZERO)
             fadeout.getOnFinished().handle(null);
+        
+        // draw circles if this is the choose positions screen
+        // originally intended this would be a seperate stage, so
+        // this is a kind of workaround, so it can be loaded into
+        // the center
+        if(viewController instanceof GameScreenChoosePositionsController){
+            GameScreenChoosePositionsController controller = (GameScreenChoosePositionsController) viewController;
+            controller.drawCircles(primaryStage, pane, competition.getTeamByName(chosenTeamName));
+        }
     }
 
     /**
@@ -707,5 +722,51 @@ public class Main extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+    }
+    
+    
+    public void playMatch(CalculatedMatch match){
+        // load the view
+        FootballFieldController viewController;
+        Pane pane;
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("view/FootballField.fxml"));
+            pane = (Pane) loader.load();
+            viewController = (FootballFieldController) loader.getController();
+        } catch (IOException ex) {
+            Logger.getLogger(AnimateFootballMatch.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Failed to read FootballField.fxml file");
+            return;
+        }
+
+        // set position
+        BorderPane.setAlignment(pane, Pos.TOP_LEFT);
+        BorderPane.setMargin(pane, new Insets(40, 40, 0, 0));
+        
+        FadeTransition fadeout = new FadeTransition(Duration.millis(300), (Pane) rootLayout.getCenter());
+        fadeout.setFromValue(1);
+        fadeout.setToValue(0);
+        fadeout.play();
+
+        // when the fade out is finished, load the new center and fade it in
+        fadeout.setOnFinished(e -> {
+            // draw the new window
+            pane.setOpacity(0);
+            rootLayout.setCenter(pane);
+            
+            // let the new view fade in
+            FadeTransition fadein = new FadeTransition(Duration.millis(1000), pane);
+            fadein.setFromValue(0);
+            fadein.setToValue(1);
+            fadein.play();
+        });
+
+        
+        // animate the football match
+        AnimateFootballMatch.playMatch(match, viewController, pane);
+        
+        // reset animation variables
+        AnimateFootballMatch.reset();
     }
 }

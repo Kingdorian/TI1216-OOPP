@@ -146,17 +146,19 @@ public class GameScreenPLAYMATCHController implements ViewControllerInterface {
      * handler assigned in the .fxml) and it triggers the match position
      * selection, generation and animation method in a different class to start.
      */
-    @FXML
-    private void playMatchButton() {
-//        playMatchButton.setDisable(true);
-        
-        //TEMPORARY TO SIMULATE THE MATCH ANIMATOR RESULT
-//       	Match result =  Main.getCompetition().playNextRound(nameLeft.getText());
-//       	score.setText(result.getPointsHomeTeam() + " - " + result.getPointsVisitorTeam());
-        Match result = PlayAnimation.playMatches();
-        
-        int pointsLeft = result.getHomeTeam().getName().equals(nameLeft.getText()) ? result.getPointsHomeTeam() : result.getPointsVisitorTeam();
-        int pointsRight = result.getHomeTeam().getName().equals(nameLeft.getText()) ? result.getPointsVisitorTeam() : result.getPointsHomeTeam();
-        score.setText(pointsLeft + " - " + pointsRight);
-    }
+//    @FXML
+//    private void playMatchButton() {
+////        playMatchButton.setDisable(true);
+//        
+//        //TEMPORARY TO SIMULATE THE MATCH ANIMATOR RESULT
+////       	Match result =  Main.getCompetition().playNextRound(nameLeft.getText());
+////       	score.setText(result.getPointsHomeTeam() + " - " + result.getPointsVisitorTeam());
+//        
+//        
+//        Match result = PlayAnimation.playMatches();
+//        
+//        int pointsLeft = result.getHomeTeam().getName().equals(nameLeft.getText()) ? result.getPointsHomeTeam() : result.getPointsVisitorTeam();
+//        int pointsRight = result.getHomeTeam().getName().equals(nameLeft.getText()) ? result.getPointsVisitorTeam() : result.getPointsHomeTeam();
+//        score.setText(pointsLeft + " - " + pointsRight);
+//    }
 }
