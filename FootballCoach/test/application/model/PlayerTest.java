@@ -77,7 +77,7 @@ public class PlayerTest {
 	@Test
 	public void testEqualsNotAttack(){
 		player1.setAttack(30);
-		assertFalse(player1.equals(player2));
+		assertNotEquals(player1, player2);
 		player1.setAttack(90);
 	}
 	//TESTS: equals() attack not equal
@@ -85,7 +85,7 @@ public class PlayerTest {
 	@Test
 	public void testEqualsNotDefence(){
 		player1.setDefence(30);
-		assertFalse(player1.equals(player2));
+		assertNotEquals(player1, player2);
 		player1.setDefence(9);
 	}
 	//TESTS: equals() stamina not equal
@@ -93,7 +93,7 @@ public class PlayerTest {
 	@Test
 	public void testEqualsNotStamina(){
 		player1.setStamina(30);
-		assertFalse(player1.equals(player2));
+		assertNotEquals(player1, player2);
 		player1.setStamina(80);
 	}
 	//TESTS: equals() with super class not equal
@@ -101,7 +101,7 @@ public class PlayerTest {
 	@Test
 	public void testEqualsNotName(){
 		player1.setName("Mario");
-		assertFalse(player1.equals(player2));
+		assertNotEquals(player1, player2);
 		player1.setName("Bob");
 	}
 	//TESTS: equals()

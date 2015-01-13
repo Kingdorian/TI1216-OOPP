@@ -48,7 +48,8 @@ public class GoalKeeperTest {
 	//TESTS: toString()
 	@Test
 	public void testToString(){
-		assertEquals("Goalkeeper [stopPower=20, penaltyStopPower=30, Players [name=Bob, surname=De Bouwer, number=3, status=DEFAULT, timeNotAvailable=0, reason=DEFAULT]]", player3.toString());
+		assertTrue(player3.toString().startsWith("Goalkeeper [stopPower=20, penaltyStopPower=30, Players ["));
+		assertTrue(player3.toString().endsWith(", name=Bob, surname=De Bouwer, number=3, status=DEFAULT, timeNotAvailable=0, reason=DEFAULT]]"));
 	}
 	//TESTS: equals() if the object is not an instance of goalkeeper
 	@Test
@@ -58,19 +59,19 @@ public class GoalKeeperTest {
 	//TEST: equals() i stoppower is not equal
 	@Test
 	public void testEqualsStopPower(){
-		player2.setStopPower(100);
-		player3.setStopPower(20);
-		player2.setPenaltyStopPower(10);
-		player3.setPenaltyStopPower(10);
-		assertFalse(player2.equals(player3));
-		player2.setStopPower(80);
+		player1.setStopPower(11);
+		assertNotEquals(player1, player2);
+		player3.setStopPower(player2.getStopPower());
+		player1.setStopPower(player2.getStopPower());
+		player3.setStopPower(player2.getStopPower());
 	}
 	//TEST: equals() i penaltyStopPower is not equal
 	@Test
 	public void testEqualsPenaltyStopPower(){
-		player2.setPenaltyStopPower(100);
-		assertFalse(player3.equals(player2));
-		player2.setStopPower(60);
+		int buffer = player2.getPenaltyStopPower();
+		player2.setPenaltyStopPower(0);
+		assertNotEquals(player3, player2);
+		player2.setPenaltyStopPower(buffer);
 	}
 	//TEST: equals() if super objects are not equal
 	@Test
@@ -84,5 +85,15 @@ public class GoalKeeperTest {
 	public void testEquals(){
 		assertEquals(player1, player2);
 		System.out.println("howdy");
+	}
+	//TEST: if getKind() works correctly
+	@Test
+	public void testGetKind(){
+		assertEquals(player1.getKind(), "Goalkeeper");
+	}
+	//TESTS if getAbility Works correctly
+	@Test
+	public void testGetAbility(){
+		assertEquals(player1.getAbility(), 3.80, 1e-10);
 	}
 }

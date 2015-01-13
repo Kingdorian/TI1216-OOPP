@@ -52,10 +52,11 @@ public class Goalkeeper extends Players {
             return false;
         }
         Goalkeeper other = (Goalkeeper) obj;
-        if (this.getPenaltyStopPower() != other.getPenaltyStopPower()) {
+        if (this.penaltyStopPower != other.getPenaltyStopPower()) {
             return false;
         }
-        if (this.getStopPower() != other.getStopPower()) {
+        System.out.println(this.stopPower + " hi " + other.getStopPower());
+        if (this.stopPower != other.getStopPower()) {
             return false;
         }
         return true;

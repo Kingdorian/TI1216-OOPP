@@ -40,17 +40,14 @@ public abstract class Players {
 
     public abstract String getKind();
 
-    public boolean equals(Object other) {
-        if (other instanceof Players) {
-            Players p = (Players) other;
-            if (this.name.equals(p.getName())
-                    && this.surname.equals(p.getSurName())
-                    && this.number == p.getNumber()
-                    && this.status == p.getStatus()
-                    && this.timeNotAvailable == p.getTimeNotAvailable()
-                    && this.reason == p.getReason()) {
-                return true;
-            }
+    public boolean equals(Players p) {
+        if (this.name.equals(p.getName())
+                && this.surname.equals(p.getSurName())
+                && this.number == p.getNumber()
+                && this.status == p.getStatus()
+                && this.timeNotAvailable == p.getTimeNotAvailable()
+                && this.reason == p.getReason()) {
+            return true;
         }
 
         return false;
@@ -62,7 +59,7 @@ public abstract class Players {
     }
 
     public void setId(int id) {
-        this.id = id;
+    	this.id = id;
     }
 
     public String getName() {
@@ -144,9 +141,11 @@ public abstract class Players {
      */
     public String getAbilityStr() {
         String ability = Double.toString(this.getAbility());
+        System.out.println(ability);
         String result = "";
         for (int i = 0; i < ability.length() && i < 4; i++) {
-            result += ability.charAt(i);
+
+            result += ability.charAt(i); 
         }
         while (result.length() < 4) {
             result += "0";
