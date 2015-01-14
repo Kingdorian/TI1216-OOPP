@@ -15,11 +15,15 @@
     <children>
       <Region layoutY="50.0" prefHeight="400.0" prefWidth="684.0" styleClass="contentView" />
       <Region prefHeight="50.0" prefWidth="685.0" styleClass="topMenu" />
-        <ImageView fx:id="fieldPicture" fitHeight="350.0" fitWidth="481.0" layoutX="108.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../img/Field.png" />
-            </image>
-        </ImageView>
+      <Group layoutX="109.0" layoutY="50.0">
+         <children>
+              <ImageView fx:id="fieldPicture" fitHeight="350.0" fitWidth="466.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                      <Image url="@../img/Field.png" />
+                  </image>
+              </ImageView>
+         </children>
+      </Group>
         <HBox alignment="TOP_CENTER" layoutY="400.0" prefHeight="50.0" prefWidth="529.0" spacing="10.0">
             <children>
                 <Button fx:id="pauseButton" layoutX="14.0" layoutY="780.0" mnemonicParsing="false" onAction="#togglePauseButton" prefHeight="25.0" prefWidth="38.0" text="S" />
@@ -44,12 +48,7 @@
                 <Font name="System Bold" size="14.0" />
             </font>
         </Button>
-        <Text fx:id="score" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="animationTopRegion" text="Score: 00 - 00">
-            <font>
-                <Font size="24.0" />
-            </font>
-        </Text>
-        <HBox fx:id="teamsBox" alignment="CENTER" layoutY="15.0" prefHeight="25.0" prefWidth="685.0" spacing="20.0">
+        <HBox fx:id="teamsBox" alignment="CENTER" layoutX="211.0" layoutY="11.0" prefHeight="29.0" prefWidth="262.0" spacing="20.0">
             <children>
                 <Text fx:id="team1" fill="#0027f5" layoutX="403.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="team 1">
                     <font>
@@ -69,5 +68,10 @@
             </children>
         </HBox>
       <Line endX="684.0" layoutY="400.0" styleClass="contentView" />
+        <Text fx:id="score" layoutX="14.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="animationTopRegion" text="Score: 00 - 00">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Text>
     </children>
 </Pane>
