@@ -113,6 +113,13 @@ public class PopupNEWGAMEController implements PopupControllerInterface {
                     .message("Please write down your name in the text field.")
                     .owner(Main.getOldPopup())
                     .showWarning();
+        } else if(nameField.getText().length()>10){
+            Dialogs.create()
+            .title("Name too long")
+            .masthead("The name is too long")
+            .message("Please enter a shorter name")
+            .owner(Main.getOldPopup())
+            .showWarning();
         } else if (selectTeamBox.getSelectionModel().getSelectedIndex() == -1 && selectCompetitionBox.getSelectionModel().getSelectedIndex() == -1) {
             Dialogs.create()
                     .title("No Selection")
