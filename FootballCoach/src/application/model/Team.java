@@ -229,4 +229,50 @@ public class Team {
     public void setLosses(int losses) {
         this.losses = losses;
     }
+    
+    public int getAmountForwards() {
+    	int amount = 0;
+    	for(int i = 0; i < this.getPlayers().size(); i++){
+    		if (this.getPlayers().get(i).getKind().equals("Forward")){
+    			amount = amount + 1;
+    		}
+    	}
+    	return amount;
+    }
+    public int getAmountDefenders() {
+    	int amount = 0;
+    	for(int i = 0; i < this.getPlayers().size(); i++){
+    		if (this.getPlayers().get(i).getKind().equals("Defender")){
+    			amount = amount + 1;
+    		}
+    	}
+    	return amount;
+    }
+    public int getAmountMidfielders() {
+    	int amount = 0;
+    	for(int i = 0; i < this.getPlayers().size(); i++){
+    		if (this.getPlayers().get(i).getKind().equals("Midfielder")){
+    			amount = amount + 1;
+    		}
+    	}
+    	return amount;
+    }
+    public int getAmountGoalkeepers() {
+    	int amount = 0;
+    	for(int i = 0; i < this.getPlayers().size(); i++){
+    		if (this.getPlayers().get(i).getKind().equals("Goalkeeper")){
+    			amount = amount + 1;
+    		}
+    	}
+    	return amount;
+    }
+    public int getAmountAllrounders() {
+    	int amount = 0;
+    	for(int i = 0; i < this.getPlayers().size(); i++){
+    		if (this.getPlayers().get(i).getKind().equals("Allrounder")){
+    			amount = amount + 1;
+    		}
+    	}
+    	return amount;
+    }
 }
