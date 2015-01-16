@@ -10,7 +10,6 @@ import application.PlayAnimation;
 import application.animation.Container.DefaultPos;
 import application.animation.Container.TeamPositions;
 import application.model.Goalkeeper;
-import application.model.Match;
 import application.model.Player;
 import application.model.Players;
 import application.model.Team;
@@ -56,6 +55,7 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
     private static TeamPositions teamPositions;
     private static int selectedCircleID;
     private static GameScreenChoosePositionsController thisController;
+    private static Pane pane;
     
     private static Main mainController;
 
@@ -80,7 +80,7 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
      * the event handlers directly when loading, since the circles won't be
      * referrenced by the fxml file yet)
      */
-    private static class CircleDragHandler implements EventHandler {
+    private class CircleDragHandler implements EventHandler {
 
         private final Circle c;
         private final boolean isKeeper;
@@ -167,7 +167,7 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
      *
      * @param circle the circle who's group should be made dragable
      */
-    public static void makeDragable(Circle circle) {
+    public void makeDragable(Circle circle) {
 
         // class to store relative x and y coordinates
         class Delta {
@@ -185,7 +185,9 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
             dragDelta.x = circle.getParent().getLayoutX() - mouseEvent.getScreenX();
             dragDelta.y = circle.getParent().getLayoutY() - mouseEvent.getScreenY();
             node.setCursor(Cursor.MOVE);
-
+            System.out.println("mouseEvent = " + mouseEvent);
+            System.out.println("dragDelta.x = " + dragDelta.x);
+            System.out.println("dragDelta.y = " + dragDelta.y);
             // reset all circles colors
             for (int i = 0; i < 11; i++) {
                 playerCircle[i].setFill(Color.BLUE);
@@ -212,39 +214,40 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
 
         // when releasing the mouse button, change the cursor to a hand
         circle.setOnMouseReleased((MouseEvent mouseEvent) -> {
-            //make sure the circle can't be outside of the preset bounds
-            if (circle.getParent().getLayoutX() + circle.getLayoutBounds().getMinX() < 115) {
-                circle.getParent().setLayoutX(115 - circle.getLayoutBounds().getMinX());
-            } else if (circle.getParent().getLayoutX() + circle.getLayoutBounds().getMaxX() > 845) {
-                circle.getParent().setLayoutX(845 - circle.getLayoutBounds().getMaxX());
-            }
-
-            if (circle.getParent().getLayoutY() + circle.getLayoutBounds().getMinY() < 90) {
-                circle.getParent().setLayoutY(90 - circle.getLayoutBounds().getMinY());
-            } else if (circle.getParent().getLayoutY() + circle.getLayoutBounds().getMaxY() > 680) {
-                circle.getParent().setLayoutY(680 - circle.getLayoutBounds().getMaxY());
-            }
+//            //make sure the circle can't be outside of the preset bounds
+//            if (actualX(circle.getParent().getLayoutX()) + actualX(circle.getLayoutBounds().getMinX()) < 115) {
+//                circle.getParent().setLayoutX(relativeX(115 - actualX(circle.getLayoutBounds().getMinX())));
+//            } else if (actualX(circle.getParent().getLayoutX()) + actualX(circle.getLayoutBounds().getMaxX()) > 845) {
+//                circle.getParent().setLayoutX(relativeX(845 - actualX(circle.getLayoutBounds().getMaxX())));
+//            }
+//
+//            if (actualY(circle.getParent().getLayoutY()) + actualY(circle.getLayoutBounds().getMinY()) < 90) {
+//                circle.getParent().setLayoutY(relativeY(90 - actualY(circle.getLayoutBounds().getMinY())));
+//            } else if (actualY(circle.getParent().getLayoutY()) + actualY(circle.getLayoutBounds().getMaxY()) > 680) {
+//                circle.getParent().setLayoutY(relativeY(680 - actualY(circle.getLayoutBounds().getMaxY())));
+//            }
             node.setCursor(Cursor.HAND);
         });
 
         // move the group when dragging with the mouse (relative to where the mouse is)
         circle.setOnMouseDragged((MouseEvent mouseEvent) -> {
+            
             //make sure the circle can't be outside of the preset bounds
-            if (circle.getParent().getLayoutX() + circle.getLayoutBounds().getMinX() < 115 || mouseEvent.getSceneX() <= 115) {
-                circle.getParent().setLayoutX(115 - circle.getLayoutBounds().getMinX());
-            } else if (circle.getParent().getLayoutX() + circle.getLayoutBounds().getMaxX() > 845 || mouseEvent.getSceneX() >= 845) {
-                circle.getParent().setLayoutX(845 - circle.getLayoutBounds().getMaxX());
+            if (circle.getParent().getLayoutX() < relativeX(115-pane.getLayoutX()) ) {
+                circle.getParent().setLayoutX(relativeX(115-pane.getLayoutX() ));
+//            } else if (circle.getParent().getLayoutX() + actualX(circle.getLayoutBounds().getMaxX()) > 845 || mouseEvent.getSceneX() >= relativeX(845)) {
+//                circle.getParent().setLayoutX(relativeX(845 - actualX(circle.getLayoutBounds().getMaxX())));
             } else {
-                circle.getParent().setLayoutX(mouseEvent.getScreenX() + dragDelta.x);
+//                circle.getParent().setLayoutX(mouseEvent.getScreenX() + dragDelta.x);
             }
-
-            if (circle.getParent().getLayoutY() + circle.getLayoutBounds().getMinY() < 90 || mouseEvent.getSceneY() <= 90) {
-                circle.getParent().setLayoutY(90 - circle.getLayoutBounds().getMinY());
-            } else if (circle.getParent().getLayoutY() + circle.getLayoutBounds().getMaxY() > 680 || mouseEvent.getSceneY() >= 680) {
-                circle.getParent().setLayoutY(680 - circle.getLayoutBounds().getMaxY());
-            } else {
-                circle.getParent().setLayoutY(mouseEvent.getScreenY() + dragDelta.y);
-            }
+            
+//            if (circle.getParent().getLayoutY() < relativeY(90) ) {
+//                circle.getParent().setLayoutY(relativeY(90));
+////            } else if (circle.getParent().getLayoutY() + actualY(circle.getLayoutBounds().getMaxY()) > 680 || mouseEvent.getSceneY() >= relativeX(680)) {
+////                circle.getParent().setLayoutY(relativeY(680 - actualY( circle.getLayoutBounds().getMaxY())));
+//            } else {
+//                circle.getParent().setLayoutY(mouseEvent.getScreenY() + dragDelta.y);
+//            }
         });
 
         // change cursor to a hand when entering the circle
@@ -323,10 +326,11 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
      * Add the player circles to the scene
      *
      * @param stage the stage
-     * @param anchorPane the anchor pane containing the scene
+     * @param pane the anchor pane containing the scene
      * @param team the players team
      */
-    public void drawCircles(Stage stage, Pane anchorPane, Team team) {
+    public void drawCircles(Stage stage, Pane pane, Team team) {
+        this.pane = pane;
         this.stage = stage;
 //        this.team = team;
 
@@ -364,8 +368,16 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
         setSelectBox();
 
         // create the player circles
-        for(int i=0; i<11; i++)
-            playerCircle[i] = DefaultPos.Loop.getL(i).circle;
+        for(int i=0; i<11; i++){
+            //make sure the enum value won't be change
+            final Circle c = DefaultPos.Loop.getL(i).circle;
+            playerCircle[i] = new Circle(c.getCenterX(), c.getCenterY(), 8, Color.BLUE);
+        }
+        
+        for (Circle circle : playerCircle) {
+            circle.setCenterX(relativeX(circle.getCenterX()));
+            circle.setCenterY(relativeY(circle.getCenterY()));
+        }
 //        playerCircle[0] = new Circle(60, 381, 13, Color.BLUE); 
 //        playerCircle[1] = new Circle(330, 160, 13, Color.BLUE);
 //        playerCircle[2] = new Circle(288, 290, 13, Color.BLUE);
@@ -396,7 +408,7 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
 
             // group circle and name togheter and add them to the scene
             Group group = new Group(playerCircle[i], text);
-            anchorPane.getChildren().add(group);
+            pane.getChildren().add(group);
         }
 
         // make all circles dragable (indirectly via an event handler)
@@ -529,7 +541,7 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
      */
     @FXML
     private void resetButton() {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < playerCircle.length; i++) {
             playerCircle[i].getParent().setLayoutX(0);
             playerCircle[i].getParent().setLayoutY(0);
         }
@@ -579,6 +591,23 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
     public void setMainController(Main mainController) {
         this.mainController = mainController;
     }    
+    
+    
+    private double relativeX(double x){
+        return 466.0 / 1020.0 * x + fieldImage.getLayoutX();
+    }
+    
+    private double actualX(double x){
+        return x - fieldImage.getLayoutX()  / (466.0 * 1020.0);
+    }
+    
+    private double relativeY(double y){
+        return 350.0 / 765.0 * y + fieldImage.getLayoutY();
+    }
+    
+    private double actualY(double y){
+        return (y - fieldImage.getLayoutY()) / (350.0  * 765.0);
+    }
 
     
 }

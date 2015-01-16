@@ -5,19 +5,20 @@
  */
 package application.view;
 
+import application.Main;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
-import org.controlsfx.control.action.Action;
-import org.controlsfx.dialog.Dialog;
-import org.controlsfx.dialog.Dialogs;
-
-import application.Main;
 import application.controller.SaveGameHandler;
+import java.util.Arrays;
+import java.util.Collections;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.PopupControl;
+import org.controlsfx.control.action.Action;
+import org.controlsfx.dialog.Dialog;
+import org.controlsfx.dialog.Dialogs;
 
 /**
  * This is the controller class of the LOADGAME popup
@@ -74,6 +75,9 @@ public class PopupLOADGAMEController implements PopupControllerInterface {
 				e.printStackTrace();
 			}
     	}
+        Collections.sort(saveGames, (String s1, String s2) -> {
+                    return Integer.parseInt(s1.split("\\.")[0]) - Integer.parseInt(s2.split("\\.")[0]);
+        });
     	selectSaveGameBox.setItems(FXCollections.observableArrayList(saveGames));
     	if (! saveGames.isEmpty()) {
     	selectSaveGameBox.setValue(saveGames.get(0));
