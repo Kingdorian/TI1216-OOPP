@@ -63,7 +63,7 @@ public class PlayAnimation {
         Competition competition = Main.getCompetition();
         String playerTeam = competition.getChosenTeamName();
         int round = competition.getRound();
-        Match[] matches = competition.getRound(round - 1);
+        Match[] matches = competition.getRound(round);
 
         count = 0;
 

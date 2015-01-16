@@ -307,7 +307,10 @@ public class XMLHandler {
             Element teamElement = doc.createElement("team");
             teamsElement.appendChild(teamElement);
             teamElement.setAttribute("logo", "");
-            teamElement.setAttribute("art_grass", teams[i].hasArtificialGrass() + "");
+            System.out.println(teams[i].hasArtificialGrass());
+            teamElement.setAttribute("art_grass", 
+            		teams[i].hasArtificialGrass()
+            		+ "");
             teamElement.setAttribute("name", teams[i].getName());
 			teamElement.setAttribute("budget", teams[i].getBudget()+"");
 

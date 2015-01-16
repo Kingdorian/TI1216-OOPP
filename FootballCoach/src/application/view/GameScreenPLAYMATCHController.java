@@ -67,7 +67,7 @@ public class GameScreenPLAYMATCHController implements ViewControllerInterface {
         Competition competition = Main.getCompetition();
         
         int round = competition.getRound();
-        Match[] matches = competition.getRound(round - 1);
+        Match[] matches = competition.getRound(round );
         
         boolean playerHome = true;
         Match match = null;

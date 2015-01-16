@@ -4,7 +4,7 @@ import application.animation.Container.CalculatedMatch;
 import application.animation.Playmatch.AnimateFootballMatch;
 import application.model.Competition;
 import application.model.Players;
-import application.view.FootballFieldController;
+import application.view.GameScreenFootballFieldController;
 import application.view.GameScreenChoosePositionsController;
 import application.view.GameScreenMenuController;
 import application.view.GameScreenTitleController;
@@ -727,13 +727,13 @@ public class Main extends Application {
     
     public void playMatch(CalculatedMatch match){
         // load the view
-        FootballFieldController viewController;
+        GameScreenFootballFieldController viewController;
         Pane pane;
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("view/FootballField.fxml"));
             pane = (Pane) loader.load();
-            viewController = (FootballFieldController) loader.getController();
+            viewController = (GameScreenFootballFieldController) loader.getController();
         } catch (IOException ex) {
             Logger.getLogger(AnimateFootballMatch.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("Failed to read FootballField.fxml file");

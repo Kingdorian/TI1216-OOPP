@@ -17,8 +17,8 @@
                 <Image url="@../img/logo.png" />
             </image>
         </ImageView>
-        <Text fx:id="textWelcome" layoutX="160.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Welcome, [PLAYER]" textAlignment="CENTER" wrappingWidth="220.0" />
-        <HBox layoutX="714.0" layoutY="1.0">
+        <Text fx:id="textWelcome" layoutX="179.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="menuTitle" text="Welcome, [PLAYER]" wrappingWidth="260.0" />
+        <HBox layoutX="714.0">
             <children>
                 <Button layoutX="794.0" mnemonicParsing="false" onAction="#buttonSettings" prefHeight="50.0" prefWidth="30.0" styleClass="topMenuButton">
                     <graphic>
