@@ -48,8 +48,6 @@ public class Team {
         this.artificialGrass = artificialGrass;
     }
 
-//		System.out.println("Not an instance of team");
-
 
     
 
@@ -69,7 +67,6 @@ public class Team {
 		Team other = (Team) obj;
 		if (artificialGrass != other.hasArtificialGrass())
 			return false;
-		System.out.println(budget + " " + other.getBudget());
 		if (budget != other.getBudget())
 			return false;
 		if (draws != other.getDraws())
@@ -115,7 +112,6 @@ public class Team {
     }
 
     public void setBudget(int budget) {
-    	System.out.println(budget);
         this.budget = budget;
     }
 

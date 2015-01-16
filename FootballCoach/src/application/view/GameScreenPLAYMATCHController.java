@@ -6,7 +6,6 @@
 package application.view;
 
 import application.Main;
-import application.PlayAnimation;
 import application.model.Competition;
 import application.model.Match;
 import java.io.FileInputStream;
@@ -30,6 +29,7 @@ import javafx.scene.text.Text;
 public class GameScreenPLAYMATCHController implements ViewControllerInterface {
 
     private static Main mainController;
+    private static String opponent;
 
     @FXML
     private Text score;
@@ -67,7 +67,7 @@ public class GameScreenPLAYMATCHController implements ViewControllerInterface {
         Competition competition = Main.getCompetition();
         
         int round = competition.getRound();
-        Match[] matches = competition.getRound(round );
+        Match[] matches = competition.getRound(round - 1);
         
         boolean playerHome = true;
         Match match = null;
@@ -100,6 +100,7 @@ public class GameScreenPLAYMATCHController implements ViewControllerInterface {
         nameLeft.setText(playersTeam);
         String rightTeamName = playerHome ? match.getVisitorTeam().getName() : match.getHomeTeam().getName();
         nameRight.setText(rightTeamName);
+        opponent = rightTeamName;
 
         // set the team logos
         try {
@@ -138,6 +139,70 @@ public class GameScreenPLAYMATCHController implements ViewControllerInterface {
     private void positionsButton() {
         Main.getMenuController().getCurrentMenuField().setText("Select positions");
         mainController.setCenterView("GameScreenChoosePositions");
+    }
+
+    public static String getOpponent() {
+        return opponent;
+    }
+    
+    public void showResultLastMatch(){
+
+        Competition comp = Main.getCompetition();
+        int prevRound = comp.getRound() - 1;
+        String teamName = Main.getChosenTeamName();
+        Match results = null;
+        boolean playerHome = true;
+        
+        for (Match m : comp.getRound(prevRound-1)) {
+            if(m.getHomeTeam().getName().equals(teamName))
+                results = m;
+            else if(m.getVisitorTeam().getName().equals(teamName)){
+                results = m;
+                playerHome = false;
+            }
+        }
+        
+        positionsButton.setDisable(true);
+        
+        if(results != null){
+            int pointsLeft = results.getHomeTeam().getName().equals(nameLeft.getText()) ? results.getPointsHomeTeam() : results.getPointsVisitorTeam();
+            int pointsRight = results.getHomeTeam().getName().equals(nameLeft.getText()) ? results.getPointsVisitorTeam() : results.getPointsHomeTeam();
+            score.setText(pointsLeft + " - " + pointsRight);
+        } else{
+            return;
+        }
+        
+        // set the home/visitor team
+        homeVisLeft.setText(playerHome ? "Home Team" : "Visitor Team");
+        homeVisRight.setText(playerHome ? "Visitor Team" : "Home Team");
+        
+        // set the ranks
+        rankLeft.setText(Integer.toString(playerHome ? comp.getRank(results.getHomeTeam()) : comp.getRank(results.getVisitorTeam())));
+        rankRight.setText(Integer.toString(playerHome ? comp.getRank(results.getVisitorTeam()) : comp.getRank(results.getHomeTeam())));
+        
+        // set the team names
+        nameLeft.setText(teamName);
+        String rightTeamName = playerHome ? results.getVisitorTeam().getName() : results.getHomeTeam().getName();
+        nameRight.setText(rightTeamName);
+        opponent = rightTeamName;
+
+        // set the team logos
+        try {
+            java.io.FileInputStream leftImageLoader = new FileInputStream("XML/Savegames/" + Main.getCompetition().getSaveGameId() + "/images/" + teamName + ".png");
+            Image leftImage = new Image(leftImageLoader, 200, 200, true, false);
+            leftLogo.setImage(leftImage);
+            leftImageLoader.close();
+            
+            java.io.FileInputStream rightImageLoader = new FileInputStream("XML/Savegames/" + Main.getCompetition().getSaveGameId() + "/images/" + rightTeamName + ".png");
+            Image rightImage = new Image(rightImageLoader, 200, 200, true, false);
+            rightLogo.setImage(rightImage);
+            rightImageLoader.close();
+            
+        } catch (FileNotFoundException ex) {
+            System.out.println("failed to get image from image file");
+        } catch (IOException ex) {
+            Logger.getLogger(GameScreenPLAYMATCHController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     

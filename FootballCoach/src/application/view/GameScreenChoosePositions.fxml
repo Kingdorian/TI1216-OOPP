@@ -13,9 +13,9 @@
 <Pane id="AnchorPane" maxHeight="450.0" maxWidth="685.0" minHeight="450.0" minWidth="685.0" prefHeight="820.0" prefWidth="1020.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.GameScreenChoosePositionsController">
    <children>
       <Region layoutY="50.0" prefHeight="400.0" prefWidth="684.0" styleClass="contentView" />
-      <Group layoutX="109.0" layoutY="50.0">
+      <Group fx:id="fieldImageGroup" layoutX="109.0" layoutY="50.0">
          <children>
-            <ImageView fx:id="fieldImage" fitHeight="350.0" fitWidth="466.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="350.0" fitWidth="466.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/Field.png" />
                </image>
@@ -49,7 +49,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="513.0" layoutY="400.0" mnemonicParsing="false" onAction="#startMatchButton" prefHeight="50.0" prefWidth="171.0" styleClass="contentItemMenu" text="Start Match">
+      <Button layoutX="513.0" layoutY="400.0" mnemonicParsing="false" onAction="#startMatchButton" prefHeight="50.0" prefWidth="171.0" styleClass="contentItemMenu" text="Play Match">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

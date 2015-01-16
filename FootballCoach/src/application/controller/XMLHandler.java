@@ -83,7 +83,6 @@ public class XMLHandler {
      */
     public static Team parseTeam(Element teamElement) {
         Team team = new Team(teamElement.getAttribute("name"), Boolean.parseBoolean(teamElement.getAttribute("art_grass")), teamElement.getAttribute("logo"));
-        System.out.println(Integer.parseInt(teamElement.getAttribute("budget")));
         team.setBudget(Integer.parseInt(teamElement.getAttribute("budget")));
         team.setName(teamElement.getAttribute("name"));
         NodeList nodes = teamElement.getChildNodes();
@@ -230,7 +229,6 @@ public class XMLHandler {
         File saveDir = new File(location);
         //If the savedir does not yet exist create it and copy the default competition xml into it
         if (!saveDir.exists()) {
-            System.out.println("Making dir");
             saveDir.mkdir();
         }
         try {
@@ -244,8 +242,6 @@ public class XMLHandler {
     }
 
     private static void writeMatches(String location, Competition comp) throws Exception {
-    	System.out.println("hey");
-        System.out.println(location + "   loc");
         // Setting up doc builder
         DocumentBuilderFactory dF = DocumentBuilderFactory.newInstance();
         DocumentBuilder dB = dF.newDocumentBuilder();
@@ -270,7 +266,6 @@ public class XMLHandler {
                     Element visTeam = doc.createElement("visitorteam");
                     matchElement.appendChild(visTeam);
                     visTeam.setAttribute("name", match.getVisitorTeam().getName());
-                    if(i==0){System.out.println(match.getPointsVisitorTeam());}
                     visTeam.setAttribute("points", match.getVisitorTeam().getPoints() + "");
                 }
             }
@@ -307,7 +302,6 @@ public class XMLHandler {
             Element teamElement = doc.createElement("team");
             teamsElement.appendChild(teamElement);
             teamElement.setAttribute("logo", "");
-            System.out.println(teams[i].hasArtificialGrass());
             teamElement.setAttribute("art_grass", 
             		teams[i].hasArtificialGrass()
             		+ "");

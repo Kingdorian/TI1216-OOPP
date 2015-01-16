@@ -109,4 +109,8 @@ public final class PlayerInfo {
         return stopPower;
     }
 
+    @Override
+    public String toString() {
+        return "PlayerInfo{" + "attackPower=" + attackPower + ", stamina=" + stamina + ", defensePower=" + defensePower + ", favoritePosition=" + favoritePosition + ", penaltyStopPower=" + penaltyStopPower + ", stopPower=" + stopPower + '}';
+    }
 }

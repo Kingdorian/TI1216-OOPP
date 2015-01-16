@@ -9,6 +9,7 @@ import application.model.Goalkeeper;
 import application.model.Player;
 import application.model.Players;
 import application.model.Team;
+import application.view.GameScreenChoosePositionsController;
 import java.util.ArrayList;
 import java.util.Collections;
 import javafx.scene.paint.Color;
@@ -34,7 +35,8 @@ public class TeamPositions {
 
         public Players player;
         public int index;
-        public Circle circle;
+        private final Circle circle;
+        private final boolean relativeCircle;
 
         /**
          * Constructor
@@ -42,10 +44,11 @@ public class TeamPositions {
          * @param player the player
          * @param index the index
          */
-        PlayerIndex(Players player, Circle circle, int index) {
+        PlayerIndex(Players player, Circle circle, int index, boolean relativeCircle) {
             this.player = player;
             this.circle = circle;
             this.index = index;
+            this.relativeCircle = relativeCircle;
         }
 
         /**
@@ -62,6 +65,26 @@ public class TeamPositions {
             PlayerIndex other = (PlayerIndex) o;
             return this.player == other.player || this.index == other.index; // either index or player has to be the same
         }
+        
+        public Circle getCircle(){
+            if(!relativeCircle)
+                return circle;
+            else{
+                double xPos = GameScreenChoosePositionsController.actualX(circle.getCenterX() + circle.getParent().getLayoutX());
+                double yPos = GameScreenChoosePositionsController.actualY(circle.getCenterY() + circle.getParent().getLayoutY());
+                Circle c = new Circle(xPos, yPos, 80, Color.BLUE);
+                System.out.println("c = " + c);
+                return c;
+            }
+        }
+
+        @Override
+        public String toString() {
+            return "PlayerIndex{" + "player=" + player + ", index=" + index + ", circle=" + getCircle() + ", relativeCircle=" + relativeCircle + '}';
+        }
+        
+        
+        
     }
 
     /**
@@ -115,9 +138,9 @@ public class TeamPositions {
         }
     }
 
-    public void addPlayer(Players player, Circle circle, int id) {
+    public void addPlayer(Players player, Circle circle, int id, boolean relativeCircle) {
         remove(player, circle, id);
-        selectedPlayers.add(new PlayerIndex(player, circle, id));
+        selectedPlayers.add(new PlayerIndex(player, circle, id, relativeCircle));
     }
 
     /**
@@ -130,7 +153,7 @@ public class TeamPositions {
 
         for (int i = 0; i < selectedPlayers.size(); i++) {
             PlayerIndex pi = selectedPlayers.get(i);
-            if (pi.player.equals(player) || pi.circle.equals(circle) || pi.index == index) {
+            if (pi.player.equals(player) || pi.getCircle().equals(circle) || pi.index == index) {
                 selectedPlayers.remove(i--); // lower i, so no instance will be skipped
             }
         }
@@ -169,10 +192,10 @@ public class TeamPositions {
         Goalkeeper keeper = null;
         Circle circle = null;
 
-        for (PlayerIndex selectedPlayer : selectedPlayers) {
-            if (selectedPlayer.player instanceof Goalkeeper) {
-                keeper = (Goalkeeper) selectedPlayer.player;
-                circle = selectedPlayer.circle;
+        for (PlayerIndex p : selectedPlayers) {
+            if (p.player instanceof Goalkeeper) {
+                keeper = (Goalkeeper) p.player;
+                circle = p.getCircle();
             }
         }
         if (keeper == null || circle == null) {
@@ -190,18 +213,15 @@ public class TeamPositions {
         Player defender;
         Circle circle;
 
-        for (PlayerIndex selectedPlayer : selectedPlayers) {
-            if ((selectedPlayer.circle.getFill().equals(Color.BLUE) && selectedPlayer.circle.getCenterX() < 358 && selectedPlayer.player instanceof Player) || // left team got blue color
-                    (selectedPlayer.circle.getFill().equals(Color.RED) && selectedPlayer.circle.getCenterX() > 663 && selectedPlayer.player instanceof Player)) { // right team got red color
-                defender = (Player) selectedPlayer.player;
-                circle = selectedPlayer.circle;
+        for (PlayerIndex p : selectedPlayers) {
+            if ((p.getCircle().getFill().equals(Color.BLUE) && p.getCircle().getCenterX() < 358 && p.player instanceof Player) || // left team got blue color
+                    (p.getCircle().getFill().equals(Color.RED) && p.getCircle().getCenterX() > 663 && p.player instanceof Player)) { // right team got red color
+                defender = (Player) p.player;
+                circle = p.getCircle();
 
                 result.add(new PlayerInfo(defender.getAttack(), defender.getStamina(), defender.getDefence(),
                         new Position(circle.getCenterX(), circle.getCenterY())));
             }
-        }
-        for (PlayerInfo result1 : result) {
-            System.out.println("defenders  = " + result1.getFavoritePosition());
         }
         return result;
     }
@@ -209,22 +229,18 @@ public class TeamPositions {
     public ArrayList<PlayerInfo> getMidfielders() {
 
         ArrayList<PlayerInfo> result = new ArrayList<>();
-
         Player midfielder;
         Circle circle;
 
-        for (PlayerIndex selectedPlayer : selectedPlayers) {
-            if ((selectedPlayer.circle.getFill().equals(Color.BLUE) && selectedPlayer.circle.getCenterX() >= 358 && selectedPlayer.circle.getCenterX() < 663 && selectedPlayer.player instanceof Player) || // left team got blue color
-                    (selectedPlayer.circle.getFill().equals(Color.RED) && selectedPlayer.circle.getCenterX() > 358 && selectedPlayer.circle.getCenterX() <= 663 && selectedPlayer.player instanceof Player)) { // right team got red color
-                midfielder = (Player) selectedPlayer.player;
-                circle = selectedPlayer.circle;
+        for (PlayerIndex p : selectedPlayers) {
+            if ((p.getCircle().getFill().equals(Color.BLUE) && p.getCircle().getCenterX() >= 358 && p.getCircle().getCenterX() < 663 && p.player instanceof Player) || // left team got blue color
+                    (p.getCircle().getFill().equals(Color.RED) && p.getCircle().getCenterX() > 358 && p.getCircle().getCenterX() <= 663 && p.player instanceof Player)) { // right team got red color
+                midfielder = (Player) p.player;
+                circle = p.getCircle();
 
                 result.add(new PlayerInfo(midfielder.getAttack(), midfielder.getStamina(), midfielder.getDefence(),
                         new Position(circle.getCenterX(), circle.getCenterY())));
             }
-        }
-        for (PlayerInfo result1 : result) {
-            System.out.println("midfielders  = " + result1.getFavoritePosition());
         }
         return result;
     }
@@ -236,18 +252,15 @@ public class TeamPositions {
         Player attacker;
         Circle circle;
 
-        for (PlayerIndex selectedPlayer : selectedPlayers) {
-            if ((selectedPlayer.circle.getFill().equals(Color.BLUE) && selectedPlayer.circle.getCenterX() >= 663 && selectedPlayer.player instanceof Player) || // left team got blue color
-                    (selectedPlayer.circle.getFill().equals(Color.RED) && selectedPlayer.circle.getCenterX() <= 358 && selectedPlayer.player instanceof Player)) { // right team got red color
-                attacker = (Player) selectedPlayer.player;
-                circle = selectedPlayer.circle;
+        for (PlayerIndex p : selectedPlayers) {
+            if ((p.getCircle().getFill().equals(Color.BLUE) && p.getCircle().getCenterX() >= 663 && p.player instanceof Player) || // left team got blue color
+                    (p.getCircle().getFill().equals(Color.RED) && p.getCircle().getCenterX() <= 358 && p.player instanceof Player)) { // right team got red color
+                attacker = (Player) p.player;
+                circle = p.getCircle();
 
                 result.add(new PlayerInfo(attacker.getAttack(), attacker.getStamina(), attacker.getDefence(),
                         new Position(circle.getCenterX(), circle.getCenterY())));
             }
-        }
-        for (PlayerInfo result1 : result) {
-            System.out.println("attackers  = " + result1.getFavoritePosition());
         }
         return result;
     }
@@ -259,67 +272,59 @@ public class TeamPositions {
     public void setDefaultLeftPlayers() {
 
         //set best keeper
-        this.addPlayer(keeperList.get(0), DefaultPos.L0.circle, 0);
+        this.addPlayer(keeperList.get(0), DefaultPos.L0.circle, 0, false);
 
-        //set field playerList
-//        for (int i = 1; i < 11; i++) {
-//            this.addPlayer(fieldPlayerList.get(i-1), DefaultPos.Loop.getL(i).circle, i);
-//        }
-        // put the best defenders in the field
+        // put the best defenders on the field
         for (int i = 1; i < 5; i++) {
-            this.addPlayer(fieldPlayerList.get(i - 1), DefaultPos.Loop.getL(i).circle, i);
+            this.addPlayer(fieldPlayerList.get(i - 1), DefaultPos.Loop.getL(i).circle, i, false);
         }
 
-        // put the best midfielders in the field
+        // put the best midfielders on the field
         int offsett = 4;
         while (fieldPlayerList.get(offsett).getKind().equals("Defender") && offsett < fieldPlayerList.size() - 4) {
             offsett++;
         }
 
         for (int i = 5; i < 8; i++, offsett++) {
-            this.addPlayer(fieldPlayerList.get(offsett), DefaultPos.Loop.getL(i).circle, i);
+            this.addPlayer(fieldPlayerList.get(offsett), DefaultPos.Loop.getL(i).circle, i, false);
         }
 
-        // put the best attackers in the field
+        // put the best attackers on the field
         while ((fieldPlayerList.get(offsett).getKind().equals("Midfielder") || fieldPlayerList.get(offsett).getKind().equals("Allrounder")) && offsett < fieldPlayerList.size() - 4) {
             offsett++;
         }
 
         for (int i = 8; i < 11; i++, offsett++) {
-            this.addPlayer(fieldPlayerList.get(offsett), DefaultPos.Loop.getL(i).circle, i);
+            this.addPlayer(fieldPlayerList.get(offsett), DefaultPos.Loop.getL(i).circle, i, false);
         }
     }
 
     public void setDefaultRightPlayers() {
 
         //set best keeper
-        this.addPlayer(keeperList.get(0), DefaultPos.R0.circle, 0);
+        this.addPlayer(keeperList.get(0), DefaultPos.R0.circle, 0, false);
 
-        //set field playerList
-//        for (int i = 1; i < 11; i++) {
-//            this.addPlayer(fieldPlayerList.get(i-1), DefaultPos.Loop.getR(i).circle, i);
-//        }
         for (int i = 1; i < 5; i++) {
-            this.addPlayer(fieldPlayerList.get(i - 1), DefaultPos.Loop.getR(i).circle, i);
+            this.addPlayer(fieldPlayerList.get(i - 1), DefaultPos.Loop.getR(i).circle, i, false);
         }
 
-        // put the best midfielders in the field
+        // put the best midfielders on the field
         int offsett = 4;
         while (fieldPlayerList.get(offsett).getKind().equals("Defender") && offsett < fieldPlayerList.size() - 4) {
             offsett++;
         }
 
         for (int i = 5; i < 8; i++, offsett++) {
-            this.addPlayer(fieldPlayerList.get(offsett), DefaultPos.Loop.getR(i).circle, i);
+            this.addPlayer(fieldPlayerList.get(offsett), DefaultPos.Loop.getR(i).circle, i, false);
         }
 
-        // put the best attackers in the field
+        // put the best attackers on the field
         while ((fieldPlayerList.get(offsett).getKind().equals("Midfielder") || fieldPlayerList.get(offsett).getKind().equals("Allrounder")) && offsett < fieldPlayerList.size() - 4) {
             offsett++;
         }
 
         for (int i = 8; i < 11; i++, offsett++) {
-            this.addPlayer(fieldPlayerList.get(offsett), DefaultPos.Loop.getR(i).circle, i);
+            this.addPlayer(fieldPlayerList.get(offsett), DefaultPos.Loop.getR(i).circle, i, false);
         }
     }
 
@@ -331,4 +336,23 @@ public class TeamPositions {
         return keeperList;
     }
 
+    public void TESSTST_PRINT() {
+
+        Player defender;
+        Circle circle;
+        System.out.println("selectedPlayers = " + selectedPlayers);
+
+        for (PlayerIndex p : selectedPlayers) {
+            if ((p.getCircle().getFill().equals(Color.BLUE) && p.getCircle().getCenterX() < 358 && p.player instanceof Player) || // left team got blue color
+                    (p.getCircle().getFill().equals(Color.RED) && p.getCircle().getCenterX() > 663 && p.player instanceof Player)) { // right team got red color
+                defender = (Player) p.player;
+                circle = p.getCircle();
+                System.out.println("p.getCircle() = " + p.getCircle());
+                System.out.println("circle.getCenterX() = " + circle.getCenterX());
+                System.out.println("circle.getCenterY() = " + circle.getCenterY());
+            }
+        }
+    }
+
+    
 }

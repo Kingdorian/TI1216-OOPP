@@ -17,6 +17,7 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Slider;
@@ -61,6 +62,8 @@ public class GameScreenFootballFieldController implements ViewControllerInterfac
     private ImageView fieldPicture;
     @FXML
     private Button pauseButton;
+    @FXML
+    private Group fieldGroup;
     
     private static Main mainController;
 
@@ -199,9 +202,9 @@ public class GameScreenFootballFieldController implements ViewControllerInterfac
         timeSlider.addEventHandler(KeyEvent.KEY_PRESSED, keyEventHandler);
 
         // set the names of the two competing teams and set center their textfields at the middle line of the field
-        team1.setText("PSV");
+        team1.setText(Main.getChosenTeamName());
         team1.setEffect(new Lighting());
-        team2.setText("Ajax");
+        team2.setText(GameScreenPLAYMATCHController.getOpponent());
         team2.setEffect(new Lighting());
         teamsBox.setLayoutX(fieldPicture.getLayoutBounds().getWidth() / 2
                 - (team1.getLayoutBounds().getWidth() + teamsBox.getSpacing()
@@ -323,7 +326,7 @@ public class GameScreenFootballFieldController implements ViewControllerInterfac
      */
     @FXML
     private void continueButton() {
-        AnimateFootballMatch.stopAnimation();
+        mainController.setCenterView("GameScreenPLAYMATCH");
     }
     
     /**
@@ -335,4 +338,8 @@ public class GameScreenFootballFieldController implements ViewControllerInterfac
     public void setMainController(Main mainController) {
         this.mainController = mainController;
     }     
+
+    public Group getFieldGroup() {
+        return fieldGroup;
+    }
 }

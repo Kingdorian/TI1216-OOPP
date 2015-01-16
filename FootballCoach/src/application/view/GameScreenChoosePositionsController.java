@@ -25,11 +25,9 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.effect.Lighting;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
@@ -55,7 +53,6 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
     private static TeamPositions teamPositions;
     private static int selectedCircleID;
     private static GameScreenChoosePositionsController thisController;
-    private static Pane pane;
     
     private static Main mainController;
 
@@ -72,7 +69,7 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
     @FXML
     private Text penaltyStopPower;
     @FXML
-    private ImageView fieldImage;
+    private Group fieldImageGroup;
 
     /**
      * this class implements EventHandler and can be added to a circle to make
@@ -128,7 +125,7 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
 
         // add player to the clicked circle
         if (selectedCircleID != -1) {
-            teamPositions.addPlayer(player, playerCircle[selectedCircleID], selectedCircleID);
+            teamPositions.addPlayer(player, playerCircle[selectedCircleID], selectedCircleID, true);
             resetCircleText();
 
             // reset cell factory each time, so the text color will be changed
@@ -185,9 +182,6 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
             dragDelta.x = circle.getParent().getLayoutX() - mouseEvent.getScreenX();
             dragDelta.y = circle.getParent().getLayoutY() - mouseEvent.getScreenY();
             node.setCursor(Cursor.MOVE);
-            System.out.println("mouseEvent = " + mouseEvent);
-            System.out.println("dragDelta.x = " + dragDelta.x);
-            System.out.println("dragDelta.y = " + dragDelta.y);
             // reset all circles colors
             for (int i = 0; i < 11; i++) {
                 playerCircle[i].setFill(Color.BLUE);
@@ -214,18 +208,6 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
 
         // when releasing the mouse button, change the cursor to a hand
         circle.setOnMouseReleased((MouseEvent mouseEvent) -> {
-//            //make sure the circle can't be outside of the preset bounds
-//            if (actualX(circle.getParent().getLayoutX()) + actualX(circle.getLayoutBounds().getMinX()) < 115) {
-//                circle.getParent().setLayoutX(relativeX(115 - actualX(circle.getLayoutBounds().getMinX())));
-//            } else if (actualX(circle.getParent().getLayoutX()) + actualX(circle.getLayoutBounds().getMaxX()) > 845) {
-//                circle.getParent().setLayoutX(relativeX(845 - actualX(circle.getLayoutBounds().getMaxX())));
-//            }
-//
-//            if (actualY(circle.getParent().getLayoutY()) + actualY(circle.getLayoutBounds().getMinY()) < 90) {
-//                circle.getParent().setLayoutY(relativeY(90 - actualY(circle.getLayoutBounds().getMinY())));
-//            } else if (actualY(circle.getParent().getLayoutY()) + actualY(circle.getLayoutBounds().getMaxY()) > 680) {
-//                circle.getParent().setLayoutY(relativeY(680 - actualY(circle.getLayoutBounds().getMaxY())));
-//            }
             node.setCursor(Cursor.HAND);
         });
 
@@ -233,21 +215,21 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
         circle.setOnMouseDragged((MouseEvent mouseEvent) -> {
             
             //make sure the circle can't be outside of the preset bounds
-            if (circle.getParent().getLayoutX() < relativeX(115-pane.getLayoutX()) ) {
-                circle.getParent().setLayoutX(relativeX(115-pane.getLayoutX() ));
-//            } else if (circle.getParent().getLayoutX() + actualX(circle.getLayoutBounds().getMaxX()) > 845 || mouseEvent.getSceneX() >= relativeX(845)) {
-//                circle.getParent().setLayoutX(relativeX(845 - actualX(circle.getLayoutBounds().getMaxX())));
+            if (mouseEvent.getSceneX() - fieldImageGroup.getLayoutX() - fieldImageGroup.getParent().getLayoutX() - 20 - circle.getRadius()/2 < relativeX(115)) {
+                circle.getParent().setLayoutX(relativeX(115) - circle.getParent().getLayoutBounds().getMinX());
+            } else if (mouseEvent.getSceneX() - fieldImageGroup.getLayoutX() - fieldImageGroup.getParent().getLayoutX() - 20 + circle.getRadius()/2 > relativeX(845)) {
+                circle.getParent().setLayoutX(relativeX(845) - circle.getParent().getLayoutBounds().getMinX());
             } else {
-//                circle.getParent().setLayoutX(mouseEvent.getScreenX() + dragDelta.x);
+                circle.getParent().setLayoutX(mouseEvent.getScreenX() + dragDelta.x);
             }
             
-//            if (circle.getParent().getLayoutY() < relativeY(90) ) {
-//                circle.getParent().setLayoutY(relativeY(90));
-////            } else if (circle.getParent().getLayoutY() + actualY(circle.getLayoutBounds().getMaxY()) > 680 || mouseEvent.getSceneY() >= relativeX(680)) {
-////                circle.getParent().setLayoutY(relativeY(680 - actualY( circle.getLayoutBounds().getMaxY())));
-//            } else {
-//                circle.getParent().setLayoutY(mouseEvent.getScreenY() + dragDelta.y);
-//            }
+            if (mouseEvent.getSceneY() - fieldImageGroup.getLayoutY() - fieldImageGroup.getParent().getLayoutY() + circle.getRadius()/2 < relativeY(110)) {
+                circle.getParent().setLayoutY(relativeY(110) - circle.getParent().getLayoutBounds().getMaxY());
+            } else if (mouseEvent.getSceneY() - fieldImageGroup.getLayoutY() - fieldImageGroup.getParent().getLayoutY() - circle.getRadius()/2 > relativeY(660)) {
+                circle.getParent().setLayoutY(relativeY(660) + 8 - circle.getParent().getLayoutBounds().getMaxY());
+            } else {
+                circle.getParent().setLayoutY(mouseEvent.getScreenY() + dragDelta.y);
+            }
         });
 
         // change cursor to a hand when entering the circle
@@ -326,45 +308,15 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
      * Add the player circles to the scene
      *
      * @param stage the stage
-     * @param pane the anchor pane containing the scene
      * @param team the players team
      */
-    public void drawCircles(Stage stage, Pane pane, Team team) {
-        this.pane = pane;
+    public void drawCircles(Stage stage, Team team) {
         this.stage = stage;
-//        this.team = team;
 
         this.selectedCircleID = -1;
         this.thisController = this;
         this.teamPositions = new TeamPositions(team);
-
-//        //add all players of the team to a list
-//        ArrayList<Players> playerList = new ArrayList<>();
-//        for (Players player : team.getPlayers()) {
-//            playerList.add(player);
-//        }
-
-//        // sort players by kind
-//        Collections.sort(playerList, (Players p1, Players p2) -> {
-//            return kindToNumber(p1) - kindToNumber(p2);
-//        });
-
-        //add all field players of the team to a list
-//        this.fieldPlayerList = new ArrayList<>();
-//        for (Players player : playerList) {
-//            if (player instanceof Player) {
-//                fieldPlayerList.add((Player) player);
-//            }
-//        }
-//
-//        //add all goalkeepers of the team to a list
-//        this.keeperList = new ArrayList<>();
-//        for (Players player : playerList) {
-//            if (player instanceof Goalkeeper) {
-//                keeperList.add((Goalkeeper) player);
-//            }
-//        }
-
+        
         setSelectBox();
 
         // create the player circles
@@ -378,18 +330,6 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
             circle.setCenterX(relativeX(circle.getCenterX()));
             circle.setCenterY(relativeY(circle.getCenterY()));
         }
-//        playerCircle[0] = new Circle(60, 381, 13, Color.BLUE); 
-//        playerCircle[1] = new Circle(330, 160, 13, Color.BLUE);
-//        playerCircle[2] = new Circle(288, 290, 13, Color.BLUE);
-//        playerCircle[3] = new Circle(288, 467, 13, Color.BLUE);
-//        playerCircle[4] = new Circle(330, 605, 13, Color.BLUE);
-//        playerCircle[5] = new Circle(550, 250, 13, Color.BLUE);
-//        playerCircle[6] = new Circle(450, 385, 13, Color.BLUE);
-//        playerCircle[7] = new Circle(550, 513, 13, Color.BLUE);
-//        playerCircle[8] = new Circle(713, 259, 13, Color.BLUE);
-//        playerCircle[9] = new Circle(785, 385, 13, Color.BLUE);
-//        playerCircle[10] = new Circle(719, 494, 13, Color.BLUE);
-        
 
         // add players name to the circles + set a lighting effect
         // and add the circle+text to the scene
@@ -408,7 +348,7 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
 
             // group circle and name togheter and add them to the scene
             Group group = new Group(playerCircle[i], text);
-            pane.getChildren().add(group);
+            fieldImageGroup.getChildren().add(group);
         }
 
         // make all circles dragable (indirectly via an event handler)
@@ -427,9 +367,7 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
 
         teamPositions.setDefaultLeftPlayers();
         resetCircleText();
-
     }
-
 
 
     private void setSelectBox() {
@@ -516,6 +454,7 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
     @FXML
     private void startMatchButton() {
         if (teamPositions.checkValid()) {
+            teamPositions.TESSTST_PRINT();
             PlayAnimation.playMatches(teamPositions, mainController);
 //            int pointsLeft = result.getHomeTeam().getName().equals(nameLeft.getText()) ? result.getPointsHomeTeam() : result.getPointsVisitorTeam();
 //            int pointsRight = result.getHomeTeam().getName().equals(nameLeft.getText()) ? result.getPointsVisitorTeam() : result.getPointsHomeTeam();
@@ -555,18 +494,6 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
         return selectPlayerBox;
     }
 
-//    public void setDefaultPlayers() { // TODO: IMPROVE THE WAY PLAYERS ARE CHOSEN.
-//
-//        //set random keeper
-//        teamPositions.addPlayer(keeperList.get(0), playerCircle[10], 10);
-//
-//        //set field players
-//        for (int i = 0; i < 10; i++) {
-//            teamPositions.addPlayer(fieldPlayerList.get(i), playerCircle[i], i);
-//        }
-//        resetCircleText();
-//    }
-
     private void resetCircleText() {
         for (int i = 0; i < playerText.length; i++) {
             Players player = teamPositions.getPlayer(i);
@@ -594,20 +521,18 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
     
     
     private double relativeX(double x){
-        return 466.0 / 1020.0 * x + fieldImage.getLayoutX();
+        return x * 466.0 / 1020.0;
     }
     
-    private double actualX(double x){
-        return x - fieldImage.getLayoutX()  / (466.0 * 1020.0);
+    public static double actualX(double x){
+        return x  * 1020.0 / 466.0;
     }
     
     private double relativeY(double y){
-        return 350.0 / 765.0 * y + fieldImage.getLayoutY();
+        return y * 350.0 / 765.0;
     }
     
-    private double actualY(double y){
-        return (y - fieldImage.getLayoutY()) / (350.0  * 765.0);
+    public static double actualY(double y){
+        return y * 765.0 / 350.0;
     }
-
-    
 }

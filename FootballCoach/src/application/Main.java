@@ -7,6 +7,7 @@ import application.model.Players;
 import application.view.GameScreenFootballFieldController;
 import application.view.GameScreenChoosePositionsController;
 import application.view.GameScreenMenuController;
+import application.view.GameScreenPLAYMATCHController;
 import application.view.GameScreenTitleController;
 import application.view.PopupControllerInterface;
 import application.view.ViewControllerInterface;
@@ -18,6 +19,7 @@ import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -301,7 +303,16 @@ public class Main extends Application {
         // the center
         if(viewController instanceof GameScreenChoosePositionsController){
             GameScreenChoosePositionsController controller = (GameScreenChoosePositionsController) viewController;
-            controller.drawCircles(primaryStage, pane, competition.getTeamByName(chosenTeamName));
+            controller.drawCircles(primaryStage, competition.getTeamByName(chosenTeamName));
+        }
+        
+        //stop animation
+        if(animating){
+            stopAnimating.handle(null);
+            if(viewPath.contains("GameScreenPLAYMATCH")){
+                GameScreenPLAYMATCHController controller = (GameScreenPLAYMATCHController) viewController;
+                controller.showResultLastMatch();
+            }
         }
     }
 
@@ -726,14 +737,18 @@ public class Main extends Application {
     
     
     public void playMatch(CalculatedMatch match){
+        
+        animating = true;
+        
         // load the view
         GameScreenFootballFieldController viewController;
         Pane pane;
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("view/FootballField.fxml"));
+            loader.setLocation(getClass().getResource("view/GameScreenFootballField.fxml"));
             pane = (Pane) loader.load();
             viewController = (GameScreenFootballFieldController) loader.getController();
+            viewController.setMainController(this);
         } catch (IOException ex) {
             Logger.getLogger(AnimateFootballMatch.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("Failed to read FootballField.fxml file");
@@ -764,9 +779,16 @@ public class Main extends Application {
 
         
         // animate the football match
+        animating = true;
         AnimateFootballMatch.playMatch(match, viewController, pane);
-        
-        // reset animation variables
-        AnimateFootballMatch.reset();
     }
+    
+    // reset animation variables when animation is done
+    public static EventHandler stopAnimating = (EventHandler<ActionEvent>) (ActionEvent t) -> {
+        AnimateFootballMatch.stopAnimation();
+        animating = false;
+    };
+    
+    private static boolean animating = false;
+    
 }

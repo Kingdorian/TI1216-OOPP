@@ -351,7 +351,7 @@ public class Competition {
     public int getRound() {
         for(int i = 0; i<34; i++){
         	if(this.competition[i][1].getPointsHomeTeam()==-1){
-        		return i;
+        		return i+1;
         	}
         }
         return -1;

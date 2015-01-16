@@ -56,6 +56,15 @@ public class Position {
     public double getxPos() {
         return xPos;
     }
+    
+    /**
+     * Get the x-coordinate for animation
+     *
+     * @return x-coordinate
+     */
+    public double getxAnimation(){
+        return xPos * 466.0 / 1020.0;
+    }
 
     /**
      * Set the x-coordinate
@@ -80,6 +89,15 @@ public class Position {
      */
     public double getyPos() {
         return yPos;
+    }
+    
+    /**
+     * Get the y-coordinate for animation
+     *
+     * @return y-coordinate
+     */
+    public double getyAnimation(){
+        return yPos * 350.0 / 765.0;
     }
 
     /**

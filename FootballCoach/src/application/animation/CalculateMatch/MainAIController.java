@@ -44,13 +44,11 @@ public class MainAIController {
         ArrayList<PlayerInfo> defense1 = homeTeam.getDefenders();
         ArrayList<PlayerInfo> midfield1 = homeTeam.getMidfielders();
         ArrayList<PlayerInfo> attack1 = homeTeam.getAttackers();
-        System.out.println("keeper1.toString() = " + keeper1.getFavoritePosition().getxPos() + " " +  keeper1.getFavoritePosition().getyPos());
         
         PlayerInfo keeper2 = visitorTeam.getKeeper();
         ArrayList<PlayerInfo> defense2 = visitorTeam.getDefenders();
         ArrayList<PlayerInfo> midfield2 = visitorTeam.getMidfielders();
         ArrayList<PlayerInfo> attack2 = visitorTeam.getAttackers();
-        System.out.println("keeper2.toString() = " + keeper2.getFavoritePosition().getxPos() + " " +  keeper2.getFavoritePosition().getyPos());
         final CalculatedMatch footballMatch = new CalculatedMatch();
         CurrentPositions currentPositions = new CurrentPositions();
 
