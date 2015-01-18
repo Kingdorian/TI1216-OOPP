@@ -310,9 +310,9 @@ public class GameScreenFootballFieldController implements ViewControllerInterfac
     private void togglePauseButton() {
         AnimateFootballMatch.togglePause();
         if (AnimateFootballMatch.isPause()) {
-            pauseButton.setImage(new Image(getClass().getResourceAsStream("../img/next.png")));
+            pauseButton.setImage(new Image(Main.class.getResourceAsStream("img/next.png")));
         } else {
-            pauseButton.setImage(new Image(getClass().getResourceAsStream("../img/pause.png")));
+            pauseButton.setImage(new Image(Main.class.getResourceAsStream("img/pause.png")));
         }
     }
 

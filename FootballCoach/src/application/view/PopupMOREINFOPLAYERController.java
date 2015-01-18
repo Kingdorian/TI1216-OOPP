@@ -7,6 +7,7 @@ package application.view;
 
 import application.Main;
 import application.model.Player;
+import application.model.Reason;
 import application.model.Team;
 import javafx.fxml.FXML;
 import javafx.scene.control.PopupControl;
@@ -83,9 +84,9 @@ public class PopupMOREINFOPLAYERController implements PopupControllerInterface {
         attackPower.setText(Integer.toString(selectedPlayer.getAttack()));
         defensePower.setText(Integer.toString(selectedPlayer.getDefence()));
         stamina.setText(Integer.toString(selectedPlayer.getStamina()));
-        timeNotAvailable.setText(selectedPlayer.getTimeNotAvailable() == 0 ? "None" : Integer.toString(selectedPlayer.getTimeNotAvailable()) + " days");
+        timeNotAvailable.setText(selectedPlayer.getTimeNotAvailable() == 0 ? "-" : Integer.toString(selectedPlayer.getTimeNotAvailable()) + " days");
         kindOfCard.setText("Not implemented yet");
-        kindOfInjury.setText(selectedPlayer.getReason().toString());
+        kindOfInjury.setText(selectedPlayer.getReason() == Reason.DEFAULT ? "-" : selectedPlayer.getReason().toString());
         for (Team teams : Main.getCompetition().getTeams()) {
             if (teams.getPlayers().contains(selectedPlayer)) {
                 playerTeam.setText(teams.getName());

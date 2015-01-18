@@ -94,7 +94,12 @@ public class GameScreenSCHEDULEController implements ViewControllerInterface {
             }
             return new SimpleStringProperty(teamname);
         });
-        columnResult.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getPointsHomeTeam() + " - " + cellData.getValue().getPointsVisitorTeam()));
+        columnResult.setCellValueFactory(cellData -> {
+        	if(cellData.getValue().getPointsHomeTeam() == -1){
+        		return new SimpleStringProperty("Not played yet");
+        	}
+        	return new SimpleStringProperty(cellData.getValue().getPointsHomeTeam() + " - " + cellData.getValue().getPointsVisitorTeam());}
+        );
 
         int currentRound = Main.getCompetition().getRound() - 1;
         if (currentRound >= 0) {
