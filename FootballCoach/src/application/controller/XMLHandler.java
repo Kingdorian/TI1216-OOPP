@@ -90,14 +90,10 @@ public class XMLHandler {
             Players p;
             if (nodes.item(i).getNodeName().equals("player")) {
                 p = parsePlayer(nodes.item(i));
-                if (p != null) {
-                    team.addPlayer(p);
-                }
+                team.addPlayer(p);
             } else if (nodes.item(i).getNodeName().equals("goalkeeper")) {
                 p = parseGoalkeeper(nodes.item(i));
-                if (p != null) {
                     team.addPlayer(p);
-                }
             }
         }
         return team;
@@ -225,19 +221,20 @@ public class XMLHandler {
      * @param teams The arraylist with teams to store
      * @throws Exception
      */
-    public static void writeCompetition(Competition comp, String location) {
+    public static void writeCompetition(Competition comp, String loc) {
+    	String location = loc + comp.getSaveGameId();
         File saveDir = new File(location);
         //If the savedir does not yet exist create it and copy the default competition xml into it
         if (!saveDir.exists()) {
             saveDir.mkdir();
         }
         try {
-            writeTeams(location + comp.getSaveGameId() + "/Competition.xml", comp.getTeams());
-            writeMatches(location + comp.getSaveGameId() + "/Matches.xml", comp);
+        	System.out.println(comp.toString());
+            writeTeams(location + "/Competition.xml", comp.getTeams());
+            writeMatches(location + "/Matches.xml", comp);
         } catch (Exception e) {
             e.printStackTrace();
         }
-			// Writing the matches
 
     }
 
@@ -298,7 +295,9 @@ public class XMLHandler {
         Element teamsElement = doc.createElement("teams");
         doc.appendChild(teamsElement);
         // Looping over all the teams in the ArrayList
+        System.out.println("Teams length: " + teams.length);
         for (int i = 0; i < teams.length; i++) {
+        	if(teams[i]!=null){
             Element teamElement = doc.createElement("team");
             teamsElement.appendChild(teamElement);
             teamElement.setAttribute("logo", "");
@@ -364,6 +363,7 @@ public class XMLHandler {
                 }
                 teamElement.appendChild(pE);
             }
+            }
 
         }
 
@@ -399,7 +399,6 @@ public class XMLHandler {
 			Document doc = db.parse(new File(location));
 			return ((Element)doc.getElementsByTagName("rounds").item(0)).getAttribute("chosenTeam");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 
 		}

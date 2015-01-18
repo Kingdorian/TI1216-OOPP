@@ -17,6 +17,7 @@ import application.model.*;
 
 public class SaveGameHandlerTest {
 	@Before public void initialize(){
+		System.out.println("Hello I'm stupid!");
 		SaveGameHandler.changeDefaultLoc("XML/TestSaveGames/");
 		SaveGameHandler.changeDefaultCompLoc("XML/TestCompetitions/");
 	}
@@ -26,9 +27,10 @@ public class SaveGameHandlerTest {
 	public void testloadCompetition(){
 		try {
 			Competition genComp = SaveGameHandler.loadCompetition(1);
-			Competition refComp = XMLHandler.readCompetition("XML/TestSavegames/1/competition.xml", "XML/TestSavegames/1/Matches.xml");
+			Competition refComp = XMLHandler.readCompetition("XML/TestSavegames/1/Teams.xml", "XML/TestSavegames/1/Matches.xml");
 			assertEquals(genComp, refComp);
 		} catch (Exception e) {
+			System.out.println("Error with testLoadCompetition");
 			e.printStackTrace();
 			fail("Unexpected exception");
 
@@ -80,7 +82,8 @@ public class SaveGameHandlerTest {
 	@Test
 	public void testGetDateById(){
 		try{
-			assertEquals(SaveGameHandler.getDateById(-2),new Date(1418203924370L));
+			String time = SaveGameHandler.getDateById(-2).getTime()+"";
+			assertEquals(SaveGameHandler.getDateById(-2),new Date( 1418762230437L));
 		}catch(FileNotFoundException e){
 			e.printStackTrace();
 			fail("File not Found");
@@ -101,8 +104,11 @@ public class SaveGameHandlerTest {
 	@Test
 	public void testCreateNewSave(){
 		try {
-			Competition refComp = XMLHandler.readCompetition("XML/Teams.xml", "XML/Matches.xml");
-			assertEquals(refComp,  SaveGameHandler.createNewSave("XML/Teams.xml", "XML/Matches.xml"));
+			Competition genComp =  SaveGameHandler.createNewSave("XML/Competitions/Eredivisie/Teams.xml", "XML/Competitions/Eredivisie/Matches.xml");
+			Competition refComp = XMLHandler.readCompetition("XML/Competitions/Eredivisie/Teams.xml", "XML/Competitions/Eredivisie/Matches.xml");
+			System.out.println("Refcomp" + refComp);
+			System.out.println("Gencomp" + genComp);
+			assertEquals(refComp.getTeams(),  genComp.getTeams());
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 			fail("Unexpected FileNotFoundException");
@@ -121,6 +127,49 @@ public class SaveGameHandlerTest {
 	    SaveGameHandler a = new SaveGameHandler() {
 	    };
 	}
+	
+	
+
+	@Test
+	public void testDeleteSaveGame(){
+		String locStorage = SaveGameHandler.getDefaultLoc();
+		SaveGameHandler.changeDefaultLoc("XML/TestSaveGames/");
+		try {
+			Competition comp = SaveGameHandler.createNewSave("XML/Competitions/Eredivisie/Teams.xml", "XML/Competitions/Eredivisie/Matches.xml");
+			SaveGameHandler.deleteSaveGame(comp.getSaveGameId());
+			File Teams = new File("XML/TestSaveGames/5/Teams.xml");
+			File Matches = new File("XML/TestSaveGames/5/Matches.xml");
+			assertFalse(Teams.exists()||Matches.exists());
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		SaveGameHandler.changeDefaultLoc(locStorage);
+	}
+	
+	@Test
+	public void testGetDefaultLoc(){
+		 assertEquals(SaveGameHandler.getDefaultLoc(), "XML/TestSaveGames/");
+	}
+	
+	@Test
+	public void testGetDefaultCompLoc(){
+		 assertEquals(SaveGameHandler.getDefaultCompLoc(), "XML/TestCompetitions/");
+	}
+	@Test
+	public void testGetNameById(){
+		assertEquals(SaveGameHandler.getNameById(1), "Mario");
+	}
+	@Test
+	public void testGetTeamNameById(){
+		assertEquals(SaveGameHandler.getTeamNameById(1), "Ajax");
+	}
+	
+	@Test
+	public void testSomething(){
+		
+	}
 	@After
 	public void cleanUp(){
 		ArrayList<Integer> saveGameIds = new ArrayList<Integer>();
@@ -129,8 +178,9 @@ public class SaveGameHandlerTest {
 		for(int i = 0; i<listOfFiles.length;i++){
 			//Delete all the directories that are not -2 or 1
 			String name = listOfFiles[i].getName();
-			if(!(name.equals("1")||name.equals("-2"))){
-				System.out.println("Deleting...");
+			System.out.println(name);
+			if(!(name.equals("1")||name.equals("-2")||name.equals("-229"))){
+				System.out.println("Deleting" + name);
 				removeDirectory(listOfFiles[i]);
 			}
 		}
@@ -148,5 +198,6 @@ public class SaveGameHandlerTest {
 	    } else {
 	        dir.delete();
 	    }
+
 	}
 }
