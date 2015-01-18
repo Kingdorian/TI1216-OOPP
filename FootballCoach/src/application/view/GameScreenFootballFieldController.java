@@ -23,6 +23,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.Lighting;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -61,7 +62,7 @@ public class GameScreenFootballFieldController implements ViewControllerInterfac
     @FXML
     private ImageView fieldPicture;
     @FXML
-    private Button pauseButton;
+    private ImageView pauseButton;
     @FXML
     private Group fieldGroup;
     
@@ -188,7 +189,7 @@ public class GameScreenFootballFieldController implements ViewControllerInterfac
         timeSlider.setValue(0);
         timeSlider.setShowTickLabels(true);
         timeSlider.setShowTickMarks(true);
-        timeSlider.setMajorTickUnit(SLIDER_PRECISION / 9);
+        timeSlider.setMajorTickUnit(SLIDER_PRECISION / 3);
         timeSlider.setMinorTickCount(1);
         timeSlider.setBlockIncrement(SLIDER_PRECISION / 180);
 
@@ -203,13 +204,8 @@ public class GameScreenFootballFieldController implements ViewControllerInterfac
 
         // set the names of the two competing teams and set center their textfields at the middle line of the field
         team1.setText(Main.getChosenTeamName());
-        team1.setEffect(new Lighting());
         team2.setText(GameScreenPLAYMATCHController.getOpponent());
-        team2.setEffect(new Lighting());
-        teamsBox.setLayoutX(fieldPicture.getLayoutBounds().getWidth() / 2
-                - (team1.getLayoutBounds().getWidth() + teamsBox.getSpacing()
-                + vs.getLayoutBounds().getWidth() / 2)); //set the box halfway past the field, and then move it, the size of the first teams name + the spacing + half of the size of the "vs." text, to the left
-    }
+     }
 
     /**
      * Method that sets the variable isDragging to true when the slider is
@@ -314,9 +310,9 @@ public class GameScreenFootballFieldController implements ViewControllerInterfac
     private void togglePauseButton() {
         AnimateFootballMatch.togglePause();
         if (AnimateFootballMatch.isPause()) {
-            pauseButton.setText("P"); // P for play -- REPLACE WITH PUCTURE
+            pauseButton.setImage(new Image(getClass().getResourceAsStream("../img/next.png")));
         } else {
-            pauseButton.setText("S"); // S for stop -- REPLACE WITH PUCTURE
+            pauseButton.setImage(new Image(getClass().getResourceAsStream("../img/pause.png")));
         }
     }
 
