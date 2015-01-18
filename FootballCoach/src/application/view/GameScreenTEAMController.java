@@ -61,9 +61,10 @@ public class GameScreenTEAMController implements ViewControllerInterface {
         columnAbility.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getAbilityStr()));
         columnAvailable.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().isAvailable() ? "Yes" : "No"));
         columnType.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getKind()));
-        
+
         columnCard.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue()));
-        
+
+        //get the image of the kind of card the player in the table cell has
         columnCard.setCellFactory(new Callback<TableColumn<Players, Players>, TableCell<Players, Players>>() {
             @Override
             public TableCell<Players, Players> call(TableColumn<Players, Players> param) {
@@ -73,20 +74,21 @@ public class GameScreenTEAMController implements ViewControllerInterface {
                     {
                         imgVw = new ImageView();
                         imgVw.setFitHeight(20);
-                        imgVw.setFitWidth(200.0/13.0);
+                        imgVw.setFitWidth(200.0 / 13.0);
                         setGraphic(imgVw);
                     }
 
                     @Override
                     public void updateItem(Players item, boolean empty) {
-                        if(item != null){
+                        if (item != null) {
                             Card card = item.getCard();
-                            if(card == Card.YELLOW)
-                                imgVw.setImage(new Image(Main.class.getResource("img/yellow_card.png").toString(), 200.0/13.0, 20, true, false));
-                            else if(card == Card.RED)
-                                imgVw.setImage(new Image(Main.class.getResource("img/red_card.png").toString(), 200.0/13.0, 20, true, false));
-                            else
+                            if (card == Card.YELLOW) {
+                                imgVw.setImage(new Image(Main.class.getResource("img/yellow_card.png").toString(), 200.0 / 13.0, 20, true, false));
+                            } else if (card == Card.RED) {
+                                imgVw.setImage(new Image(Main.class.getResource("img/red_card.png").toString(), 200.0 / 13.0, 20, true, false));
+                            } else {
                                 imgVw.setImage(null);
+                            }
                         }
                     }
                 };

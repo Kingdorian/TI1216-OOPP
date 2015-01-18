@@ -147,7 +147,10 @@ public class SaveGameHandler {
         Collections.sort(ids);
         //Getting the currently largest id
         int newId;
-        newId = ids.get(ids.size() - 1) + 1;
+        if(!ids.isEmpty())
+            newId = ids.get(ids.size() - 1) + 1;
+        else
+            newId = 0;
 
         //Make new directory
         new File(defaultloc + "/" + newId).mkdirs();
