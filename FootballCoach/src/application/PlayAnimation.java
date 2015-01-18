@@ -3,10 +3,14 @@ package application;
 import application.animation.CalculateMatch.MainAIController;
 import application.animation.Container.CalculatedMatch;
 import application.animation.Container.CurrentPositions;
+import application.animation.Container.PlayerInfo;
 import application.animation.Container.TeamPositions;
 import application.model.Competition;
 import application.model.Match;
+import application.model.Card;
+import application.model.Reason;
 import application.model.Team;
+import java.util.ArrayList;
 
 /**
  * This class' playMatch method can be used to handle everything which has
@@ -33,6 +37,7 @@ import application.model.Team;
  */
 public class PlayAnimation {
 
+    private final static Object lockAll = new Object();
     private final static Object lockGeneration = new Object();
     private final static Object lockAnimation = new Object();
     private final static Object lockUpdateResults = new Object();
@@ -44,59 +49,64 @@ public class PlayAnimation {
      * competition
      *
      * @param teamPositions positions of the team played by the player
+     * @param main instance of the Main class
      * @return the match of the player
      */
     public static Match playMatches(TeamPositions teamPositions, Main main) {
         
-        System.out.println("teamPositions.getDefenders() = " + teamPositions.getDefenders());
-        
-        PlayAnimation.teamPositions = teamPositions;
-        Competition competition = Main.getCompetition();
-        String playerTeam = competition.getChosenTeamName();
-        int round = competition.getRound();
-        Match[] matches = competition.getRound(round - 1);
+        //make sure next match can't be generated when previous one isn't done yet.
+        synchronized(lockAll){
+            PlayAnimation.teamPositions = teamPositions;
+            Competition competition = Main.getCompetition();
+            String playerTeam = competition.getChosenTeamName();
+            int round = competition.getRound();
+            Match[] matches = competition.getRound(round - 1);
 
-        count = 0;
+            count = 0;
 
-        // start a thread which will calculate the results of the other teams, while
-        // the player is playing his own match
-        Thread matchThread = new Thread() {
-            @Override
-            public void run() {
-                // for all matches: if it is NOT the players match, generate it without animation and store it.
-                for (int i = 0; i < matches.length; i++) {
-                    if (!matches[i].getHomeTeam().getName().equals(playerTeam) && !matches[i].getVisitorTeam().getName().equals(playerTeam)) {
-                        matches[i] = playMatch(matches[i].getHomeTeam(), matches[i].getVisitorTeam(), false, main);
+            // start a thread which will calculate the results of the other teams, while
+            // the player is playing his own match
+            Thread matchThread = new Thread() {
+                @Override
+                public void run() {
+                    // for all matches: if it is NOT the players match, generate it without animation and store it.
+                    for (int i = 0; i < matches.length; i++) {
+                        if (!matches[i].getHomeTeam().getName().equals(playerTeam) && !matches[i].getVisitorTeam().getName().equals(playerTeam)) {
+                            matches[i] = playMatch(matches[i].getHomeTeam(), matches[i].getVisitorTeam(), false, main);
+                        }
+                    }
+                    synchronized (lockUpdateResults) {
+                        if (count > 0) {
+                            competition.updateResults();
+                        } else {
+                            count++;
+                        }
                     }
                 }
-                synchronized (lockUpdateResults) {
-                    if (count > 0) {
-                        competition.updateResults();
-                    } else {
-                        count++;
+            };
+
+            matchThread.start();
+
+            // for all matches: if it IS the players match, generate, animation and return it.
+            for (int i = 0; i < matches.length; i++) {
+                if (matches[i].getHomeTeam().getName().equals(playerTeam) || matches[i].getVisitorTeam().getName().equals(playerTeam)) {
+                    matches[i] = playMatch(matches[i].getHomeTeam(), matches[i].getVisitorTeam(), true, main);
+                    synchronized (lockUpdateResults) {
+                        if (count > 0) {
+                            competition.updateResults();
+                        } else {
+                            count++;
+                        }
                     }
+                    return matches[i];
                 }
             }
-        };
+            //reset cards and injury each 4 rounds
+            if(round + 1 % 4 == 0)
+                Main.getCompetition().resetCardReason();
 
-        matchThread.start();
-
-        // for all matches: if it IS the players match, generate, animation and return it.
-        for (int i = 0; i < matches.length; i++) {
-            if (matches[i].getHomeTeam().getName().equals(playerTeam) || matches[i].getVisitorTeam().getName().equals(playerTeam)) {
-                matches[i] = playMatch(matches[i].getHomeTeam(), matches[i].getVisitorTeam(), true, main);
-                synchronized (lockUpdateResults) {
-                    if (count > 0) {
-                        competition.updateResults();
-                    } else {
-                        count++;
-                    }
-                }
-                return matches[i];
-            }
+            return null; //return null if the play had no match (which shouldn't be possible)
         }
-
-        return null; //return null if the play had no match (which shouldn't be possible)
     }
 
     /**
@@ -162,8 +172,13 @@ public class PlayAnimation {
         // This does make a huge difference (see tests information in the comments above)
         match = null; // DO NOT REMOVE OR CHANGE THIS STATEMENT
         System.gc();
+        
+        //generate injurys and red/yellow cards
+        Match result = new Match(homeTeam, visitorTeam, scoreLeft, scoreRight);
+        generateInjuries(result, leftTeam, rightTeam);
+        generateCards(result, leftTeam, rightTeam);
 
-        return new Match(homeTeam, visitorTeam, scoreLeft, scoreRight);
+        return result;
     }
 
     
@@ -175,6 +190,82 @@ public class PlayAnimation {
             result.setDefaultRightPlayers();
 
         return result;
+    }
+    
+    /**
+     * Generate blessures
+     * @param match the match to generate injuries for
+     * @param leftTeam the left team (so only players in the field can get injuries)
+     * @param rightTeam the right team (so only players in the field can get injuries)
+     */
+    public static void generateInjuries(Match match, TeamPositions leftTeam, TeamPositions rightTeam){
+        
+        // no injuries for keeper
+        ArrayList<PlayerInfo> leftPlayers = leftTeam.getDefenders();
+        leftPlayers.addAll(leftTeam.getMidfielders());
+        leftPlayers.addAll(leftTeam.getAttackers());
+        
+        ArrayList<PlayerInfo> rightPlayers = rightTeam.getDefenders();
+        rightPlayers.addAll(rightTeam.getMidfielders());
+        rightPlayers.addAll(rightTeam.getAttackers());
+        
+        double random = Math.random();
+        
+        //max 3 yellow cards
+        //0: 10%
+        //1 or more: 90%
+        //2 or more: 50%
+        //3: 10%
+        //2x yellow card for same player = red card
+        while(random < 0.9){
+            
+            if(Math.random() > 0.5){
+                //left team
+                leftPlayers.get((int) (Math.random() * 10.0)).getPlayer().setCard(Card.YELLOW);
+            } else {
+                //right team
+                rightPlayers.get((int) (Math.random() * 10.0)).getPlayer().setCard(Card.YELLOW);
+            }
+            random += 0.4;
+        }
+        
+    }
+    
+    /**
+     * Generate blessures
+     * @param match the match to generate cards for
+     * @param leftTeam the left team (so only players in the field can get cards)
+     * @param rightTeam the right team (so only players in the field can get cards)
+     */
+    public static void generateCards(Match match, TeamPositions leftTeam, TeamPositions rightTeam){
+        
+        // no injuries for keeper
+        ArrayList<PlayerInfo> leftPlayers = leftTeam.getDefenders();
+        leftPlayers.addAll(leftTeam.getMidfielders());
+        leftPlayers.addAll(leftTeam.getAttackers());
+        
+        ArrayList<PlayerInfo> rightPlayers = rightTeam.getDefenders();
+        rightPlayers.addAll(rightTeam.getMidfielders());
+        rightPlayers.addAll(rightTeam.getAttackers());
+        
+        double random = Math.random();
+        
+        //max 2 injuries
+        //0: 95% chance
+        //1: or more: 5% chance
+        //2: 0.5% chance
+        while(random < 0.05){
+            
+            if(Math.random() > 0.5){
+                //left team
+                leftPlayers.get((int) (Math.random() * 10.0)).getPlayer().setReason(Reason.DEFAULT.random());
+            } else {
+                //right team
+                rightPlayers.get((int) (Math.random() * 10.0)).getPlayer().setReason(Reason.DEFAULT.random());
+            }
+            random += 0.045;
+        }
+        
     }
     
 }

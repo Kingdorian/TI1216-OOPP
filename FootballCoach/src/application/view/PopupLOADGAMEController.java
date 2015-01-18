@@ -69,7 +69,6 @@ public class PopupLOADGAMEController implements PopupControllerInterface {
 				String team = SaveGameHandler.getTeamNameById(SaveGameHandler.getSaveGames().get(i));
 				String name = SaveGameHandler.getNameById(SaveGameHandler.getSaveGames().get(i));
 				saveGames.add(SaveGameHandler.getSaveGames().get(i) + ". " + dateParts[0] +  " " + dateParts[1] + " " + dateParts[2] + " " + team  + " By: " + name);
-				System.out.println(saveGames.get(i));
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -98,7 +97,6 @@ public class PopupLOADGAMEController implements PopupControllerInterface {
                     .owner(Main.getOldPopup())
                     .showWarning();
         } else {
-        	System.out.println(selectSaveGameBox.getItems().get(selectSaveGameBox.getSelectionModel().getSelectedIndex()).toString().split("\\.")[0]);
             int choice = Integer.parseInt(selectSaveGameBox.getItems().get(selectSaveGameBox.getSelectionModel().getSelectedIndex()).toString().split("\\.")[0]);
             try {
                 Main.setCompetition(SaveGameHandler.loadCompetition(choice));
@@ -151,8 +149,7 @@ public class PopupLOADGAMEController implements PopupControllerInterface {
 
                   if (response == Dialog.Actions.OK) {
                 	  // Delete the savegame if OK is pressed.
-                	  System.out.println(choice.split("\\.")[0]);
-                	  SaveGameHandler.deleteSaveGame(Integer.parseInt(choice.split("\\.")[0]));
+              	  SaveGameHandler.deleteSaveGame(Integer.parseInt(choice.split("\\.")[0]));
                       // Reload the dropdown list
                       initialize();  
                   } else {

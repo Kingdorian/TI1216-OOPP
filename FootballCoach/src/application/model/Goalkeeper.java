@@ -11,13 +11,13 @@ public class Goalkeeper extends Players {
      * @param name First name of the player.
      * @param surname Surname of the player.
      * @param number Backnumber of the player.
-     * @param status Status if player is injured or suspended or both.
+     * @param status Card if player is injured or suspended or both.
      * @param timeNotAvailable Time that the player isn't available.
      * @param reason Reason why the player is injured.
      * @param stopPower Skill of the goalkeeper to stop goals.
      * @param penalyStopPower Skill of the goalkeeper to stop penalty's.
      */
-    public Goalkeeper(String name, String surName, int number, Status status, int timeNotAvailable, Reason reason, int stopPower, int penaltyStopPower) {
+    public Goalkeeper(String name, String surName, int number, Card status, int timeNotAvailable, Reason reason, int stopPower, int penaltyStopPower) {
         super(name, surName, number, status, timeNotAvailable, reason);
 
         this.stopPower = stopPower;
@@ -55,7 +55,6 @@ public class Goalkeeper extends Players {
         if (this.penaltyStopPower != other.getPenaltyStopPower()) {
             return false;
         }
-        System.out.println(this.stopPower + " hi " + other.getStopPower());
         if (this.stopPower != other.getStopPower()) {
             return false;
         }

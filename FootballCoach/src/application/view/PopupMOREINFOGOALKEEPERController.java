@@ -8,6 +8,7 @@ package application.view;
 import application.Main;
 import application.model.Goalkeeper;
 import application.model.Reason;
+import application.model.Card;
 import application.model.Team;
 import javafx.fxml.FXML;
 import javafx.scene.control.PopupControl;
@@ -82,7 +83,7 @@ public class PopupMOREINFOGOALKEEPERController implements PopupControllerInterfa
         stopPower.setText(Integer.toString(selectedPlayer.getStopPower()));
         penaltyStopPower.setText(Integer.toString(selectedPlayer.getPenaltyStopPower()));
         timeNotAvailable.setText(selectedPlayer.getTimeNotAvailable() == 0 ? "-" : Integer.toString(selectedPlayer.getTimeNotAvailable()) + " days");
-        kindOfCard.setText("Not implemented yet");
+        kindOfCard.setText(selectedPlayer.getCard()== Card.DEFAULT ? "-" : selectedPlayer.getCard().toString());
         kindOfInjury.setText(selectedPlayer.getReason() == Reason.DEFAULT ? "-" : selectedPlayer.getReason().toString());
         for (Team teams : Main.getCompetition().getTeams()) {
             if (teams.getPlayers().contains(selectedPlayer)) {

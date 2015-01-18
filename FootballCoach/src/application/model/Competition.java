@@ -36,7 +36,6 @@ public class Competition {
     }
 
     public String getName() {
-//        System.out.println(name);
         return name;
     }
 
@@ -94,7 +93,6 @@ public class Competition {
      * @param int l the index of the match
      */
     public void addMatch(int n, int l, Match m) {
-//        System.out.println(n);
         competition[n][l] = m;
     }
 
@@ -286,12 +284,10 @@ public class Competition {
         ArrayList<String> matches = new ArrayList<String>();
         //ROUND ROBIN STYLE FOR THE FIRST 17 Matches
         for (int i = 0; i < teams.length - 1; i++) {
-//            System.out.println("ROUND: " + i);
             for (int j = 0; j < teams.length / 2; j++) {
                 int hometeamIndex = j;
                 int awayTeamIndex = teams.length - 1 - j;
                 competition[i][j] = new Match(teams[hometeamIndex], teams[awayTeamIndex]);
-//                System.out.println(competition[i][j].toString());
             }
             //Rotating the array
             Team temp = teams[teams.length - 1];
@@ -303,10 +299,8 @@ public class Competition {
         // Swap the teams from the first 17 matches around to create the "returns"
         for (int i = 0; i < (teams.length - 1); i++) {
             int offset = teams.length - 1;
-//            System.out.println("ROUND: " + (i + offset));
             for (int j = 0; j < teams.length / 2; j++) {
                 competition[i + offset][j] = new Match(competition[i][j].getVisitorTeam(), competition[i][j].getHomeTeam());
-//                System.out.println(competition[i][j].toString());
             }
         }
 		/*Shuffle the array Fisher-Yates style
@@ -392,5 +386,14 @@ public class Competition {
             }
         });
         return sortedTeams;
+    }
+    
+    /**
+     * reset the cards and injury for each player of each team of the competition
+     */
+    public void resetCardReason(){
+        for (Team team : teams) {
+            team.resetCardReason();
+        }
     }
 }

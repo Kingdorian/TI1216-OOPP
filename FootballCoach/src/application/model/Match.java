@@ -17,7 +17,6 @@ public class Match {
     private int pointsVisitorTeam = -1;
 
     public boolean equals(Object obj) {
-    	System.out.println(obj.toString());
         if (!(obj instanceof Match)) {
             return false;
         }
@@ -59,14 +58,11 @@ public class Match {
         this(homeTeam, visitorTeam);
         this.pointsHomeTeam = pointsHomeTeam;
         this.pointsVisitorTeam = pointsVisitorTeam;
-
-//System.out.println("points constructor");
     }
 
     public Match(Team homeTeam, Team visitorTeam) {
         this.homeTeam = homeTeam;
         this.visitorTeam = visitorTeam;
-//System.out.println(pointsHomeTeam + pointsVisitorTeam);
     }
 
     public Team getHomeTeam() {

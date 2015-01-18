@@ -115,7 +115,7 @@ public class XMLHandler {
                 tna = Integer.MIN_VALUE,
                 stoppower = Integer.MIN_VALUE,
                 penaltystoppower = Integer.MIN_VALUE;
-        Status status = Status.DEFAULT;
+        Card status = Card.DEFAULT;
         Reason reason = Reason.DEFAULT;
         NodeList nl = playerNode.getChildNodes();
         for (int i = 0; i < nl.getLength(); i++) {
@@ -145,7 +145,7 @@ public class XMLHandler {
                     penaltystoppower = Integer.parseInt(nl.item(i).getTextContent());
                     break;
                 case "status":
-                    status = Status.valueOf(nl.item(i).getTextContent());
+                    status = Card.valueOf(nl.item(i).getTextContent());
                     break;
             }
         }
@@ -172,7 +172,7 @@ public class XMLHandler {
                 attack = Integer.MIN_VALUE,
                 defence = Integer.MIN_VALUE,
                 stamina = Integer.MIN_VALUE;
-        Status status = Status.DEFAULT;
+        Card status = Card.DEFAULT;
         Reason reason = Reason.DEFAULT;
         NodeList nl = playerNode.getChildNodes();
         for (int i = 0; i < nl.getLength(); i++) {
@@ -205,7 +205,7 @@ public class XMLHandler {
                     stamina = Integer.parseInt(nl.item(i).getTextContent());
                     break;
                 case "status":
-                    status = Status.valueOf(nl.item(i).getTextContent());
+                    status = Card.valueOf(nl.item(i).getTextContent());
                     break;
 
             }
@@ -322,7 +322,7 @@ public class XMLHandler {
                     buffer.add(doc.createElement("number"));
                     buffer.get(2).setTextContent(p.getNumber() + "");
                     buffer.add(doc.createElement("status"));
-                    buffer.get(3).setTextContent(p.getStatus() + "");
+                    buffer.get(3).setTextContent(p.getCard() + "");
                     buffer.add(doc.createElement("timenotavailable"));
                     buffer.get(4).setTextContent(p.getTimeNotAvailable() + "");
                     buffer.add(doc.createElement("reason"));
@@ -348,7 +348,7 @@ public class XMLHandler {
                     buffer.add(doc.createElement("number"));
                     buffer.get(2).setTextContent(k.getNumber() + "");
                     buffer.add(doc.createElement("status"));
-                    buffer.get(3).setTextContent(k.getStatus() + "");
+                    buffer.get(3).setTextContent(k.getCard() + "");
                     buffer.add(doc.createElement("timenotavailable"));
                     buffer.get(4).setTextContent(k.getTimeNotAvailable() + "");
                     buffer.add(doc.createElement("reason"));

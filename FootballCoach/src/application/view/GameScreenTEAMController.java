@@ -6,16 +6,22 @@
 package application.view;
 
 import application.Main;
+import application.model.Card;
 import application.model.Goalkeeper;
 import application.model.Player;
 import application.model.Players;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.SortType;
 import javafx.scene.control.TableView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.util.Callback;
 
 /**
  * This is the controller class of the HOME screen of the main view of the game
@@ -38,6 +44,8 @@ public class GameScreenTEAMController implements ViewControllerInterface {
     private TableColumn<Players, String> columnAvailable;
     @FXML
     private TableColumn<Players, String> columnType;
+    @FXML
+    private TableColumn<Players, Players> columnCard;
 
     private static Main mainController;
 
@@ -53,6 +61,37 @@ public class GameScreenTEAMController implements ViewControllerInterface {
         columnAbility.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getAbilityStr()));
         columnAvailable.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().isAvailable() ? "Yes" : "No"));
         columnType.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getKind()));
+        
+        columnCard.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue()));
+        
+        columnCard.setCellFactory(new Callback<TableColumn<Players, Players>, TableCell<Players, Players>>() {
+            @Override
+            public TableCell<Players, Players> call(TableColumn<Players, Players> param) {
+                return new TableCell<Players, Players>() {
+                    ImageView imgVw;
+
+                    {
+                        imgVw = new ImageView();
+                        imgVw.setFitHeight(20);
+                        imgVw.setFitWidth(200.0/13.0);
+                        setGraphic(imgVw);
+                    }
+
+                    @Override
+                    public void updateItem(Players item, boolean empty) {
+                        if(item != null){
+                            Card card = item.getCard();
+                            if(card == Card.YELLOW)
+                                imgVw.setImage(new Image(Main.class.getResource("img/yellow_card.png").toString(), 200.0/13.0, 20, true, false));
+                            else if(card == Card.RED)
+                                imgVw.setImage(new Image(Main.class.getResource("img/red_card.png").toString(), 200.0/13.0, 20, true, false));
+                            else
+                                imgVw.setImage(null);
+                        }
+                    }
+                };
+            }
+        });
     }
 
     /**

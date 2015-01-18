@@ -33,7 +33,6 @@ public class Market {
     public void removePlayer(Players player) {
         for (int i = 0; i < playersForSale.size(); i++) {
             if (playersForSale.get(i).equals(player)) {
-            	System.out.println(playersForSale.toString());
                 playersForSale.remove(i);
                 price.remove(i);
             }

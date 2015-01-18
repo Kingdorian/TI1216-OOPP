@@ -1,6 +1,5 @@
 package application.model;
 
-import application.Main;
 
 import java.util.ArrayList;
 
@@ -53,6 +52,23 @@ public class Team {
 
     public ArrayList<Players> getPlayers() {
         return players;
+    }
+    
+    public ArrayList<Players> getAvailablePlayers() {
+        ArrayList<Players> res = new ArrayList<>();
+        int keepers = 0;
+        for (Players pl : players) {
+            if(pl.getCard() == Card.DEFAULT && pl.getCard()!= Card.RED){
+                if(pl instanceof Goalkeeper)
+                    keepers++;
+                res.add(pl);
+            }
+        }
+        //return all players if there aren't enough players to put in the field
+        if(res.size() - keepers < 10)
+            return getPlayers();
+        else
+            return res;
     }
 
     public void setPlayers(ArrayList<Players> players) {
@@ -270,5 +286,14 @@ public class Team {
     		}
     	}
     	return amount;
+    }
+    
+    /**
+     * reset the cards and injury for each player of the team
+     */
+    public void resetCardReason(){
+        for (Players player : players) {
+            player.resetCardReason();
+        }
     }
 }

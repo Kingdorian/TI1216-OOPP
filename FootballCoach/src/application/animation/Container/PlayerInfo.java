@@ -5,6 +5,10 @@
  */
 package application.animation.Container;
 
+import application.model.Goalkeeper;
+import application.model.Player;
+import application.model.Players;
+
 /**
  * This class stores the abilities of a player.
  *
@@ -21,15 +25,18 @@ public final class PlayerInfo {
     private final Position favoritePosition;
     private final int penaltyStopPower;
     private final int stopPower;
+    private final Players player;
 
     /**
      * Constructor for a goalkeeper.
      *
+     * @param keeper the keeper
      * @param stopPower goalkeepers stop power
      * @param penaltyStopPower goalkeepers penalty stop power
      * @param favoritePosition goalkeepers favorite position
      */
-    public PlayerInfo(int stopPower, int penaltyStopPower, Position favoritePosition) {
+    public PlayerInfo(Goalkeeper keeper, int stopPower, int penaltyStopPower, Position favoritePosition) {
+        this.player = keeper;
         this.stopPower = stopPower;
         this.penaltyStopPower = penaltyStopPower;
         this.favoritePosition = favoritePosition;
@@ -41,12 +48,14 @@ public final class PlayerInfo {
     /**
      * Constructor for a field player.
      *
+     * @param player the player
      * @param attackPower players attack power
      * @param stamina players stamina
      * @param defensePower players defense power
      * @param favoritePosition players favorite position
      */
-    public PlayerInfo(int attackPower, int stamina, int defensePower, Position favoritePosition) {
+    public PlayerInfo(Player player, int attackPower, int stamina, int defensePower, Position favoritePosition) {
+        this.player = player;
         this.attackPower = attackPower;
         this.stamina = stamina;
         this.defensePower = defensePower;
@@ -108,6 +117,12 @@ public final class PlayerInfo {
     public int getStopPower() {
         return stopPower;
     }
+
+    public Players getPlayer() {
+        return player;
+    }
+    
+    
 
     @Override
     public String toString() {

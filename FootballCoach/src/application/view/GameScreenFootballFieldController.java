@@ -18,11 +18,9 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
-import javafx.scene.effect.Lighting;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -104,7 +102,6 @@ public class GameScreenFootballFieldController implements ViewControllerInterfac
         public void changed(ObservableValue<? extends Number> ov, Number oldValue, Number newValue) {
             if (isDragging) {
                 AnimateFootballMatch.setTime(newValue.intValue() * AMOUNT_OF_SLICES / SLIDER_PRECISION);
-//                System.out.println("Slided: " + newValue);
             }
         }
     };
@@ -274,7 +271,6 @@ public class GameScreenFootballFieldController implements ViewControllerInterfac
     @FXML
     private void mouseClickedOnSlider() {
         AnimateFootballMatch.setTime((int) timeSlider.getValue() * AMOUNT_OF_SLICES / SLIDER_PRECISION);
-//        System.out.println("Clicked: " + (int)timeSlider.getValue());
     }
 
     /**
@@ -294,7 +290,6 @@ public class GameScreenFootballFieldController implements ViewControllerInterfac
      * slider is selected: it changes the time of the animation
      */
     private void keyRightClickedOnSlider() {
-//        System.out.println("Arrow key: " + timeSlider.getValue());
         if (timeSlider.getValue() < SLIDER_PRECISION - SLIDER_PRECISION / 180) {
             AnimateFootballMatch.setTime((int) (timeSlider.getValue() + SLIDER_PRECISION / 180) * AMOUNT_OF_SLICES / SLIDER_PRECISION); // go forward 3 minutes
         } else {

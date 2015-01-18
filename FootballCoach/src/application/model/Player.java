@@ -12,14 +12,14 @@ public class Player extends Players {
      * @param name First name of the player.
      * @param surName Surname of the player.
      * @param number Backnumber of the player.
-     * @param status Status if player is injured or suspended or both.
+     * @param status Card if player is injured or suspended or both.
      * @param timeNotAvailable Time that the player isn't available.
      * @param reason Reason why the player is injured.
      * @param attack Attack skill of the player.
      * @param defence Defence skill of the player.
      * @param stamina Stamina of the players.
      */
-    public Player(String name, String surName, int number, Status status,
+    public Player(String name, String surName, int number, Card status,
             int timeNotAvailable, Reason reason, int attack, int defence, int stamina) {
         super(name, surName, number, status, timeNotAvailable, reason);
         this.attack = attack;

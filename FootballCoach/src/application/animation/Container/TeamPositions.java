@@ -73,7 +73,6 @@ public class TeamPositions {
                 double xPos = GameScreenChoosePositionsController.actualX(circle.getCenterX() + circle.getParent().getLayoutX());
                 double yPos = GameScreenChoosePositionsController.actualY(circle.getCenterY() + circle.getParent().getLayoutY());
                 Circle c = new Circle(xPos, yPos, 80, Color.BLUE);
-                System.out.println("c = " + c);
                 return c;
             }
         }
@@ -94,7 +93,7 @@ public class TeamPositions {
      */
     public TeamPositions(Team team) {
         this.team = team;
-        playerList = team.getPlayers();
+        playerList = team.getAvailablePlayers();
 
         // sort playerList by kind and ability (best players of each kind higher up in the list)
         Collections.sort(playerList, (Players p1, Players p2) -> {
@@ -202,7 +201,7 @@ public class TeamPositions {
             return null;
         }
 
-        return new PlayerInfo(keeper.getStopPower(), keeper.getPenaltyStopPower(),
+        return new PlayerInfo(keeper, keeper.getStopPower(), keeper.getPenaltyStopPower(),
                 new Position(circle.getCenterX(), circle.getCenterY()));
     }
 
@@ -219,7 +218,7 @@ public class TeamPositions {
                 defender = (Player) p.player;
                 circle = p.getCircle();
 
-                result.add(new PlayerInfo(defender.getAttack(), defender.getStamina(), defender.getDefence(),
+                result.add(new PlayerInfo(defender, defender.getAttack(), defender.getStamina(), defender.getDefence(),
                         new Position(circle.getCenterX(), circle.getCenterY())));
             }
         }
@@ -238,7 +237,7 @@ public class TeamPositions {
                 midfielder = (Player) p.player;
                 circle = p.getCircle();
 
-                result.add(new PlayerInfo(midfielder.getAttack(), midfielder.getStamina(), midfielder.getDefence(),
+                result.add(new PlayerInfo(midfielder, midfielder.getAttack(), midfielder.getStamina(), midfielder.getDefence(),
                         new Position(circle.getCenterX(), circle.getCenterY())));
             }
         }
@@ -258,7 +257,7 @@ public class TeamPositions {
                 attacker = (Player) p.player;
                 circle = p.getCircle();
 
-                result.add(new PlayerInfo(attacker.getAttack(), attacker.getStamina(), attacker.getDefence(),
+                result.add(new PlayerInfo(attacker, attacker.getAttack(), attacker.getStamina(), attacker.getDefence(),
                         new Position(circle.getCenterX(), circle.getCenterY())));
             }
         }
@@ -281,7 +280,7 @@ public class TeamPositions {
 
         // put the best midfielders on the field
         int offsett = 4;
-        while (fieldPlayerList.get(offsett).getKind().equals("Defender") && offsett < fieldPlayerList.size() - 4) {
+        while (fieldPlayerList.get(offsett).getKind().equals("Defender") && offsett < fieldPlayerList.size() - 6) {
             offsett++;
         }
 
@@ -290,7 +289,7 @@ public class TeamPositions {
         }
 
         // put the best attackers on the field
-        while ((fieldPlayerList.get(offsett).getKind().equals("Midfielder") || fieldPlayerList.get(offsett).getKind().equals("Allrounder")) && offsett < fieldPlayerList.size() - 4) {
+        while ((fieldPlayerList.get(offsett).getKind().equals("Midfielder") || fieldPlayerList.get(offsett).getKind().equals("Allrounder")) && offsett < fieldPlayerList.size() - 3) {
             offsett++;
         }
 
@@ -340,16 +339,12 @@ public class TeamPositions {
 
         Player defender;
         Circle circle;
-        System.out.println("selectedPlayers = " + selectedPlayers);
 
         for (PlayerIndex p : selectedPlayers) {
             if ((p.getCircle().getFill().equals(Color.BLUE) && p.getCircle().getCenterX() < 358 && p.player instanceof Player) || // left team got blue color
                     (p.getCircle().getFill().equals(Color.RED) && p.getCircle().getCenterX() > 663 && p.player instanceof Player)) { // right team got red color
                 defender = (Player) p.player;
                 circle = p.getCircle();
-                System.out.println("p.getCircle() = " + p.getCircle());
-                System.out.println("circle.getCenterX() = " + circle.getCenterX());
-                System.out.println("circle.getCenterY() = " + circle.getCenterY());
             }
         }
     }

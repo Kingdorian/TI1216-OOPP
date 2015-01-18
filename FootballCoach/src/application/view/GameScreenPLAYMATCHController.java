@@ -149,6 +149,8 @@ public class GameScreenPLAYMATCHController implements ViewControllerInterface {
 
         Competition comp = Main.getCompetition();
         int prevRound = comp.getRound() - 1;
+        if(prevRound == -2)
+            prevRound = 34;
         String teamName = Main.getChosenTeamName();
         Match results = null;
         boolean playerHome = true;

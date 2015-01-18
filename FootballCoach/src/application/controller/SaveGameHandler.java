@@ -120,7 +120,6 @@ public class SaveGameHandler {
         if (!saveGameFolder.exists()) {
             throw new FileNotFoundException();
         }
-        System.out.println(saveGameFolder.lastModified());
         return new Date(saveGameFolder.lastModified());
     }
 
@@ -164,7 +163,6 @@ public class SaveGameHandler {
      * @param Competition comp the competition to store
      */
     public static void saveGame(Competition comp) throws IOException {
-        System.out.println(defaultloc);
         XMLHandler.writeCompetition(comp, defaultloc);
     }
 
@@ -175,7 +173,6 @@ public class SaveGameHandler {
      */
 
     private static void fetchImages(String location, Competition comp) {
-        System.out.println("Fetching images...");
         File file = new File(location);
         file.mkdirs();
         for (int i = 0; i < comp.getTeams().length; i++) {
