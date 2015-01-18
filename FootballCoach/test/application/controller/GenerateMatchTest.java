@@ -31,8 +31,8 @@ public class GenerateMatchTest {
 
     @Before
     public void intialize() {
-        homeTeam = new Team("home", 100000, 0, 0, 0, true);
-        outTeam = new Team("out", 100000, 0, 0, 0, false);
+        homeTeam = new Team("home", true);
+        outTeam = new Team("out", false);
 
         homeList = new ArrayList<>();
         homeList.add(new Goalkeeper("name", "sname", 0, Status.DEFAULT, 0, Reason.DEFAULT, 100, 100));

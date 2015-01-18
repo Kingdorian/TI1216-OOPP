@@ -48,6 +48,16 @@ public class SaveGameHandler {
     public static String getDefaultCompLoc() {
     	return defaultcomploc;
     }
+    
+    /**
+     * Returns the default savegame location
+     * 
+     * @return The location of the savegames as a String.
+     */
+    public static String getDefaultLoc() {
+    	return defaultloc;
+    }
+
 
     /**
      * Reads a savegame by the inputted index
@@ -58,7 +68,7 @@ public class SaveGameHandler {
      * @throws Exception
      */
     public static Competition loadCompetition(int savegameId) throws Exception {
-        Competition returnComp = ldByCompByPath(defaultloc + savegameId + "/competition.xml", defaultloc + savegameId + "/Matches.xml");
+        Competition returnComp = ldByCompByPath(defaultloc + savegameId + "/Teams.xml", defaultloc + savegameId + "/Matches.xml");
         returnComp.setSaveGameId(savegameId);
         return returnComp;
     }
@@ -97,6 +107,7 @@ public class SaveGameHandler {
      * @return An ArrayList With integer (id's of savegames)
      */
     public static ArrayList<Integer> getSaveGames() {
+    	System.out.println("Current defaultloc" + defaultloc);
         ArrayList<Integer> saveGameIds = new ArrayList<Integer>();
         File saveFolder = new File(defaultloc);
         File[] listOfFiles = saveFolder.listFiles();
@@ -126,7 +137,7 @@ public class SaveGameHandler {
     /**
      * Creates a new savegame
      *
-     * @return the id of the created savegame
+     * @return The new competition
      * @throws FileNotFoundException
      * @throws IOException
      */
@@ -136,11 +147,8 @@ public class SaveGameHandler {
         Collections.sort(ids);
         //Getting the currently largest id
         int newId;
-        if (!ids.isEmpty()) {
-            newId = ids.get(ids.size() - 1) + 1;
-        } else {
-            newId = 0;
-        }
+        newId = ids.get(ids.size() - 1) + 1;
+
         //Make new directory
         new File(defaultloc + "/" + newId).mkdirs();
         try {
@@ -206,10 +214,8 @@ public class SaveGameHandler {
     private static void removeDirectory(File dir) {
         if (dir.isDirectory()) {
             File[] files = dir.listFiles();
-            if (files != null && files.length > 0) {
-                for (int i = 0; i < files.length; i++) {
-                    removeDirectory(files[i]);
-                }
+            for (int i = 0; i < files.length; i++) {
+                removeDirectory(files[i]);
             }
             dir.delete();
         } else {
