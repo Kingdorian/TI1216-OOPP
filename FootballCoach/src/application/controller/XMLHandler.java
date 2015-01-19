@@ -34,8 +34,6 @@ public class XMLHandler {
         Team teams[] = new Team[18];
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         DocumentBuilder db = dbf.newDocumentBuilder();
-        System.out.println("teamsLoc = " + teamsLoc);
-teamsLoc = "XML/Competitions/Eredivisie/Teams.xml"; // TEMPORARY FIX FOR BUG: LOOKING AT WRONG PLACE FOR TEAMS FILE <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
         Document doc = db.parse(new File(teamsLoc));
         NodeList teamnodes = doc.getElementsByTagName("team");
         for (int i = 0; i < teamnodes.getLength(); i++) {
@@ -232,7 +230,7 @@ teamsLoc = "XML/Competitions/Eredivisie/Teams.xml"; // TEMPORARY FIX FOR BUG: LO
         }
         try {
         	System.out.println(comp.toString());
-            writeTeams(location + "/Competition.xml", comp.getTeams());
+            writeTeams(location + "/Teams.xml", comp.getTeams());
             writeMatches(location + "/Matches.xml", comp);
         } catch (Exception e) {
             e.printStackTrace();
