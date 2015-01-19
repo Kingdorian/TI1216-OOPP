@@ -12,15 +12,15 @@ public class PlayerTest {
 	
 	@Before
 	public void init() {
-		player1 = new Player("Bob", "De Bouwer", 9, Status.DEFAULT, 5, Reason.DEFAULT, 90, 60, 80);
-		player2 = new Player("Bob", "De Bouwer", 9, Status.DEFAULT, 5, Reason.DEFAULT, 90, 60, 80);
-		player3 = new Player("Bob", "De Bouwer", 9, Status.DEFAULT, 5, Reason.DEFAULT, 30, 30, 40);
+		player1 = new Player("Bob", "De Bouwer", 9, Card.DEFAULT, 5, Reason.DEFAULT, 90, 60, 80);
+		player2 = new Player("Bob", "De Bouwer", 9, Card.DEFAULT, 5, Reason.DEFAULT, 90, 60, 80);
+		player3 = new Player("Bob", "De Bouwer", 9, Card.DEFAULT, 5, Reason.DEFAULT, 30, 30, 40);
 	}
 	//TESTS: playerPlayer(String name, String surName, int number, Status status, int timeNotAvailable, Reason reason, int attack, int defence, int stamina)
 	//USES: equals
 	@Test
 	public void testConstructor(){
-		Player player = new Player("Bob", "De Bouwer", 9, Status.DEFAULT, 5, Reason.DEFAULT, 90, 60, 80);
+		Player player = new Player("Bob", "De Bouwer", 9, Card.DEFAULT, 5, Reason.DEFAULT, 90, 60, 80);
 		assertTrue(player instanceof Player);
 	}
 	//TESTS: getAttack()

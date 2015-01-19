@@ -11,9 +11,9 @@ public class GoalKeeperTest {
 	Goalkeeper player1, player2, player3;
 	@Before
 	public void init() {
-		player1 = new Goalkeeper("Bob", "De Bouwer", 3, Status.DEFAULT, 0, Reason.DEFAULT, 80, 60);
-		player2 = new Goalkeeper("Bob", "De Bouwer", 3, Status.DEFAULT, 0, Reason.DEFAULT, 80, 60);
-		player3 = new Goalkeeper("Bob", "De Bouwer", 3, Status.DEFAULT, 0, Reason.DEFAULT, 20, 30);
+		player1 = new Goalkeeper("Bob", "De Bouwer", 3, Card.DEFAULT, 0, Reason.DEFAULT, 80, 60);
+		player2 = new Goalkeeper("Bob", "De Bouwer", 3, Card.DEFAULT, 0, Reason.DEFAULT, 80, 60);
+		player3 = new Goalkeeper("Bob", "De Bouwer", 3, Card.DEFAULT, 0, Reason.DEFAULT, 20, 30);
 	}
 	//TESTS: constructor
 	@Test

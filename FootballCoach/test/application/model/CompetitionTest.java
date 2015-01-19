@@ -109,7 +109,7 @@ public class CompetitionTest {
 		comp.getSaveGameId();
 		comp.getRound(0);
 		comp.getMarket();
-		Player p = new Player("Hans", "Anderssen", 0, Status.DEFAULT, 0, Reason.DEFAULT, 0, 0, 0);
+		Player p = new Player("Hans", "Anderssen", 0, Card.DEFAULT, 0, Reason.DEFAULT, 0, 0, 0);
 		comp.getPlayersTeam(p);
 		comp.getTeamByName("Sparta").addPlayer(p);
 		comp.getPlayersTeam(p);

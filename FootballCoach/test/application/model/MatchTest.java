@@ -28,16 +28,16 @@ public class MatchTest {
         outTeam = new Team("out", false);
 
         homeList = new ArrayList<>();
-        homeList.add(new Goalkeeper("name", "sname", 0, Status.DEFAULT, 0, Reason.DEFAULT, 100, 100));
+        homeList.add(new Goalkeeper("name", "sname", 0, Card.DEFAULT, 0, Reason.DEFAULT, 100, 100));
         for (int i = 1; i < 11; i++) {
-            homeList.add(new Player("name", "sname", i, Status.DEFAULT, 0, Reason.DEFAULT, 100, 100, 100));
+            homeList.add(new Player("name", "sname", i, Card.DEFAULT, 0, Reason.DEFAULT, 100, 100, 100));
         }
         homeTeam.setPlayers(homeList);
 
         visitorList = new ArrayList<>();
-        visitorList.add(new Goalkeeper("name", "sname", 0, Status.DEFAULT, 0, Reason.DEFAULT, 100, 100));
+        visitorList.add(new Goalkeeper("name", "sname", 0, Card.DEFAULT, 0, Reason.DEFAULT, 100, 100));
         for (int i = 1; i < 11; i++) {
-            visitorList.add(new Player("name", "sname", i, Status.DEFAULT, 0, Reason.DEFAULT, 100, 100, 100));
+            visitorList.add(new Player("name", "sname", i, Card.DEFAULT, 0, Reason.DEFAULT, 100, 100, 100));
         }
         outTeam.setPlayers(visitorList);
 

@@ -59,17 +59,18 @@ public class Team {
         ArrayList<Players> res = new ArrayList<>();
         int keepers = 0;
         for (Players pl : players) {
-            if(pl.getCard() == Card.DEFAULT && pl.getCard()!= Card.RED){
+            if(pl.getTimeNotAvailable()==0){
                 if(pl instanceof Goalkeeper)
                     keepers++;
                 res.add(pl);
             }
         }
         //return all players if there aren't enough players to put in the field
-        if(res.size() - keepers < 10)
+        if(res.size() - keepers < 11 || keepers==0){
             return getPlayers();
-        else
+        }else{
             return res;
+        }
     }
 
     public void setPlayers(ArrayList<Players> players) {

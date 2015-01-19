@@ -17,7 +17,7 @@ public class MarketTest {
 	@Before
 	public void init(){
 		market = new Market();
-		player = new Player("henk", "hendriks", 0, Status.DEFAULT, 0, Reason.DEFAULT, 0, 0, 0);
+		player = new Player("henk", "hendriks", 0, Card.DEFAULT, 0, Reason.DEFAULT, 0, 0, 0);
 		market.addPlayer(player, 300);
 		playerList.add(player);
 	}
@@ -40,25 +40,25 @@ public class MarketTest {
 	//TESTS if the removeplayer function works correctly
 	@Test
 	public void testRemovePlayer(){
-		market.addPlayer(new Player("Freek", "Frans", 0, Status.DEFAULT, 0, Reason.DEFAULT, 0, 0, 0), 3000);
-		market.removePlayer(new Player("Freek", "Frans", 0, Status.DEFAULT, 0, Reason.DEFAULT, 0, 0, 0));
+		market.addPlayer(new Player("Freek", "Frans", 0, Card.DEFAULT, 0, Reason.DEFAULT, 0, 0, 0), 3000);
+		market.removePlayer(new Player("Freek", "Frans", 0, Card.DEFAULT, 0, Reason.DEFAULT, 0, 0, 0));
 		assertEquals(playerList, market.getPlayersForSale());
 	}
 	
 	//TESTS if te getPlayersPrice works correctly
 	@Test
 	public void testGetPlayersPrice(){
-		market.addPlayer(new Player("Freek", "Frans", 0, Status.DEFAULT, 0, Reason.DEFAULT, 0, 0, 0), 3000);
-		assertEquals(3000, market.getPlayersPrice(new Player("Freek", "Frans", 0, Status.DEFAULT, 0, Reason.DEFAULT, 0, 0, 0)));
+		market.addPlayer(new Player("Freek", "Frans", 0, Card.DEFAULT, 0, Reason.DEFAULT, 0, 0, 0), 3000);
+		assertEquals(3000, market.getPlayersPrice(new Player("Freek", "Frans", 0, Card.DEFAULT, 0, Reason.DEFAULT, 0, 0, 0)));
 		assertEquals(0, new Market().getPlayersPrice(player));
-		market.removePlayer(new Player("Freek", "Frans", 0, Status.DEFAULT, 0, Reason.DEFAULT, 0, 0, 0));
+		market.removePlayer(new Player("Freek", "Frans", 0, Card.DEFAULT, 0, Reason.DEFAULT, 0, 0, 0));
 	}
 	
 	@Test
 	public void testBuyPlayers() {
-		Player player1 = new Player("Freek", "Frans", 0, Status.DEFAULT, 0, Reason.DEFAULT, 200, 20, 50);
-		Player player2 = new Player("Freek", "Frant", 0, Status.DEFAULT, 0, Reason.DEFAULT, 20, 200, 50);
-		Goalkeeper player5 = new Goalkeeper("Freek", "Frank", 0, Status.DEFAULT, 0, Reason.DEFAULT, 200, 200);
+		Player player1 = new Player("Freek", "Frans", 0, Card.DEFAULT, 0, Reason.DEFAULT, 200, 20, 50);
+		Player player2 = new Player("Freek", "Frant", 0, Card.DEFAULT, 0, Reason.DEFAULT, 20, 200, 50);
+		Goalkeeper player5 = new Goalkeeper("Freek", "Frank", 0, Card.DEFAULT, 0, Reason.DEFAULT, 200, 200);
 		
 		Team team1 = new Team("Team1", true);
 		Team team2 = new Team("Team2", true);
@@ -84,9 +84,9 @@ public class MarketTest {
 	
 	@Test
 	public void buyPlayerTest2(){
-		Player player1 = new Player("Freek", "Frans", 0, Status.DEFAULT, 0, Reason.DEFAULT, 200, 20, 50);
-		Player player2 = new Player("Freek", "Frant", 0, Status.DEFAULT, 0, Reason.DEFAULT, 20, 200, 50);
-		Goalkeeper player3 = new Goalkeeper("Freek", "Frank", 0, Status.DEFAULT, 0, Reason.DEFAULT, 200, 200);
+		Player player1 = new Player("Freek", "Frans", 0, Card.DEFAULT, 0, Reason.DEFAULT, 200, 20, 50);
+		Player player2 = new Player("Freek", "Frant", 0, Card.DEFAULT, 0, Reason.DEFAULT, 20, 200, 50);
+		Goalkeeper player3 = new Goalkeeper("Freek", "Frank", 0, Card.DEFAULT, 0, Reason.DEFAULT, 200, 200);
 		
 		Team team1 = new Team("Team1", true);
 		Team team2 = new Team("Team2", true);
@@ -112,11 +112,11 @@ public class MarketTest {
 		Team team2 = new Team("Team 2", true);
 		Team team3 = new Team("Team 3", true);
 		Team team4 = new Team("Team 4", true);
-		Goalkeeper GK = new Goalkeeper("Freek", "Frank", 0, Status.DEFAULT, 0, Reason.DEFAULT, 2, 2);
-		Goalkeeper GK2 = new Goalkeeper("Freek", "Frank", 0, Status.DEFAULT, 0, Reason.DEFAULT, 2000, 2000);
-		Player Def2 = new Player("Freek", "Frant", 0, Status.DEFAULT, 0, Reason.DEFAULT, 0, 3000, 100);
-		Player Mid2 = new Player("Frank", "Best", 0, Status.DEFAULT, 0, Reason.DEFAULT, 3000, 3000, 100);
-		Player For2 = new Player("Frank", "Best", 0, Status.DEFAULT, 0, Reason.DEFAULT, 3000, 0, 100);
+		Goalkeeper GK = new Goalkeeper("Freek", "Frank", 0, Card.DEFAULT, 0, Reason.DEFAULT, 2, 2);
+		Goalkeeper GK2 = new Goalkeeper("Freek", "Frank", 0, Card.DEFAULT, 0, Reason.DEFAULT, 2000, 2000);
+		Player Def2 = new Player("Freek", "Frant", 0, Card.DEFAULT, 0, Reason.DEFAULT, 0, 3000, 100);
+		Player Mid2 = new Player("Frank", "Best", 0, Card.DEFAULT, 0, Reason.DEFAULT, 3000, 3000, 100);
+		Player For2 = new Player("Frank", "Best", 0, Card.DEFAULT, 0, Reason.DEFAULT, 3000, 0, 100);
 		for(int i = 0; i < 4; i++){
 			team1.addPlayer(GK2);
 			team3.addPlayer(GK2);
@@ -162,13 +162,13 @@ public class MarketTest {
 	@Test
 	public void sellPlayerTest(){
 		Team team1 = new Team("Team 1", true);
-		Goalkeeper GK = new Goalkeeper("Freek", "Frank", 0, Status.DEFAULT, 0, Reason.DEFAULT, 20, 20);
-		Player Def = new Player("Freek", "Frant", 0, Status.DEFAULT, 0, Reason.DEFAULT, 0, 30, 0);
-		Player For = new Player("Frank", "Best", 0, Status.DEFAULT, 0, Reason.DEFAULT, 30, 0, 0);
-		Goalkeeper GK2 = new Goalkeeper("Freek", "Frank", 0, Status.DEFAULT, 0, Reason.DEFAULT, 2000, 2000);
-		Player Def2 = new Player("Freek", "Frant", 0, Status.DEFAULT, 0, Reason.DEFAULT, 0, 3000, 100);
-		Player Mid2 = new Player("Frank", "Best", 0, Status.DEFAULT, 0, Reason.DEFAULT, 3000, 3000, 100);
-		Player For2 = new Player("Frank", "Best", 0, Status.DEFAULT, 0, Reason.DEFAULT, 3000, 0, 100);
+		Goalkeeper GK = new Goalkeeper("Freek", "Frank", 0, Card.DEFAULT, 0, Reason.DEFAULT, 20, 20);
+		Player Def = new Player("Freek", "Frant", 0, Card.DEFAULT, 0, Reason.DEFAULT, 0, 30, 0);
+		Player For = new Player("Frank", "Best", 0, Card.DEFAULT, 0, Reason.DEFAULT, 30, 0, 0);
+		Goalkeeper GK2 = new Goalkeeper("Freek", "Frank", 0, Card.DEFAULT, 0, Reason.DEFAULT, 2000, 2000);
+		Player Def2 = new Player("Freek", "Frant", 0, Card.DEFAULT, 0, Reason.DEFAULT, 0, 3000, 100);
+		Player Mid2 = new Player("Frank", "Best", 0, Card.DEFAULT, 0, Reason.DEFAULT, 3000, 3000, 100);
+		Player For2 = new Player("Frank", "Best", 0, Card.DEFAULT, 0, Reason.DEFAULT, 3000, 0, 100);
 		for(int i = 0; i < 4; i++){
 			team1.addPlayer(GK2);
 		}
@@ -203,12 +203,12 @@ public class MarketTest {
 		Team team1 = new Team("Team 1", true);
 		Team team2 = new Team("Team 2", true);
 		Team team3 = new Team("Team 3", true);
-		Goalkeeper GK = new Goalkeeper("Freek", "Frank", 0, Status.DEFAULT, 0, Reason.DEFAULT, 2000, 2000);
-		Player Def = new Player("Freek", "Frant", 0, Status.DEFAULT, 0, Reason.DEFAULT, 0, 3000, 100);
-		Player Mid2 = new Player("Freek", "Frant", 0, Status.DEFAULT, 0, Reason.DEFAULT, 40, 40, 0);
-		Player Mid = new Player("Frank", "Best", 0, Status.DEFAULT, 0, Reason.DEFAULT, 74, 74, 1000);
-		Player For = new Player("Frank", "Best", 0, Status.DEFAULT, 0, Reason.DEFAULT, 3000, 0, 100);
-		Player All = new Player("Frank", "Best", 0, Status.DEFAULT, 0, Reason.DEFAULT, 3000, 3000, 100);
+		Goalkeeper GK = new Goalkeeper("Freek", "Frank", 0, Card.DEFAULT, 0, Reason.DEFAULT, 2000, 2000);
+		Player Def = new Player("Freek", "Frant", 0, Card.DEFAULT, 0, Reason.DEFAULT, 0, 3000, 100);
+		Player Mid2 = new Player("Freek", "Frant", 0, Card.DEFAULT, 0, Reason.DEFAULT, 40, 40, 0);
+		Player Mid = new Player("Frank", "Best", 0, Card.DEFAULT, 0, Reason.DEFAULT, 74, 74, 1000);
+		Player For = new Player("Frank", "Best", 0, Card.DEFAULT, 0, Reason.DEFAULT, 3000, 0, 100);
+		Player All = new Player("Frank", "Best", 0, Card.DEFAULT, 0, Reason.DEFAULT, 3000, 3000, 100);
 		for(int i = 0; i < 1; i++){
 			team1.addPlayer(GK);
 		}

@@ -383,7 +383,6 @@ public class XMLHandler {
 			Document doc = db.parse(new File(location));
 			return ((Element)doc.getElementsByTagName("rounds").item(0)).getAttribute("name");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 
 		}

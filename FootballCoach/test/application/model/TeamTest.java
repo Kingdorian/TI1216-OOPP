@@ -21,8 +21,8 @@ public class TeamTest {
     public void testTeam() {
         ArrayList<Players> ado = new ArrayList<Players>();
         ArrayList<Players> ajax = new ArrayList<Players>();
-        Player player1 = new Player("Bob", "De Bouwer", 9, Status.DEFAULT, 5, Reason.DEFAULT, 90, 60, 80);
-        Player player2 = new Player("Bob", "De Bouwer", 9, Status.DEFAULT, 5, Reason.DEFAULT, 90, 60, 80);
+        Player player1 = new Player("Bob", "De Bouwer", 9, Card.DEFAULT, 5, Reason.DEFAULT, 90, 60, 80);
+        Player player2 = new Player("Bob", "De Bouwer", 9, Card.DEFAULT, 5, Reason.DEFAULT, 90, 60, 80);
         ado.add(player1);
         ado.add(player2);
         ajax.add(player1);
@@ -38,6 +38,78 @@ public class TeamTest {
         
 
     }
+    
+	//TESTS: getAvailablePlayers()
+	@Test
+	public void testGetAvailablePlayers(){
+        Team team1 = new Team("Ajax", false);
+
+        Player player1 = new Player("Bob", "De Bouwer", 9, Card.DEFAULT, 0, Reason.DEFAULT, 90, 60, 80);
+        Player player2 = new Player("Ken", "De Bouweer", 9, Card.DEFAULT, 5, Reason.DEFAULT, 90, 60, 80);
+        Player player3 = new Player("Paul", "De Bouker", 9, Card.DEFAULT, 5, Reason.DEFAULT, 90, 60, 80);
+        team1.addPlayer(player1);
+        team1.addPlayer(player2);
+        team1.addPlayer(player3);
+        ArrayList<Players> playerList = new ArrayList<Players>();
+        playerList.add(player1);
+    	playerList.add(player2);
+    	playerList.add(player3);
+    	assertEquals(playerList, team1.getAvailablePlayers());
+    	
+	}
+	@Test
+	public void testGetAvailablePlayersGoalKeeper(){
+        Team team1 = new Team("Ajax", false);
+        Goalkeeper keeper = new Goalkeeper("Bob", "De Bouwer", 9, Card.DEFAULT, 0, Reason.DEFAULT, 90, 60);
+        team1.addPlayer(keeper);
+        ArrayList<Players> playerList = new ArrayList<Players>();
+        playerList.add(keeper);
+    	assertEquals(playerList, team1.getAvailablePlayers());
+    	
+	}
+	@Test
+	public void testGetPlayersEnoughPlayers(){
+        Team team1 = new Team("Ajax", false);
+        Player player1 = new Player("Bob", "De Bouwer", 9, Card.DEFAULT, 0, Reason.DEFAULT, 90, 60, 80);
+        ArrayList<Players> playerList = new ArrayList<Players>();
+        for(int i = 0; i<15; i++){
+        	team1.addPlayer(player1);
+        	playerList.add(player1);
+        }
+        System.out.println(playerList);
+        System.out.println(team1.getAvailablePlayers());
+        assertEquals(playerList, team1.getAvailablePlayers());
+	}
+	
+	@Test
+	public void testResetCardReason(){
+        Team team1 = new Team("Ajax", false);
+        Player player1 = new Player("Bob", "De Bouwer", 9, Card.DEFAULT, 0, Reason.DEFAULT, 90, 60, 80);
+        team1.addPlayer(player1);
+        team1.resetCardReason();
+        assertEquals(player1.getReason(), Reason.DEFAULT);
+        assertEquals(player1.getCard(), Card.DEFAULT);
+        assertEquals(player1.getTimeNotAvailable(), 0);
+	}
+	
+	@Test
+	public void testGetPlayersEnoughAndKeeper(){
+        Team team1 = new Team("Ajax", false);
+        Player player1 = new Player("Bob", "De Bouwer", 9, Card.DEFAULT, 0, Reason.DEFAULT, 90, 60, 80);
+        ArrayList<Players> playerList = new ArrayList<Players>();
+        for(int i = 0; i<15; i++){
+        	team1.addPlayer(player1);
+        	playerList.add(player1);
+        }
+        Goalkeeper keeper = new Goalkeeper("Bob", "De Bouwer", 9, Card.DEFAULT, 0, Reason.DEFAULT, 90, 60);
+        team1.addPlayer(keeper);
+        playerList.add(keeper);
+        System.out.println(playerList);
+        System.out.println(team1.getAvailablePlayers());
+        assertEquals(playerList, team1.getAvailablePlayers());
+	}
+	
+
 
     @Test
     public void testTransferTo() {
@@ -46,9 +118,9 @@ public class TeamTest {
         Team team3 = new Team("AZ", false);
         Team team4 = new Team("Excelsior", false);
 
-        Player player1 = new Player("Bob", "De Bouwer", 9, Status.DEFAULT, 5, Reason.DEFAULT, 90, 60, 80);
-        Player player2 = new Player("Ken", "De Bouweer", 9, Status.DEFAULT, 5, Reason.DEFAULT, 90, 60, 80);
-        Player player3 = new Player("Paul", "De Bouker", 9, Status.DEFAULT, 5, Reason.DEFAULT, 90, 60, 80);
+        Player player1 = new Player("Bob", "De Bouwer", 9, Card.DEFAULT, 5, Reason.DEFAULT, 90, 60, 80);
+        Player player2 = new Player("Ken", "De Bouweer", 9, Card.DEFAULT, 5, Reason.DEFAULT, 90, 60, 80);
+        Player player3 = new Player("Paul", "De Bouker", 9, Card.DEFAULT, 5, Reason.DEFAULT, 90, 60, 80);
 
         team1.setBudget(50000);
         team3.setBudget(100000);
@@ -97,7 +169,7 @@ public class TeamTest {
     	team1.setName("Veenwijk");
     	team1.setPoints(40);
     	ArrayList<Players> plrs = new ArrayList<Players>();
-    	plrs.add(new Player("Brian", "Hallo", 3, Status.DEFAULT, 0, Reason.DEFAULT, 0, 0, 0));
+    	plrs.add(new Player("Brian", "Hallo", 3, Card.DEFAULT, 0, Reason.DEFAULT, 0, 0, 0));
     	team1.setPlayers(plrs);
     	team1.setWins(34);
     	assertEquals(team1.hasArtificialGrass(), true);
@@ -222,7 +294,7 @@ public class TeamTest {
 	@Test
 	public void testEqualsPlayers(){
     		ArrayList<Players> plrs = new ArrayList<Players>();
-    		plrs.add(new Player("Brian", "Hallo", 3, Status.DEFAULT, 0, Reason.DEFAULT, 0, 0, 0));
+    		plrs.add(new Player("Brian", "Hallo", 3, Card.DEFAULT, 0, Reason.DEFAULT, 0, 0, 0));
     		eqTeam1.addPlayer(plrs.get(0));
 			assertNotEquals(eqTeam1, eqTeam2);
     		eqTeam2.addPlayer(plrs.get(0));
@@ -242,6 +314,7 @@ public class TeamTest {
   		eqTeam2.setImgUrl("wrong");
 		assertEquals(eqTeam1,eqTeam2);
 	}
+
 	 //Test if equals works correctly if players is not equal
 	@Test
 	public void testEqualsNameNullOtherNameNotNull(){

@@ -163,5 +163,6 @@ public abstract class Players {
     public void resetCardReason(){
         card = Card.DEFAULT;
         reason = Reason.DEFAULT;
+        timeNotAvailable = 0;
     }
 }
