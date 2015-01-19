@@ -369,4 +369,19 @@ public class TeamTest {
 		team.addPlayer(new Player(null, null, 0, null, 0, null, 80, 80, 80));
 		assertEquals(team.getAmountAllrounders(), 1);
 	}
+	@Test
+	public void testgetPlayersNotForSale(){
+		Team team1 = new Team("Team1", true);
+		Team team2 = new Team("team2", true);
+		Player player1 = new Player("Test2", "Test2", 0, null, 0, null, 80, 80, 80);
+		Player player2 = new Player("Test", "Test", 0, null, 0, null, 80, 80, 80);
+		team1.addPlayer(player1);
+		team2.addPlayer(player1);
+		team1.addPlayer(player2);
+		Team[] teams = {team1, team2};
+		Competition competition = new Competition(teams);
+		competition.getMarket().addPlayer(player2, 50000);
+		
+		assertEquals(team1.getPlayersNotForSale(competition), team2.getPlayers());
+	}
 }

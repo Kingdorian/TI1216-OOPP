@@ -298,4 +298,14 @@ public class Team {
             player.resetCardReason();
         }
     }
+    
+    public ArrayList<Players> getPlayersNotForSale(Competition competition){
+    	ArrayList<Players> result= new ArrayList<Players>();
+    	for(int i = 0; i < this.getPlayers().size(); i++){
+    		if(competition.getMarket().getPlayersForSale().contains(this.getPlayers().get(i)) == false){
+    			result.add(this.getPlayers().get(i));
+    		}
+    	}
+    	return result;
+    }
 }
