@@ -1,6 +1,7 @@
 package application.model;
 
 
+import application.Main;
 import java.util.ArrayList;
 
 public class Team {

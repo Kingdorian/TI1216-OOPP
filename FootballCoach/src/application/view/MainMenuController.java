@@ -86,12 +86,12 @@ public class MainMenuController implements ViewControllerInterface {
     @FXML
     private void buttonContinue() {
         // Market test
-        for (Players pl : Main.getCompetition().getTeamByName("Feyenoord").getPlayers()) {
-            Main.getCompetition().getMarket().addPlayer(pl, 5);
-        }
+//        for (Players pl : Main.getCompetition().getTeamByName("Feyenoord").getPlayers()) {
+//            Main.getCompetition().getMarket().addPlayer(pl, 5);
+//        }
 
         //Testing budget.
-        Main.getCompetition().getTeamByName(Main.getChosenTeamName()).setBudget(5000000);
+//        Main.getCompetition().getTeamByName(Main.getChosenTeamName()).setBudget(5000000);
 
         mainController.setCenterView("GameScreenHOME");
         mainController.setLeftView("GameScreenMenu");

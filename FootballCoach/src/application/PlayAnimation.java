@@ -8,6 +8,7 @@ import application.animation.Container.TeamPositions;
 import application.model.Competition;
 import application.model.Match;
 import application.model.Card;
+import application.model.Market;
 import application.model.Reason;
 import application.model.Team;
 import java.util.ArrayList;
@@ -58,6 +59,7 @@ public class PlayAnimation {
         synchronized(lockAll){
             PlayAnimation.teamPositions = teamPositions;
             Competition competition = Main.getCompetition();
+            Market market = competition.getMarket();
             String playerTeam = competition.getChosenTeamName();
             int round = competition.getRound();
             Match[] matches = competition.getRound(round - 1);
@@ -67,6 +69,10 @@ public class PlayAnimation {
             //reset cards and injury each 4 rounds
             if((round + 1) % 4 == 0)
                 Main.getCompetition().resetCardReason();
+            
+            //buy and sell players
+            market.computerBuyPlayer(competition);
+            market.computerSellPlayer(competition);
 
             // start a thread which will calculate the results of the other teams, while
             // the player is playing his own match
