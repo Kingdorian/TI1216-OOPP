@@ -49,7 +49,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="513.0" layoutY="400.0" mnemonicParsing="false" onAction="#startMatchButton" prefHeight="50.0" prefWidth="171.0" styleClass="contentItemMenu" text="Play Match">
+      <Button fx:id="startButton" layoutX="513.0" layoutY="400.0" mnemonicParsing="false" onAction="#startMatchButton" prefHeight="50.0" prefWidth="171.0" styleClass="contentItemMenu" text="Play Match">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

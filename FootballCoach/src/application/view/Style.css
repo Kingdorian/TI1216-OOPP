@@ -190,6 +190,11 @@
     -fx-padding: 0;
 }
 
+.table-view .column-header .label
+{
+    -fx-alignment: CENTER_LEFT;
+}
+
 .table-view .column-drag-header
 {
     -fx-background-color: -fx-background;

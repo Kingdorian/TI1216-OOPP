@@ -52,10 +52,11 @@ public class AnimateFootballMatch {
     private final static EventHandler onFinished = (EventHandler<ActionEvent>) new EventHandler<ActionEvent>() {
         @Override
         public void handle(ActionEvent t) {
-            if (time < footballMatch.amoutOfFrames() - 1 && !pause) {
-                time++;
-                playTimeSlice();
-            }
+            if(footballMatch != null)
+                if (time < footballMatch.amoutOfFrames() - 1 && !pause) {
+                    time++;
+                    playTimeSlice();
+                }
         }
     };
 

@@ -92,7 +92,7 @@ public abstract class Players {
     }
 
     public void setCard(Card card) {
-        if((this.card == Card.YELLOW && card == Card.YELLOW) || this.card == Card.RED)
+        if(this.card != Card.DEFAULT && card == Card.YELLOW)
             this.card = Card.RED;
         else
             this.card = card;

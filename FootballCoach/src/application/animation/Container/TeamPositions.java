@@ -127,9 +127,9 @@ public class TeamPositions {
             case "Forward":
                 return 4;
             case "Allrounder":
-                return 3;
-            case "Midfielder":
                 return 2;
+            case "Midfielder":
+                return 3;
             case "Defender":
                 return 1;
             default:
@@ -309,7 +309,7 @@ public class TeamPositions {
 
         // put the best midfielders on the field
         int offsett = 4;
-        while (fieldPlayerList.get(offsett).getKind().equals("Defender") && offsett < fieldPlayerList.size() - 4) {
+        while (fieldPlayerList.get(offsett).getKind().equals("Defender") && offsett < fieldPlayerList.size() - 6) {
             offsett++;
         }
 
@@ -318,7 +318,7 @@ public class TeamPositions {
         }
 
         // put the best attackers on the field
-        while ((fieldPlayerList.get(offsett).getKind().equals("Midfielder") || fieldPlayerList.get(offsett).getKind().equals("Allrounder")) && offsett < fieldPlayerList.size() - 4) {
+        while ((fieldPlayerList.get(offsett).getKind().equals("Midfielder") || fieldPlayerList.get(offsett).getKind().equals("Allrounder")) && offsett < fieldPlayerList.size() - 3) {
             offsett++;
         }
 

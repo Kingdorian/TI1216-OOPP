@@ -63,6 +63,10 @@ public class PlayAnimation {
             Match[] matches = competition.getRound(round - 1);
 
             count = 0;
+            
+            //reset cards and injury each 4 rounds
+            if((round + 1) % 4 == 0)
+                Main.getCompetition().resetCardReason();
 
             // start a thread which will calculate the results of the other teams, while
             // the player is playing his own match
@@ -101,9 +105,6 @@ public class PlayAnimation {
                     return matches[i];
                 }
             }
-            //reset cards and injury each 4 rounds
-            if(round + 1 % 4 == 0)
-                Main.getCompetition().resetCardReason();
 
             return null; //return null if the play had no match (which shouldn't be possible)
         }
@@ -251,10 +252,10 @@ public class PlayAnimation {
         double random = Math.random();
         
         //max 2 injuries
-        //0: 95% chance
-        //1: or more: 5% chance
-        //2: 0.5% chance
-        while(random < 0.05){
+        //0: 90% chance
+        //1: or more: 10% chance
+        //2: 3% chance
+        while(random < 0.1){
             
             if(Math.random() > 0.5){
                 //left team
@@ -263,7 +264,7 @@ public class PlayAnimation {
                 //right team
                 rightPlayers.get((int) (Math.random() * 10.0)).getPlayer().setReason(Reason.DEFAULT.random());
             }
-            random += 0.045;
+            random += 0.07;
         }
         
     }

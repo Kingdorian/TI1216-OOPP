@@ -21,6 +21,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Cursor;
 import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
@@ -70,6 +71,8 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
     private Text penaltyStopPower;
     @FXML
     private Group fieldImageGroup;
+    @FXML
+    private Button startButton;
 
     /**
      * this class implements EventHandler and can be added to a circle to make
@@ -454,6 +457,7 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
     @FXML
     private void startMatchButton() {
         if (teamPositions.checkValid()) {
+            startButton.setDisable(true);
             teamPositions.TESSTST_PRINT();
             PlayAnimation.playMatches(teamPositions, mainController);
 //            int pointsLeft = result.getHomeTeam().getName().equals(nameLeft.getText()) ? result.getPointsHomeTeam() : result.getPointsVisitorTeam();

@@ -18,8 +18,10 @@ import javafx.collections.ListChangeListener.Change;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.util.Callback;
 import org.controlsfx.dialog.Dialogs;
 
 /**
@@ -70,7 +72,59 @@ public class GameScreenMARKETController implements ViewControllerInterface {
         columnName.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getSurName()));
         columnClubName.setCellValueFactory(cellData -> new SimpleStringProperty(Main.getCompetition().getPlayersTeam(cellData.getValue()).getName()));
         columnAbility.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getAbilityStr()));
+        
+        //set color of the ability according to the ability (very good = green, very bad = red
+        columnAbility.setCellFactory(new Callback<TableColumn<Players, String>, TableCell<Players, String>>() {
+            @Override
+            public TableCell<Players, String> call(TableColumn<Players, String> param) {
+                return new TableCell<Players, String>() {
+                    @Override
+                    public void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (item != null) {
+                            double ability = Double.parseDouble(item);
+                            double green = ability * 20;
+                            this.setStyle("-fx-text-fill: hsb(" + green + ",100%,80%);");
+                            setText(item);
+                        }
+                    }
+                };
+            }
+        });
+        
         columnType.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getKind()));
+        
+        //set color of text according to the type
+        columnType.setCellFactory(new Callback<TableColumn<Players, String>, TableCell<Players, String>>() {
+            @Override
+            public TableCell<Players, String> call(TableColumn<Players, String> param) {
+                return new TableCell<Players, String>() {
+                    @Override
+                    public void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (item != null) {
+                            switch (item) {
+                                case "Allrounder":
+                                case "Midfielder":
+                                    this.setStyle("-fx-text-fill: rgb(232,123,16);");
+                                    break;
+                                case "Forward":
+                                    this.setStyle("-fx-text-fill: rgb(215,59,59);");
+                                    break;
+                                case "Defender":
+                                    this.setStyle("-fx-text-fill: rgb(63,212,25);");
+                                    break;
+                                case "Goalkeeper":
+                                    this.setStyle("-fx-text-fill: rgb(255,255,255);");
+                                    break;
+                            }
+                            setText(item);
+                        }
+                    }
+                };
+            }
+        });
+        
         columnEstimatedValue.setCellValueFactory(cellData -> new SimpleStringProperty(formatPrice(cellData.getValue().getPrice())));
         columnPrice.setCellValueFactory(cellData -> new SimpleStringProperty(formatPrice(Main.getCompetition().getMarket().getPlayersPrice(cellData.getValue()))));
 

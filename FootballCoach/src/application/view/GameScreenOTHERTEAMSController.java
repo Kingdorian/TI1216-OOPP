@@ -12,6 +12,7 @@ import application.model.Player;
 import application.model.Players;
 import application.model.Team;
 import java.util.ArrayList;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -50,7 +51,7 @@ public class GameScreenOTHERTEAMSController implements ViewControllerInterface {
     @FXML
     private TableColumn<Players, String> columnAbility;
     @FXML
-    private TableColumn<Players, String> columnAvailable;
+    private TableColumn<Players, Boolean> columnAvailable;
     @FXML
     private TableColumn<Players, String> columnType;
     @FXML
@@ -84,9 +85,79 @@ public class GameScreenOTHERTEAMSController implements ViewControllerInterface {
         columnNo.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getNumber()));
         columnName.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getSurName()));
         columnAbility.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getAbilityStr()));
-        columnAvailable.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().isAvailable() ? "Yes" : "No"));
+        
+        //set color of the ability according to the ability (very good = green, very bad = red
+        columnAbility.setCellFactory(new Callback<TableColumn<Players, String>, TableCell<Players, String>>() {
+            @Override
+            public TableCell<Players, String> call(TableColumn<Players, String> param) {
+                return new TableCell<Players, String>() {
+                    @Override
+                    public void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (item != null) {
+                            double ability = Double.parseDouble(item);
+                            double green = ability * 20;
+                            this.setStyle("-fx-text-fill: hsb(" + green + ",100%,80%);");
+                            setText(item);
+                        }
+                    }
+                };
+            }
+        });
+        
+        columnAvailable.setCellValueFactory(cellData -> new SimpleBooleanProperty(cellData.getValue().isAvailable()));
+        columnAvailable.setCellFactory(new Callback<TableColumn<Players, Boolean>, TableCell<Players, Boolean>>() {
+            @Override
+            public TableCell<Players, Boolean> call(TableColumn<Players, Boolean> param) {
+                return new TableCell<Players, Boolean>() {
+                    @Override
+                    public void updateItem(Boolean item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (item != null) {
+                            if(item)
+                                this.setStyle("-fx-text-fill: rgb(255,255,255);");
+                            else
+                                this.setStyle("-fx-text-fill: rgb(215,59,59);");
+                            setText(item ? "Yes" : "No");
+                        }
+                    }
+                };
+            }
+        });
+        
         columnType.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getKind()));
         
+        //set color of text according to the type
+        columnType.setCellFactory(new Callback<TableColumn<Players, String>, TableCell<Players, String>>() {
+            @Override
+            public TableCell<Players, String> call(TableColumn<Players, String> param) {
+                return new TableCell<Players, String>() {
+                    @Override
+                    public void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (item != null) {
+                            switch (item) {
+                                case "Allrounder":
+                                case "Midfielder":
+                                    this.setStyle("-fx-text-fill: rgb(232,123,16);");
+                                    break;
+                                case "Forward":
+                                    this.setStyle("-fx-text-fill: rgb(215,59,59);");
+                                    break;
+                                case "Defender":
+                                    this.setStyle("-fx-text-fill: rgb(63,212,25);");
+                                    break;
+                                case "Goalkeeper":
+                                    this.setStyle("-fx-text-fill: rgb(255,255,255);");
+                                    break;
+                            }
+                            setText(item);
+                        }
+                    }
+                };
+            }
+        });
+
         columnCard.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue()));
 
         //get the image of the kind of card the player in the table cell has
