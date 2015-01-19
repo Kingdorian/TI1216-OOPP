@@ -73,6 +73,7 @@ public class PlayAnimation {
             //buy and sell players
             market.computerBuyPlayer(competition);
             market.computerSellPlayer(competition);
+            Main.getTitleController().refreshMoney();
 
             // start a thread which will calculate the results of the other teams, while
             // the player is playing his own match
