@@ -17,7 +17,6 @@ import application.model.*;
 
 public class SaveGameHandlerTest {
 	@Before public void initialize(){
-		System.out.println("Hello I'm stupid!");
 		SaveGameHandler.changeDefaultLoc("XML/TestSaveGames/");
 		SaveGameHandler.changeDefaultCompLoc("XML/TestCompetitions/");
 	}

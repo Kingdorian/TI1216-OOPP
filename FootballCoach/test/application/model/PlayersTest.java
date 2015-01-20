@@ -11,8 +11,8 @@ public class PlayersTest {
 	Players player1, player2;
 	@Before
 	public void init(){
-		player1 = new Player("Jan", "de Lange", 2, Status.DEFAULT, 10, Reason.DEFAULT, 80, 90, 70);
-		player2 = new Player("Jan", "de Lange", 2, Status.DEFAULT, 10, Reason.DEFAULT, 80, 90, 70);
+		player1 = new Player("Jan", "de Lange", 2, Card.DEFAULT, 10, Reason.DEFAULT, 80, 90, 70);
+		player2 = new Player("Jan", "de Lange", 2, Card.DEFAULT, 10, Reason.DEFAULT, 80, 90, 70);
 	}
 	
 	//TESTS IF tostring returns a correct value
@@ -56,13 +56,13 @@ public class PlayersTest {
 		player1.setNumber(buffer);
 	}
 	
-	//TESTS if equals returns the correct value if the statusses are different
+	//TESTS if equals returns the correct value if the cards are different
 	@Test
-	public void testEqualsStatus(){
-		Status buffer = player1.getStatus();
-		player1.setStatus(Status.INJURED);
+	public void testEqualsCards(){
+		Card buffer = player1.getCard();
+		player1.setCard(Card.RED);
 		assertNotEquals(player1, player2);
-		player1.setStatus(buffer);
+		player1.setCard(buffer);
 	}
 	//TESTS if equals returns the correct value if the reasons are different
 	@Test
@@ -97,14 +97,14 @@ public class PlayersTest {
 	//TESTS if getAbilityStr returns a string when the getAbility on the object is less then 4 chars long
 	@Test
 	public void testGetAbilityStr(){
-		Player player3 = new Player("Jan", "de Lange", 2, Status.DEFAULT, 10, Reason.DEFAULT, 0, 0, 0);
+		Player player3 = new Player("Jan", "de Lange", 2, Card.DEFAULT, 10, Reason.DEFAULT, 0, 0, 0);
 		assertEquals(player1.getAbilityStr(),"4.00");
 	}
 	
 	//TESTS if getAbilityStr returns a string when the getAbility on the object is more then 4 chars long
 	@Test
 	public void testGetAbilityStrLong(){
-		Player player3 = new Player("Jan", "de Lange", 2, Status.DEFAULT, 10, Reason.DEFAULT, 3, 0, 0);
+		Player player3 = new Player("Jan", "de Lange", 2, Card.DEFAULT, 10, Reason.DEFAULT, 3, 0, 0);
 		assertEquals(player3.getAbilityStr(), "0.07");
 	}
 	
@@ -112,7 +112,10 @@ public class PlayersTest {
 	//TESTS if Players.isAvailable() returns the correct value
 	@Test
 	public void testIsAvailableFalse(){
+		Card buffer = player1.getCard();
+		player1.setCard(Card.RED);
 		assertFalse(player1.isAvailable());
+		player1.setCard(buffer);
 	}
 	
 	//TESTS if Players.isAvailable() returns the correct value

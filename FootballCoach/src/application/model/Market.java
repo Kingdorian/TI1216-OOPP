@@ -79,7 +79,7 @@ public class Market {
     	Random random = new Random(seed);
     	for (int i = 0; i < teams.size(); i++) {
     		if (teams.get(i) != competition.getTeamByName(Main.getChosenTeamName())) {
-    			if (Math.pow(random.nextDouble(), teams.get(i).getPlayers().size() - 14) < random.nextDouble()) {
+    			if (Math.pow(0.99, teams.get(i).getPlayersNotForSale(competition).size() - 14) < random.nextDouble()) {
     				sellWhichPlayer(competition, teams.get(i), random);
     			}
     		}
@@ -161,11 +161,14 @@ public class Market {
     private void sellGoalkeeper(Competition competition, Team team, Random random){
     	boolean transfered = false;
     	for(int i = 0; i < team.getPlayers().size() && transfered == false; i++){
-    		if(team.getPlayers().get(i).getKind().equals("Goalkeeper") && playersForSale.contains(team.getPlayers().get(i)) == false){
-    			if(Math.pow(0.5, (team.getPlayers().get(i).getAbility() * 1.2) - 1.5) > random.nextDouble()){
+    		if(playersForSale.contains(team.getPlayers().get(i)) == false){
+    			if(team.getPlayers().get(i).getKind().equals("Goalkeeper") && Math.pow(0.5, (team.getPlayers().get(i).getAbility() * 1.2) - 1.5) > random.nextDouble()){
     				addPlayer(team.getPlayers().get(i), team.getPlayers().get(i).getPrice());
     				transfered = true;
     			}
+    		}
+    		else{
+    			transfered = true;
     		}
     	}
     }

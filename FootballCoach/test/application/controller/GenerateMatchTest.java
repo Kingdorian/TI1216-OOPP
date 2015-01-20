@@ -5,17 +5,21 @@ package application.controller;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import application.model.Card;
 import application.model.Goalkeeper;
 import application.model.Match;
 import application.model.Player;
 import application.model.Players;
 import application.model.Reason;
-import application.model.Status;
 import application.model.Team;
+
 import java.util.ArrayList;
 import java.util.Random;
+
 import org.junit.Test;
+
 import static org.junit.Assert.*;
+
 import org.junit.Before;
 
 /**
@@ -35,16 +39,16 @@ public class GenerateMatchTest {
         outTeam = new Team("out", false);
 
         homeList = new ArrayList<>();
-        homeList.add(new Goalkeeper("name", "sname", 0, Status.DEFAULT, 0, Reason.DEFAULT, 100, 100));
+        homeList.add(new Goalkeeper("name", "sname", 0, Card.DEFAULT, 0, Reason.DEFAULT, 100, 100));
         for (int i = 1; i < 11; i++) {
-            homeList.add(new Player("name", "sname", i, Status.DEFAULT, 0, Reason.DEFAULT, 100, 100, 100));
+            homeList.add(new Player("name", "sname", i, Card.DEFAULT, 0, Reason.DEFAULT, 100, 100, 100));
         }
         homeTeam.setPlayers(homeList);
 
         visitorList = new ArrayList<>();
-        visitorList.add(new Goalkeeper("name", "sname", 0, Status.DEFAULT, 0, Reason.DEFAULT, 80, 80));
+        visitorList.add(new Goalkeeper("name", "sname", 0, Card.DEFAULT, 0, Reason.DEFAULT, 80, 80));
         for (int i = 1; i < 11; i++) {
-            visitorList.add(new Player("name", "sname", i, Status.DEFAULT, 0, Reason.DEFAULT, 80, 80, 80));
+            visitorList.add(new Player("name", "sname", i, Card.DEFAULT, 0, Reason.DEFAULT, 80, 80, 80));
         }
         outTeam.setPlayers(visitorList);
     }

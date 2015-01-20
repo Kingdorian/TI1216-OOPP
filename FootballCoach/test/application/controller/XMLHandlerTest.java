@@ -22,9 +22,9 @@ public class XMLHandlerTest {
         team[0].setBudget(50000);
         team[0].setImgUrl("http://eredivisie-images.s3.amazonaws.com/Eredivisie%20images/Eredivisie%20Badges/701/150x150.png");
         team[0].setArtificialGrass(true);
-        team[0].addPlayer(new Goalkeeper("Robert", "Zwinkels", 1, Status.DEFAULT, 0, Reason.DEFAULT, 62, 65));
-        team[0].addPlayer(new Player("Dion", "Malone", 2, Status.DEFAULT, 0, Reason.DEFAULT, 26, 60, 75));
-        team[0].addPlayer(new Player("Dion", "Malone", 2, Status.INJUREDSUSPENDED, 0, Reason.DEFAULT, 26, 60, 75));
+        team[0].addPlayer(new Goalkeeper("Robert", "Zwinkels", 1, Card.DEFAULT, 0, Reason.DEFAULT, 62, 65));
+        team[0].addPlayer(new Player("Dion", "Malone", 2, Card.DEFAULT, 0, Reason.DEFAULT, 26, 60, 75));
+        team[0].addPlayer(new Player("Dion", "Malone", 2, Card.RED, 0, Reason.DEFAULT, 26, 60, 75));
         refComp = new Competition(team);
         refComp.setSaveGameId(1);
         refComp.setChosenTeamName("Ajax");
@@ -41,6 +41,7 @@ public class XMLHandlerTest {
             assertEquals(comp, refComp);
 
         } catch (Exception e) {
+            System.out.println("Unexpected exception in testReadCompetition");
             e.printStackTrace();
             fail("Unexpected exception");
         }
@@ -71,7 +72,7 @@ public class XMLHandlerTest {
         	
         }
         try{
-            XMLHandler.writeCompetition(refComp, "XML/TestSavegames/Something/");
+            XMLHandler.writeCompetition(refComp, "XML/TestSavegames/");
             Competition genComp = XMLHandler.readCompetition("XML/XMLHandlerTestFile.xml", "XML/XMLHanTestComp.xml");
             assertEquals(genComp, refComp);
         
