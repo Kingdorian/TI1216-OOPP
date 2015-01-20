@@ -182,8 +182,8 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
         // and change the mouse cursor to 'move'
         circle.setOnMousePressed((MouseEvent mouseEvent) -> {
             // record a delta distance for the drag and drop operation.
-            dragDelta.x = circle.getParent().getLayoutX() - mouseEvent.getScreenX();
-            dragDelta.y = circle.getParent().getLayoutY() - mouseEvent.getScreenY();
+            dragDelta.x = circle.getParent().getLayoutBounds().getMinX() + fieldImageGroup.getParent().getLayoutX() + fieldImageGroup.getLayoutX() + 25;
+            dragDelta.y = circle.getParent().getLayoutBounds().getMaxY() + fieldImageGroup.getParent().getLayoutY() + fieldImageGroup.getLayoutY() - circle.getRadius();
             node.setCursor(Cursor.MOVE);
             // reset all circles colors
             for (int i = 0; i < 11; i++) {
@@ -217,21 +217,23 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
         // move the group when dragging with the mouse (relative to where the mouse is)
         circle.setOnMouseDragged((MouseEvent mouseEvent) -> {
             
+            double screenScaleFactor = Main.getScreenScaleFactor();
+            
             //make sure the circle can't be outside of the preset bounds
-            if (mouseEvent.getSceneX() - fieldImageGroup.getLayoutX() - fieldImageGroup.getParent().getLayoutX() - 20 - circle.getRadius()/2 < relativeX(115)) {
+            if (mouseEvent.getSceneX()/screenScaleFactor - fieldImageGroup.getLayoutX() - fieldImageGroup.getParent().getLayoutX() - 20 - circle.getRadius()/2 < relativeX(115)) {
                 circle.getParent().setLayoutX(relativeX(115) - circle.getParent().getLayoutBounds().getMinX());
-            } else if (mouseEvent.getSceneX() - fieldImageGroup.getLayoutX() - fieldImageGroup.getParent().getLayoutX() - 20 + circle.getRadius()/2 > relativeX(845)) {
+            } else if (mouseEvent.getSceneX()/screenScaleFactor - fieldImageGroup.getLayoutX() - fieldImageGroup.getParent().getLayoutX() - 20 + circle.getRadius()/2 > relativeX(860)) {
                 circle.getParent().setLayoutX(relativeX(845) - circle.getParent().getLayoutBounds().getMinX());
             } else {
-                circle.getParent().setLayoutX(mouseEvent.getScreenX() + dragDelta.x);
+                circle.getParent().setLayoutX(mouseEvent.getSceneX()/screenScaleFactor - dragDelta.x);
             }
             
-            if (mouseEvent.getSceneY() - fieldImageGroup.getLayoutY() - fieldImageGroup.getParent().getLayoutY() + circle.getRadius()/2 < relativeY(110)) {
-                circle.getParent().setLayoutY(relativeY(110) - circle.getParent().getLayoutBounds().getMaxY());
-            } else if (mouseEvent.getSceneY() - fieldImageGroup.getLayoutY() - fieldImageGroup.getParent().getLayoutY() - circle.getRadius()/2 > relativeY(660)) {
-                circle.getParent().setLayoutY(relativeY(660) + 8 - circle.getParent().getLayoutBounds().getMaxY());
+            if (mouseEvent.getSceneY()/screenScaleFactor - fieldImageGroup.getLayoutY() - fieldImageGroup.getParent().getLayoutY() + circle.getRadius()/2 < relativeY(110)) {
+                circle.getParent().setLayoutY(relativeY(120) - circle.getParent().getLayoutBounds().getMaxY());
+            } else if (mouseEvent.getSceneY()/screenScaleFactor - fieldImageGroup.getLayoutY() - fieldImageGroup.getParent().getLayoutY() - circle.getRadius()/2 > relativeY(660)) {
+                circle.getParent().setLayoutY(relativeY(670) + 8 - circle.getParent().getLayoutBounds().getMaxY());
             } else {
-                circle.getParent().setLayoutY(mouseEvent.getScreenY() + dragDelta.y);
+                circle.getParent().setLayoutY(mouseEvent.getSceneY()/screenScaleFactor - dragDelta.y);
             }
         });
 
@@ -423,28 +425,32 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
 
                     if (player != null) {
                         setText(player.getSurName());
-
+                        
+                        String style;
                         //decide the color based on the kind of player
                         switch (player.getKind()) {
                             case "Forward":
-                                setTextFill(Color.RED);
+                                style = "-fx-text-fill: darkred;";
                                 break;
                             case "Defender":
-                                setTextFill(Color.DARKGREEN);
+                                style = "-fx-text-fill: darkgreen;";
                                 break;
                             case "Allrounder":
                             case "Midfielder":
-                                setTextFill(Color.ORANGE);
+                                style = "-fx-text-fill: darkorange;";
                                 break;
                             default:
-                                setTextFill(Color.BLACK);
+                                style = "-fx-text-fill: black;";
                                 break;
                         }
 
                         if (teamPositions.getPlayers().contains(player)) {
-                            setBackground(new Background(new BackgroundFill(Color.LIGHTCORAL, null, null)));
+                            if(! (player instanceof Goalkeeper))
+                                setStyle("-fx-background-color: black;" + style);
+                            else
+                                setStyle("-fx-background-color: darkred;" + style);
                         } else {
-                            setBackground(new Background(new BackgroundFill(Color.WHITE, null, null)));
+                            setStyle(style);
                         }
 
                         setFont(Font.font(13));

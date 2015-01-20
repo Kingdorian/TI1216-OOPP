@@ -64,6 +64,7 @@ public class Main extends Application {
 
     private static String colorCssStyle = "";
     private static String sizeCssStyle = "";
+    private static double screenScaleFactor = 1.0;
 
     private static PopupControl oldPopup;
 
@@ -195,7 +196,9 @@ public class Main extends Application {
             double scaleFactor = newWidth / newHeight > ratio
                     ? newHeight / initHeight
                     : newWidth / initWidth;
-
+            
+            screenScaleFactor = scaleFactor;
+            
             if (scaleFactor >= 1) {
                 Scale scale = new Scale(scaleFactor, scaleFactor);
                 scale.setPivotX(0);
@@ -790,5 +793,8 @@ public class Main extends Application {
     };
     
     private static boolean animating = false;
-    
+
+    public static double getScreenScaleFactor() {
+        return screenScaleFactor;
+    }
 }
