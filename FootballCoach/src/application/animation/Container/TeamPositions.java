@@ -52,7 +52,7 @@ public class TeamPositions {
         }
 
         /**
-         * equals method
+         * Equals method
          *
          * @param o object to compare to
          * @return if this and o are equal
@@ -65,11 +65,16 @@ public class TeamPositions {
             PlayerIndex other = (PlayerIndex) o;
             return this.player == other.player || this.index == other.index; // either index or player has to be the same
         }
-        
-        public Circle getCircle(){
-            if(!relativeCircle)
+
+        /**
+         * Get the circle of this instance of PlayerInfo
+         *
+         * @return the circle of this PlayerInfo
+         */
+        public Circle getCircle() {
+            if (!relativeCircle) {
                 return circle;
-            else{
+            } else {
                 double xPos = GameScreenChoosePositionsController.actualX(circle.getCenterX() + circle.getParent().getLayoutX());
                 double yPos = GameScreenChoosePositionsController.actualY(circle.getCenterY() + circle.getParent().getLayoutY());
                 Circle c = new Circle(xPos, yPos, 80, Color.BLUE);
@@ -77,13 +82,16 @@ public class TeamPositions {
             }
         }
 
+        /**
+         * Convert this class to a string
+         *
+         * @return string with information about this class
+         */
         @Override
         public String toString() {
             return "PlayerIndex{" + "player=" + player + ", index=" + index + ", circle=" + getCircle() + ", relativeCircle=" + relativeCircle + '}';
         }
-        
-        
-        
+
     }
 
     /**
@@ -122,6 +130,12 @@ public class TeamPositions {
         }
     }
 
+    /**
+     * Convert a player type to a number
+     *
+     * @param p a player
+     * @return a number corresponding to the players type
+     */
     private int kindToNumber(Players p) {
         switch (p.getKind()) {
             case "Forward":
@@ -349,5 +363,4 @@ public class TeamPositions {
         }
     }
 
-    
 }

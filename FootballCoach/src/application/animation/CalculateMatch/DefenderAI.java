@@ -22,7 +22,7 @@ public class DefenderAI extends PlayerAI {
     private final int playerID;
 
     /**
-     * constructor: needs the position of the attacker and the positions of
+     * Constructor: needs the position of the attacker and the positions of
      * other players
      *
      * @param thisPlayer the position of this attacker

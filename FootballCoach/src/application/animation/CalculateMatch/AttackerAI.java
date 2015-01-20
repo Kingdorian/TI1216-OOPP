@@ -17,7 +17,7 @@ public class AttackerAI extends PlayerAI {
     private final int playerID;
 
     /**
-     * constructor: needs the position of the attacker and the positions of
+     * Constructor: needs the position of the attacker and the positions of
      * other players, if the player is on the ally team and the ID
      *
      * @param thisPlayer the position of this attacker
@@ -33,7 +33,7 @@ public class AttackerAI extends PlayerAI {
     }
 
     /**
-     * gives the position the attacker want to move to
+     * Gives the position the attacker want to move to
      *
      * @return the Position the attacker want to move to
      */
@@ -168,7 +168,7 @@ public class AttackerAI extends PlayerAI {
     }
 
     /**
-     * the player is not the closest of his team to the ball, but the ball is on
+     * The player is not the closest of his team to the ball, but the ball is on
      * the opponents side, so help attacking
      *
      * @return the position to move to

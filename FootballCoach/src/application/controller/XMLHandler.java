@@ -7,7 +7,6 @@ import application.model.*;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -26,7 +25,8 @@ public class XMLHandler {
      * Reads a competition xml file and returns an array of all the teams in the
      * file
      *
-     * @param String the location for the file
+     * @param teamsLoc the location of the file
+     * @param compLoc the location of the file
      * @return ArrayList with all the teams in the xml file
      * @throws Exception
      */
@@ -54,7 +54,7 @@ public class XMLHandler {
         try {
             chosenTeamName = ((Element) doc.getElementsByTagName("rounds").item(0)).getAttribute("chosenTeam");
             name = ((Element) doc.getElementsByTagName("rounds").item(0)).getAttribute("name");
-           // saveGameId = Integer.parseInt(((Element) doc.getElementsByTagName("rounds").item(0)).getAttribute("saveGameId"));
+            // saveGameId = Integer.parseInt(((Element) doc.getElementsByTagName("rounds").item(0)).getAttribute("saveGameId"));
         } catch (NumberFormatException e) {
             e.printStackTrace();
 
@@ -77,7 +77,7 @@ public class XMLHandler {
     }
 
     /**
-     * @Param teamElement, the XML Element of that correesponds with a certain
+     * @param teamElement the XML Element of that correesponds with a certain
      * team
      * @return the Team composed out of the values in the Element supplied
      */
@@ -93,13 +93,14 @@ public class XMLHandler {
                 team.addPlayer(p);
             } else if (nodes.item(i).getNodeName().equals("goalkeeper")) {
                 p = parseGoalkeeper(nodes.item(i));
-                    team.addPlayer(p);
+                team.addPlayer(p);
             }
         }
         return team;
     }
 
     /**
+     * Get the information of a goalkeeper from a node
      *
      * @param playerNode to be parsed
      * @return Goalkeeper Object according to inputted node
@@ -218,18 +219,17 @@ public class XMLHandler {
      * Stores a competition in the competition.xml file in the specified
      * savegame
      *
-     * @param teams The arraylist with teams to store
-     * @throws Exception
+     * @param comp the competition
+     * @param loc the location
      */
     public static void writeCompetition(Competition comp, String loc) {
-    	String location = loc + comp.getSaveGameId();
+        String location = loc + comp.getSaveGameId();
         File saveDir = new File(location);
         //If the savedir does not yet exist create it and copy the default competition xml into it
         if (!saveDir.exists()) {
             saveDir.mkdir();
         }
         try {
-        	System.out.println(comp.toString());
             writeTeams(location + "/Teams.xml", comp.getTeams());
             writeMatches(location + "/Matches.xml", comp);
         } catch (Exception e) {
@@ -238,6 +238,13 @@ public class XMLHandler {
 
     }
 
+    /**
+     * Save a competition
+     *
+     * @param location the location to save to
+     * @param comp the competition to save
+     * @throws Exception
+     */
     private static void writeMatches(String location, Competition comp) throws Exception {
         // Setting up doc builder
         DocumentBuilderFactory dF = DocumentBuilderFactory.newInstance();
@@ -295,74 +302,73 @@ public class XMLHandler {
         Element teamsElement = doc.createElement("teams");
         doc.appendChild(teamsElement);
         // Looping over all the teams in the ArrayList
-        System.out.println("Teams length: " + teams.length);
         for (int i = 0; i < teams.length; i++) {
-        	if(teams[i]!=null){
-            Element teamElement = doc.createElement("team");
-            teamsElement.appendChild(teamElement);
-            teamElement.setAttribute("logo", "");
-            teamElement.setAttribute("art_grass", 
-            		teams[i].hasArtificialGrass()
-            		+ "");
-            teamElement.setAttribute("name", teams[i].getName());
-			teamElement.setAttribute("budget", teams[i].getBudget()+"");
+            if (teams[i] != null) {
+                Element teamElement = doc.createElement("team");
+                teamsElement.appendChild(teamElement);
+                teamElement.setAttribute("logo", "");
+                teamElement.setAttribute("art_grass",
+                        teams[i].hasArtificialGrass()
+                        + "");
+                teamElement.setAttribute("name", teams[i].getName());
+                teamElement.setAttribute("budget", teams[i].getBudget() + "");
 
-            for (int j = 0; j < teams[i].getPlayers().size(); j++) {
-                Players pl = teams[i].getPlayers().get(j);
-                Element pE = null;
-                if (pl instanceof Player) {
-                    Player p = (Player) pl;
-                    pE = doc.createElement("player");
-                    ArrayList<Element> buffer = new ArrayList<Element>();
-                    buffer.add(doc.createElement("name"));
-                    buffer.get(0).setTextContent(p.getName());
-                    buffer.add(doc.createElement("surname"));
-                    buffer.get(1).setTextContent(p.getSurName());
-                    buffer.add(doc.createElement("number"));
-                    buffer.get(2).setTextContent(p.getNumber() + "");
-                    buffer.add(doc.createElement("status"));
-                    buffer.get(3).setTextContent(p.getCard() + "");
-                    buffer.add(doc.createElement("timenotavailable"));
-                    buffer.get(4).setTextContent(p.getTimeNotAvailable() + "");
-                    buffer.add(doc.createElement("reason"));
-                    buffer.get(5).setTextContent(p.getReason() + "");
-                    buffer.add(doc.createElement("attack"));
-                    buffer.get(6).setTextContent(p.getAttack() + "");
-                    buffer.add(doc.createElement("defence"));
-                    buffer.get(7).setTextContent(p.getDefence() + "");
-                    buffer.add(doc.createElement("stamina"));
+                for (int j = 0; j < teams[i].getPlayers().size(); j++) {
+                    Players pl = teams[i].getPlayers().get(j);
+                    Element pE;
+                    if (pl instanceof Player) {
+                        Player p = (Player) pl;
+                        pE = doc.createElement("player");
+                        ArrayList<Element> buffer = new ArrayList<>();
+                        buffer.add(doc.createElement("name"));
+                        buffer.get(0).setTextContent(p.getName());
+                        buffer.add(doc.createElement("surname"));
+                        buffer.get(1).setTextContent(p.getSurName());
+                        buffer.add(doc.createElement("number"));
+                        buffer.get(2).setTextContent(p.getNumber() + "");
+                        buffer.add(doc.createElement("status"));
+                        buffer.get(3).setTextContent(p.getCard() + "");
+                        buffer.add(doc.createElement("timenotavailable"));
+                        buffer.get(4).setTextContent(p.getTimeNotAvailable() + "");
+                        buffer.add(doc.createElement("reason"));
+                        buffer.get(5).setTextContent(p.getReason() + "");
+                        buffer.add(doc.createElement("attack"));
+                        buffer.get(6).setTextContent(p.getAttack() + "");
+                        buffer.add(doc.createElement("defence"));
+                        buffer.get(7).setTextContent(p.getDefence() + "");
+                        buffer.add(doc.createElement("stamina"));
 
-                    buffer.get(8).setTextContent(p.getStamina() + "");
-                    for (int k = 0; k < buffer.size(); k++) {
-                        pE.appendChild(buffer.get(k));
+                        buffer.get(8).setTextContent(p.getStamina() + "");
+                        for (int k = 0; k < buffer.size(); k++) {
+                            pE.appendChild(buffer.get(k));
+                        }
+                    } else {
+                        Goalkeeper k = (Goalkeeper) pl;
+                        pE = doc.createElement("goalkeeper");
+                        ArrayList<Element> buffer = new ArrayList<>();
+                        buffer.add(doc.createElement("name"));
+                        buffer.get(0).setTextContent(k.getName());
+                        buffer.add(doc.createElement("surname"));
+                        buffer.get(1).setTextContent(k.getSurName());
+                        buffer.add(doc.createElement("number"));
+                        buffer.get(2).setTextContent(k.getNumber() + "");
+                        buffer.add(doc.createElement("status"));
+                        buffer.get(3).setTextContent(k.getCard() + "");
+                        buffer.add(doc.createElement("timenotavailable"));
+                        buffer.get(4).setTextContent(k.getTimeNotAvailable() + "");
+                        buffer.add(doc.createElement("reason"));
+
+                        buffer.get(5).setTextContent(k.getReason() + "");
+                        buffer.add(doc.createElement("stoppower"));
+                        buffer.get(6).setTextContent(k.getStopPower() + "");
+                        buffer.add(doc.createElement("penaltystoppower"));
+                        buffer.get(7).setTextContent(k.getPenaltyStopPower() + "");
+                        for (int l = 0; l < buffer.size(); l++) {
+                            pE.appendChild(buffer.get(l));
+                        }
                     }
-                } else {
-                    Goalkeeper k = (Goalkeeper) pl;
-                    pE = doc.createElement("goalkeeper");
-                    ArrayList<Element> buffer = new ArrayList<Element>();
-                    buffer.add(doc.createElement("name"));
-                    buffer.get(0).setTextContent(k.getName());
-                    buffer.add(doc.createElement("surname"));
-                    buffer.get(1).setTextContent(k.getSurName());
-                    buffer.add(doc.createElement("number"));
-                    buffer.get(2).setTextContent(k.getNumber() + "");
-                    buffer.add(doc.createElement("status"));
-                    buffer.get(3).setTextContent(k.getCard() + "");
-                    buffer.add(doc.createElement("timenotavailable"));
-                    buffer.get(4).setTextContent(k.getTimeNotAvailable() + "");
-                    buffer.add(doc.createElement("reason"));
-
-                    buffer.get(5).setTextContent(k.getReason() + "");
-                    buffer.add(doc.createElement("stoppower"));
-                    buffer.get(6).setTextContent(k.getStopPower() + "");
-                    buffer.add(doc.createElement("penaltystoppower"));
-                    buffer.get(7).setTextContent(k.getPenaltyStopPower() + "");
-                    for (int l = 0; l < buffer.size(); l++) {
-                        pE.appendChild(buffer.get(l));
-                    }
+                    teamElement.appendChild(pE);
                 }
-                teamElement.appendChild(pE);
-            }
             }
 
         }
@@ -374,34 +380,46 @@ public class XMLHandler {
         StreamResult result = new StreamResult(new File(location));
         t.transform(source, result);
     }
-    
-    public static String getSaveGameName(String location){
+
+    /**
+     * Get the name of a save game
+     *
+     * @param location the location
+     * @return the name
+     */
+    public static String getSaveGameName(String location) {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         DocumentBuilder db;
-		try {
-			db = dbf.newDocumentBuilder();
-			Document doc = db.parse(new File(location));
-			return ((Element)doc.getElementsByTagName("rounds").item(0)).getAttribute("name");
-		} catch (Exception e) {
-			e.printStackTrace();
+        try {
+            db = dbf.newDocumentBuilder();
+            Document doc = db.parse(new File(location));
+            return ((Element) doc.getElementsByTagName("rounds").item(0)).getAttribute("name");
+        } catch (Exception e) {
+            e.printStackTrace();
 
-		}
-		return null;
-    	
-    }   
-    
-    public static String getTeamName(String location){
+        }
+        return null;
+
+    }
+
+    /**
+     * Get the name of a team
+     *
+     * @param location location
+     * @return the name
+     */
+    public static String getTeamName(String location) {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         DocumentBuilder db;
-		try {
-			db = dbf.newDocumentBuilder();
-			Document doc = db.parse(new File(location));
-			return ((Element)doc.getElementsByTagName("rounds").item(0)).getAttribute("chosenTeam");
-		} catch (Exception e) {
-			e.printStackTrace();
+        try {
+            db = dbf.newDocumentBuilder();
+            Document doc = db.parse(new File(location));
+            return ((Element) doc.getElementsByTagName("rounds").item(0)).getAttribute("chosenTeam");
+        } catch (Exception e) {
+            e.printStackTrace();
 
-		}
-		return null;
-    	
+        }
+        return null;
+
     }
 }

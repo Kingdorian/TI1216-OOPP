@@ -74,6 +74,11 @@ public enum DefaultPos {
      */
     public static class Loop {
 
+        /**
+         * Get a Left player by index
+         * @param i index of the player
+         * @return the position of the player
+         */
         public static DefaultPos getL(int i) {
             switch (i) {
                 case 0:
@@ -104,6 +109,11 @@ public enum DefaultPos {
             }
         }
 
+        /**
+         * Get a Right player by index
+         * @param i index of the player
+         * @return the position of the player
+         */
         public static DefaultPos getR(int i) {
             switch (i) {
                 case 0:

@@ -66,6 +66,8 @@ public class Main extends Application {
     private static String sizeCssStyle = "";
     private static double screenScaleFactor = 1.0;
 
+    private static boolean animating = false;
+
     private static PopupControl oldPopup;
 
     /**
@@ -124,7 +126,6 @@ public class Main extends Application {
     private static class ShortcutEventHandler implements EventHandler<javafx.scene.input.KeyEvent> {
 
         final KeyCombination ctrlF = new KeyCodeCombination(KeyCode.F, KeyCombination.CONTROL_DOWN);
-//        final KeyCombination ctrlS = new KeyCodeCombination(KeyCode.S, KeyCombination.CONTROL_DOWN);
 
         @Override
         public void handle(javafx.scene.input.KeyEvent event) {
@@ -135,9 +136,6 @@ public class Main extends Application {
                     primaryStage.setFullScreen(true);
                 }
             }
-//            if (ctrlS.match(event)) {
-//                System.out.println("Ctrl+S pressed: Save game.");
-//            }
         }
     }
 
@@ -196,9 +194,9 @@ public class Main extends Application {
             double scaleFactor = newWidth / newHeight > ratio
                     ? newHeight / initHeight
                     : newWidth / initWidth;
-            
+
             screenScaleFactor = scaleFactor;
-            
+
             if (scaleFactor >= 1) {
                 Scale scale = new Scale(scaleFactor, scaleFactor);
                 scale.setPivotX(0);
@@ -248,18 +246,20 @@ public class Main extends Application {
      * "test")
      */
     public void setCenterView(String viewPath) {
-        
-        if(titleController != null)
-                titleController.refreshRound();
-        
+
+        if (titleController != null) {
+            titleController.refreshRound();
+        }
+
         viewPath = changeNameToClassPath(viewPath);
 
         // get the previous margins of the center view
         Pane oldPane = (Pane) rootLayout.getCenter();
         Insets oldInsets = null;
-        if(oldPane != null)
+        if (oldPane != null) {
             oldInsets = BorderPane.getMargin(oldPane);
-        
+        }
+
         // Set the center screen
         Object[] paneAndLoader = loadPane(viewPath);
         Pane pane = (Pane) paneAndLoader[0];
@@ -270,13 +270,13 @@ public class Main extends Application {
 
         // if old center panes position is the same as the new one, set a transition
         FadeTransition fadeout = new FadeTransition(Duration.millis(0));
-        if(oldPane != null && oldInsets != null && BorderPane.getMargin(pane).equals(oldInsets)){
+        if (oldPane != null && oldInsets != null && BorderPane.getMargin(pane).equals(oldInsets)) {
             fadeout = new FadeTransition(Duration.millis(300), oldPane);
             fadeout.setFromValue(1);
             fadeout.setToValue(0);
             fadeout.play();
         }
-        
+
         final ViewControllerInterface viewController = ((FXMLLoader) paneAndLoader[1]).getController();
 
         // when the fade out is finished, load the new center and fade it in
@@ -284,35 +284,34 @@ public class Main extends Application {
             // draw the new window
             pane.setOpacity(0);
             rootLayout.setCenter(pane);
-            
+
             // let the new view fade in
             FadeTransition fadein = new FadeTransition(Duration.millis(1000), pane);
             fadein.setFromValue(0);
             fadein.setToValue(1);
             fadein.play();
-//            // ViewControllerInterface viewController = getViewController(viewPath.split("/")[1]);
-//            viewController = ((FXMLLoader) paneAndLoader[1]).getController();
 
             // Give the view controller a reference to this main controller class
             viewController.setMainController(this);
         });
         // if there is no fade in transition, handle onfinished
-        if(fadeout.getDuration() == Duration.ZERO)
+        if (fadeout.getDuration() == Duration.ZERO) {
             fadeout.getOnFinished().handle(null);
-        
+        }
+
         // draw circles if this is the choose positions screen
         // originally intended this would be a seperate stage, so
         // this is a kind of workaround, so it can be loaded into
         // the center
-        if(viewController instanceof GameScreenChoosePositionsController){
+        if (viewController instanceof GameScreenChoosePositionsController) {
             GameScreenChoosePositionsController controller = (GameScreenChoosePositionsController) viewController;
             controller.drawCircles(primaryStage, competition.getTeamByName(chosenTeamName));
         }
-        
+
         //stop animation
-        if(animating){
+        if (animating) {
             stopAnimating.handle(null);
-            if(viewPath.contains("GameScreenPLAYMATCH")){
+            if (viewPath.contains("GameScreenPLAYMATCH")) {
                 GameScreenPLAYMATCHController controller = (GameScreenPLAYMATCHController) viewController;
                 controller.showResultLastMatch();
             }
@@ -336,8 +335,8 @@ public class Main extends Application {
         // Set the top screen
         Object[] paneAndLoader = loadPane(viewPath);
         Pane pane = (Pane) paneAndLoader[0];
-         rootLayout.setTop(pane);
-        
+        rootLayout.setTop(pane);
+
         // let the new view fade in
         pane.setOpacity(0);
         FadeTransition fadein = new FadeTransition(Duration.millis(1000), pane);
@@ -372,7 +371,7 @@ public class Main extends Application {
         BorderPane.setAlignment(pane, Pos.TOP_LEFT);
         BorderPane.setMargin(pane, new Insets(40, 40, 0, 40));
         rootLayout.setLeft(pane);
-        
+
         // let the new view fade in
         pane.setOpacity(0);
         FadeTransition fadein = new FadeTransition(Duration.millis(1000), pane);
@@ -461,7 +460,6 @@ public class Main extends Application {
             popup.getScene().setRoot(pane);
             popup.sizeToScene();
             location = oldPopup.getAnchorLocation();
-//            oldPopup.hide();
         } else {
             // create new popup window
             popup = new PopupControl();
@@ -469,11 +467,7 @@ public class Main extends Application {
             popup.show(primaryStage);
             oldPopup = popup;
         }
-        // create new popup window
-//            popup = new PopupControl();
-//            popup.getScene().setRoot(pane);
-//            popup.show(primaryStage);
-//            oldPopup = popup;
+
         if (location != null) {
             popup.setAnchorLocation(location);
         }
@@ -485,13 +479,10 @@ public class Main extends Application {
 
         // if the EventHandler event (methods parameter) is not null, trigger it when the 'ok' button is clicked
         if (event != null) {
-            popup.setOnHidden(new EventHandler<WindowEvent>() {
-                @Override
-                public void handle(WindowEvent e) {
-                    oldPopup = null;
-                    if (popupController.isOkClicked()) {
-                        event.handle(e);
-                    }
+            popup.setOnHidden((WindowEvent e) -> {
+                oldPopup = null;
+                if (popupController.isOkClicked()) {
+                    event.handle(e);
                 }
             });
         }
@@ -518,50 +509,35 @@ public class Main extends Application {
 
         // when clickingset the position of the window relative to the mouse
         // and change the mouse cursor to 'move'
-        node.setOnMousePressed(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                // record a delta distance for the drag and drop operation.
-                dragDelta.x = window.getX() - mouseEvent.getScreenX();
-                dragDelta.y = window.getY() - mouseEvent.getScreenY();
-                node.setCursor(Cursor.MOVE);
-            }
+        node.setOnMousePressed((MouseEvent mouseEvent) -> {
+            // record a delta distance for the drag and drop operation.
+            dragDelta.x = window.getX() - mouseEvent.getScreenX();
+            dragDelta.y = window.getY() - mouseEvent.getScreenY();
+            node.setCursor(Cursor.MOVE);
         });
 
         // when releasing the mouse button, change the cursor to a hand
-        node.setOnMouseReleased(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
+        node.setOnMouseReleased((MouseEvent mouseEvent) -> {
+            node.setCursor(Cursor.HAND);
+        });
+
+        // move the window when dragging with the mouse (relative to where the mouse is)
+        node.setOnMouseDragged((MouseEvent mouseEvent) -> {
+            window.setX(mouseEvent.getScreenX() + dragDelta.x);
+            window.setY(mouseEvent.getScreenY() + dragDelta.y);
+        });
+
+        // change cursor to a hand when entering the window
+        node.setOnMouseEntered((MouseEvent mouseEvent) -> {
+            if (!mouseEvent.isPrimaryButtonDown()) {
                 node.setCursor(Cursor.HAND);
             }
         });
 
-        // move the window when dragging with the mouse (relative to where the mouse is)
-        node.setOnMouseDragged(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                window.setX(mouseEvent.getScreenX() + dragDelta.x);
-                window.setY(mouseEvent.getScreenY() + dragDelta.y);
-            }
-        });
-
-        // change cursor to a hand when entering the window
-        node.setOnMouseEntered(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                if (!mouseEvent.isPrimaryButtonDown()) {
-                    node.setCursor(Cursor.HAND);
-                }
-            }
-        });
-
         // change to default cursor when leaving the window
-        node.setOnMouseExited(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                if (!mouseEvent.isPrimaryButtonDown()) {
-                    node.setCursor(Cursor.DEFAULT);
-                }
+        node.setOnMouseExited((MouseEvent mouseEvent) -> {
+            if (!mouseEvent.isPrimaryButtonDown()) {
+                node.setCursor(Cursor.DEFAULT);
             }
         });
     }
@@ -737,12 +713,15 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
-    
-    public void playMatch(CalculatedMatch match){
-        
+
+    /**
+     * Play the animation of a match
+     *
+     * @param match the match to animate
+     */
+    public void playMatch(CalculatedMatch match) {
         animating = true;
-        
+
         // load the view
         GameScreenFootballFieldController viewController;
         Pane pane;
@@ -761,7 +740,7 @@ public class Main extends Application {
         // set position
         BorderPane.setAlignment(pane, Pos.TOP_LEFT);
         BorderPane.setMargin(pane, new Insets(40, 40, 0, 0));
-        
+
         FadeTransition fadeout = new FadeTransition(Duration.millis(300), (Pane) rootLayout.getCenter());
         fadeout.setFromValue(1);
         fadeout.setToValue(0);
@@ -772,7 +751,7 @@ public class Main extends Application {
             // draw the new window
             pane.setOpacity(0);
             rootLayout.setCenter(pane);
-            
+
             // let the new view fade in
             FadeTransition fadein = new FadeTransition(Duration.millis(1000), pane);
             fadein.setFromValue(0);
@@ -780,20 +759,24 @@ public class Main extends Application {
             fadein.play();
         });
 
-        
         // animate the football match
         animating = true;
         AnimateFootballMatch.playMatch(match, viewController, pane);
     }
-    
-    // reset animation variables when animation is done
+
+    /**
+     * reset animation variables when animation is done
+     */
     public static EventHandler stopAnimating = (EventHandler<ActionEvent>) (ActionEvent t) -> {
         AnimateFootballMatch.stopAnimation();
         animating = false;
     };
-    
-    private static boolean animating = false;
 
+    /**
+     * Get the factor the screen has been resized by
+     *
+     * @return the factor the screen has been resized by
+     */
     public static double getScreenScaleFactor() {
         return screenScaleFactor;
     }

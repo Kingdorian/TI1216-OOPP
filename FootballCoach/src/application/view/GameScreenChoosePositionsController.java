@@ -27,8 +27,6 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.effect.Lighting;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
@@ -48,13 +46,10 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
     private static final Circle playerCircle[] = new Circle[11];
     private static final Text playerText[] = new Text[11]; // texts above the circles
     private Stage stage;
-//    private Team team;
-//    private static ArrayList<Player> fieldPlayerList;
-//    private static ArrayList<Goalkeeper> keeperList;
     private static TeamPositions teamPositions;
     private static int selectedCircleID;
     private static GameScreenChoosePositionsController thisController;
-    
+
     private static Main mainController;
 
     @FXML
@@ -118,6 +113,9 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
         }
     }
 
+    /**
+     * Handle the event when a player is selected
+     */
     private final EventHandler onSelected = (Event e) -> {
         Players player = selectPlayerBox.getSelectionModel().getSelectedItem();
 
@@ -216,24 +214,24 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
 
         // move the group when dragging with the mouse (relative to where the mouse is)
         circle.setOnMouseDragged((MouseEvent mouseEvent) -> {
-            
+
             double screenScaleFactor = Main.getScreenScaleFactor();
-            
+
             //make sure the circle can't be outside of the preset bounds
-            if (mouseEvent.getSceneX()/screenScaleFactor - fieldImageGroup.getLayoutX() - fieldImageGroup.getParent().getLayoutX() - 20 - circle.getRadius()/2 < relativeX(115)) {
+            if (mouseEvent.getSceneX() / screenScaleFactor - fieldImageGroup.getLayoutX() - fieldImageGroup.getParent().getLayoutX() - 20 - circle.getRadius() / 2 < relativeX(115)) {
                 circle.getParent().setLayoutX(relativeX(115) - circle.getParent().getLayoutBounds().getMinX());
-            } else if (mouseEvent.getSceneX()/screenScaleFactor - fieldImageGroup.getLayoutX() - fieldImageGroup.getParent().getLayoutX() - 20 + circle.getRadius()/2 > relativeX(860)) {
+            } else if (mouseEvent.getSceneX() / screenScaleFactor - fieldImageGroup.getLayoutX() - fieldImageGroup.getParent().getLayoutX() - 20 + circle.getRadius() / 2 > relativeX(860)) {
                 circle.getParent().setLayoutX(relativeX(845) - circle.getParent().getLayoutBounds().getMinX());
             } else {
-                circle.getParent().setLayoutX(mouseEvent.getSceneX()/screenScaleFactor - dragDelta.x);
+                circle.getParent().setLayoutX(mouseEvent.getSceneX() / screenScaleFactor - dragDelta.x);
             }
-            
-            if (mouseEvent.getSceneY()/screenScaleFactor - fieldImageGroup.getLayoutY() - fieldImageGroup.getParent().getLayoutY() + circle.getRadius()/2 < relativeY(110)) {
+
+            if (mouseEvent.getSceneY() / screenScaleFactor - fieldImageGroup.getLayoutY() - fieldImageGroup.getParent().getLayoutY() + circle.getRadius() / 2 < relativeY(110)) {
                 circle.getParent().setLayoutY(relativeY(120) - circle.getParent().getLayoutBounds().getMaxY());
-            } else if (mouseEvent.getSceneY()/screenScaleFactor - fieldImageGroup.getLayoutY() - fieldImageGroup.getParent().getLayoutY() - circle.getRadius()/2 > relativeY(660)) {
+            } else if (mouseEvent.getSceneY() / screenScaleFactor - fieldImageGroup.getLayoutY() - fieldImageGroup.getParent().getLayoutY() - circle.getRadius() / 2 > relativeY(660)) {
                 circle.getParent().setLayoutY(relativeY(670) + 8 - circle.getParent().getLayoutBounds().getMaxY());
             } else {
-                circle.getParent().setLayoutY(mouseEvent.getSceneY()/screenScaleFactor - dragDelta.y);
+                circle.getParent().setLayoutY(mouseEvent.getSceneY() / screenScaleFactor - dragDelta.y);
             }
         });
 
@@ -321,16 +319,16 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
         this.selectedCircleID = -1;
         this.thisController = this;
         this.teamPositions = new TeamPositions(team);
-        
+
         setSelectBox();
 
         // create the player circles
-        for(int i=0; i<11; i++){
+        for (int i = 0; i < 11; i++) {
             //make sure the enum value won't be change
             final Circle c = DefaultPos.Loop.getL(i).circle;
             playerCircle[i] = new Circle(c.getCenterX(), c.getCenterY(), 8, Color.BLUE);
         }
-        
+
         for (Circle circle : playerCircle) {
             circle.setCenterX(relativeX(circle.getCenterX()));
             circle.setCenterY(relativeY(circle.getCenterY()));
@@ -368,13 +366,15 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
         playerCircle[8].addEventHandler(MouseEvent.ANY, new CircleDragHandler(playerCircle[8], false));
         playerCircle[9].addEventHandler(MouseEvent.ANY, new CircleDragHandler(playerCircle[9], false));
         playerCircle[10].addEventHandler(MouseEvent.ANY, new CircleDragHandler(playerCircle[10], false));
-        
 
         teamPositions.setDefaultLeftPlayers();
         resetCircleText();
     }
 
-
+    /**
+     * Set the colors of the players according to their type (in the button
+     * area)
+     */
     private void setSelectBox() {
 
         // correctly display the players surname in the button area of the combo box
@@ -382,28 +382,39 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
         selectPlayerBox.setButtonCell(new ListCell<Players>() {
             @Override
             protected void updateItem(Players player, boolean empty) {
+
                 super.updateItem(player, empty);
+
                 if (player != null) {
                     setText(player.getSurName());
 
+                    String style;
                     //decide the color based on the kind of player
                     switch (player.getKind()) {
                         case "Forward":
-                            setTextFill(Color.RED);
+                            style = "-fx-text-fill: darkred;";
                             break;
                         case "Defender":
-                            setTextFill(Color.DARKGREEN);
+                            style = "-fx-text-fill: darkgreen;";
                             break;
                         case "Allrounder":
                         case "Midfielder":
-                            setTextFill(Color.ORANGE);
+                            style = "-fx-text-fill: darkorange;";
                             break;
                         default:
-                            setTextFill(Color.BLACK);
+                            style = "-fx-text-fill: black;";
                             break;
                     }
-//                            setBackground(new Background(new BackgroundFill(Color.BLACK, null, null)));
-                    setFont(Font.font(13));
+
+                    if (teamPositions.getPlayers().contains(player)) {
+                        if (!(player instanceof Goalkeeper)) {
+                            setStyle("-fx-background-color: black;" + style);
+                        } else {
+                            setStyle("-fx-background-color: darkred;" + style);
+                        }
+                    } else {
+                        setStyle(style);
+                    }
                 }
             }
         });
@@ -414,7 +425,10 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
         selectPlayerBox.addEventHandler(ActionEvent.ACTION, onSelected);
     }
 
-    private static Callback<ListView<Players>, ListCell<Players>> selectListFactory = new Callback<ListView<Players>, ListCell<Players>>() {
+    /**
+     * Set the colors of the players according to their type (in the list)
+     */
+    private final static Callback<ListView<Players>, ListCell<Players>> selectListFactory = new Callback<ListView<Players>, ListCell<Players>>() {
         @Override
         public ListCell<Players> call(ListView<Players> p) {
             return new ListCell<Players>() {
@@ -425,7 +439,7 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
 
                     if (player != null) {
                         setText(player.getSurName());
-                        
+
                         String style;
                         //decide the color based on the kind of player
                         switch (player.getKind()) {
@@ -445,30 +459,29 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
                         }
 
                         if (teamPositions.getPlayers().contains(player)) {
-                            if(! (player instanceof Goalkeeper))
+                            if (!(player instanceof Goalkeeper)) {
                                 setStyle("-fx-background-color: black;" + style);
-                            else
+                            } else {
                                 setStyle("-fx-background-color: darkred;" + style);
+                            }
                         } else {
                             setStyle(style);
                         }
-
-                        setFont(Font.font(13));
                     }
                 }
             };
         }
     };
 
+    /**
+     * Handle the event when a player clicks on the start match button
+     */
     @FXML
     private void startMatchButton() {
         if (teamPositions.checkValid()) {
             startButton.setDisable(true);
             teamPositions.TESSTST_PRINT();
             PlayAnimation.playMatches(teamPositions, mainController);
-//            int pointsLeft = result.getHomeTeam().getName().equals(nameLeft.getText()) ? result.getPointsHomeTeam() : result.getPointsVisitorTeam();
-//            int pointsRight = result.getHomeTeam().getName().equals(nameLeft.getText()) ? result.getPointsVisitorTeam() : result.getPointsHomeTeam();
-//            score.setText(pointsLeft + " - " + pointsRight);
         } else {
             Dialogs.create()
                     .title("Invalid selection")
@@ -479,6 +492,9 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
         }
     }
 
+    /**
+     * Handle the event when a player clicks on the cancel button
+     */
     @FXML
     private void cancelButton() {
         Main.getMenuController().getCurrentMenuField().setText("Play Match");
@@ -496,14 +512,27 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
         }
     }
 
+    /**
+     * Get all circles of the players
+     *
+     * @return the circles of all players
+     */
     public static Circle[] getPlayerCircle() {
         return playerCircle;
     }
 
+    /**
+     * Get the selected player's circle
+     *
+     * @return the selected player's circle
+     */
     public ComboBox<Players> getSelectPlayerBox() {
         return selectPlayerBox;
     }
 
+    /**
+     * Reset the circles' texts
+     */
     private void resetCircleText() {
         for (int i = 0; i < playerText.length; i++) {
             Players player = teamPositions.getPlayer(i);
@@ -515,10 +544,15 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
         }
     }
 
+    /**
+     * Get the positions of the palyers
+     *
+     * @return the positions of the players
+     */
     public static TeamPositions getTeamPositions() {
         return teamPositions;
     }
-    
+
     /**
      * This gives this class a reference to the main class
      *
@@ -527,22 +561,45 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
     @Override
     public void setMainController(Main mainController) {
         this.mainController = mainController;
-    }    
-    
-    
-    private double relativeX(double x){
+    }
+
+    /**
+     * Calculate the relative x-coordinate, from an actual field coordinate
+     *
+     * @param x the actual x-coordinate
+     * @return the relative x-coordinate
+     */
+    private double relativeX(double x) {
         return x * 466.0 / 1020.0;
     }
-    
-    public static double actualX(double x){
-        return x  * 1020.0 / 466.0;
+
+    /**
+     * Caculate the actual x-coordinate on a field, from a relative x-coordinate
+     *
+     * @param x the relative x-coordinate
+     * @return the actual x-coordinate
+     */
+    public static double actualX(double x) {
+        return x * 1020.0 / 466.0;
     }
-    
-    private double relativeY(double y){
+
+    /**
+     * Calculate the relative y-coordinate, from an actual field coordinate
+     *
+     * @param y the y-coordinate
+     * @return the relative y-coordinate
+     */
+    private double relativeY(double y) {
         return y * 350.0 / 765.0;
     }
-    
-    public static double actualY(double y){
+
+    /**
+     * Caculate the actual y-coordinate on a field, from a relative y-coordinate
+     *
+     * @param y the relative y-coordinate
+     * @return the actual y-coordinate
+     */
+    public static double actualY(double y) {
         return y * 765.0 / 350.0;
     }
 }

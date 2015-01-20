@@ -6,7 +6,6 @@
 package application.view;
 
 import application.Main;
-import application.model.Players;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.Event;
@@ -38,12 +37,9 @@ public class MainMenuController implements ViewControllerInterface {
     /**
      * This event sets the continue button to active and triggers it
      */
-    private final EventHandler triggerContinue = new EventHandler<Event>() {
-        @Override
-        public void handle(Event e) {
-            buttonContinue.setDisable(false);
-            buttonContinue();
-        }
+    private final EventHandler triggerContinue = (EventHandler<Event>) (Event e) -> {
+        buttonContinue.setDisable(false);
+        buttonContinue();
     };
 
     /**
@@ -85,14 +81,6 @@ public class MainMenuController implements ViewControllerInterface {
      */
     @FXML
     private void buttonContinue() {
-        // Market test
-//        for (Players pl : Main.getCompetition().getTeamByName("Feyenoord").getPlayers()) {
-//            Main.getCompetition().getMarket().addPlayer(pl, 5);
-//        }
-
-        //Testing budget.
-//        Main.getCompetition().getTeamByName(Main.getChosenTeamName()).setBudget(5000000);
-
         mainController.setCenterView("GameScreenHOME");
         mainController.setLeftView("GameScreenMenu");
         mainController.setTopView("GameScreenTitle");
@@ -113,9 +101,8 @@ public class MainMenuController implements ViewControllerInterface {
 
         if (response == Dialog.Actions.OK) {
             System.exit(0);
-        } else {
-            // User cancels and returns to the application
         }
+        // else user cancels and returns to the application
     }
 
     /**

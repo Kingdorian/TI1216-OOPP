@@ -1,10 +1,8 @@
 package application.model;
 
-import application.controller.GenerateMatch;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-
 
 public class Competition {
 
@@ -16,7 +14,6 @@ public class Competition {
     private String chosenTeamName;
     private String name;
     private int roundCounter;
-
     /*
      * Results: 2d array with 18 teams (corresponding id to teams[]) and:
      * [0]: Number of wins
@@ -24,25 +21,48 @@ public class Competition {
      * [2]: Number of losses
      * [3]: Goal difference
      */
+
     /**
      * Creates a new competition object
+     *
+     * @param t an array containing all the teams of this competition
      */
     public Competition(Team[] t) {
         this.teams = t;
     }
 
+    /**
+     * Set the name
+     *
+     * @param name the name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Get the name
+     *
+     * @return the name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Set the chosen team name
+     *
+     * @param cTN the chosen team name
+     */
     public void setChosenTeamName(String cTN) {
         chosenTeamName = cTN;
     }
 
+    /**
+     * Get the chosen team name
+     *
+     * @return the chosen team name
+     */
     public String getChosenTeamName() {
         return chosenTeamName;
     }
@@ -59,7 +79,7 @@ public class Competition {
     /**
      * Sets the saveGameId
      *
-     * @param the id of the savegame this compettition belongs to
+     * @param id the id of the savegame this compettition belongs to
      */
     public void setSaveGameId(int id) {
         this.saveGameId = id;
@@ -68,7 +88,7 @@ public class Competition {
     /**
      * Returns an array with the 9 matches in the nth round of the competion
      *
-     * @param nth round in competition
+     * @param n nth round in competition
      * @return array with the matches in the nth round
      */
     public Match[] getRound(int n) {
@@ -78,8 +98,8 @@ public class Competition {
     /**
      * Returns the lth match from the nth round
      *
-     * @param the index int for the match
-     * @param the index int for the round
+     * @param n the index int for the match
+     * @param l the index int for the round
      * @return a match object
      */
     public Match getMatch(int n, int l) {
@@ -89,8 +109,9 @@ public class Competition {
     /**
      * Adds a match to the nth round of the competition
      *
-     * @param int n the index of the round
-     * @param int l the index of the match
+     * @param n int n the index of the round
+     * @param l int l the index of the match
+     * @param m the match
      */
     public void addMatch(int n, int l, Match m) {
         competition[n][l] = m;
@@ -99,7 +120,7 @@ public class Competition {
     /**
      * Gets a team from the competition
      *
-     * @param The name of the team
+     * @param name The name of the team
      * @return the team at the specified index
      */
     public Team getTeamByName(String name) {
@@ -120,6 +141,12 @@ public class Competition {
         return teams;
     }
 
+    /**
+     * Convert this class to a string
+     *
+     * @return string with information about this class
+     */
+    @Override
     public String toString() {
         String returnString = "";
         returnString += "Competition [competition=";
@@ -134,6 +161,13 @@ public class Competition {
         return returnString;
     }
 
+    /**
+     * Equals method
+     *
+     * @param obj object to compare to
+     * @return if this and obj are equal
+     */
+    @Override
     public boolean equals(Object obj) {
         if (!(obj instanceof Competition)) {
             return false;
@@ -154,25 +188,24 @@ public class Competition {
                 }
             }
         }
-        if (!Arrays.equals(teams, comp.getTeams())) {
-            return false;
-        }
-        //If it passes trough all of the above return true
-        return true;
+        return Arrays.equals(teams, comp.getTeams());
     }
 
+    /**
+     * Update the results
+     */
     public void updateResults() {
-        
+
         int rounds = getRound();
-        
+
         // clear all results
         for (int i = 0; i < results.length; i++) {
             for (int j = 0; j < results[i].length; j++) {
                 results[i][j] = 0;
-                
+
             }
         }
-        
+
         // recalculate the results
         int HomeTeamId = 0, VisitorTeamId = 0;
         for (int i = 0; i < rounds; i++) {
@@ -210,9 +243,9 @@ public class Competition {
                 }
             }
         }
-        
+
         // update the points of all teams
-        for(Team t : teams){
+        for (Team t : teams) {
             int[] result = getPoints(t);
             t.setPoints(result[3]);
             t.setGoalDiff(result[4]);
@@ -220,13 +253,13 @@ public class Competition {
             t.setDraws(result[1]);
             t.setLosses(result[2]);
         }
-        
+
     }
 
     /**
      * Returns the points of a team
      *
-     * @param The team to determine points of
+     * @param team The team to determine points of
      * @return int[] with: [0]-wins,[1]-draws,[2]-losses,[3]-total points,
      * [4]-goal difference
      */
@@ -262,14 +295,30 @@ public class Competition {
         throw new Exception();
     }
 
+    /**
+     * Get the market
+     *
+     * @return the market
+     */
     public Market getMarket() {
         return market;
     }
 
+    /**
+     * Set the market
+     *
+     * @param market the market
+     */
     public void setMarket(Market market) {
         this.market = market;
     }
 
+    /**
+     * Get the team of a player
+     *
+     * @param player the player
+     * @return team of the player
+     */
     public Team getPlayersTeam(Players player) {
         for (Team team : teams) {
             if (team.getPlayers().contains(player)) {
@@ -279,9 +328,14 @@ public class Competition {
         return null;
     }
 
+    /**
+     * Generate the matches
+     *
+     * @param seed seed for random value
+     */
     public void generateMatches(int seed) {
         //first getting an array of all the matches
-        ArrayList<String> matches = new ArrayList<String>();
+        ArrayList<String> matches = new ArrayList<>();
         //ROUND ROBIN STYLE FOR THE FIRST 17 Matches
         for (int i = 0; i < teams.length - 1; i++) {
             for (int j = 0; j < teams.length / 2; j++) {
@@ -303,56 +357,25 @@ public class Competition {
                 competition[i + offset][j] = new Match(competition[i][j].getVisitorTeam(), competition[i][j].getHomeTeam());
             }
         }
-		/*Shuffle the array Fisher-Yates style
-        Random rnd = new Random(seed);
-		for(int i = 17 ; i > 0; i--){
-			int index = rnd.nextInt(i+1);
-			Match[] temp = competition[index];
-			competition[index] = competition[i];
-			competition[i] = temp;
-		}
-		// Shuffle the array Fisher-Yates style
-		rnd = new Random(seed);
-		for(int i = 33 ; i > 18; i--){
-            int index = rnd.nextInt(i + 1);
-            Match[] temp = competition[index];
-            competition[index] = competition[i];
-            competition[i] = temp;
-		}*/
-	}
-	private Match playRound(int roundNum, String playerTeamName){
-		Match resultMatch = null;
-		for(int i = 0; i<competition[roundNum].length;i++){
-
-			competition[roundNum][i] = GenerateMatch.generateMatch(competition[roundNum][i].getHomeTeam(),competition[roundNum][i].getVisitorTeam());
-			if(competition[roundNum][i].getHomeTeam().equals(this.getTeamByName(playerTeamName))||competition[roundNum][i].getVisitorTeam().equals(this.getTeamByName(playerTeamName))){
-				resultMatch = competition[roundNum][i];
-			}
-		}
-		return resultMatch;
-	}
-	public Match playNextRound(String playerTeamName){
-		roundCounter++;
-		return playRound(roundCounter-1, playerTeamName);
     }
 
     /**
-     * get the current round number
+     * Get the current round number
      *
      * @return the number of the current round, returns -1 if the competition
      * has ended
      */
     public int getRound() {
-        for(int i = 0; i<34; i++){
-        	if(this.competition[i][1].getPointsHomeTeam()==-1){
-        		return i+1;
-        	}
+        for (int i = 0; i < 34; i++) {
+            if (this.competition[i][1].getPointsHomeTeam() == -1) {
+                return i + 1;
+            }
         }
         return -1;
     }
 
     /**
-     * get the rank of the team
+     * Get the rank of the team
      *
      * @param team team to get the rank of
      * @return the rank (int)
@@ -377,21 +400,23 @@ public class Competition {
         //sort the list of teams based on points (if draw, based on goals)
         Collections.sort(sortedTeams, (Team t1, Team t2) -> {
             if (t2.getPoints() == t1.getPoints()) {
-                if(t2.getGoalDiff() - t1.getGoalDiff() == 0)
+                if (t2.getGoalDiff() - t1.getGoalDiff() == 0) {
                     return t1.getName().compareTo(t2.getName());
-                else
+                } else {
                     return t2.getGoalDiff() - t1.getGoalDiff();
+                }
             } else {
                 return t2.getPoints() - t1.getPoints();
             }
         });
         return sortedTeams;
     }
-    
+
     /**
-     * reset the cards and injury for each player of each team of the competition
+     * Reset the cards and injury for each player of each team of the
+     * competition
      */
-    public void resetCardReason(){
+    public void resetCardReason() {
         for (Team team : teams) {
             team.resetCardReason();
         }

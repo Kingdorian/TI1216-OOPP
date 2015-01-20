@@ -61,16 +61,13 @@ public class GameScreenOTHERTEAMSController implements ViewControllerInterface {
      * This is an event handler class definition, which will be triggered when
      * an items in the dropdown list is selected.
      */
-    private final EventHandler onSelected = new EventHandler<ActionEvent>() {
-        @Override
-        public void handle(ActionEvent t){
-            String selectedTeamName = selectTeamBox.getSelectionModel().getSelectedItem().toString();
-            // Add data to the table and sort number column
-            playerTable.setItems(FXCollections.observableArrayList(Main.getCompetition().getTeamByName(selectedTeamName).getPlayers()));
-            columnNo.setSortType(TableColumn.SortType.ASCENDING);
-            playerTable.getSortOrder().clear();
-            playerTable.getSortOrder().add(columnNo);
-        }
+    private final EventHandler onSelected = (EventHandler<ActionEvent>) (ActionEvent t) -> {
+        String selectedTeamName = selectTeamBox.getSelectionModel().getSelectedItem().toString();
+        // Add data to the table and sort number column
+        playerTable.setItems(FXCollections.observableArrayList(Main.getCompetition().getTeamByName(selectedTeamName).getPlayers()));
+        columnNo.setSortType(TableColumn.SortType.ASCENDING);
+        playerTable.getSortOrder().clear();
+        playerTable.getSortOrder().add(columnNo);
     };
 
     /**
@@ -85,7 +82,7 @@ public class GameScreenOTHERTEAMSController implements ViewControllerInterface {
         columnNo.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getNumber()));
         columnName.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getSurName()));
         columnAbility.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getAbilityStr()));
-        
+
         //set color of the ability according to the ability (very good = green, very bad = red
         columnAbility.setCellFactory(new Callback<TableColumn<Players, String>, TableCell<Players, String>>() {
             @Override
@@ -104,7 +101,7 @@ public class GameScreenOTHERTEAMSController implements ViewControllerInterface {
                 };
             }
         });
-        
+
         columnAvailable.setCellValueFactory(cellData -> new SimpleBooleanProperty(cellData.getValue().isAvailable()));
         columnAvailable.setCellFactory(new Callback<TableColumn<Players, Boolean>, TableCell<Players, Boolean>>() {
             @Override
@@ -114,19 +111,20 @@ public class GameScreenOTHERTEAMSController implements ViewControllerInterface {
                     public void updateItem(Boolean item, boolean empty) {
                         super.updateItem(item, empty);
                         if (item != null) {
-                            if(item)
+                            if (item) {
                                 this.setStyle("-fx-text-fill: rgb(255,255,255);");
-                            else
+                            } else {
                                 this.setStyle("-fx-text-fill: rgb(215,59,59);");
+                            }
                             setText(item ? "Yes" : "No");
                         }
                     }
                 };
             }
         });
-        
+
         columnType.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getKind()));
-        
+
         //set color of text according to the type
         columnType.setCellFactory(new Callback<TableColumn<Players, String>, TableCell<Players, String>>() {
             @Override
@@ -139,13 +137,13 @@ public class GameScreenOTHERTEAMSController implements ViewControllerInterface {
                             switch (item) {
                                 case "Allrounder":
                                 case "Midfielder":
-                                    this.setStyle("-fx-text-fill: rgb(232,123,16);");
+                                    this.setStyle("-fx-text-fill: darkorange;");
                                     break;
                                 case "Forward":
-                                    this.setStyle("-fx-text-fill: rgb(215,59,59);");
+                                    this.setStyle("-fx-text-fill: darkred;");
                                     break;
                                 case "Defender":
-                                    this.setStyle("-fx-text-fill: rgb(63,212,25);");
+                                    this.setStyle("-fx-text-fill: darkgreen;");
                                     break;
                                 case "Goalkeeper":
                                     this.setStyle("-fx-text-fill: rgb(255,255,255);");

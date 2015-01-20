@@ -19,13 +19,13 @@ public class PositionFrame {
     private int scoreLeft = 0;
 
     /**
-     * basic constructor
+     * Basic constructor
      */
     public PositionFrame() {
     }
 
     /**
-     * gives a Player object that defines the position of a player
+     * Gives a Player object that defines the position of a player
      *
      * @param id the index of the player (player with the lowest back number
      * will have index 0, the one after that 1, ...)
@@ -36,7 +36,7 @@ public class PositionFrame {
     }
 
     /**
-     * gives a Player object that defines the position of a player
+     * Gives a Player object that defines the position of a player
      *
      * @param id the index of the Player (Player with the lowest back number
      * will have index 0, the one after that 1, ...)
@@ -47,7 +47,7 @@ public class PositionFrame {
     }
 
     /**
-     * set a Player of the player (playing the game) in this tis time slice
+     * Set a Player of the player (playing the game) in this tis time slice
      *
      * @param player a Player object containing the players position
      * @param id the index of the player (Player with the lowest back number
@@ -58,7 +58,7 @@ public class PositionFrame {
     }
 
     /**
-     * set a Player of the computer in this tis time slice
+     * Set a Player of the computer in this tis time slice
      *
      * @param player a Player object containing the players position
      * @param id the index of the player (Player with the lowest back number
@@ -69,7 +69,7 @@ public class PositionFrame {
     }
 
     /**
-     * gives the balls position
+     * Gives the balls position
      *
      * @return the Position of the ball
      */

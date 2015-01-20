@@ -58,44 +58,44 @@ public class GameScreenPLAYMATCHController implements ViewControllerInterface {
      */
     @FXML
     private void initialize() {
-        
-        if(Main.getCompetition().getRound() == -1)
+
+        if (Main.getCompetition().getRound() == -1) {
             return; //if the competition is done, don't set the texts
-            
+        }
         String playersTeam = Main.getChosenTeamName();
-        
+
         Competition competition = Main.getCompetition();
-        
+
         int round = competition.getRound();
         Match[] matches = competition.getRound(round - 1);
-        
+
         boolean playerHome = true;
         Match match = null;
-        
+
         // get the player match and if he plays at home
         for (int i = 0; i < matches.length; i++) {
-            if(matches[i].getHomeTeam().getName().equals(playersTeam)){
+            if (matches[i].getHomeTeam().getName().equals(playersTeam)) {
                 match = matches[i];
                 playerHome = true;
-            } else if(matches[i].getVisitorTeam().getName().equals(playersTeam)){
+            } else if (matches[i].getVisitorTeam().getName().equals(playersTeam)) {
                 match = matches[i];
                 playerHome = false;
             }
         }
-        
-        if(match == null){
+
+        if (match == null) {
             System.out.println("couldn't find the players match!");
             return;
         }
-        
+
         // set the home/visitor team
         homeVisLeft.setText(playerHome ? "Home Team" : "Visitor Team");
         homeVisRight.setText(playerHome ? "Visitor Team" : "Home Team");
-        
+
         // set the ranks
         rankLeft.setText(Integer.toString(playerHome ? competition.getRank(match.getHomeTeam()) : competition.getRank(match.getVisitorTeam())));
         rankRight.setText(Integer.toString(playerHome ? competition.getRank(match.getVisitorTeam()) : competition.getRank(match.getHomeTeam())));
-        
+
         // set the team names
         nameLeft.setText(playersTeam);
         String rightTeamName = playerHome ? match.getVisitorTeam().getName() : match.getHomeTeam().getName();
@@ -108,18 +108,18 @@ public class GameScreenPLAYMATCHController implements ViewControllerInterface {
             Image leftImage = new Image(leftImageLoader, 200, 200, true, false);
             leftLogo.setImage(leftImage);
             leftImageLoader.close();
-            
+
             java.io.FileInputStream rightImageLoader = new FileInputStream("XML/Savegames/" + Main.getCompetition().getSaveGameId() + "/images/" + rightTeamName + ".png");
             Image rightImage = new Image(rightImageLoader, 200, 200, true, false);
             rightLogo.setImage(rightImage);
             rightImageLoader.close();
-            
+
         } catch (FileNotFoundException ex) {
             System.out.println("failed to get image from image file");
         } catch (IOException ex) {
             Logger.getLogger(GameScreenPLAYMATCHController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     /**
@@ -132,10 +132,11 @@ public class GameScreenPLAYMATCHController implements ViewControllerInterface {
         this.mainController = mainController;
     }
 
-    /** This method is called when the change positions button is clicked.
-     *  It changes the view to the change positions screen.
+    /**
+     * This method is called when the change positions button is clicked. It
+     * changes the view to the change positions screen.
      */
-    @FXML 
+    @FXML
     private void positionsButton() {
         Main.getMenuController().getCurrentMenuField().setText("Select positions");
         mainController.setCenterView("GameScreenChoosePositions");
@@ -144,44 +145,45 @@ public class GameScreenPLAYMATCHController implements ViewControllerInterface {
     public static String getOpponent() {
         return opponent;
     }
-    
-    public void showResultLastMatch(){
+
+    public void showResultLastMatch() {
 
         Competition comp = Main.getCompetition();
         int prevRound = comp.getRound() - 1;
-        if(prevRound == -2)
+        if (prevRound == -2) {
             prevRound = 34;
+        }
         String teamName = Main.getChosenTeamName();
         Match results = null;
         boolean playerHome = true;
-        
-        for (Match m : comp.getRound(prevRound-1)) {
-            if(m.getHomeTeam().getName().equals(teamName))
+
+        for (Match m : comp.getRound(prevRound - 1)) {
+            if (m.getHomeTeam().getName().equals(teamName)) {
                 results = m;
-            else if(m.getVisitorTeam().getName().equals(teamName)){
+            } else if (m.getVisitorTeam().getName().equals(teamName)) {
                 results = m;
                 playerHome = false;
             }
         }
-        
+
         positionsButton.setDisable(true);
-        
-        if(results != null){
+
+        if (results != null) {
             int pointsLeft = results.getHomeTeam().getName().equals(nameLeft.getText()) ? results.getPointsHomeTeam() : results.getPointsVisitorTeam();
             int pointsRight = results.getHomeTeam().getName().equals(nameLeft.getText()) ? results.getPointsVisitorTeam() : results.getPointsHomeTeam();
             score.setText(pointsLeft + " - " + pointsRight);
-        } else{
+        } else {
             return;
         }
-        
+
         // set the home/visitor team
         homeVisLeft.setText(playerHome ? "Home Team" : "Visitor Team");
         homeVisRight.setText(playerHome ? "Visitor Team" : "Home Team");
-        
+
         // set the ranks
         rankLeft.setText(Integer.toString(playerHome ? comp.getRank(results.getHomeTeam()) : comp.getRank(results.getVisitorTeam())));
         rankRight.setText(Integer.toString(playerHome ? comp.getRank(results.getVisitorTeam()) : comp.getRank(results.getHomeTeam())));
-        
+
         // set the team names
         nameLeft.setText(teamName);
         String rightTeamName = playerHome ? results.getVisitorTeam().getName() : results.getHomeTeam().getName();
@@ -194,38 +196,16 @@ public class GameScreenPLAYMATCHController implements ViewControllerInterface {
             Image leftImage = new Image(leftImageLoader, 200, 200, true, false);
             leftLogo.setImage(leftImage);
             leftImageLoader.close();
-            
+
             java.io.FileInputStream rightImageLoader = new FileInputStream("XML/Savegames/" + Main.getCompetition().getSaveGameId() + "/images/" + rightTeamName + ".png");
             Image rightImage = new Image(rightImageLoader, 200, 200, true, false);
             rightLogo.setImage(rightImage);
             rightImageLoader.close();
-            
+
         } catch (FileNotFoundException ex) {
             System.out.println("failed to get image from image file");
         } catch (IOException ex) {
             Logger.getLogger(GameScreenPLAYMATCHController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
-    /**
-     * This method is triggered when the play match button is clicked (event
-     * handler assigned in the .fxml) and it triggers the match position
-     * selection, generation and animation method in a different class to start.
-     */
-//    @FXML
-//    private void playMatchButton() {
-////        playMatchButton.setDisable(true);
-//        
-//        //TEMPORARY TO SIMULATE THE MATCH ANIMATOR RESULT
-////       	Match result =  Main.getCompetition().playNextRound(nameLeft.getText());
-////       	score.setText(result.getPointsHomeTeam() + " - " + result.getPointsVisitorTeam());
-//        
-//        
-//        Match result = PlayAnimation.playMatches();
-//        
-//        int pointsLeft = result.getHomeTeam().getName().equals(nameLeft.getText()) ? result.getPointsHomeTeam() : result.getPointsVisitorTeam();
-//        int pointsRight = result.getHomeTeam().getName().equals(nameLeft.getText()) ? result.getPointsVisitorTeam() : result.getPointsHomeTeam();
-//        score.setText(pointsLeft + " - " + pointsRight);
-//    }
 }

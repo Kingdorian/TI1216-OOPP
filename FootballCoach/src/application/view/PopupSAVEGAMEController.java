@@ -69,7 +69,6 @@ public class PopupSAVEGAMEController implements PopupControllerInterface {
             popupControl.hide();
         } catch (IOException e) {
             System.out.println("Game could not be saved");
-            e.printStackTrace();
         }
     }
 

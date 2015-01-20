@@ -35,8 +35,11 @@ public class CurrentPositions {
 
     /**
      * Sets the players to the start of match positions.
+     *
+     * @param leftTeamBall if the left team should start with the ball (else
+     * right team starts with the ball)
      */
-    public final void setStartOfMatchPositions() {
+    public final void setStartOfMatchPositions(boolean leftTeamBall) {
         // clear lists
         allyTeam.clear();
         enemyTeam.clear();
@@ -50,9 +53,17 @@ public class CurrentPositions {
         allyTeam.add(new Position(275.0, 385.0));
         allyTeam.add(new Position(345.0, 290.0));
         allyTeam.add(new Position(345.0, 492.0));
-        allyTeam.add(new Position(467.0, 282.0));
-        allyTeam.add(new Position(405.0, 382.0));
-        allyTeam.add(new Position(467.0, 485.0));
+        if (leftTeamBall) {
+            //left team starts with the ball
+            allyTeam.add(new Position(492.0, 343.0));
+            allyTeam.add(new Position(500.0, 390.0));
+            allyTeam.add(new Position(457.0, 475.0));
+        } else {
+            //left team doesn't start with the ball
+            allyTeam.add(new Position(467.0, 282.0));
+            allyTeam.add(new Position(405.0, 382.0));
+            allyTeam.add(new Position(467.0, 485.0));
+        }
 
         // set players of enemy team to the right positions
         enemyTeam.add(new Position(963.0, 381.0));
@@ -63,9 +74,17 @@ public class CurrentPositions {
         enemyTeam.add(new Position(743.0, 385.0));
         enemyTeam.add(new Position(678.0, 290.0));
         enemyTeam.add(new Position(678.0, 492.0));
-        enemyTeam.add(new Position(520.0, 332.0));
-        enemyTeam.add(new Position(518.0, 390.0));
-        enemyTeam.add(new Position(574.0, 473.0));
+        if (!leftTeamBall) {
+            //right team starts with the ball
+            enemyTeam.add(new Position(520.0, 332.0));
+            enemyTeam.add(new Position(518.0, 390.0));
+            enemyTeam.add(new Position(574.0, 473.0));
+        } else {
+            //right team doesn't start with the ball
+            enemyTeam.add(new Position(570.0, 296.0));
+            enemyTeam.add(new Position(613.0, 380.0));
+            enemyTeam.add(new Position(570.0, 470.0));
+        }
 
         // set ball position
         BallAI.setCurrentBallPosition(new Position(510.0, 382.0));
@@ -85,7 +104,7 @@ public class CurrentPositions {
             res.setPause(true);
             res.setScoreLeft(scoreLeft);
             res.setScoreRight(scoreRight);
-            setStartOfMatchPositions();
+            setStartOfMatchPositions(BallAI.getCurrentBallPosition().getxPos() < 510);
             return res;
         } else {
             PositionFrame res = new PositionFrame();
@@ -165,7 +184,7 @@ public class CurrentPositions {
     }
 
     /**
-     * gives the position of the closest player from allyTeam to the given
+     * Gives the position of the closest player from allyTeam to the given
      * position
      *
      * @param pos the position to compare to
@@ -216,7 +235,7 @@ public class CurrentPositions {
     }
 
     /**
-     * gives the positions of the players from the allyTeam
+     * Gives the positions of the players from the allyTeam
      *
      * @return an arrayList containing the positions of the allyTeam
      */
@@ -225,7 +244,7 @@ public class CurrentPositions {
     }
 
     /**
-     * gives the positions of the players from the enemyTeam
+     * Gives the positions of the players from the enemyTeam
      *
      * @return an arrayList containing the positions of the enemyTeam
      */

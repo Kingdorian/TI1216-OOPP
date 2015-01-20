@@ -16,9 +16,6 @@ import application.model.Players;
  */
 public final class PlayerInfo {
 
-//    public int MAX_SPEED = 150;
-//    public int WALK_SPEED = 50;
-//    public int SHOOT_SPEED = 800;
     private final int attackPower;
     private final int stamina;
     private final int defensePower;
@@ -118,12 +115,20 @@ public final class PlayerInfo {
         return stopPower;
     }
 
+    /**
+     * Gives this players player instance
+     *
+     * @return player
+     */
     public Players getPlayer() {
         return player;
     }
-    
-    
 
+    /**
+     * Convert this class to a string
+     *
+     * @return string with information about this class
+     */
     @Override
     public String toString() {
         return "PlayerInfo{" + "attackPower=" + attackPower + ", stamina=" + stamina + ", defensePower=" + defensePower + ", favoritePosition=" + favoritePosition + ", penaltyStopPower=" + penaltyStopPower + ", stopPower=" + stopPower + '}';

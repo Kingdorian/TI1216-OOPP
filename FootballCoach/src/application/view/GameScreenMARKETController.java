@@ -72,7 +72,7 @@ public class GameScreenMARKETController implements ViewControllerInterface {
         columnName.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getSurName()));
         columnClubName.setCellValueFactory(cellData -> new SimpleStringProperty(Main.getCompetition().getPlayersTeam(cellData.getValue()).getName()));
         columnAbility.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getAbilityStr()));
-        
+
         //set color of the ability according to the ability (very good = green, very bad = red
         columnAbility.setCellFactory(new Callback<TableColumn<Players, String>, TableCell<Players, String>>() {
             @Override
@@ -91,9 +91,9 @@ public class GameScreenMARKETController implements ViewControllerInterface {
                 };
             }
         });
-        
+
         columnType.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getKind()));
-        
+
         //set color of text according to the type
         columnType.setCellFactory(new Callback<TableColumn<Players, String>, TableCell<Players, String>>() {
             @Override
@@ -106,13 +106,13 @@ public class GameScreenMARKETController implements ViewControllerInterface {
                             switch (item) {
                                 case "Allrounder":
                                 case "Midfielder":
-                                    this.setStyle("-fx-text-fill: rgb(232,123,16);");
+                                    this.setStyle("-fx-text-fill: darkorange;");
                                     break;
                                 case "Forward":
-                                    this.setStyle("-fx-text-fill: rgb(215,59,59);");
+                                    this.setStyle("-fx-text-fill: darkred;");
                                     break;
                                 case "Defender":
-                                    this.setStyle("-fx-text-fill: rgb(63,212,25);");
+                                    this.setStyle("-fx-text-fill: darkgreen;");
                                     break;
                                 case "Goalkeeper":
                                     this.setStyle("-fx-text-fill: rgb(255,255,255);");
@@ -124,7 +124,7 @@ public class GameScreenMARKETController implements ViewControllerInterface {
                 };
             }
         });
-        
+
         columnEstimatedValue.setCellValueFactory(cellData -> new SimpleStringProperty(formatPrice(cellData.getValue().getPrice())));
         columnPrice.setCellValueFactory(cellData -> new SimpleStringProperty(formatPrice(Main.getCompetition().getMarket().getPlayersPrice(cellData.getValue()))));
 

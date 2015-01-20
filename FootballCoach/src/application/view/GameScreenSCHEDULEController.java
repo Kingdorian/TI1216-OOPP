@@ -52,12 +52,9 @@ public class GameScreenSCHEDULEController implements ViewControllerInterface {
      * This is an event handler class definition, which will be triggered when
      * an items in the dropdown list is selected.
      */
-    private final EventHandler onSelected = new EventHandler<ActionEvent>() {
-        @Override
-        public void handle(ActionEvent t) {
-            // Add data to the table
-            scheduleTable.setItems(FXCollections.observableArrayList(Main.getCompetition().getRound(selectRoundBox.getSelectionModel().getSelectedIndex())));
-        }
+    private final EventHandler onSelected = (EventHandler<ActionEvent>) (ActionEvent t) -> {
+        // Add data to the table
+        scheduleTable.setItems(FXCollections.observableArrayList(Main.getCompetition().getRound(selectRoundBox.getSelectionModel().getSelectedIndex())));
     };
 
     /**
@@ -95,10 +92,11 @@ public class GameScreenSCHEDULEController implements ViewControllerInterface {
             return new SimpleStringProperty(teamname);
         });
         columnResult.setCellValueFactory(cellData -> {
-        	if(cellData.getValue().getPointsHomeTeam() == -1){
-        		return new SimpleStringProperty("Not played yet");
-        	}
-        	return new SimpleStringProperty(cellData.getValue().getPointsHomeTeam() + " - " + cellData.getValue().getPointsVisitorTeam());}
+            if (cellData.getValue().getPointsHomeTeam() == -1) {
+                return new SimpleStringProperty("Not played yet");
+            }
+            return new SimpleStringProperty(cellData.getValue().getPointsHomeTeam() + " - " + cellData.getValue().getPointsVisitorTeam());
+        }
         );
 
         int currentRound = Main.getCompetition().getRound() - 1;

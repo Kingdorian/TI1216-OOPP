@@ -29,7 +29,7 @@ public class Vector {
     }
 
     /**
-     * translates the point into the direction this vector points at, over the
+     * Translates the point into the direction this vector points at, over the
      * specified distance.
      *
      * @param from the position to translate from

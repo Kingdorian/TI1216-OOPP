@@ -63,7 +63,7 @@ public class GameScreenFootballFieldController implements ViewControllerInterfac
     private ImageView pauseButton;
     @FXML
     private Group fieldGroup;
-    
+
     private static Main mainController;
 
     /**
@@ -202,7 +202,7 @@ public class GameScreenFootballFieldController implements ViewControllerInterfac
         // set the names of the two competing teams and set center their textfields at the middle line of the field
         team1.setText(Main.getChosenTeamName());
         team2.setText(GameScreenPLAYMATCHController.getOpponent());
-     }
+    }
 
     /**
      * Method that sets the variable isDragging to true when the slider is
@@ -319,7 +319,7 @@ public class GameScreenFootballFieldController implements ViewControllerInterfac
     private void continueButton() {
         mainController.setCenterView("GameScreenPLAYMATCH");
     }
-    
+
     /**
      * This gives this class a reference to the main class
      *
@@ -328,7 +328,7 @@ public class GameScreenFootballFieldController implements ViewControllerInterfac
     @Override
     public void setMainController(Main mainController) {
         this.mainController = mainController;
-    }     
+    }
 
     public Group getFieldGroup() {
         return fieldGroup;

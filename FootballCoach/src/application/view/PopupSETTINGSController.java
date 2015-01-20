@@ -100,16 +100,19 @@ public class PopupSETTINGSController implements PopupControllerInterface {
 
         // add event handlers for when a different color gets selected to change the colors
         backgroundColor.setOnAction(new EventHandler() {
+            @Override
             public void handle(Event t) {
                 setColor();
             }
         });
         textColor.setOnAction(new EventHandler() {
+            @Override
             public void handle(Event t) {
                 setColor();
             }
         });
         headerColor.setOnAction(new EventHandler() {
+            @Override
             public void handle(Event t) {
                 setColor();
             }

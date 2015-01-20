@@ -1,5 +1,9 @@
 package application.model;
 
+/**
+ * Enum for the reason why this player is injured
+ * @author Faris, Sander
+ */
 public enum Reason {
 
     DEFAULT(0),

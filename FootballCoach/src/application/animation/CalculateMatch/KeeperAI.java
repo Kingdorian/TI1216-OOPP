@@ -23,7 +23,7 @@ public class KeeperAI extends PlayerAI {
     private final double STOP_LUCK = 2.0; //Change to higher value to stop ball more often (between 1 and 2 should be fine)
 
     /**
-     * constructor: needs the position of the attacker and the positions of
+     * Constructor: needs the position of the attacker and the positions of
      * other players
      *
      * @param thisPlayer the position of this attacker
@@ -39,7 +39,7 @@ public class KeeperAI extends PlayerAI {
     }
 
     /**
-     * gives the position the attacker want to move to
+     * Gives the position the attacker want to move to
      *
      * @return the ExactPosition the attacker want to move to
      */
@@ -183,7 +183,10 @@ public class KeeperAI extends PlayerAI {
         // good keeper+good close defender (power ~80) = ~73
         // good keeper (80), no defender = 50
         // bad keeper (60), no defender = 40
-        return Math.pow(stopPower, STOP_LUCK) * Math.random() > (ballSpeed) * Math.random();
+        if(isOnAllyTeam)
+            return Math.pow(stopPower, STOP_LUCK) * Math.random() > (ballSpeed) * Math.random();
+        else
+            return Math.pow(stopPower, STOP_LUCK-0.3) * Math.random() > (ballSpeed) * Math.random();
     }
 
     /**

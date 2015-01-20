@@ -26,14 +26,8 @@ public class MainAIController {
     /**
      * Calculate a match based on the players abilities in the parameters
      *
-     * @param keeper1 the keeper of the ally (home) team
-     * @param defense1 the defenders of the ally (home) team
-     * @param midfield1 the midfielders of the ally (home) team
-     * @param attack1 the attackers of the ally (home) team
-     * @param keeper2 the keeper of the enemy (visitor) team
-     * @param defense2 the defenders of the enemy (visitor) team
-     * @param midfield2 the midfielders of the enemy (visitor) team
-     * @param attack2 the attackers of the enemy (visitor) team
+     * @param homeTeam the positions of the home team
+     * @param visitorTeam the positions of the visitor team
      * @param shouldAnimate if this match should be stored for animation or if only
      * the last frame for the results is important
      * @return the calculated match
@@ -89,7 +83,7 @@ public class MainAIController {
         }
 
         // set start of match
-        currentPositions.setStartOfMatchPositions();
+        currentPositions.setStartOfMatchPositions(true);
         PositionFrame currentSlice = currentPositions.convertToFrame();
         footballMatch.addPositionFrame(currentSlice);
 

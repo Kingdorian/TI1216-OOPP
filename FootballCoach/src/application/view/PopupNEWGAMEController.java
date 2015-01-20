@@ -66,37 +66,36 @@ public class PopupNEWGAMEController implements PopupControllerInterface {
     @FXML
     private void initialize() {
         isOkClicked = false;
-        
+
         // add all competitions that are available to the dropdown list.
         ArrayList<String> competitionNames = SaveGameHandler.getCompetitions();
         selectCompetitionBox.setItems(FXCollections.observableArrayList(competitionNames));
         selectTeamBox.setDisable(true);
     }
-    
+
     /**
-     * Executed when a new competition is selected, it updates the teamBox with the teams in the newly selected competition.
+     * Executed when a new competition is selected, it updates the teamBox with
+     * the teams in the newly selected competition.
      */
-    @FXML 
+    @FXML
     private void changeTeamBox() {
-		try {
-	        ArrayList<String> teamNames = new ArrayList<>();
-	        
-			String compChoice = SaveGameHandler.getDefaultCompLoc() + selectCompetitionBox.getItems().get(selectCompetitionBox.getSelectionModel().getSelectedIndex()).toString();
-			Team[] teams = SaveGameHandler.ldByCompByPath(compChoice + "/Teams.xml", compChoice + "/Matches.xml").getTeams();
-	        for (Team t : teams) {
-	            teamNames.add(t.getName());
-	        }
-	        
-	        selectTeamBox.setItems(FXCollections.observableArrayList(teamNames));
-	        if (! teamNames.isEmpty()) {
-	        selectTeamBox.setDisable(false);
-	        selectTeamBox.setValue(teamNames.get(0)); 
-	        }
-	        
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+        try {
+            ArrayList<String> teamNames = new ArrayList<>();
+
+            String compChoice = SaveGameHandler.getDefaultCompLoc() + selectCompetitionBox.getItems().get(selectCompetitionBox.getSelectionModel().getSelectedIndex()).toString();
+            Team[] teams = SaveGameHandler.ldByCompByPath(compChoice + "/Teams.xml", compChoice + "/Matches.xml").getTeams();
+            for (Team t : teams) {
+                teamNames.add(t.getName());
+            }
+
+            selectTeamBox.setItems(FXCollections.observableArrayList(teamNames));
+            if (!teamNames.isEmpty()) {
+                selectTeamBox.setDisable(false);
+                selectTeamBox.setValue(teamNames.get(0));
+            }
+
+        } catch (Exception e) {
+        }
     }
 
     /**
@@ -113,13 +112,13 @@ public class PopupNEWGAMEController implements PopupControllerInterface {
                     .message("Please write down your name in the text field.")
                     .owner(Main.getOldPopup())
                     .showWarning();
-        } else if(nameField.getText().length()>10){
+        } else if (nameField.getText().length() > 10) {
             Dialogs.create()
-            .title("Name too long")
-            .masthead("The name is too long")
-            .message("Please enter a shorter name")
-            .owner(Main.getOldPopup())
-            .showWarning();
+                    .title("Name too long")
+                    .masthead("The name is too long")
+                    .message("Please enter a shorter name")
+                    .owner(Main.getOldPopup())
+                    .showWarning();
         } else if (selectTeamBox.getSelectionModel().getSelectedIndex() == -1 && selectCompetitionBox.getSelectionModel().getSelectedIndex() == -1) {
             Dialogs.create()
                     .title("No Selection")
@@ -145,8 +144,8 @@ public class PopupNEWGAMEController implements PopupControllerInterface {
             // Set the chosen name and team in the Main class
 
             try {
-    			String compChoice = SaveGameHandler.getDefaultCompLoc() + selectCompetitionBox.getItems().get(selectCompetitionBox.getSelectionModel().getSelectedIndex()).toString(); 	
-            	
+                String compChoice = SaveGameHandler.getDefaultCompLoc() + selectCompetitionBox.getItems().get(selectCompetitionBox.getSelectionModel().getSelectedIndex()).toString();
+
                 // Creating a new save and returning the competition to main.
                 Main.setCompetition(SaveGameHandler.createNewSave(compChoice + "/Teams.xml", compChoice + "/Matches.xml"));
                 Main.setChosenName(nameField.getText());
@@ -157,10 +156,8 @@ public class PopupNEWGAMEController implements PopupControllerInterface {
 
             } catch (FileNotFoundException e) {
                 System.out.println("The required files could not be found.");
-                e.printStackTrace();
             } catch (IOException e) {
                 System.out.println("IO Exception");
-                e.printStackTrace();
             }
             isOkClicked = true;
             popupControl.hide();

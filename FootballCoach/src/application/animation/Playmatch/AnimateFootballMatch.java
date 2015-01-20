@@ -23,9 +23,6 @@ import javafx.util.Duration;
  */
 public class AnimateFootballMatch {
 
-    // The stage of the animation
-//    private static Stage stage;
-
     // The amount of slides to play per second. Change this to change the playing speed.
     private static final int MILLISECONDS_PER_FRAME = 245; // base speed (at x1 speed)
     private static int speed = MILLISECONDS_PER_FRAME; // speed to play at

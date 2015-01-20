@@ -35,7 +35,7 @@ public class BallAI {
     }
 
     /**
-     * set the direction for the ball to move to
+     * Set the direction for the ball to move to
      *
      * @param destination an ExactPosition containing the direction of the ball
      * @param ShotByAllyTeam true if the ball was shot by a palyer of the ally
@@ -53,7 +53,7 @@ public class BallAI {
     }
 
     /**
-     * calculate the next location for the ball to move to
+     * Calculate the next location for the ball to move to
      *
      * @return ExactPosition containing the position the ball will move to next
      */
@@ -116,7 +116,7 @@ public class BallAI {
     }
 
     /**
-     * gives the current ball position
+     * Gives the current ball position
      *
      * @return an ExactPosition containing the current ball position
      */
@@ -125,7 +125,7 @@ public class BallAI {
     }
 
     /**
-     * set the current position of the ball
+     * Set the current position of the ball
      *
      * @param BallPosition an ExactPosition containing the currect location of
      * the ball
@@ -293,7 +293,7 @@ public class BallAI {
     }
 
     /**
-     * check if the ball is moving toward the left goal
+     * Check if the ball is moving toward the left goal
      *
      * @param checkDirection if true, only return true if the ball hasn't passed
      * the goal yet
@@ -311,7 +311,7 @@ public class BallAI {
     }
 
     /**
-     * check if the ball is moving toward the right goal
+     * Check if the ball is moving toward the right goal
      *
      * @param checkDirection if true, only return true if the ball hasn't passed
      * the goal yet

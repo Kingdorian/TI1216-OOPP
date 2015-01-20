@@ -56,13 +56,13 @@ public class Position {
     public double getxPos() {
         return xPos;
     }
-    
+
     /**
      * Get the x-coordinate for animation
      *
      * @return x-coordinate
      */
-    public double getxAnimation(){
+    public double getxAnimation() {
         return xPos * 466.0 / 1020.0;
     }
 
@@ -90,13 +90,13 @@ public class Position {
     public double getyPos() {
         return yPos;
     }
-    
+
     /**
      * Get the y-coordinate for animation
      *
      * @return y-coordinate
      */
-    public double getyAnimation(){
+    public double getyAnimation() {
         return yPos * 350.0 / 765.0;
     }
 
@@ -155,7 +155,7 @@ public class Position {
     }
 
     /**
-     * set: is this player on the field?
+     * Set: is this player on the field?
      *
      * @param onField a boolean: is the player currently on the field?
      */

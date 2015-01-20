@@ -51,10 +51,10 @@ public class GameScreenHOMEController implements ViewControllerInterface {
      */
     @FXML
     private void initialize() {
-        String clubName = Main.getChosenTeamName(); 
+        String clubName = Main.getChosenTeamName();
         Competition competition = Main.getCompetition();
         Team team = competition.getTeamByName(clubName);
-                
+
         textClub.setText(clubName);
         textRanking.setText(Integer.toString(competition.getRank(team)));
         textNumberPlayers.setText(Integer.toString(team.getPlayers().size()));
@@ -71,7 +71,6 @@ public class GameScreenHOMEController implements ViewControllerInterface {
             imageLoader.close();
         } catch (FileNotFoundException e) {
             System.out.println("Image could not be found");
-            e.printStackTrace();
         } catch (IOException ex) {
             Logger.getLogger(GameScreenHOMEController.class.getName()).log(Level.SEVERE, null, ex);
         }

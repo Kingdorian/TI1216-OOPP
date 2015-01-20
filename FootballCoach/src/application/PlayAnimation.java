@@ -54,9 +54,9 @@ public class PlayAnimation {
      * @return the match of the player
      */
     public static Match playMatches(TeamPositions teamPositions, Main main) {
-        
+
         //make sure next match can't be generated when previous one isn't done yet.
-        synchronized(lockAll){
+        synchronized (lockAll) {
             PlayAnimation.teamPositions = teamPositions;
             Competition competition = Main.getCompetition();
             Market market = competition.getMarket();
@@ -65,11 +65,12 @@ public class PlayAnimation {
             Match[] matches = competition.getRound(round - 1);
 
             count = 0;
-            
+
             //reset cards and injury each 4 rounds
-            if((round + 1) % 4 == 0)
+            if ((round + 1) % 4 == 0) {
                 Main.getCompetition().resetCardReason();
-            
+            }
+
             //buy and sell players
             market.computerBuyPlayer(competition);
             market.computerSellPlayer(competition);
@@ -142,15 +143,15 @@ public class PlayAnimation {
             synchronized (lockAnimation) {
                 if (homeTeam.getName().equals(Main.getChosenTeamName())) {
                     leftTeam = teamPositions;
-                    rightTeam = choosePositions(visitorTeam, false);
+                    rightTeam = setPositions(visitorTeam, false);
                 } else {
                     leftTeam = teamPositions;
-                    rightTeam = choosePositions(homeTeam, false);
+                    rightTeam = setPositions(homeTeam, false);
                 }
             }
         } else {
-            leftTeam = choosePositions(homeTeam, true);
-            rightTeam = choosePositions(visitorTeam, false);
+            leftTeam = setPositions(homeTeam, true);
+            rightTeam = setPositions(visitorTeam, false);
         }
 
         CalculatedMatch match;
@@ -180,7 +181,7 @@ public class PlayAnimation {
         // This does make a huge difference (see tests information in the comments above)
         match = null; // DO NOT REMOVE OR CHANGE THIS STATEMENT
         System.gc();
-        
+
         //generate injurys and red/yellow cards
         Match result = new Match(homeTeam, visitorTeam, scoreLeft, scoreRight);
         generateInjuries(result, leftTeam, rightTeam);
@@ -189,45 +190,58 @@ public class PlayAnimation {
         return result;
     }
 
-    
-    private static TeamPositions choosePositions(Team team,boolean isHomeTeam) {
+    /**
+     * Set the favorite positions of a team (and choose players to put in the
+     * field)
+     *
+     * @param team the players of the team
+     * @param isHomeTeam if this team should play at the left side (else right
+     * side)
+     * @return the favorite positions of the players and which players to put in
+     * the field
+     */
+    private static TeamPositions setPositions(Team team, boolean isHomeTeam) {
         TeamPositions result = new TeamPositions(team);
-        if(isHomeTeam)
+        if (isHomeTeam) {
             result.setDefaultLeftPlayers();
-        else
+        } else {
             result.setDefaultRightPlayers();
+        }
 
         return result;
     }
-    
+
     /**
      * Generate blessures
+     *
      * @param match the match to generate injuries for
-     * @param leftTeam the left team (so only players in the field can get injuries)
-     * @param rightTeam the right team (so only players in the field can get injuries)
+     * @param leftTeam the left team (so only players in the field can get
+     * injuries)
+     * @param rightTeam the right team (so only players in the field can get
+     * injuries)
      */
-    public static void generateInjuries(Match match, TeamPositions leftTeam, TeamPositions rightTeam){
-        
+    public static void generateInjuries(Match match, TeamPositions leftTeam, TeamPositions rightTeam) {
+
         // no injuries for keeper
         ArrayList<PlayerInfo> leftPlayers = leftTeam.getDefenders();
         leftPlayers.addAll(leftTeam.getMidfielders());
         leftPlayers.addAll(leftTeam.getAttackers());
-        
+
         ArrayList<PlayerInfo> rightPlayers = rightTeam.getDefenders();
         rightPlayers.addAll(rightTeam.getMidfielders());
         rightPlayers.addAll(rightTeam.getAttackers());
-        
+
         double random = Math.random();
-        
+
         //max 3 yellow cards
         //0: 10%
         //1 or more: 90%
         //2 or more: 50%
         //3: 10%
         //2x yellow card for same player = red card
-        while(random < 0.9){
-            
-            if(Math.random() > 0.5){
+        while (random < 0.9) {
+
+            if (Math.random() > 0.5) {
                 //left team
                 leftPlayers.get((int) (Math.random() * 10.0)).getPlayer().setCard(Card.YELLOW);
             } else {
@@ -236,35 +250,38 @@ public class PlayAnimation {
             }
             random += 0.4;
         }
-        
+
     }
-    
+
     /**
      * Generate blessures
+     *
      * @param match the match to generate cards for
-     * @param leftTeam the left team (so only players in the field can get cards)
-     * @param rightTeam the right team (so only players in the field can get cards)
+     * @param leftTeam the left team (so only players in the field can get
+     * cards)
+     * @param rightTeam the right team (so only players in the field can get
+     * cards)
      */
-    public static void generateCards(Match match, TeamPositions leftTeam, TeamPositions rightTeam){
-        
+    public static void generateCards(Match match, TeamPositions leftTeam, TeamPositions rightTeam) {
+
         // no injuries for keeper
         ArrayList<PlayerInfo> leftPlayers = leftTeam.getDefenders();
         leftPlayers.addAll(leftTeam.getMidfielders());
         leftPlayers.addAll(leftTeam.getAttackers());
-        
+
         ArrayList<PlayerInfo> rightPlayers = rightTeam.getDefenders();
         rightPlayers.addAll(rightTeam.getMidfielders());
         rightPlayers.addAll(rightTeam.getAttackers());
-        
+
         double random = Math.random();
-        
+
         //max 2 injuries
         //0: 90% chance
         //1: or more: 10% chance
         //2: 3% chance
-        while(random < 0.1){
-            
-            if(Math.random() > 0.5){
+        while (random < 0.1) {
+
+            if (Math.random() > 0.5) {
                 //left team
                 leftPlayers.get((int) (Math.random() * 10.0)).getPlayer().setReason(Reason.DEFAULT.random());
             } else {
@@ -273,7 +290,7 @@ public class PlayAnimation {
             }
             random += 0.07;
         }
-        
+
     }
-    
+
 }

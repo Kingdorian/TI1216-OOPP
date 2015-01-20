@@ -25,44 +25,43 @@ public class SaveGameHandler {
      * Changes the default location for savegames, useful for for example
      * testing purposes
      *
-     * @param String newLoc with the new path to the savegame
+     * @param newLoc String newLoc with the new path to the savegame
      */
     public static void changeDefaultLoc(String newLoc) {
         defaultloc = newLoc;
     }
-    
+
     /**
      * Changes the default location for competitions
      *
-     * @param String newLoc with the new path to the competitions
+     * @param newLoc String newLoc with the new path to the competitions
      */
     public static void changeDefaultCompLoc(String newLoc) {
-    	defaultcomploc = newLoc;
+        defaultcomploc = newLoc;
     }
-    
+
     /**
      * Returns the default competition location
-     * 
+     *
      * @return The location of the competitions as a String.
      */
     public static String getDefaultCompLoc() {
-    	return defaultcomploc;
+        return defaultcomploc;
     }
-    
+
     /**
      * Returns the default savegame location
-     * 
+     *
      * @return The location of the savegames as a String.
      */
     public static String getDefaultLoc() {
-    	return defaultloc;
+        return defaultloc;
     }
-
 
     /**
      * Reads a savegame by the inputted index
      *
-     * @param savegameNum the id of the savegame
+     * @param savegameId the id of the savegame
      * @return a competition according to the files in the savegame with the
      * inputted id
      * @throws Exception
@@ -76,6 +75,9 @@ public class SaveGameHandler {
     /**
      * Loads a competition by the specified path
      *
+     * @param compPath the competition path
+     * @param matchPath the match path
+     * @return the competition
      * @throws Exception if one of both files does not exist
      *
      */
@@ -85,13 +87,13 @@ public class SaveGameHandler {
 
     /**
      * Returns an arraylist with all competitions that can be played in game.
-     * 
+     *
      * @return An ArrayList with String (names of competitions)
      */
     public static ArrayList<String> getCompetitions() {
-    	ArrayList<String> competitions = new ArrayList<String>();
-    	File compFolder = new File(defaultcomploc);
-    	File[] listOfFiles = compFolder.listFiles();
+        ArrayList<String> competitions = new ArrayList<>();
+        File compFolder = new File(defaultcomploc);
+        File[] listOfFiles = compFolder.listFiles();
         for (int i = 0; i < listOfFiles.length; i++) {
             //Check if the file is a directory
             if (listOfFiles[i].isDirectory()) {
@@ -100,15 +102,14 @@ public class SaveGameHandler {
         }
         return competitions;
     }
-    
+
     /**
      * Gives a ArrayList with all the ids of savegames at the savegame location
      *
      * @return An ArrayList With integer (id's of savegames)
      */
     public static ArrayList<Integer> getSaveGames() {
-    	System.out.println("Current defaultloc" + defaultloc);
-        ArrayList<Integer> saveGameIds = new ArrayList<Integer>();
+        ArrayList<Integer> saveGameIds = new ArrayList<>();
         File saveFolder = new File(defaultloc);
         File[] listOfFiles = saveFolder.listFiles();
         for (int i = 0; i < listOfFiles.length; i++) {
@@ -137,7 +138,9 @@ public class SaveGameHandler {
     /**
      * Creates a new savegame
      *
-     * @return The new competition
+     * @param matchesLoc the match location
+     * @return the competition
+     * @param teamsLoc The new competition
      * @throws FileNotFoundException
      * @throws IOException
      */
@@ -147,10 +150,11 @@ public class SaveGameHandler {
         Collections.sort(ids);
         //Getting the currently largest id
         int newId;
-        if(!ids.isEmpty())
+        if (!ids.isEmpty()) {
             newId = ids.get(ids.size() - 1) + 1;
-        else
+        } else {
             newId = 0;
+        }
 
         //Make new directory
         new File(defaultloc + "/" + newId).mkdirs();
@@ -171,18 +175,18 @@ public class SaveGameHandler {
     /**
      * Save a competition to the hard drive
      *
-     * @param Competition comp the competition to store
+     * @param comp Competition comp the competition to store
+     * @throws java.io.IOException
      */
     public static void saveGame(Competition comp) throws IOException {
         XMLHandler.writeCompetition(comp, defaultloc);
     }
 
     /**
-     *
-     * @param location
-     * @param comp
+     * Fetch the images of the team logos
+     * @param location location of the images
+     * @param comp the competition
      */
-
     private static void fetchImages(String location, Competition comp) {
         File file = new File(location);
         file.mkdirs();
@@ -208,12 +212,16 @@ public class SaveGameHandler {
         File dir = new File(defaultloc);
         File[] savegames = dir.listFiles();
         for (int i = 0; i < savegames.length; i++) {
-        	if(Integer.parseInt(savegames[i].getName())==id){
-        		removeDirectory(savegames[i]);
-        	}
+            if (Integer.parseInt(savegames[i].getName()) == id) {
+                removeDirectory(savegames[i]);
+            }
         }
     }
 
+    /**
+     * Remove a save game
+     * @param dir the file containing the save game
+     */
     private static void removeDirectory(File dir) {
         if (dir.isDirectory()) {
             File[] files = dir.listFiles();
@@ -225,16 +233,23 @@ public class SaveGameHandler {
             dir.delete();
         }
     }
+
     /**
      * Returns the name the user assigned to the savegame
-     * @param integer id of the savegame
+     *
+     * @param id integer id of the savegame
      * @return The name
      */
-	public static String getNameById(int id) {
-		return XMLHandler.getSaveGameName(defaultloc + id + "/Matches.xml");
-	}
+    public static String getNameById(int id) {
+        return XMLHandler.getSaveGameName(defaultloc + id + "/Matches.xml");
+    }
 
-	public static String getTeamNameById(int id) {
-		return XMLHandler.getTeamName(defaultloc + id + "/Matches.xml");
-	}
+    /**
+     * Get a team name by it's ID
+     * @param id the ID of the team
+     * @return the name of the team
+     */
+    public static String getTeamNameById(int id) {
+        return XMLHandler.getTeamName(defaultloc + id + "/Matches.xml");
+    }
 }

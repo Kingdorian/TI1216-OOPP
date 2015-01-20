@@ -101,12 +101,7 @@ public abstract class PlayerAI {
             thisDefensePower = positions.getEnemyInfo(playerID).getDefensePower();
         }
         double chance;
-        //if(opponentDistance != 0 && ownDistance != 0)
         chance = ((ownDistance + 10) / thisDefensePower) / ((opponentDistance + 10) / opponentAttack);
-//        else if(opponentDistance == 0)
-//            chance = 0.001;
-//        else
-//            chance = 1000;
 
         // if player got enough luck
         return chance * Math.random() < Math.random() / chance;
@@ -148,12 +143,7 @@ public abstract class PlayerAI {
             thisAttackPower = positions.getEnemyInfo(playerID).getAttackPower();
         }
         double chance;
-//        if(opponentDistance != 0 && ownDistance != 0)
         chance = ((ownDistance + 10) / thisAttackPower) / ((opponentDistance + 10) / opponentDefense);
-//        else if(opponentDistance == 0)
-//            chance = 0.001;
-//        else
-//            chance = 1000;
 
         // if player got enough luck
         return chance * Math.random() < Math.random() / chance;

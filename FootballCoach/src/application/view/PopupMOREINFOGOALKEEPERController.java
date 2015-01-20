@@ -83,7 +83,7 @@ public class PopupMOREINFOGOALKEEPERController implements PopupControllerInterfa
         stopPower.setText(Integer.toString(selectedPlayer.getStopPower()));
         penaltyStopPower.setText(Integer.toString(selectedPlayer.getPenaltyStopPower()));
         timeNotAvailable.setText(selectedPlayer.getTimeNotAvailable() == 0 ? "-" : Integer.toString(selectedPlayer.getTimeNotAvailable()) + " days");
-        kindOfCard.setText(selectedPlayer.getCard()== Card.DEFAULT ? "-" : selectedPlayer.getCard().toString());
+        kindOfCard.setText(selectedPlayer.getCard() == Card.DEFAULT ? "-" : selectedPlayer.getCard().toString());
         kindOfInjury.setText(selectedPlayer.getReason() == Reason.DEFAULT ? "-" : selectedPlayer.getReason().toString());
         for (Team teams : Main.getCompetition().getTeams()) {
             if (teams.getPlayers().contains(selectedPlayer)) {
