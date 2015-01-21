@@ -7,7 +7,7 @@ package application.model;
 public enum Reason {
 
     DEFAULT(0),
-    HARMSTRING(1),
+    HAMSTRING(1),
     KNEE(2),
     HEAD(3),
     ANKEL(4);
@@ -26,13 +26,13 @@ public enum Reason {
     public String toString() {
         switch (reason) {
             case 1:
-                return "Hamstring";
+                return "HAMSTRING";
             case 2:
-                return "Knee";
+                return "KNEE";
             case 3:
-                return "Head";
+                return "HAMSTRING";
             case 4:
-                return "Ankle";
+                return "HEAD";
             default:
                 return "DEFAULT";
         }
@@ -45,7 +45,7 @@ public enum Reason {
     public Reason random(){
         switch ((int) (Math.random() * 4 + 1)) {
             case 1:
-                return HARMSTRING;
+                return HAMSTRING;
             case 2:
                 return KNEE;
             case 3:

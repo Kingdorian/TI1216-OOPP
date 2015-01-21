@@ -9,8 +9,10 @@ import application.model.Competition;
 import application.model.Match;
 import application.model.Card;
 import application.model.Market;
+import application.model.Players;
 import application.model.Reason;
 import application.model.Team;
+
 import java.util.ArrayList;
 
 /**
@@ -66,9 +68,16 @@ public class PlayAnimation {
 
             count = 0;
 
-            //reset cards and injury each 4 rounds
-            if ((round + 1) % 4 == 0) {
-                Main.getCompetition().resetCardReason();
+            //Update time not available
+            for(Team t : competition.getTeams()){
+            	for(Players p : t.getPlayers()){
+            		if(p.getTimeNotAvailable()>0){
+            			p.setTimeNotAvailable(p.getTimeNotAvailable()-1);
+            			if(p.getTimeNotAvailable()==0){
+            				p.setCard(Card.DEFAULT);
+            			}
+            		}
+            	}
             }
 
             //buy and sell players
@@ -240,13 +249,16 @@ public class PlayAnimation {
         //3: 10%
         //2x yellow card for same player = red card
         while (random < 0.9) {
-
             if (Math.random() > 0.5) {
                 //left team
-                leftPlayers.get((int) (Math.random() * 10.0)).getPlayer().setCard(Card.YELLOW);
+                double randValue = Math.random();
+                leftPlayers.get((int) (randValue * 10.0)).getPlayer().setReason(Reason.DEFAULT.random());
+                leftPlayers.get((int) (randValue * 10.0)).getPlayer().setTimeNotAvailable((int) Math.floor(Math.random()*6.0));
             } else {
                 //right team
-                rightPlayers.get((int) (Math.random() * 10.0)).getPlayer().setCard(Card.YELLOW);
+            	double randValue = Math.random();
+                rightPlayers.get((int) (randValue * 10.0)).getPlayer().setReason(Reason.DEFAULT.random());
+                rightPlayers.get((int) (randValue * 10.0)).getPlayer().setTimeNotAvailable((int) Math.floor(Math.random()*6.0));
             }
             random += 0.4;
         }
@@ -281,14 +293,22 @@ public class PlayAnimation {
         //2: 3% chance
         while (random < 0.1) {
 
+
             if (Math.random() > 0.5) {
                 //left team
-                leftPlayers.get((int) (Math.random() * 10.0)).getPlayer().setReason(Reason.DEFAULT.random());
+                double randValue = Math.random();
+                if(Math.random()>0.9)leftPlayers.get((int) (randValue * 10.0)).getPlayer().setCard(Card.RED);
+                leftPlayers.get((int) (randValue * 10.0)).getPlayer().setCard(Card.YELLOW);
+                leftPlayers.get((int) (randValue * 10.0)).getPlayer().setTimeNotAvailable((int) Math.floor(Math.random()*6.0));
             } else {
                 //right team
-                rightPlayers.get((int) (Math.random() * 10.0)).getPlayer().setReason(Reason.DEFAULT.random());
+                double randValue = Math.random();
+                if(Math.random()>0.9)rightPlayers.get((int) (randValue * 10.0)).getPlayer().setCard(Card.RED);
+                rightPlayers.get((int) (randValue * 10.0)).getPlayer().setCard(Card.YELLOW);
+                rightPlayers.get((int) (randValue * 10.0)).getPlayer().setTimeNotAvailable((int) Math.floor(Math.random()*6.0));
             }
             random += 0.07;
+
         }
 
     }

@@ -337,7 +337,6 @@ public class XMLHandler {
                         buffer.add(doc.createElement("defence"));
                         buffer.get(7).setTextContent(p.getDefence() + "");
                         buffer.add(doc.createElement("stamina"));
-
                         buffer.get(8).setTextContent(p.getStamina() + "");
                         for (int k = 0; k < buffer.size(); k++) {
                             pE.appendChild(buffer.get(k));
@@ -357,7 +356,6 @@ public class XMLHandler {
                         buffer.add(doc.createElement("timenotavailable"));
                         buffer.get(4).setTextContent(k.getTimeNotAvailable() + "");
                         buffer.add(doc.createElement("reason"));
-
                         buffer.get(5).setTextContent(k.getReason() + "");
                         buffer.add(doc.createElement("stoppower"));
                         buffer.get(6).setTextContent(k.getStopPower() + "");
