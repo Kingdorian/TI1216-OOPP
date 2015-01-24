@@ -6,15 +6,18 @@
 package application.view;
 
 import application.Main;
+
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
+
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.PopupControl;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -229,7 +232,7 @@ public class PopupSETTINGSController implements PopupControllerInterface {
         		+ "	   -fx-red: rgb(208,2,27);");
         
         
-        rootLayout.setStyle(Main.getSizeCssStyle() + Main.getColorCssStyle());
+        rootLayout.setStyle(Main.getSizeCssStyle() + Main.getColorCssStyle());    
     }
 
     /**

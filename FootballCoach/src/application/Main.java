@@ -221,6 +221,7 @@ public class Main extends Application {
                 contentPane.setPrefHeight(Math.max(initHeight, newHeight));
                 sizeCssStyle = "-fx-background-size: 1024, 600;";
                 rootLayout.setStyle(sizeCssStyle + colorCssStyle);
+ 
             }
         }
     }
@@ -457,6 +458,8 @@ public class Main extends Application {
         Pane pane = (Pane) paneAndLoader[0];
 
         PopupControl popup;
+        pane.setStyle(sizeCssStyle + colorCssStyle);
+
         AnchorLocation location = null;
         if (oldPopup != null && oldPopup.isShowing()) {
             // overwrite old popup window
@@ -471,7 +474,7 @@ public class Main extends Application {
             popup.show(primaryStage);
             oldPopup = popup;
         }
-
+        
         if (location != null) {
             popup.setAnchorLocation(location);
         }
@@ -505,6 +508,7 @@ public class Main extends Application {
         Pane pane = (Pane) paneAndLoader[0];
 
         PopupControl popup;
+        pane.setStyle(sizeCssStyle + colorCssStyle);
 
         AnchorLocation location = null;
         if (oldModal != null && oldModal.isShowing()) {
@@ -520,12 +524,12 @@ public class Main extends Application {
             popup.show(primaryStage);
             oldModal = popup;
         }
-        
+                
         if (location != null) {
             popup.setAnchorLocation(location);
         }
         makeDragable(popup);
-        
+
         // get the pop-up's controller class
         PopupMODALController popupController = ((FXMLLoader) paneAndLoader[1]).getController();
         popupController.setPopupStage(popup);
@@ -545,6 +549,7 @@ public class Main extends Application {
         Pane pane = (Pane) paneAndLoader[0];
 
         PopupControl popup;
+        pane.setStyle(sizeCssStyle + colorCssStyle);
 
         AnchorLocation location = null;
         if (oldModal != null && oldModal.isShowing()) {
@@ -560,7 +565,7 @@ public class Main extends Application {
             popup.show(primaryStage);
             oldModal = popup;
         }
-        
+                
         if (location != null) {
             popup.setAnchorLocation(location);
         }
