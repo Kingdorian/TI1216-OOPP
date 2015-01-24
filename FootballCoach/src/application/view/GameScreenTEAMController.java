@@ -126,13 +126,13 @@ public class GameScreenTEAMController implements ViewControllerInterface {
                             switch (item) {
                                 case "Allrounder":
                                 case "Midfielder":
-                                    this.setStyle("-fx-text-fill: darkorange;");
+                                    this.setStyle("-fx-text-fill: -fx-orange;");
                                     break;
                                 case "Forward":
-                                    this.setStyle("-fx-text-fill: darkred;");
+                                    this.setStyle("-fx-text-fill: -fx-red;");
                                     break;
                                 case "Defender":
-                                    this.setStyle("-fx-text-fill: darkgreen;");
+                                    this.setStyle("-fx-text-fill: -fx-green;");
                                     break;
                                 case "Goalkeeper":
                                     this.setStyle("-fx-text-fill: rgb(255,255,255);");

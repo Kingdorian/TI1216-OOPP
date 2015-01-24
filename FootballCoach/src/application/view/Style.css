@@ -11,6 +11,9 @@
     /* Custom lookup color for all shadows */
     -fx-shadowcolor: rgba(0,0,0,.5);
     -fx-accent: rgba(147, 147, 147,.8);
+    -fx-green: rgb(126,211,33);
+    -fx-orange: rgb(245,166,35);
+    -fx-red: rgb(208,2,27);
 }
 
 .text

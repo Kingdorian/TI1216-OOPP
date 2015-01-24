@@ -392,23 +392,23 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
                     //decide the color based on the kind of player
                     switch (player.getKind()) {
                         case "Forward":
-                            style = "-fx-text-fill: darkred;";
+                            style = "-fx-text-fill: -fx-red;";
                             break;
                         case "Defender":
-                            style = "-fx-text-fill: darkgreen;";
+                            style = "-fx-text-fill: -fx-green;";
                             break;
                         case "Allrounder":
                         case "Midfielder":
-                            style = "-fx-text-fill: darkorange;";
+                            style = "-fx-text-fill: -fx-orange;";
                             break;
                         default:
-                            style = "-fx-text-fill: black;";
+                            style = "-fx-text-fill: rgb(255,255,255);";
                             break;
                     }
 
                     if (teamPositions.getPlayers().contains(player)) {
                         if (!(player instanceof Goalkeeper)) {
-                            setStyle("-fx-background-color: black;" + style);
+                            setStyle("-fx-background-color: -fx-base;" + style);
                         } else {
                             setStyle("-fx-background-color: darkred;" + style);
                         }
@@ -443,24 +443,24 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
                         String style;
                         //decide the color based on the kind of player
                         switch (player.getKind()) {
-                            case "Forward":
-                                style = "-fx-text-fill: darkred;";
-                                break;
-                            case "Defender":
-                                style = "-fx-text-fill: darkgreen;";
-                                break;
-                            case "Allrounder":
-                            case "Midfielder":
-                                style = "-fx-text-fill: darkorange;";
-                                break;
-                            default:
-                                style = "-fx-text-fill: black;";
-                                break;
+	                        case "Forward":
+	                            style = "-fx-text-fill: -fx-red;";
+	                            break;
+	                        case "Defender":
+	                            style = "-fx-text-fill: -fx-green;";
+	                            break;
+	                        case "Allrounder":
+	                        case "Midfielder":
+	                            style = "-fx-text-fill: -fx-orange;";
+	                            break;
+	                        default:
+	                            style = "-fx-text-fill: rgb(255,255,255);";
+	                            break;
                         }
 
                         if (teamPositions.getPlayers().contains(player)) {
                             if (!(player instanceof Goalkeeper)) {
-                                setStyle("-fx-background-color: black;" + style);
+                                setStyle("-fx-background-color: -fx-base;" + style);
                             } else {
                                 setStyle("-fx-background-color: darkred;" + style);
                             }

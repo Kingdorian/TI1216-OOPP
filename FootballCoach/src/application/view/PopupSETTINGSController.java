@@ -223,7 +223,12 @@ public class PopupSETTINGSController implements PopupControllerInterface {
                 + "    -fx-backgroundcolor: rgba(" + background + ", 0.8); \n"
                 + "    -fx-textcolor: rgb(" + text + "); \n"
                 + "    -fx-shadowcolor: rgba(0,0,0,.5); \n"
-                + "    -fx-accent: rgba(" + background + ", 0.8); \n");
+                + "    -fx-accent: rgba(" + background + ", 0.8); \n"
+        		+ "    -fx-green: rgb(126,211,33); \n"
+        		+ "    -fx-orange: rgb(245,166,35); \n"
+        		+ "	   -fx-red: rgb(208,2,27);");
+        
+        
         rootLayout.setStyle(Main.getSizeCssStyle() + Main.getColorCssStyle());
     }
 
