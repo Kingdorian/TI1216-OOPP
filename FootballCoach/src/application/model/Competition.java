@@ -208,7 +208,7 @@ public class Competition {
 
         // recalculate the results
         int HomeTeamId = 0, VisitorTeamId = 0;
-        for (int i = 0; i < rounds; i++) {
+        for (int i = 0; i < rounds-1; i++) {
             for (int j = 0; j < competition[i].length; j++) {
                 Match match = competition[i][j];
                 //Determine the id of the Teams in the teams array
