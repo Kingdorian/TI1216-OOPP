@@ -6,6 +6,8 @@
 package application.view;
 
 import application.Main;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
 
@@ -27,6 +29,14 @@ public class GameScreenTitleController implements ViewControllerInterface {
 
     private static Main mainController;
 
+    /**
+     * This event returns the user to the main menu.
+     */
+    private final EventHandler mainMenu = (EventHandler<Event>) (Event e) -> {
+        mainController.cleanRootLayout();
+        mainController.setCenterView("MainMenu");
+    };
+    
     /**
      * This code is executed when the view is loaded. It sets the main texts of
      * this view.
@@ -58,8 +68,7 @@ public class GameScreenTitleController implements ViewControllerInterface {
      */
     @FXML
     private void buttonTitleScreen() {
-        mainController.cleanRootLayout();
-        mainController.setCenterView("MainMenu");
+    	Main.createModal("Exit", "Are you sure you want to leave the game?", "Your progress will be lost if you didn't save your game", mainMenu);
     }
 
     /**
