@@ -10,12 +10,14 @@ import application.view.GameScreenMenuController;
 import application.view.GameScreenPLAYMATCHController;
 import application.view.GameScreenTitleController;
 import application.view.PopupControllerInterface;
+import application.view.PopupMODALController;
 import application.view.ViewControllerInterface;
+
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.animation.FadeTransition;
 
+import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -486,6 +488,25 @@ public class Main extends Application {
                 }
             });
         }
+
+    }
+    
+    public void createModal(String title, String warning, String message) {
+        // load the pane
+        Object[] paneAndLoader = loadPane(changeNameToClassPath("PopupMODAL"));
+        Pane pane = (Pane) paneAndLoader[0];
+
+        PopupControl popup;
+        popup = new PopupControl();
+        popup.getScene().setRoot(pane);
+        popup.show(primaryStage);
+
+        makeDragable(popup);
+
+        // get the pop-up's controller class
+        PopupMODALController popupController = ((FXMLLoader) paneAndLoader[1]).getController();
+        popupController.setPopupStage(popup);
+        popupController.setModalValues(title, warning, message);
 
     }
 
