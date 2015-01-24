@@ -6,15 +6,21 @@
 package application.view;
 
 import application.Main;
+
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 import application.controller.SaveGameHandler;
+
 import java.util.Collections;
+
 import javafx.collections.FXCollections;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.PopupControl;
+
 import org.controlsfx.control.action.Action;
 import org.controlsfx.dialog.Dialog;
 import org.controlsfx.dialog.Dialogs;
@@ -33,6 +39,18 @@ public class PopupLOADGAMEController implements PopupControllerInterface {
     private ComboBox selectSaveGameBox;
 
     /**
+     * This event closes the game.
+     */
+    private final EventHandler deleteSave = (EventHandler<Event>) (Event e) -> {
+        String choice = selectSaveGameBox.getItems().get(selectSaveGameBox.getSelectionModel().getSelectedIndex()).toString();
+        // Delete the savegame if OK is pressed.
+        SaveGameHandler.deleteSaveGame(Integer.parseInt(choice.split("\\.")[0]));
+        // Reload the dropdown list
+        initialize();
+    };
+
+    
+    /**
      * Sets the stage (PopupControl) of this popup. HEAD
      *
      * @param popupControl the popups stage (PopupControl)
@@ -41,7 +59,7 @@ public class PopupLOADGAMEController implements PopupControllerInterface {
     public void setPopupStage(PopupControl popupControl) {
         this.popupControl = popupControl;
     }
-
+    
     /**
      * Will return true if the OK button has been clicked, otherwise will return
      * false
@@ -131,26 +149,11 @@ public class PopupLOADGAMEController implements PopupControllerInterface {
         	Main.createModal("No Selection", "No savegame selected", "Please select a savegame in the dropdown list.");
         	
         } else {
-            String choice = selectSaveGameBox.getItems().get(selectSaveGameBox.getSelectionModel().getSelectedIndex()).toString();
             try {
                 // Ask the user is they want to delete the savegame.
-                Action response = Dialogs.create()
-                        .title("Quit")
-                        .masthead("Are you sure you want to permanently delete the selected savegame?")
-                        .actions(Dialog.Actions.OK, Dialog.Actions.CANCEL)
-                        .owner(Main.getOldPopup())
-                        .showConfirm();
-
-                if (response == Dialog.Actions.OK) {
-                    // Delete the savegame if OK is pressed.
-                    SaveGameHandler.deleteSaveGame(Integer.parseInt(choice.split("\\.")[0]));
-                    // Reload the dropdown list
-                    initialize();
-                } else {
-                    // User cancels and returns to the load game screen.
-                }
-
+                Main.createModal("Savegame", "Are you sure want to permanently delete the selected savegame?", "Clicking Ok will permanently delete the selected savegame", deleteSave);               	
             } catch (Exception e) {
+            	
             }
         }
     }

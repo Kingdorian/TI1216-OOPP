@@ -41,6 +41,13 @@ public class MainMenuController implements ViewControllerInterface {
         buttonContinue.setDisable(false);
         buttonContinue();
     };
+    
+    /**
+     * This event closes the game.
+     */
+    private final EventHandler closeGame = (EventHandler<Event>) (Event e) -> {
+        System.exit(0);
+    };
 
     /**
      * This code is executed when the view is loaded. It sets the main texts of
@@ -92,16 +99,8 @@ public class MainMenuController implements ViewControllerInterface {
     @FXML
     private void buttonExit() {
         // show pop-up: are you sure you want to quit? if ok is clicked: quit game, else don't quit game
-        Action response = Dialogs.create()
-                .title("Quit")
-                .masthead("Are you sure you want to quit the application?")
-                .actions(Dialog.Actions.OK, Dialog.Actions.CANCEL)
-                .owner(Main.getOldPopup())
-                .showConfirm();
+        Main.createModal("Quit", "Are you sure you want to quit the application?", "The game will be closed if you press OK", closeGame);
 
-        if (response == Dialog.Actions.OK) {
-            System.exit(0);
-        }
         // else user cancels and returns to the application
     }
 

@@ -11,6 +11,7 @@ import application.view.GameScreenPLAYMATCHController;
 import application.view.GameScreenTitleController;
 import application.view.PopupControllerInterface;
 import application.view.PopupMODALController;
+import application.view.PopupOKMODALController;
 import application.view.ViewControllerInterface;
 
 import java.io.IOException;
@@ -492,6 +493,12 @@ public class Main extends Application {
 
     }
     
+    /**
+     * Method to create a modal window
+     * @param title		A String value with the title of the modal
+     * @param warning	A String value with the warning of the modal
+     * @param message	A String value with the message of the modal.
+     */
     public static void createModal(String title, String warning, String message) {
         // load the pane
         Object[] paneAndLoader = loadPane(changeNameToClassPath("PopupMODAL"));
@@ -523,6 +530,55 @@ public class Main extends Application {
         PopupMODALController popupController = ((FXMLLoader) paneAndLoader[1]).getController();
         popupController.setPopupStage(popup);
         popupController.setModalValues(title, warning, message);
+
+    }
+    
+    /**
+     * Method to create a modal window
+     * @param title		A String value with the title of the modal
+     * @param warning	A String value with the warning of the modal
+     * @param message	A String value with the message of the modal.
+     */
+    public static void createModal(String title, String warning, String message, EventHandler event) {
+        // load the pane
+        Object[] paneAndLoader = loadPane(changeNameToClassPath("PopupOKMODAL"));
+        Pane pane = (Pane) paneAndLoader[0];
+
+        PopupControl popup;
+
+        AnchorLocation location = null;
+        if (oldModal != null && oldModal.isShowing()) {
+            popup = oldModal;
+            popup.getScene().setRoot(pane);
+            popup.sizeToScene();
+            location = oldModal.getAnchorLocation();
+
+        } else {
+            // create new modal window
+            popup = new PopupControl();
+            popup.getScene().setRoot(pane);
+            popup.show(primaryStage);
+            oldModal = popup;
+        }
+        
+        if (location != null) {
+            popup.setAnchorLocation(location);
+        }
+        makeDragable(popup);
+        
+        // get the pop-up's controller class
+        PopupOKMODALController popupController = ((FXMLLoader) paneAndLoader[1]).getController();
+        popupController.setPopupStage(popup);
+        popupController.setModalValues(title, warning, message);
+        
+        if (event != null) {
+            popup.setOnHidden((WindowEvent e) -> {
+                oldModal = null;
+                if (popupController.isOkClicked()) {
+                    event.handle(e);
+                }
+            });
+        }
 
     }
 
