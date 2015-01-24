@@ -146,6 +146,7 @@ public class PlayAnimation {
         //enemy team:
         TeamPositions leftTeam;
         TeamPositions rightTeam;
+        boolean playerHome = true;
 
         //set the positions of the players
         if (shouldAnimate) {
@@ -154,6 +155,7 @@ public class PlayAnimation {
                     leftTeam = teamPositions;
                     rightTeam = setPositions(visitorTeam, false);
                 } else {
+                    playerHome = false;
                     leftTeam = teamPositions;
                     rightTeam = setPositions(homeTeam, false);
                 }
@@ -192,7 +194,7 @@ public class PlayAnimation {
         System.gc();
 
         //generate injurys and red/yellow cards
-        Match result = new Match(homeTeam, visitorTeam, scoreLeft, scoreRight);
+        Match result = playerHome ? new Match(homeTeam, visitorTeam, scoreLeft, scoreRight) : new Match(homeTeam, visitorTeam, scoreRight, scoreLeft);
         generateInjuries(result, leftTeam, rightTeam);
         generateCards(result, leftTeam, rightTeam);
 
