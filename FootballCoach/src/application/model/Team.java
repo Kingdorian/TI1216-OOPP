@@ -300,6 +300,8 @@ public class Team {
             this.formatPlayerID();
             team.addPlayer(player);
             player.setNumber(team.getPlayers().size());
+            this.formatNumbers();
+            team.formatNumbers();
             this.setBudget(this.getBudget() + money);
             team.setBudget(team.getBudget() - money);
 
@@ -308,6 +310,15 @@ public class Team {
         return false;
     }
 
+    /**
+     * Reformat the numbers of the players
+     */
+    private void formatNumbers(){
+        for (int i = 0; i < players.size(); i++) {
+            players.get(i).setNumber(i);
+        }
+    }
+    
     /**
      * Reformat the ID's of the players
      */
@@ -392,13 +403,15 @@ public class Team {
     /**
      * Get the amount of forwards
      *
+     * @param comp the current competition
      * @return the amount of forwards
      */
-    public int getAmountForwards() {
+    public int getAmountForwards(Competition comp) {
         int amount = 0;
-        for (int i = 0; i < this.getPlayers().size(); i++) {
-            if (this.getPlayers().get(i).getKind().equals("Forward")) {
-                amount = amount + 1;
+        ArrayList<Players> notForSale = getPlayersNotForSale(comp);
+        for (int i = 0; i < notForSale.size(); i++) {
+            if (notForSale.get(i).getKind().equals("Forward")) {
+                amount++;
             }
         }
         return amount;
@@ -407,13 +420,15 @@ public class Team {
     /**
      * Get the amount of defenders
      *
+     * @param comp the current competition
      * @return the amount of defenders
      */
-    public int getAmountDefenders() {
+    public int getAmountDefenders(Competition comp) {
         int amount = 0;
-        for (int i = 0; i < this.getPlayers().size(); i++) {
-            if (this.getPlayers().get(i).getKind().equals("Defender")) {
-                amount = amount + 1;
+        ArrayList<Players> notForSale = getPlayersNotForSale(comp);
+        for (int i = 0; i < notForSale.size(); i++) {
+            if (notForSale.get(i).getKind().equals("Defender")) {
+                amount++;
             }
         }
         return amount;
@@ -422,13 +437,15 @@ public class Team {
     /**
      * Get the amount of midfielders
      *
+     * @param comp the current competition
      * @return the amount of midfielders
      */
-    public int getAmountMidfielders() {
+    public int getAmountMidfielders(Competition comp) {
         int amount = 0;
-        for (int i = 0; i < this.getPlayers().size(); i++) {
-            if (this.getPlayers().get(i).getKind().equals("Midfielder")) {
-                amount = amount + 1;
+        ArrayList<Players> notForSale = getPlayersNotForSale(comp);
+        for (int i = 0; i < notForSale.size(); i++) {
+            if (notForSale.get(i).getKind().equals("Midfielder")) {
+                amount++;
             }
         }
         return amount;
@@ -437,13 +454,15 @@ public class Team {
     /**
      * Get the amount of goalkeepers
      *
+     * @param comp the current competition
      * @return the amount of goalkeepers
      */
-    public int getAmountGoalkeepers() {
+    public int getAmountGoalkeepers(Competition comp) {
         int amount = 0;
-        for (int i = 0; i < this.getPlayers().size(); i++) {
-            if (this.getPlayers().get(i).getKind().equals("Goalkeeper")) {
-                amount = amount + 1;
+        ArrayList<Players> notForSale = getPlayersNotForSale(comp);
+        for (int i = 0; i < notForSale.size(); i++) {
+            if (notForSale.get(i).getKind().equals("Goalkeeper")) {
+                amount++;
             }
         }
         return amount;
@@ -452,13 +471,15 @@ public class Team {
     /**
      * Get the amount of allrounders
      *
+     * @param comp the current competition
      * @return the amount of allrounders
      */
-    public int getAmountAllrounders() {
+    public int getAmountAllrounders(Competition comp) {
         int amount = 0;
-        for (int i = 0; i < this.getPlayers().size(); i++) {
-            if (this.getPlayers().get(i).getKind().equals("Allrounder")) {
-                amount = amount + 1;
+        ArrayList<Players> notForSale = getPlayersNotForSale(comp);
+        for (int i = 0; i < notForSale.size(); i++) {
+            if (notForSale.get(i).getKind().equals("Allrounder")) {
+                amount++;
             }
         }
         return amount;

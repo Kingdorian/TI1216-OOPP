@@ -14,7 +14,7 @@
         <Region prefHeight="50.0" prefWidth="684.0" styleClass="topMenu" />
         <Region layoutY="400.0" prefHeight="50.0" prefWidth="684.0" styleClass="contentView" />
         <Button layoutX="513.0" layoutY="400.0" mnemonicParsing="false" onAction="#moreInfoButton" prefHeight="50.0" prefWidth="171.0" styleClass="contentItemMenu" text="More info..." />
-        <Button layoutX="342.0" layoutY="400.0" mnemonicParsing="false" onAction="#sellPlayerButton" prefHeight="50.0" prefWidth="171.0" styleClass="contentItemMenu" text="Sell Player" />
+        <Button fx:id="sellButton" layoutX="342.0" layoutY="400.0" mnemonicParsing="false" onAction="#sellPlayerButton" prefHeight="50.0" prefWidth="171.0" styleClass="contentItemMenu" text="Sell Player" />
         <TableView fx:id="playerTable" layoutY="50.0" prefHeight="350.0" prefWidth="684.0">
             <columns>
                 <TableColumn fx:id="columnNo" maxWidth="100.0" minWidth="50.0" prefWidth="50.0" text="No." />

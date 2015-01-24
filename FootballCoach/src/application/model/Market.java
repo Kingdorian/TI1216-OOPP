@@ -138,19 +138,19 @@ public class Market {
      * @param random for testing
      */
     private void buyWhichPlayer(Competition competition, Team team, Random random) {
-        if (Math.pow(0.5, team.getAmountGoalkeepers() * 2.0 - 2) > random.nextDouble()) { //1 gk = 100%, 2gk = 25%, 3gk = 6%, 4gk = 1.6%
+        if (Math.pow(0.5, team.getAmountGoalkeepers(competition) * 2.0 - 2) > random.nextDouble()) { //1 gk = 100%, 2gk = 25%, 3gk = 6%, 4gk = 1.6%
             buyGoalkeeper(competition, team, random);
         }
 
-        if (Math.pow(0.5, team.getAmountDefenders() / 2.0 - 2) > random.nextDouble()) {
+        if (Math.pow(0.5, team.getAmountDefenders(competition) / 2.0 - 2) > random.nextDouble()) {
             buyPlayers(competition, team, "Defender", random);
         }
 
-        if (Math.pow(0.5, team.getAmountMidfielders() / 1.5 - 4) > random.nextDouble()) {
+        if (Math.pow(0.5, team.getAmountMidfielders(competition) / 1.5 - 4) > random.nextDouble()) {
             buyPlayers(competition, team, "Midfielder", random);
         }
 
-        if (Math.pow(0.5, team.getAmountForwards() - 4) > random.nextDouble()) {
+        if (Math.pow(0.5, team.getAmountForwards(competition) - 4) > random.nextDouble()) {
             buyPlayers(competition, team, "Forward", random);
         }
     }
@@ -201,16 +201,16 @@ public class Market {
      * @param random for testing
      */
     private void sellWhichPlayer(Competition competition, Team team, Random random) {
-        if (Math.pow(0.5, team.getAmountDefenders() / 2.7 - 2) < random.nextDouble()) {
+        if (Math.pow(0.5, team.getAmountDefenders(competition) / 2.7 - 2) < random.nextDouble()) {
             sellPlayers(competition, team, "Defender", random);
         }
-        if (Math.pow(0.5, team.getAmountGoalkeepers() * 2 - 5.5) < random.nextDouble()) {
+        if (Math.pow(0.5, team.getAmountGoalkeepers(competition) * 2 - 5.5) < random.nextDouble()) {
             sellGoalkeeper(competition, team, random);
         }
-        if (Math.pow(0.5, team.getAmountMidfielders() * 1.7 - 8) < random.nextDouble()) {
+        if (Math.pow(0.5, team.getAmountMidfielders(competition) * 1.7 - 8) < random.nextDouble()) {
             sellPlayers(competition, team, "Midfielder", random);
         }
-        if (Math.pow(0.5, team.getAmountForwards() - 4) < random.nextDouble()) {
+        if (Math.pow(0.5, team.getAmountForwards(competition) - 4) < random.nextDouble()) {
             sellPlayers(competition, team, "Forward", random);
         }
     }

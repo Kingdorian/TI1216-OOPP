@@ -7,15 +7,19 @@ package application.view;
 
 import application.Main;
 import application.model.Card;
+import application.model.Competition;
 import application.model.Goalkeeper;
 import application.model.Player;
 import application.model.Players;
+import application.model.Team;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.SortType;
@@ -47,7 +51,12 @@ public class GameScreenTEAMController implements ViewControllerInterface {
     private TableColumn<Players, String> columnType;
     @FXML
     private TableColumn<Players, Players> columnCard;
+    
+    @FXML
+    private Button sellButton;
 
+    private Players selectedPlayer;
+    private final Team myTeam = Main.getCompetition().getTeamByName(mainController.getCompetition().getChosenTeamName());
     private static Main mainController;
 
     /**
@@ -61,7 +70,7 @@ public class GameScreenTEAMController implements ViewControllerInterface {
         columnName.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getSurName()));
         columnAbility.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getAbilityStr()));
 
-        //set color of the ability according to the ability (very good = green, very bad = red
+        //set color of the ability according to the ability (very good = green, very bad = red)
         columnAbility.setCellFactory(new Callback<TableColumn<Players, String>, TableCell<Players, String>>() {
             @Override
             public TableCell<Players, String> call(TableColumn<Players, String> param) {
@@ -74,7 +83,8 @@ public class GameScreenTEAMController implements ViewControllerInterface {
                             double green = ability * 20;
                             this.setStyle("-fx-text-fill: hsb(" + green + ",100%,80%);");
                             setText(item);
-                        }
+                        } else
+                            setText(null);
                     }
                 };
             }
@@ -95,7 +105,8 @@ public class GameScreenTEAMController implements ViewControllerInterface {
                                 this.setStyle("-fx-text-fill: rgb(215,59,59);");
                             }
                             setText(item ? "Yes" : "No");
-                        }
+                        } else
+                            setText(null);
                     }
                 };
             }
@@ -128,7 +139,8 @@ public class GameScreenTEAMController implements ViewControllerInterface {
                                     break;
                             }
                             setText(item);
-                        }
+                        } else
+                            setText(null);
                     }
                 };
             }
@@ -166,6 +178,38 @@ public class GameScreenTEAMController implements ViewControllerInterface {
                 };
             }
         });
+        
+        sellButton.setDisable(true);
+        
+        // add selection listener: disable sell button when the player doesn't have too many players of the selected kind
+        playerTable.getSelectionModel().getSelectedIndices().addListener(new ListChangeListener<Integer>() {
+            @Override
+            public void onChanged(ListChangeListener.Change<? extends Integer> change) {
+                if (playerTable.getSelectionModel().selectedItemProperty().get() != null) {
+                    selectedPlayer = playerTable.getSelectionModel().selectedItemProperty().get();
+                    
+                    //you need at least 5 defenders, 6 midfielders, 5 forwards and 2 keepers
+                    boolean disable;
+                    Competition comp = Main.getCompetition();
+                    switch (selectedPlayer.getKind()) {
+                        case "Defender":
+                            disable = myTeam.getAmountDefenders(comp) < 6;
+                            break;
+                        case "Midfielder":
+                        case "Allrounder":
+                            disable = myTeam.getAmountMidfielders(comp) + myTeam.getAmountMidfielders(comp) < 7;
+                            break;
+                        case "Forward":
+                            disable = myTeam.getAmountForwards(comp) < 6;
+                            break;
+                        default:
+                            disable = myTeam.getAmountGoalkeepers(comp) < 3;
+                    }
+                    sellButton.setDisable(disable);
+                }
+            }
+        });
+        
     }
 
     /**
@@ -178,7 +222,7 @@ public class GameScreenTEAMController implements ViewControllerInterface {
         this.mainController = mainController;
 
         // Add data to the table and sort number column
-        playerTable.setItems(FXCollections.observableArrayList(Main.getCompetition().getTeamByName(mainController.getCompetition().getChosenTeamName()).getPlayers()));
+        playerTable.setItems(FXCollections.observableArrayList(myTeam.getPlayers()));
         columnNo.setSortType(SortType.ASCENDING);
         playerTable.getSortOrder().clear();
         playerTable.getSortOrder().add(columnNo);
@@ -191,7 +235,7 @@ public class GameScreenTEAMController implements ViewControllerInterface {
      */
     @FXML
     private void moreInfoButton() {
-        Players selectedPlayer = playerTable.getSelectionModel().selectedItemProperty().get();
+        
         if (selectedPlayer != null && selectedPlayer instanceof Player) {
             Main.setSelectedPlayer(selectedPlayer);
             mainController.createPopup("PopupMOREINFOPLAYER", "Player info");
@@ -208,7 +252,7 @@ public class GameScreenTEAMController implements ViewControllerInterface {
      */
     @FXML
     private void sellPlayerButton() {
-        Players selectedPlayer = playerTable.getSelectionModel().selectedItemProperty().get();
+        
         if (selectedPlayer != null) {
             Main.setSelectedPlayer(selectedPlayer);
             mainController.createPopup("PopupSELECTPRICE", "Sell Player");
