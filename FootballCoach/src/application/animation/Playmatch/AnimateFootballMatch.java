@@ -53,6 +53,12 @@ public class AnimateFootballMatch {
                 if (time < footballMatch.amoutOfFrames() - 1 && !pause) {
                     time++;
                     playTimeSlice();
+                } else{
+                    // update the score
+                    viewController.setScore("Score: " + footballMatch.getPosition(time).getScoreLeft() + " - " + footballMatch.getPosition(time).getScoreRight());
+
+                    // update the time
+                    viewController.setTime(time);
                 }
         }
     };
