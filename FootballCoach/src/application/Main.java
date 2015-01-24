@@ -71,6 +71,7 @@ public class Main extends Application {
     private static boolean animating = false;
 
     private static PopupControl oldPopup;
+    private static PopupControl oldModal;
 
     /**
      * The actual main method of the project (which will be called by the super
@@ -394,7 +395,7 @@ public class Main extends Application {
      * @param viewPath a string containing a class' name
      * @return a path to the class
      */
-    private String changeNameToClassPath(String viewPath) {
+    private static String changeNameToClassPath(String viewPath) {
         // Change class name to file path
         if (!(viewPath.contains("view/"))) {
             viewPath = "view/" + viewPath;
@@ -412,7 +413,7 @@ public class Main extends Application {
      * @return the requirested Pane and the used loader in an Object array
      * (first pane[0], then loader[1])
      */
-    private Object[] loadPane(String viewPath) {
+    private static Object[] loadPane(String viewPath) {
         try {
             Object[] result = new Object[2];
             // Load startup screen
@@ -491,18 +492,33 @@ public class Main extends Application {
 
     }
     
-    public void createModal(String title, String warning, String message) {
+    public static void createModal(String title, String warning, String message) {
         // load the pane
         Object[] paneAndLoader = loadPane(changeNameToClassPath("PopupMODAL"));
         Pane pane = (Pane) paneAndLoader[0];
 
         PopupControl popup;
-        popup = new PopupControl();
-        popup.getScene().setRoot(pane);
-        popup.show(primaryStage);
 
+        AnchorLocation location = null;
+        if (oldModal != null && oldModal.isShowing()) {
+            popup = oldModal;
+            popup.getScene().setRoot(pane);
+            popup.sizeToScene();
+            location = oldModal.getAnchorLocation();
+
+        } else {
+            // create new modal window
+            popup = new PopupControl();
+            popup.getScene().setRoot(pane);
+            popup.show(primaryStage);
+            oldModal = popup;
+        }
+        
+        if (location != null) {
+            popup.setAnchorLocation(location);
+        }
         makeDragable(popup);
-
+        
         // get the pop-up's controller class
         PopupMODALController popupController = ((FXMLLoader) paneAndLoader[1]).getController();
         popupController.setPopupStage(popup);

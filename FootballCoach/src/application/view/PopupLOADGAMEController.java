@@ -128,12 +128,8 @@ public class PopupLOADGAMEController implements PopupControllerInterface {
     @FXML
     private void buttonDelete() {
         if (selectSaveGameBox.getSelectionModel().getSelectedIndex() == -1) {
-            Dialogs.create()
-                    .title("No Selection")
-                    .masthead("No savegame selected")
-                    .message("Please select a savegame in the dropdown list.")
-                    .owner(Main.getOldPopup())
-                    .showWarning();
+        	Main.createModal("No Selection", "No savegame selected", "Please select a savegame in the dropdown list.");
+        	
         } else {
             String choice = selectSaveGameBox.getItems().get(selectSaveGameBox.getSelectionModel().getSelectedIndex()).toString();
             try {

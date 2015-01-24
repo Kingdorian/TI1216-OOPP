@@ -106,40 +106,20 @@ public class PopupNEWGAMEController implements PopupControllerInterface {
     @FXML
     private void buttonOK() {
         if (nameField.getText().isEmpty()) {
-            Dialogs.create()
-                    .title("No Name")
-                    .masthead("The name field is empty")
-                    .message("Please write down your name in the text field.")
-                    .owner(Main.getOldPopup())
-                    .showWarning();
+        	Main.createModal("No Name", "The name field is empty", "Please write down your name in the text field.");
+        	
         } else if (nameField.getText().length() > 10) {
-            Dialogs.create()
-                    .title("Name too long")
-                    .masthead("The name is too long")
-                    .message("Please enter a shorter name")
-                    .owner(Main.getOldPopup())
-                    .showWarning();
+        	Main.createModal("Name Too Long", "The name is too long", "Please enter a shorter name");
+        	
         } else if (selectTeamBox.getSelectionModel().getSelectedIndex() == -1 && selectCompetitionBox.getSelectionModel().getSelectedIndex() == -1) {
-            Dialogs.create()
-                    .title("No Selection")
-                    .masthead("No team and competition selected")
-                    .message("Please select a team and competition in the dropdown list.")
-                    .owner(Main.getOldPopup())
-                    .showWarning();
+        	Main.createModal("No Selection", "No team and competition selected", "Please select a team and competition in the dropdown list.");
+
         } else if (selectTeamBox.getSelectionModel().getSelectedIndex() == -1) {
-            Dialogs.create()
-                    .title("No Selection")
-                    .masthead("No team selected")
-                    .message("Please select a team in the dropdown list.")
-                    .owner(Main.getOldPopup())
-                    .showWarning();
+        	Main.createModal("No Selection", "No team selected", "Please select a team in the dropdown list.");
+
         } else if (selectCompetitionBox.getSelectionModel().getSelectedIndex() == -1) {
-            Dialogs.create()
-                    .title("No Selection")
-                    .masthead("No competition selected")
-                    .message("Please select a competition in the dropdown list.")
-                    .owner(Main.getOldPopup())
-                    .showWarning();
+        	Main.createModal("No Selection", "No competition selected", "Please select a competition in the dropdown list.");
+
         } else {
             // Set the chosen name and team in the Main class
 
