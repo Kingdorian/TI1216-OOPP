@@ -96,7 +96,8 @@ public class GameScreenOTHERTEAMSController implements ViewControllerInterface {
                             double green = ability * 20;
                             this.setStyle("-fx-text-fill: hsb(" + green + ",100%,80%);");
                             setText(item);
-                        }
+                        } else
+                            setText(null);
                     }
                 };
             }
@@ -117,7 +118,8 @@ public class GameScreenOTHERTEAMSController implements ViewControllerInterface {
                                 this.setStyle("-fx-text-fill: rgb(215,59,59);");
                             }
                             setText(item ? "Yes" : "No");
-                        }
+                        } else
+                            setText(null);
                     }
                 };
             }
@@ -150,7 +152,8 @@ public class GameScreenOTHERTEAMSController implements ViewControllerInterface {
                                     break;
                             }
                             setText(item);
-                        }
+                        } else
+                            setText(null);
                     }
                 };
             }

@@ -86,7 +86,8 @@ public class GameScreenMARKETController implements ViewControllerInterface {
                             double green = ability * 20;
                             this.setStyle("-fx-text-fill: hsb(" + green + ",100%,80%);");
                             setText(item);
-                        }
+                        } else
+                            setText(null);
                     }
                 };
             }
@@ -119,7 +120,8 @@ public class GameScreenMARKETController implements ViewControllerInterface {
                                     break;
                             }
                             setText(item);
-                        }
+                        } else
+                            setText(null);
                     }
                 };
             }
