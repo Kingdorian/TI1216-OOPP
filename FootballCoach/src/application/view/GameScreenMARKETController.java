@@ -22,7 +22,6 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.util.Callback;
-import org.controlsfx.dialog.Dialogs;
 
 /**
  * This is the controller class of the MARKET screen of the main view of the
@@ -207,14 +206,8 @@ public class GameScreenMARKETController implements ViewControllerInterface {
 
             // remove player from market
             Main.getCompetition().getMarket().removePlayer(selectedPlayer);
-
-            Dialogs.create()
-                    .title("Player Market")
-                    .masthead("Removed player.")
-                    .message("Removed " + selectedPlayer.getName() + " " + selectedPlayer.getSurName() + " from the player market.")
-                    .owner(Main.getOldPopup())
-                    .showInformation();
-
+            Main.createModal("Player Market", "Removed player.", "Removed " + selectedPlayer.getName() + " " + selectedPlayer.getSurName() + " from the player market.");
+            
             // reload the table
             reloadTable();
         }
@@ -235,22 +228,12 @@ public class GameScreenMARKETController implements ViewControllerInterface {
             // refresh budget in title bar
             Main.getTitleController().refreshMoney();
             // transfer succesful
-            Dialogs.create()
-                    .title("Player Market")
-                    .masthead("The player transferred to your team succesfully.")
-                    .message("You have spend " + formatPrice(price) + " to buy player: " + selectedPlayer.getName() + " " + selectedPlayer.getSurName())
-                    .owner(Main.getOldPopup())
-                    .showInformation();
+            Main.createModal("Player Market", "The player transferred to your team succesfully.", "You have spend " + formatPrice(price) + " to buy player: " + selectedPlayer.getName() + " " + selectedPlayer.getSurName());
             // reload table, clear selection and set buy and remove buttons to disabled
             reloadTable();
         } else // transfer not succesful
         {
-            Dialogs.create()
-                    .title("Transfer failed")
-                    .masthead("Transfer couldn't be made.")
-                    .message("You do not have enough money.")
-                    .owner(Main.getOldPopup())
-                    .showWarning();
+            Main.createModal("Transfer Failed", "Transfer couldn't be made.", "You do not have enough money.");
         }
     }
 

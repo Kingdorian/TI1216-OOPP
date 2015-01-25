@@ -12,7 +12,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PopupControl;
 import javafx.scene.control.TextField;
-import org.controlsfx.dialog.Dialogs;
 
 /**
  * This is the controller class of the SELECTPRICE popup
@@ -101,12 +100,7 @@ public class PopupSELECTPRICEController implements PopupControllerInterface {
 
             popupControl.hide();
         } else {
-            Dialogs.create()
-                    .title("Invalid Price!")
-                    .masthead("The price is invalid.")
-                    .message("Please insert a valid price in the price text field.")
-                    .owner(Main.getOldPopup())
-                    .showWarning();
+            Main.createModal("Invalid Price!", "The price is invalid.", "Please insert a valid price in the price text field.");
         }
     }
 
