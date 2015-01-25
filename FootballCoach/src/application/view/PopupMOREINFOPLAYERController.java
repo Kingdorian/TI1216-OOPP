@@ -9,6 +9,7 @@ import application.Main;
 import application.model.Player;
 import application.model.Reason;
 import application.model.Card;
+import application.model.Players;
 import application.model.Team;
 import javafx.fxml.FXML;
 import javafx.scene.control.PopupControl;
@@ -85,7 +86,7 @@ public class PopupMOREINFOPLAYERController implements PopupControllerInterface {
         attackPower.setText(Integer.toString(selectedPlayer.getAttack()));
         defensePower.setText(Integer.toString(selectedPlayer.getDefence()));
         stamina.setText(Integer.toString(selectedPlayer.getStamina()));
-        timeNotAvailable.setText(selectedPlayer.getTimeNotAvailable() == 0 ? "-" : Integer.toString(selectedPlayer.getTimeNotAvailable()) + " days");
+        timeNotAvailable.setText(getTimeNotAvailabe(selectedPlayer));
         kindOfCard.setText(selectedPlayer.getCard() == Card.DEFAULT ? "-" : selectedPlayer.getCard().toString().toLowerCase());
         kindOfInjury.setText(selectedPlayer.getReason() == Reason.DEFAULT ? "-" : selectedPlayer.getReason().toString().toLowerCase());
         for (Team teams : Main.getCompetition().getTeams()) {
@@ -94,6 +95,15 @@ public class PopupMOREINFOPLAYERController implements PopupControllerInterface {
             }
         }
         estimatedValue.setText(formatPrice(selectedPlayer.getPrice()));
+    }
+    
+    private String getTimeNotAvailabe(Players p){
+        if(p.getTimeNotAvailable() == 0 || (p.getCard() != Card.RED && p.getReason() == Reason.DEFAULT))
+            return "-"; // player is available
+        else if(p.getTimeNotAvailable() == 1 )
+            return "1 round";
+        else
+            return Integer.toString(p.getTimeNotAvailable()) + " rounds";
     }
 
     /**

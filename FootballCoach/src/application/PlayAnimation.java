@@ -69,15 +69,15 @@ public class PlayAnimation {
             count = 0;
 
             //Update time not available
-            for(Team t : competition.getTeams()){
-            	for(Players p : t.getPlayers()){
-            		if(p.getTimeNotAvailable()>0){
-            			p.setTimeNotAvailable(p.getTimeNotAvailable()-1);
-            			if(p.getTimeNotAvailable()==0){
-            				p.setCard(Card.DEFAULT);
-            			}
-            		}
-            	}
+            for (Team t : competition.getTeams()) {
+                for (Players p : t.getPlayers()) {
+                    if (p.getTimeNotAvailable() > 0) {
+                        p.setTimeNotAvailable(p.getTimeNotAvailable() - 1);
+                        if (p.getTimeNotAvailable() == 0) {
+                            p.setCard(Card.DEFAULT);
+                        }
+                    }
+                }
             }
 
             //buy and sell players
@@ -244,25 +244,23 @@ public class PlayAnimation {
 
         double random = Math.random();
 
-        //max 3 yellow cards
-        //0: 10%
-        //1 or more: 90%
-        //2 or more: 50%
-        //3: 10%
-        //2x yellow card for same player = red card
-        while (random < 0.9) {
+        //max 2 injuries
+        //0: 90% chance
+        //1: or more: 10% chance
+        //2: 3% chance
+        while (random < 0.1) {
             if (Math.random() > 0.5) {
                 //left team
                 double randValue = Math.random();
                 leftPlayers.get((int) (randValue * 10.0)).getPlayer().setReason(Reason.DEFAULT.random());
-                leftPlayers.get((int) (randValue * 10.0)).getPlayer().setTimeNotAvailable((int) Math.floor(Math.random()*6.0));
+                leftPlayers.get((int) (randValue * 10.0)).getPlayer().setTimeNotAvailable((int) (Math.random() * 6.0 + 1.0));
             } else {
                 //right team
-            	double randValue = Math.random();
+                double randValue = Math.random();
                 rightPlayers.get((int) (randValue * 10.0)).getPlayer().setReason(Reason.DEFAULT.random());
-                rightPlayers.get((int) (randValue * 10.0)).getPlayer().setTimeNotAvailable((int) Math.floor(Math.random()*6.0));
+                rightPlayers.get((int) (randValue * 10.0)).getPlayer().setTimeNotAvailable((int) (Math.random() * 6.0 + 1.0));
             }
-            random += 0.4;
+            random += 0.07;
         }
 
     }
@@ -289,27 +287,25 @@ public class PlayAnimation {
 
         double random = Math.random();
 
-        //max 2 injuries
-        //0: 90% chance
-        //1: or more: 10% chance
-        //2: 3% chance
-        while (random < 0.1) {
-
-
+        //max 3 yellow cards
+        //0: 10%
+        //1 or more: 90%
+        //2 or more: 50%
+        //3: 10%
+        //2x yellow card for same player = red card
+        while (random < 0.9) {
             if (Math.random() > 0.5) {
                 //left team
                 double randValue = Math.random();
-                if(Math.random()>0.9)leftPlayers.get((int) (randValue * 10.0)).getPlayer().setCard(Card.RED);
                 leftPlayers.get((int) (randValue * 10.0)).getPlayer().setCard(Card.YELLOW);
-                leftPlayers.get((int) (randValue * 10.0)).getPlayer().setTimeNotAvailable((int) Math.floor(Math.random()*6.0));
+                leftPlayers.get((int) (randValue * 10.0)).getPlayer().setTimeNotAvailable((int) (Math.random() * 6.0 + 2.0));
             } else {
                 //right team
                 double randValue = Math.random();
-                if(Math.random()>0.9)rightPlayers.get((int) (randValue * 10.0)).getPlayer().setCard(Card.RED);
                 rightPlayers.get((int) (randValue * 10.0)).getPlayer().setCard(Card.YELLOW);
-                rightPlayers.get((int) (randValue * 10.0)).getPlayer().setTimeNotAvailable((int) Math.floor(Math.random()*6.0));
+                rightPlayers.get((int) (randValue * 10.0)).getPlayer().setTimeNotAvailable((int) (Math.random() * 6.0 + 2.0));
             }
-            random += 0.07;
+            random += 0.4;
 
         }
 

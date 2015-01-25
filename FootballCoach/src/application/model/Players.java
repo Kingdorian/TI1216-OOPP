@@ -151,7 +151,6 @@ public abstract class Players {
      */
     public void setCard(Card card) {
         if (this.card != Card.DEFAULT && card == Card.YELLOW) {
-
             this.card = Card.RED;
         } else {
             this.card = card;
@@ -213,7 +212,7 @@ public abstract class Players {
      * @return if this player is available
      */
     public boolean isAvailable() {
-    	return this.timeNotAvailable==0 || this.card == Card.YELLOW;
+        return this.timeNotAvailable == 0 || this.card == Card.YELLOW;
     }
 
     /**

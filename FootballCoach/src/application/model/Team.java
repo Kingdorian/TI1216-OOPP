@@ -91,7 +91,7 @@ public class Team {
         ArrayList<Players> res = new ArrayList<>();
         int keepers = 0;
         for (Players pl : players) {
-            if (pl.getTimeNotAvailable() == 0) {
+            if (pl.getCard() != Card.RED && pl.getReason() == Reason.DEFAULT) {
                 if (pl instanceof Goalkeeper) {
                     keepers++;
                 }
