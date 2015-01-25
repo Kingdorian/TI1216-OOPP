@@ -34,8 +34,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
-import org.controlsfx.dialog.Dialogs;
-
 /**
  * FXML Controller class
  *
@@ -483,12 +481,7 @@ public class GameScreenChoosePositionsController implements ViewControllerInterf
             teamPositions.TESSTST_PRINT();
             PlayAnimation.playMatches(teamPositions, mainController);
         } else {
-            Dialogs.create()
-                    .title("Invalid selection")
-                    .masthead("Not all players are selected")
-                    .message("Please select a player for each circle.")
-                    .owner(stage)
-                    .showWarning();
+            Main.createModal("Invalid selection", "Not all players are selected", "Please select a player for each circle.");
         }
     }
 

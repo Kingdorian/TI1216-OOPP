@@ -19,8 +19,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.PopupControl;
 import javafx.scene.control.TextField;
 
-import org.controlsfx.dialog.Dialogs;
-
 /**
  * This is the controller class of the NEWGAME popup
  *

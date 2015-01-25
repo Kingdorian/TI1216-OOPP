@@ -21,10 +21,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.PopupControl;
 
-import org.controlsfx.control.action.Action;
-import org.controlsfx.dialog.Dialog;
-import org.controlsfx.dialog.Dialogs;
-
 /**
  * This is the controller class of the LOADGAME popup
  *
@@ -105,12 +101,7 @@ public class PopupLOADGAMEController implements PopupControllerInterface {
     @FXML
     private void buttonOK() {
         if (selectSaveGameBox.getSelectionModel().getSelectedIndex() == -1) {
-            Dialogs.create()
-                    .title("No Selection")
-                    .masthead("No savegame selected")
-                    .message("Please select a savegame in the dropdown list.")
-                    .owner(Main.getOldPopup())
-                    .showWarning();
+            Main.createModal("No Selection", "No savegame selected", "Please select a savegame in the dropdown list.");
         } else {
             int choice = Integer.parseInt(selectSaveGameBox.getItems().get(selectSaveGameBox.getSelectionModel().getSelectedIndex()).toString().split("\\.")[0]);
             try {
