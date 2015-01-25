@@ -81,22 +81,22 @@ public class AnimateFootballMatch {
         for (int i = 0; i < 11; i++) {
             // if player position is defined, set the position and set the circle to visible, else set it to not-visible and don't specify a position
             if (startPositions.getPlayerAlly(i) != null) {
-                playerCircle[i] = new Circle(startPositions.getPlayerAlly(i).getxAnimation(), startPositions.getPlayerAlly(i).getyAnimation(), 8, Color.BLUE);
+                playerCircle[i] = new Circle(startPositions.getPlayerAlly(i).getxAnimation(), startPositions.getPlayerAlly(i).getyAnimation(), 6, Color.BLUE);
                 playerCircle[i].setEffect(new Lighting());
                 playerCircle[i].setVisible(true);
             } else {
-                playerCircle[i] = new Circle(8, Color.BLUE);
+                playerCircle[i] = new Circle(6, Color.BLUE);
                 playerCircle[i].setEffect(new Lighting());
                 playerCircle[i].setVisible(false);
             }
 
             // if player position is defined, set the position and set the circle to visible, else set it to not-visible and don't specify a position
             if (startPositions.getPlayerAdversary(i) != null) {
-                adversaryCircle[i] = new Circle(startPositions.getPlayerAdversary(i).getxAnimation(), startPositions.getPlayerAdversary(i).getyAnimation(), 8, Color.RED);
+                adversaryCircle[i] = new Circle(startPositions.getPlayerAdversary(i).getxAnimation(), startPositions.getPlayerAdversary(i).getyAnimation(), 6, Color.RED);
                 adversaryCircle[i].setEffect(new Lighting());
                 adversaryCircle[i].setVisible(true);
             } else {
-                adversaryCircle[i] = new Circle(8, Color.RED);
+                adversaryCircle[i] = new Circle(6, Color.RED);
                 adversaryCircle[i].setEffect(new Lighting());
                 adversaryCircle[i].setVisible(false);
             }
@@ -107,11 +107,11 @@ public class AnimateFootballMatch {
 
         // draw the ball
         if (startPositions.getBallPosition() != null) {
-            ballCircle = new Circle(startPositions.getBallPosition().getxAnimation(), startPositions.getBallPosition().getyAnimation(), 5, Color.WHITE);
+            ballCircle = new Circle(startPositions.getBallPosition().getxAnimation(), startPositions.getBallPosition().getyAnimation(), 3, Color.WHITE);
             ballCircle.setEffect(new Lighting());
             ballCircle.setVisible(true);
         } else {
-            ballCircle = new Circle(5, Color.WHITE);
+            ballCircle = new Circle(3, Color.WHITE);
             ballCircle.setEffect(new Lighting());
             ballCircle.setVisible(false);
         }
