@@ -86,8 +86,8 @@ public class PopupMOREINFOPLAYERController implements PopupControllerInterface {
         defensePower.setText(Integer.toString(selectedPlayer.getDefence()));
         stamina.setText(Integer.toString(selectedPlayer.getStamina()));
         timeNotAvailable.setText(selectedPlayer.getTimeNotAvailable() == 0 ? "-" : Integer.toString(selectedPlayer.getTimeNotAvailable()) + " days");
-        kindOfCard.setText(selectedPlayer.getCard() == Card.DEFAULT ? "-" : selectedPlayer.getCard().toString());
-        kindOfInjury.setText(selectedPlayer.getReason() == Reason.DEFAULT ? "-" : selectedPlayer.getReason().toString());
+        kindOfCard.setText(selectedPlayer.getCard() == Card.DEFAULT ? "-" : selectedPlayer.getCard().toString().toLowerCase());
+        kindOfInjury.setText(selectedPlayer.getReason() == Reason.DEFAULT ? "-" : selectedPlayer.getReason().toString().toLowerCase());
         for (Team teams : Main.getCompetition().getTeams()) {
             if (teams.getPlayers().contains(selectedPlayer)) {
                 playerTeam.setText(teams.getName());

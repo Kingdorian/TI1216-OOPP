@@ -84,7 +84,7 @@ public class GameScreenMARKETController implements ViewControllerInterface {
                         if (item != null) {
                             double ability = Double.parseDouble(item);
                             double green = ability * 20;
-                            this.setStyle("-fx-text-fill: hsb(" + green + ",100%,80%);");
+                            this.setStyle("-fx-textcolor: hsb(" + green + ",100%,80%);");
                             setText(item);
                         } else
                             setText(null);
@@ -107,16 +107,16 @@ public class GameScreenMARKETController implements ViewControllerInterface {
                             switch (item) {
                                 case "Allrounder":
                                 case "Midfielder":
-                                    this.setStyle("-fx-text-fill: darkorange;");
+                                    this.setStyle("-fx-textcolor: -fx-orange;");
                                     break;
                                 case "Forward":
-                                    this.setStyle("-fx-text-fill: darkred;");
+                                    this.setStyle("-fx-textcolor: -fx-red;");
                                     break;
                                 case "Defender":
-                                    this.setStyle("-fx-text-fill: darkgreen;");
+                                    this.setStyle("-fx-textcolor: -fx-green;");
                                     break;
                                 case "Goalkeeper":
-                                    this.setStyle("-fx-text-fill: rgb(255,255,255);");
+                                    this.setStyle("-fx-textcolor: rgb(255,255,255);");
                                     break;
                             }
                             setText(item);

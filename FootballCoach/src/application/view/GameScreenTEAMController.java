@@ -81,7 +81,7 @@ public class GameScreenTEAMController implements ViewControllerInterface {
                         if (item != null) {
                             double ability = Double.parseDouble(item);
                             double green = ability * 20;
-                            this.setStyle("-fx-text-fill: hsb(" + green + ",100%,80%);");
+                            this.setStyle("-fx-textcolor: hsb(" + green + ",100%,80%);");
                             setText(item);
                         } else
                             setText(null);
@@ -100,9 +100,9 @@ public class GameScreenTEAMController implements ViewControllerInterface {
                         super.updateItem(item, empty);
                         if (item != null) {
                             if (item) {
-                                this.setStyle("-fx-text-fill: rgb(255,255,255);");
+                                this.setStyle("-fx-textcolor: rgb(255,255,255);");
                             } else {
-                                this.setStyle("-fx-text-fill: rgb(215,59,59);");
+                                this.setStyle("-fx-textcolor: rgb(215,59,59);");
                             }
                             setText(item ? "Yes" : "No");
                         } else
@@ -126,16 +126,16 @@ public class GameScreenTEAMController implements ViewControllerInterface {
                             switch (item) {
                                 case "Allrounder":
                                 case "Midfielder":
-                                    this.setStyle("-fx-text-fill: -fx-orange;");
+                                    this.setStyle("-fx-textcolor: -fx-orange;");
                                     break;
                                 case "Forward":
-                                    this.setStyle("-fx-text-fill: -fx-red;");
+                                    this.setStyle("-fx-textcolor: -fx-red;");
                                     break;
                                 case "Defender":
-                                    this.setStyle("-fx-text-fill: -fx-green;");
+                                    this.setStyle("-fx-textcolor: -fx-green;");
                                     break;
                                 case "Goalkeeper":
-                                    this.setStyle("-fx-text-fill: rgb(255,255,255);");
+                                    this.setStyle("-fx-textcolor: rgb(255,255,255);");
                                     break;
                             }
                             setText(item);

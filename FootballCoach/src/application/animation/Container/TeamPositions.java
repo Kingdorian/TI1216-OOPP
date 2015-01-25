@@ -22,7 +22,6 @@ import javafx.scene.shape.Circle;
 public class TeamPositions {
 
     private Team team;
-    private ArrayList<Players> playerList;
     private final ArrayList<Player> fieldPlayerList;
     private final ArrayList<Goalkeeper> keeperList;
 
@@ -101,7 +100,7 @@ public class TeamPositions {
      */
     public TeamPositions(Team team) {
         this.team = team;
-        playerList = team.getAvailablePlayers();
+        ArrayList<Players> playerList = team.getAvailablePlayers();
 
         // sort playerList by kind and ability (best players of each kind higher up in the list)
         Collections.sort(playerList, (Players p1, Players p2) -> {

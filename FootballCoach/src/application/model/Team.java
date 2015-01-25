@@ -99,7 +99,7 @@ public class Team {
             }
         }
         //return all players if there aren't enough players to put in the field
-        if (res.size() - keepers < 11 || keepers == 0) {
+        if (res.size() - keepers < 11) {
             return getPlayers();
         } else {
             return res;
