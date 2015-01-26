@@ -172,13 +172,13 @@ public class MarketTest {
 		for(int i = 0; i < 4; i++){
 			team1.addPlayer(GK2);
 		}
-		for(int i = 0; i < 20; i++){
+		for(int i = 0; i < 500; i++){
 			team1.addPlayer(Def2);
 		}
-		for(int i = 0; i < 20; i++){
+		for(int i = 0; i < 500; i++){
 			team1.addPlayer(Mid2);
 		}
-		for(int i = 0; i < 20; i++){
+		for(int i = 0; i < 500; i++){
 			team1.addPlayer(For2);
 		}
 		team1.addPlayer(GK);
@@ -215,7 +215,7 @@ public class MarketTest {
 		for(int i = 0; i < 2; i++){
 			team1.addPlayer(Def);
 		}
-		for(int i = 0; i < 30; i++){
+		for(int i = 0; i < 500; i++){
 			team1.addPlayer(Mid);
 		}
 		for(int i = 0; i < 2; i++){
