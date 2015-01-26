@@ -230,9 +230,10 @@ public class MarketTest {
 		competition.getMarket().computerSellPlayer(competition);
 		ArrayList<Players> market = competition.getMarket().getPlayersForSale();
 		ArrayList<Players> test = new ArrayList<Players>();
-		test.add(Mid2);
+
 		
 		assertEquals(market, test);
+		test.add(Mid2);
 		assertEquals(team2.getPlayers(), team3.getPlayers());
 	}
 }

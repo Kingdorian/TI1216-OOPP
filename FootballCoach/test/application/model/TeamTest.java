@@ -8,13 +8,14 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class TeamTest {
-
+	Competition comp;
 	Team eqTeam1, eqTeam2, eqTeamNull;
 	@Before
 	public void init(){
 		eqTeam1 = new Team("Knudde", false);
 		eqTeam2 = new Team("Knudde", false);
 		eqTeamNull = null;
+		comp = new Competition(null);
 	}
 
     @Test
@@ -338,7 +339,7 @@ public class TeamTest {
 		Team team = new Team("testteam", true);
 		team.addPlayer(new Goalkeeper(null, null, 0, null, 0, null, 0, 0));
 		team.addPlayer(new Player(null, null, 0, null, 0, null, 0, 0, 0));
-		assertEquals(team.getAmountGoalkeepers(), 1);
+		assertEquals(team.getAmountGoalkeepers(comp), 1);
 	}
 	
 	@Test
@@ -346,28 +347,28 @@ public class TeamTest {
 		Team team = new Team("testteam", true);
 		team.addPlayer(new Goalkeeper(null, null, 0, null, 0, null, 0, 0));
 		team.addPlayer(new Player(null, null, 0, null, 0, null, 1, 75, 2));
-		assertEquals(team.getAmountDefenders(), 1);
+		assertEquals(team.getAmountDefenders(comp), 1);
 	}
 	@Test
 	public void testAmountMidfielders(){
 		Team team = new Team("testteam", true);
 		team.addPlayer(new Goalkeeper(null, null, 0, null, 0, null, 0, 0));
 		team.addPlayer(new Player(null, null, 0, null, 0, null, 60, 60, 60));
-		assertEquals(team.getAmountMidfielders(), 1);
+		assertEquals(team.getAmountMidfielders(comp), 1);
 	}
 	@Test
 	public void testAmountForwards(){
 		Team team = new Team("testteam", true);
 		team.addPlayer(new Goalkeeper(null, null, 0, null, 0, null, 0, 0));
 		team.addPlayer(new Player(null, null, 0, null, 0, null, 80, 6, 60));
-		assertEquals(team.getAmountForwards(), 1);
+		assertEquals(team.getAmountForwards(comp), 1);
 	}
 	@Test
 	public void testAmountAllrounders(){
 		Team team = new Team("testteam", true);
 		team.addPlayer(new Goalkeeper(null, null, 0, null, 0, null, 0, 0));
 		team.addPlayer(new Player(null, null, 0, null, 0, null, 80, 80, 80));
-		assertEquals(team.getAmountAllrounders(), 1);
+		assertEquals(team.getAmountAllrounders(comp), 1);
 	}
 	@Test
 	public void testgetPlayersNotForSale(){
