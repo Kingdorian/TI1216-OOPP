@@ -270,7 +270,7 @@ public class XMLHandler {
                     Element visTeam = doc.createElement("visitorteam");
                     matchElement.appendChild(visTeam);
                     visTeam.setAttribute("name", match.getVisitorTeam().getName());
-                    visTeam.setAttribute("points", match.getVisitorTeam().getPoints() + "");
+                    visTeam.setAttribute("points", match.getPointsVisitorTeam() + "");
                 }
             }
         }
