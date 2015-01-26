@@ -89,6 +89,20 @@ public class SaveGameHandlerTest {
 		}
 	}
 	/**
+	 * Tests if the correct last eddited day is retrieved
+	 */
+	@Test
+	public void testCreateSavegameEmptyFolder(){
+		String buffer = SaveGameHandler.getDefaultLoc();
+		SaveGameHandler.changeDefaultLoc("XML/EmptyTestSaveGames/");
+		try {
+			SaveGameHandler.createNewSave("XML/Competitions/Eredivisie/Matches.xml", "XML/Competitions/Eredivisie/Matches.xml");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		SaveGameHandler.changeDefaultCompLoc(buffer);
+	}
+	/**
 	 * Test if an error is correctly thrown if we try to call getDateById with an invalid savegame id
 	 * @throws the expected FileNotFoundException 
 	 */
@@ -174,6 +188,18 @@ public class SaveGameHandlerTest {
 		ArrayList<Integer> saveGameIds = new ArrayList<Integer>();
 		File saveFolder = new File("XML/TestSavegames/");
 		File[] listOfFiles = saveFolder.listFiles();
+		for(int i = 0; i<listOfFiles.length;i++){
+			//Delete all the directories that are not -2 or 1
+			String name = listOfFiles[i].getName();
+			System.out.println(name);
+			if(!(name.equals("1")||name.equals("-2")||name.equals("-229"))){
+				System.out.println("Deleting" + name);
+				removeDirectory(listOfFiles[i]);
+			}
+		}
+		saveGameIds = new ArrayList<Integer>();
+		saveFolder = new File("XML/EmptyTestSaveGames/");
+		listOfFiles = saveFolder.listFiles();
 		for(int i = 0; i<listOfFiles.length;i++){
 			//Delete all the directories that are not -2 or 1
 			String name = listOfFiles[i].getName();

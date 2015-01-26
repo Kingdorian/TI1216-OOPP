@@ -27,7 +27,7 @@ import org.junit.Before;
  * @author faris
  */
 public class GenerateMatchTest {
-
+	/*
     Team homeTeam;
     Team outTeam;
     ArrayList<Players> homeList;
@@ -59,7 +59,7 @@ public class GenerateMatchTest {
     /**
      * Test of generateMatch method, of class GenerateMatch.
      */
-    @Test
+   /* @Test
     public void testGenerateMatch_Team_Team() {
         Match match = GenerateMatch.generateMatch(homeTeam, outTeam);
         assertTrue(match != null && match.getHomeTeam() != null && match.getVisitorTeam() != null);
@@ -68,7 +68,7 @@ public class GenerateMatchTest {
 
     /**
      * Test of generateMatch method, of class GenerateMatch.
-     */
+     *
     @Test
     public void testGenerateMatchArtificialGrassHome_4args() {
         // Test if we get the right results with a thousand random numbers. Only home team artificial grass.
@@ -89,7 +89,7 @@ public class GenerateMatchTest {
     /**
      * Test if we get the right results with a hundred random numbers. Both
      * normal grass.
-     */
+     *
     @Test
     public void testGenerateMatchNormalGrass_4args() {
         homeTeam.setArtificialGrass(false);
@@ -110,7 +110,7 @@ public class GenerateMatchTest {
     /**
      * Test if we get the right results with a hundred random numbers. Both
      * artificial grass.
-     */
+     *
     @Test
     public void testGenerateMatchArtificialGrass_4args() {
         outTeam.setArtificialGrass(true);
@@ -131,7 +131,7 @@ public class GenerateMatchTest {
     /**
      * Test if we get the right results with a hundred random numbers. Only
      * visitor team artificial grass.
-     */
+     *
     @Test
     public void testGenerateMatchArtificialVisitor_4args() {
         outTeam.setArtificialGrass(true);
@@ -148,5 +148,5 @@ public class GenerateMatchTest {
 
             assertTrue(homeGoals == match.getPointsHomeTeam() && visitorGoals == match.getPointsVisitorTeam());
         }
-    }
+    }*/
 }

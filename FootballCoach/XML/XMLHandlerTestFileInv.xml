@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <teams>
-	<team name="ADO Den Haa
+	<team name="ADO Den Haag">
+				<goalkeeper>
+			</goalkeeper>
 				<timenotavailable>0</timenotavailable>
 				<reason>DEFAULT</reason>
 				<stoppower>62</stoppower>
 				<penaltystoppower>65</penaltystoppower>
 			</goalkeeper>
+
 			<goalkeeper>
 				<name>Robert</name>
 				<surname>Zwinkels</surname>
