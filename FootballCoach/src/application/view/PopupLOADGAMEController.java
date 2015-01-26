@@ -109,7 +109,7 @@ public class PopupLOADGAMEController implements PopupControllerInterface {
                 System.out.println(Main.getCompetition().getName());
                 Main.setChosenName(Main.getCompetition().getName());
                 Main.SetChosenTeamName(Main.getCompetition().getChosenTeamName());
-
+                Main.getCompetition().updateResults();
             } catch (Exception e) {
             	e.printStackTrace();
             }
